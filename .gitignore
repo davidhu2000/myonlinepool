@@ -1,0 +1,10 @@
+/.bundle
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+node_modules/
+.DS_Store
+.byebug_history
