@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router';
+import Footer from './footer/footer';
+import Navbar from './navbar/navbar';
 
 class App extends React.Component {
   constructor(props){
@@ -10,7 +12,9 @@ class App extends React.Component {
   render() {
     return(
       <div>
+        <Navbar/>
         <h1>test</h1>
+        <Footer/>
       </div>
     );
   }
