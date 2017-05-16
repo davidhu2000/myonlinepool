@@ -17,17 +17,16 @@ $drk-text: #CDCDCD;
   p {
     font-size: 25px;
     font-weight: bold;
-    font-family: ProximaNovaBold,Suunto,Verdana,sans-serif;
+    font-family: 'Lobster', cursive;
   }
 
   button {
     padding: 10px 15px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-family: ProximaNovaBold,Suunto,Verdana,sans-serif;
+    border-radius: 2px;
+    font-size: 15px;
     font-weight: bold;
-    background-color: $lt-primary;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    // background-color: $lt-primary;
+    // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transition: .5s;
   }
 

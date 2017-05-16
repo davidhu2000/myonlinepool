@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
  @import url('base/reset.scss');
  @import url('base/_.scss');
  @import url('components/common/_.scss');
@@ -28,8 +29,7 @@
  /******************************/
 
  html {
-  //  font-family: sans-serif;
-  font-family: ProximaNovaBold,Suunto,Verdana,sans-serif;
+   font-family: sans-serif;
   //  overflow: hidden;
  }
 
