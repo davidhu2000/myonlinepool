@@ -13,9 +13,18 @@
  *= require_tree .
  *= require_self
  */
-
  @import url('base/reset.css');
  @import url('base/color.css');
+ @import url('/components/common/_.css');
+ @import url('/components/footer/_.css');
+ @import url('/components/home/_.css');
+ @import url('/components/leaderboard/_.css');
+ @import url('/components/metrics/_.css');
+ @import url('/components/moderator/_.css');
+ @import url('/components/navbar/_.css');
+ @import url('/components/picks/_.css');
+ @import url('/components/pool/_.css');
+ @import url('/components/splash/_.css');
  /******************************/
 
  html {
