@@ -11,7 +11,7 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div classname="relative-content">
         <Navbar/>
         <h1>test</h1>
         <Footer/>

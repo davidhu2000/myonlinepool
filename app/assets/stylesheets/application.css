@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('base/reset.css');
+ @import url('base/color.css');
+ /******************************/
+
+ html {
+   font-family: sans-serif;
+   /*overflow: hidden;*/
+ }
+
+ /******************************/
+ @import url('base/responsive.css');
