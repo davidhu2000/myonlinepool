@@ -1,0 +1,38 @@
+$drk-primary: #1c1c1c;
+$lt-primary: #2d2d2d;
+$drk-text: #CDCDCD;
+
+.navbar-container {
+  height: 80px;
+  width: 100%;
+  padding: 0px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $drk-text;
+  background-color: $drk-primary;
+  border-bottom: 15px solid $lt-primary;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  p {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: ProximaNovaBold,Suunto,Verdana,sans-serif;
+  }
+
+  button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: ProximaNovaBold,Suunto,Verdana,sans-serif;
+    font-weight: bold;
+    background-color: $lt-primary;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: .5s;
+  }
+
+  button:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+
+}

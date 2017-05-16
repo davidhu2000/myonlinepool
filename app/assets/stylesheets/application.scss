@@ -13,24 +13,25 @@
  *= require_tree .
  *= require_self
  */
- @import url('base/reset.css');
- @import url('base/color.css');
- @import url('/components/common/_.css');
- @import url('/components/footer/_.css');
- @import url('/components/home/_.css');
- @import url('/components/leaderboard/_.css');
- @import url('/components/metrics/_.css');
- @import url('/components/moderator/_.css');
- @import url('/components/navbar/_.css');
- @import url('/components/picks/_.css');
- @import url('/components/pool/_.css');
- @import url('/components/splash/_.css');
+ @import url('base/reset.scss');
+ @import url('base/_.scss');
+ @import url('components/common/_.scss');
+ @import url('components/footer/_.scss');
+ @import url('components/home/_.scss');
+ @import url('components/leaderboard/_.scss');
+ @import url('components/metrics/_.scss');
+ @import url('components/moderator/_.scss');
+ @import url('components/navbar/_.scss');
+ @import url('components/picks/_.scss');
+ @import url('components/pool/_.scss');
+ @import url('components/splash/_.scss');
  /******************************/
 
  html {
-   font-family: sans-serif;
-   /*overflow: hidden;*/
+  //  font-family: sans-serif;
+  font-family: ProximaNovaBold,Suunto,Verdana,sans-serif;
+  //  overflow: hidden;
  }
 
  /******************************/
- @import url('base/responsive.css');
+ @import url('base/responsive.scss');

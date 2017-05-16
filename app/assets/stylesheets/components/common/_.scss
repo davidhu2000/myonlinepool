@@ -1,0 +1,12 @@
+$drk-primary: #1c1c1c;
+$lt-primary: #2d2d2d;
+$drk-text: #CDCDCD;
+
+.relative-content {
+  min-width: 900px;
+  min-height: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

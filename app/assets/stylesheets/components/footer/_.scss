@@ -1,0 +1,15 @@
+$drk-primary: #1c1c1c;
+$lt-primary: #2d2d2d;
+$drk-text: #CDCDCD;
+
+.footer-container {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: $drk-text;
+  background-color: $drk-primary;
+  border-top: 15px solid $lt-primary;
+}

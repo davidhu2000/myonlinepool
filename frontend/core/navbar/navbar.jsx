@@ -7,8 +7,10 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <div className='navbar'>
-        <p>navbar</p>
+      <div className='navbar-container'>
+        <button>settings</button>
+        <p>My Online Pool</p>
+        <button>account</button>
       </div>
     );
   }
