@@ -4,9 +4,13 @@ $drk-text: #CDCDCD;
 
 .relative-content {
   min-width: 900px;
-  min-height: 750px;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-image: url('http://stmedia.startribune.com/images/ows_138759385328271.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
