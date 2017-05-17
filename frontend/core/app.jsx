@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router';
 import Footer from './footer/footer';
 import Navbar from './navbar/navbar';
+import { toggleCover } from '../helpers/dropdown';
 
 class App extends React.Component {
   constructor(props){
@@ -13,8 +14,9 @@ class App extends React.Component {
     return(
     <div className="relative-content">
         <Navbar/>
-  
+          { this.props.children }
         <Footer/>
+        <div id='dropdown-cover' className='hidden' onClick={toggleCover}></div>
       </div>
     );
   }

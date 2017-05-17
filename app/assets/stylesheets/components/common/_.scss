@@ -4,7 +4,8 @@ $drk-text: #CDCDCD;
 
 .relative-content {
   min-width: 900px;
-  min-height: 800px;
+  min-height: 1080px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13,4 +14,19 @@ $drk-text: #CDCDCD;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+.hidden {
+  display: none;
+}
+
+#dropdown-cover{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: grey;
+  opacity: 0.5;
+  z-index: 10;
 }
