@@ -36,13 +36,21 @@ class Navbar extends React.Component {
           context={this}
           toggleSettings={this.toggleSettings.bind(this)}
           user={this.props.user}/> : null }
-        <button onClick={this.toggleSettings.bind(this)}>
-          <i className="fa fa-angle-down" aria-hidden="true"></i>
+        <button className="info-button" onClick={this.toggleSettings.bind(this)}>
+            { this.state.showSettings ? <i
+              className="fa fa-angle-down"
+              aria-hidden="true"/>    : <i
+              className="fa fa-angle-right"
+              aria-hidden="true"/> }
           Info
         </button>
         <h1>My Online Pool</h1>
-        <button onClick={this.toggleDropdown.bind(this)}>
-          <i className="fa fa-angle-down" aria-hidden="true"></i>
+        <button className="account-button" onClick={this.toggleDropdown.bind(this)}>
+          { this.state.showDropdown ? <i
+            className="fa fa-angle-down"
+            aria-hidden="true"/>    : <i
+            className="fa fa-angle-right"
+            aria-hidden="true"/> }
           Account
         </button>
         { this.state.showDropdown ? <AccountDropdown
