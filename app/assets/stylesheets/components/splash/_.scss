@@ -1,0 +1,33 @@
+.splash-container {
+  height: 100%;
+  width: 100%;
+  padding: 50px 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  // background: rgba(0, 0, 0, 0.5);
+
+}
+
+.splash-top {
+
+}
+
+.splash-mid {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+
+  img {
+    height: 90px;
+    // width: 90px;
+  }
+
+}
+
+.splash-bottom {
+
+}

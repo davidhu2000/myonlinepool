@@ -13,9 +13,7 @@ class App extends React.Component {
     return(
     <div className="relative-content">
         <Navbar/>
-        <div className="jumbotron">
           { this.props.children }
-        </div>
         <Footer/>
       </div>
     );
