@@ -5,22 +5,20 @@ $drk-text: #CDCDCD;
 .account-dropdown {
   position: absolute;
   right: 100px;
-  top: 45px;
+  top: 80px;
   width: 100px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  border-radius: 2px;
-  background-color: $drk-primary;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .account-dropdown-list {
-  display: flex;
-  flex-direction: column;
-  font-size: 15px;
-  font-weight: bold;
-  border-top: 2px solid white;
+display: flex;
+flex-direction: column;
+font-size: 15px;
+font-weight: bold;
+background-color: $lt-primary;
 
   a {
+    background-color: $lt-primary;
     text-align: right;
     width: 100%;
     padding: 10px 0px;
@@ -29,13 +27,9 @@ $drk-text: #CDCDCD;
     cursor: pointer;
   }
 
-  // a:last-child {
-  //   padding-bottom: 20px;
-  // }
-
-  }
-
-  .account-dropdown-list a:hover {
+  a:hover {
     background-color: white;
     color: black;
   }
+
+}
