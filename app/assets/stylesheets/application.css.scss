@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
  @import url('base/reset.scss');
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
  @import url('base/_.scss');
  @import url('components/common/_.scss');
  @import url('components/footer/_.scss');
@@ -29,7 +30,8 @@
  /******************************/
 
  html {
-   font-family: sans-serif;
+  //  font-family: sans-serif;
+  font-family: futura;
   //  overflow: hidden;
  }
 

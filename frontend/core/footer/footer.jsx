@@ -8,7 +8,7 @@ class Footer extends React.Component {
   render() {
     return (
       <div className='footer-container'>
-        <p>contact: <span>myonlinepool.admin@gmail.com</span></p>
+        <p>myonlinepool.admin@gmail.com</p>
       </div>
     );
   }

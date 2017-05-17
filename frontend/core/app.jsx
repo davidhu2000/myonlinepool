@@ -13,7 +13,7 @@ class App extends React.Component {
     return(
     <div className="relative-content">
         <Navbar/>
-  
+          { this.props.children }
         <Footer/>
       </div>
     );

@@ -4,9 +4,26 @@ $drk-text: #CDCDCD;
 
 .relative-content {
   min-width: 900px;
-  min-height: 750px;
+  min-height: 1080px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-image: url('http://stmedia.startribune.com/images/ows_138759385328271.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.hidden {
+  display: none;
+}
+
+#dropdown-cover{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
