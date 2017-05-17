@@ -2,12 +2,31 @@ $drk-primary: #1c1c1c;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
 
+@keyframes diveIn {
+  0% {
+    opacity: 0;
+    left: 0px;
+    top: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 80px;
+    left: 100px;
+  }
+}
+
 .settings-dropdown {
-  z-index: 11;
   position: absolute;
   left: 100px;
   top: 80px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  animation-name: diveIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
 }
 
 .settings-dropdown-list {
