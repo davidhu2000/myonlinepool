@@ -22,11 +22,8 @@ $drk-text: #CDCDCD;
 
 #dropdown-cover{
   position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
-  background: grey;
-  opacity: 0.5;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
