@@ -86,10 +86,10 @@ $drk-text: #CDCDCD;
   // }
 
   .account-button {
-    min-width: 110px;
+    // min-width: 90px;
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 10px 15px;
     border-radius: 2px;
@@ -104,10 +104,10 @@ $drk-text: #CDCDCD;
   }
 
   .info-button {
-    min-width: 110px;
+    // min-width: 90px;
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 10px 15px;
     border-radius: 2px;
