@@ -6,13 +6,11 @@ import SplashContainer from 'modules/splash/';
 import HomeContainer from 'modules/home/';
 
 const routes = (
-  <Route path="/" component={App}>
-    <IndexRoute component={ SplashContainer }/>
+  <Route path="/" component={ App }>
+  <IndexRoute component={ SplashContainer }/>
 
     <Route path="/home" component={ HomeContainer }>
-
     </Route>
-
   </Route>
 );
 
