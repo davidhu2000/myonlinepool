@@ -14,13 +14,19 @@ class Navbar extends React.Component {
   }
 
   toggleDropdown() {
-    this.setState({ showDropdown: !this.state.showDropdown });
-    toggleCover();
+    if (this.state.showSettings) {
+      this.setState({ showSettings: false, showDropdown: !this.state.showDropdown});
+    } else {
+      this.setState({ showDropdown: !this.state.showDropdown });
+    }
   }
 
   toggleSettings() {
-    this.setState({ showSettings: !this.state.showSettings });
-    toggleCover();
+    if (this.state.showDropdown) {
+      this.setState({ showDropdown: false, showSettings: !this.state.showSettings});
+    } else {
+      this.setState({ showSettings: !this.state.showSettings});
+    }
   }
 
   render() {
