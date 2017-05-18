@@ -11,8 +11,8 @@ module.exports = {
     loaders: [
       {
         test: [/\.jsx?$/, /\.js?$/],
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
         query: {
           presets: ['es2015', 'react']
         }
@@ -21,7 +21,7 @@ module.exports = {
   },
   devtool: 'source-maps',
   resolve: {
-    extensions: ["", ".js", ".jsx" ],
+    extensions: ["*", ".js", ".jsx" ],
     modules: [
       path.resolve(__dirname, 'frontend'),
       path.resolve(__dirname, 'node_modules')
