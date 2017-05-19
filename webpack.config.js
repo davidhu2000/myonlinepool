@@ -1,4 +1,4 @@
-var path = require("path");
+const path = require("path");
 
 module.exports = {
   context: __dirname,
@@ -21,7 +21,7 @@ module.exports = {
   },
   devtool: 'source-maps',
   resolve: {
-    extensions: ["*", ".js", ".jsx" ],
+    extensions: ["*", ".js", ".jsx"],
     modules: [
       path.resolve(__dirname, 'frontend'),
       path.resolve(__dirname, 'node_modules')
