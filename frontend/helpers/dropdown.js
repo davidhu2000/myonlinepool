@@ -8,5 +8,4 @@ export const toggleCover = () => {
   } else {
     cover.classList.add('hidden');
   }
-
 };
