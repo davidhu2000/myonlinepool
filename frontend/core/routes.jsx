@@ -4,6 +4,10 @@ import { Route, IndexRoute } from 'react-router';
 import App from './app';
 import SplashContainer from 'modules/splash/';
 import HomeContainer from 'modules/home/';
+import PicksContainer from 'modules/picks/';
+import MetricsContainer from 'modules/metrics';
+import LeaderboardContainer from 'modules/leaderboard';
+import ModeratorContainer from 'modules/moderator';
 
 const routes = (
   <Route path="/" component={ App }>
