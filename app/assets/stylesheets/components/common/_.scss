@@ -6,7 +6,8 @@ $white: #F6F7F9;
 
 .relative-content {
   min-width: 900px;
-  height: 100vh;
+  // min-height: 1090px;
+  min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,6 +18,16 @@ $white: #F6F7F9;
   // background-repeat: no-repeat;
   // background-size: cover;
   // background-attachment: fixed;
+}
+
+.app-container {
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden {
