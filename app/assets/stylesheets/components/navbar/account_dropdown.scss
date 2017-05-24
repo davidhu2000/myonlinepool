@@ -41,7 +41,7 @@ $drk-text: #CDCDCD;
   font-weight: bold;
   background-color: $lt-primary;
 
-  a {
+  a, Link {
     background-color: $lt-primary;
     text-align: left;
     width: 100%;
@@ -50,7 +50,7 @@ $drk-text: #CDCDCD;
     cursor: pointer;
   }
 
-  a:hover {
+  a:hover, Link:hover {
     background-color: white;
     color: black;
   }

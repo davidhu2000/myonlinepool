@@ -8,7 +8,7 @@ class Leaderboard extends React.Component {
 
   render() {
     return (
-      <div className="pool-container">
+      <div className="leaderboard-container">
       </div>
     );
   }
