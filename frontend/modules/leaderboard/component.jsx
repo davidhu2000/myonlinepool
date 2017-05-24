@@ -9,6 +9,7 @@ class Leaderboard extends React.Component {
   render() {
     return (
       <div className="leaderboard-container">
+        Leaderboard
       </div>
     );
   }
