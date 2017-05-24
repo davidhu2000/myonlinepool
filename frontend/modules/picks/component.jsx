@@ -9,6 +9,7 @@ class Pool extends React.Component {
   render() {
     return (
       <div className="picks-container">
+        Picks
       </div>
     );
   }

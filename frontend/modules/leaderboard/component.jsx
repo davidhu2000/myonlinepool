@@ -1,14 +1,15 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
 
-class Pool extends React.Component {
+class Leaderboard extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="pool-container">
+      <div className="leaderboard-container">
+        Leaderboard
       </div>
     );
   }

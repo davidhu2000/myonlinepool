@@ -8,6 +8,7 @@ import PicksContainer from 'modules/picks/';
 import MetricsContainer from 'modules/metrics';
 import LeaderboardContainer from 'modules/leaderboard';
 import ModeratorContainer from 'modules/moderator';
+import PoolContainer from 'modules/pool';
 
 const routes = (
   <Route path="/" component={ App }>
@@ -18,13 +19,13 @@ const routes = (
 
     <Route path="/pool/:poolId">
       <IndexRoute component={ PoolContainer }/>
-      <Route path="/picks" component={ PicksContainer }>
+      <Route path="picks" component={ PicksContainer }>
       </Route>
-      <Route path="/leaderboard" component={ LeaderboardContainer }>
+      <Route path="leaderboard" component={ LeaderboardContainer }>
       </Route>
-      <Route path="/metrics" component={ MetricsContainer }>
+      <Route path="metrics" component={ MetricsContainer }>
       </Route>
-      <Route path="/moderator" component={ ModeratorContainer }>
+      <Route path="moderator" component={ ModeratorContainer }>
       </Route>
     </Route>
 

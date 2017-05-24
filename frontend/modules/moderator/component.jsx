@@ -8,7 +8,8 @@ class Moderator extends React.Component {
 
   render() {
     return (
-      <div className="picks-container">
+      <div className="moderator-container">
+        Moderator
       </div>
     );
   }
