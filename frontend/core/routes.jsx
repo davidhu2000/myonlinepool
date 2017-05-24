@@ -8,6 +8,7 @@ import PicksContainer from 'modules/picks/';
 import MetricsContainer from 'modules/metrics';
 import LeaderboardContainer from 'modules/leaderboard';
 import ModeratorContainer from 'modules/moderator';
+import PoolContainer from 'modules/pool';
 
 const routes = (
   <Route path="/" component={ App }>

@@ -26,7 +26,7 @@ $drk-text: #CDCDCD;
 }
 
 .navbar-container {
-  height: 80px;
+  height: 50px;
   width: 100%;
   padding: 0px 100px;
   position: relative;
@@ -41,6 +41,7 @@ $drk-text: #CDCDCD;
   h1 {
     height: 100%;
     padding: 0px 40px;
+    padding-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,76 +49,54 @@ $drk-text: #CDCDCD;
     font-weight: bold;
     background-color: $lt-primary;
     box-shadow: -8px 0px 5px -5px rgba(0,0,0,0.16), 8px 0px 5px -5px rgba(0,0,0,0.16);
+    font-family: 'Baloo Bhaina', cursive;
   }
 
-  // button:first-child {
-  //   min-width: 110px;
-  //   position: relative;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   padding: 10px 15px;
-  //   border-radius: 2px;
-  //   font-size: 15px;
-  //   font-weight: bold;
-  //
-  //   i {
-  //     position: absolute;
-  //     left: 0px;
-  //   }
-  //
-  // }
-  //
-  // button:last-child {
-  //   min-width: 110px;
-  //   position: relative;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   padding: 10px 15px;
-  //   border-radius: 2px;
-  //   font-size: 15px;
-  //   font-weight: bold;
-  //
-  //   i {
-  //     position: absolute;
-  //     right: 0px;
-  //   }
-  // }
-
   .account-button {
-    // min-width: 90px;
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 10px 15px;
-    border-radius: 2px;
     font-size: 15px;
     font-weight: bold;
+    transition: .5s;
 
     i {
       position: absolute;
       left: 0px;
     }
 
+  }
+
+  .account-button:hover {
+    color: red;
   }
 
   .info-button {
-    // min-width: 90px;
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 10px 15px;
-    border-radius: 2px;
     font-size: 15px;
     font-weight: bold;
+    transition: .5s;
 
     i {
       position: absolute;
       left: 0px;
     }
 
+  }
+
+  .info-button:hover {
+    color: red;
+  }
+
+  .account-button, .info-button {
+    span {
+      margin-top: 5px;
+    }
   }
 }

@@ -1,6 +1,8 @@
 $drk-primary: #1c1c1c;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
+$off-white: #e9ebee;
+$white: #F6F7F9;
 
 .relative-content {
   min-width: 900px;
@@ -10,6 +12,7 @@ $drk-text: #CDCDCD;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background: $off-white;
   // background-image: url('http://stmedia.startribune.com/images/ows_138759385328271.jpg');
   // background-repeat: no-repeat;
   // background-size: cover;

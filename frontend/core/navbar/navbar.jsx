@@ -42,7 +42,7 @@ class Navbar extends React.Component {
               aria-hidden="true"/>    : <i
               className="fa fa-angle-right"
               aria-hidden="true"/> }
-          Info
+          <span>Info</span>
         </button>
         <h1>My Online Pool</h1>
         <button className="account-button" onClick={this.toggleDropdown.bind(this)}>
@@ -51,7 +51,7 @@ class Navbar extends React.Component {
             aria-hidden="true"/>    : <i
             className="fa fa-angle-right"
             aria-hidden="true"/> }
-          Account
+          <span>Account</span>
         </button>
         { this.state.showDropdown ? <AccountDropdown
           context={this}

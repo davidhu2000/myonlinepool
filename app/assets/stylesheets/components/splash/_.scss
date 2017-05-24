@@ -1,16 +1,21 @@
+$off-white: #e9ebee;
+$white: #F6F7F9;
+
 .splash-container {
-  height: 100%;
-  width: 100%;
-  padding: 50px 250px;
+  height: 66%;
+  width: 50%;
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  // background: rgba(0, 0, 0, 0.5);
+  background: $off-white;
 }
 
-.splash-top {
-
+.splash-top, .splash-bottom {
+  padding: 20px 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background: $white;
 }
 
 .splash-mid {
@@ -18,14 +23,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-
+  padding: 20px 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background: $white;
 
   img {
     height: 90px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   }
-
-}
-
-.splash-bottom {
 
 }
