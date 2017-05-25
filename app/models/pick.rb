@@ -12,4 +12,11 @@
 #
 
 class Pick < ApplicationRecord
+  validates :user_id, presence: true, numericality: { only_integer: true }
+  validates :pool_id, presence: true, numericality: { only_integer: true }
+  validates :game_id, presence: true, numericality: { only_integer: true }
+
+  belongs_to :user
+  belongs_to :pool 
+  belongs_to :game
 end

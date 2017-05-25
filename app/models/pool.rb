@@ -14,4 +14,17 @@
 #
 
 class Pool < ApplicationRecord
+  validates :title, presence: true
+  validates :moderator_id, presence: true, numericality: { only_integer: true }
+  validates :buy_in, presence: true, numericality: { only_integer: true }
+  validates :league, presence: true
+  validates :season, presence: true, numericality: { only_integer: true }
+
+  belong_to :moderator, foreign_key: :moderator_id, class: :User
+
+  has_many :memberships
+
+  has_many :members, through: :memberships
+
+  has_many :picks
 end

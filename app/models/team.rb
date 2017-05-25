@@ -11,4 +11,9 @@
 #
 
 class Team < ApplicationRecord
+  validates :name, presence: true
+  validates :city, presence: true
+  validates :league, presence: true, inclusion: { in: %w( nfl ) }
+
+  has_many :game_nfls
 end
