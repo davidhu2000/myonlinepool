@@ -164,9 +164,8 @@ $drk-text: #CDCDCD;
   background: white;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
-  h1 {
-    font-size: 30px;
 
+  h1, .pool-bottom-body {
     margin-left: 100px;
     opacity: 0;
     animation-name: bottomIn;
@@ -177,20 +176,15 @@ $drk-text: #CDCDCD;
     animation-fill-mode: forwards;
   }
 
+  h1 {
+    font-size: 30px;
+  }
+
   .pool-bottom-body {
     width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    margin-left: 100px;
-    opacity: 0;
-    animation-name: bottomIn;
-    animation-delay: 12s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
 
     p {
       text-align: center;
