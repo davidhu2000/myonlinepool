@@ -1,194 +1,68 @@
+$white: #F6F7F9;
 $off-white: #e9ebee;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
 
-@keyframes welcomeIn {
-  0% {
-    opacity: 0;
-    margin-left: 100px;
-  }
-
-  100% {
-    opacity: 1;
-    margin-left: 0px;
-  }
-}
-
-@keyframes paraIn {
-  0% {
-    opacity: 0;
-    margin-left: 100px;
-  }
-
-  100% {
-    opacity: 1;
-    margin-left: 0px;
-  }
-}
-
 .pool-container {
   height: 100%;
-  width: 100%;
+  width: 50%;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: $lt-primary;
+  background: $off-white;
+
+  .pool-title {
+    padding-left: 20px;
+    width: 100%;
+    text-align: left;
+    font-size: 25px;
+  }
+
 }
 
-.pool-top {
-  height: 327px;
-  width: 100%;
+.pool-body {
+  padding-top: 15px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.pool-left {
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: white;
+  justify-content: flex-start;
+
+}
+
+.pool-top, .pool-bottom {
+  padding: 20px 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
-  span {
-    margin-left: 100px;
-    opacity: 0;
-    animation-name: welcomeIn;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-duration: 4s;
-    animation-fill-mode: forwards;
-  }
-
-  h1 {
-    font-size: 40px;
-    opacity: 1;
-
-  }
-
-  p {
-    text-align: center;
-    font-size: 20px;
-    line-height: 25px;
-
-    margin-left: 100px;
-    opacity: 0;
-    animation-name: paraIn;
-    animation-delay: 3s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-  }
-
+  background: $white;
 }
 
-@keyframes midIn {
-  0% {
-    opacity: 0;
-    margin-left: 100px;
-  }
-
-  100% {
-    opacity: 1;
-    margin-left: 0px;
-  }
+.pool-bottom {
+  margin-top: 20px;
 }
 
-.pool-mid {
-  height: 327px;
-  width: 100%;
-  padding: 40px 0px;
+.pool-right {
+  // height: 600px;
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: $lt-primary;
-
-  margin-left: 100px;
-  opacity: 0;
-  animation-name: midIn;
-  animation-delay: 6s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-
-  h1 {
-    font-size: 30px;
-    color: white;
-  }
-
-  .pool-mid-carousel {
-    padding: 20px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $off-white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border-radius: 2px;
-
-    img {
-      margin: 0px 10px;
-      padding: 5px;
-      width: 90px;
-      height: 90px;
-      border-radius: 2px;
-      background: $off-white;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    }
-
-    .shield {
-      background: white;
-      border: 5px $off-white solid;
-    }
-  }
-}
-
-@keyframes bottomIn {
-  0% {
-    opacity: 0;
-    margin-left: 100px;
-  }
-
-  100% {
-    opacity: 1;
-    margin-left: 0px;
-  }
-}
-
-.pool-bottom {
-  height: 327px;
-  width: 100%;
-  padding: 40px 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: white;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background: $white;
 
-
-  h1, .pool-bottom-body {
-    margin-left: 100px;
-    opacity: 0;
-    animation-name: bottomIn;
-    animation-delay: 9s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
+  img {
+    margin: 10px 0px;
+    padding: 10px;
+    // height: 120px;
+    width: 90px;
+    height: 90px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   }
 
-  h1 {
-    font-size: 30px;
-  }
-
-  .pool-bottom-body {
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    p {
-      text-align: center;
-      font-size: 20px;
-    }
-  }
 }
