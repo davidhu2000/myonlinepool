@@ -12,15 +12,15 @@ class Pool extends React.Component {
         <div className="pool-top">
           <h1>Welcome to My Online Pool</h1>
           <p>
-          Placeholder text that lets the user know what the product is
+          A simple app to organize your betting pools.
           <br/>
-          More placeholder text that lets the user know what the product is
+          No more organizational nightmares.
           </p>
         </div>
         <div className="pool-mid">
-          <h1>Bet on your favorite teams</h1>
+          <h1>Play with your favorite teams</h1>
           <div className="pool-mid-carousel">
-            <img src="assets/shield.svg"/>
+            <img className="shield" src="assets/shield.svg"/>
             <img src="assets/cardinals.png"/>
             <img src="assets/bears.png"/>
             <img src="assets/bills.png"/>
@@ -33,6 +33,11 @@ class Pool extends React.Component {
             <p>Work</p>
             <p>Family</p>
             <p>Friends</p>
+          </div>
+          <div className="pool-bottom-body">
+            <p>Enemies</p>
+            <p>Frenemies</p>
+            <p>Strangers</p>
           </div>
         </div>
       </div>
