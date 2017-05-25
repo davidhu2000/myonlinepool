@@ -10,10 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525181339) do
+ActiveRecord::Schema.define(version: 20170525185534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "game_nfls", force: :cascade do |t|
+    t.integer  "week",                       null: false
+    t.integer  "season",                     null: false
+    t.integer  "home_id",                    null: false
+    t.integer  "away_id",                    null: false
+    t.integer  "home_score"
+    t.integer  "away_score"
+    t.boolean  "completed",  default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["week", "season"], name: "index_game_nfls_on_week_and_season", using: :btree
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "pool_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pool_id", "user_id"], name: "index_memberships_on_pool_id_and_user_id", unique: true, using: :btree
+  end
+
+  create_table "picks", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "pool_id",    null: false
+    t.integer  "game_id",    null: false
+    t.string   "pick",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "pool_id", "game_id"], name: "index_picks_on_user_id_and_pool_id_and_game_id", unique: true, using: :btree
+  end
+
+  create_table "pools", force: :cascade do |t|
+    t.string   "title",                    null: false
+    t.string   "description"
+    t.integer  "moderator_id",             null: false
+    t.integer  "buy_in",       default: 0, null: false
+    t.string   "league",                   null: false
+    t.integer  "season",                   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["moderator_id"], name: "index_pools_on_moderator_id", using: :btree
+    t.index ["title"], name: "index_pools_on_title", using: :btree
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "city",       null: false
+    t.string   "league",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
