@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  namespace :api, defaults: { format: :json } do 
+  scope :api do 
     devise_for :users, controllers: {
-      sessions: 'users/sessions'
+      sessions: 'api/users/sessions'
     }
   end
   root "static_pages#root"
