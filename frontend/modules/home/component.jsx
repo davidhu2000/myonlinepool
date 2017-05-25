@@ -6,6 +6,10 @@ import PoolList from './subcomponents/pool_list';
 class Home extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      standings: [{name: "alex", score: 100},{name: "david", score: 1},{name: "raymond", score: 101}]
+    };
   }
 
   render() {
@@ -13,7 +17,10 @@ class Home extends React.Component {
       <div className="home-container">
         Home
         <PoolList/>
-        <StandingsBox/>
+        <StandingsBox
+          Standings={this.state.standings}
+          key={Math.random()}
+          />
       </div>
     );
   }
