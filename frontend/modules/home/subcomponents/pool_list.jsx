@@ -1,13 +1,30 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import PoolListItem from './pool_list_item';
 
-const poolList = props => {
+class PoolList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.genList = this.genList.bind(this);
+  }
 
-  return (
-    <div>
-      <h1>Pool List</h1>
-    </div>
-  );
-};
+  genList() {
+    let pools = this.props.Pools;
+    return pools.map( pool => (
+      <PoolListItem
+        Name={pool.name}
+        />
+    ));
+  }
 
-export default poolList;
+  render() {
+    return (
+      <div className="pool-list">
+        {this.props.Title}
+        {this.genList()}
+      </div>
+    );
+  }
+}
+
+export default PoolList;
