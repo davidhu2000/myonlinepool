@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import StandingsBoxItem from './standings_box_item';
 
-class standingsBox extends React.Component {
+class StandingsBox extends React.Component {
   constructor(props) {
     super(props);
     this.genList = this.genList.bind(this);
@@ -15,19 +15,29 @@ class standingsBox extends React.Component {
       <StandingsBoxItem
         Name={standing.name}
         Score={standing.score}
+        Losses={standing.losses}
+        Pool={standing.pool}
         />
     ));
   }
 
   render() {
     return (
-      <div>
+      <div className="standings-box">
+        <div className="standings-box-title">
+          {this.props.Title}
+        </div>
+        <div className="standings-box-top-item">
+            <div className="title">Player</div>
+            <div className="score">Wins</div>
+            <div className="losses">Losses</div>
+            <div className="pool">Pool</div>
+        </div>
         {this.genList()}
-        <h1>standings box</h1>
       </div>
     );
   }
 
 }
 
-export default standingsBox;
+export default StandingsBox;
