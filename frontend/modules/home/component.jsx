@@ -32,7 +32,9 @@ class Home extends React.Component {
     return (
       <div className="home-container">
         <PoolList
+          Title="My Pools"
           Pools={this.state.pools}
+          key={Math.random()}
           />
         <StandingsBox
           Title="Leaderboard"

@@ -5,7 +5,7 @@ const PoolListItem = props => {
 
   return (
     <div className="pool-list-item">
-      Pool List Item
+      {props.Name}
     </div>
   );
 };

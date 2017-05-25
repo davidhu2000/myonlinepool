@@ -8,7 +8,6 @@ class StandingsBox extends React.Component {
     this.genList = this.genList.bind(this);
   }
 
-
   genList() {
     let stands = this.props.Standings;
     return stands.map( standing => (
