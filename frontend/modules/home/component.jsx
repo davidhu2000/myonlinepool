@@ -19,6 +19,11 @@ class Home extends React.Component {
         {name: "clowney", score: 103, losses: 3, pool: "family pool 3"},
         {name: "watt", score: 77, losses: 5, pool: "random pool 2"},
         {name: "sanders", score: 44, losses: 3, pool: "random pool 1"}
+      ],
+      pools: [
+        {name: "office"},
+        {name: "friends"},
+        {name: "enemies"}
       ]
     };
   }
@@ -26,9 +31,11 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
-        <PoolList/>
+        <PoolList
+          Pools={this.state.pools}
+          />
         <StandingsBox
-          Title="Global Standings"
+          Title="Leaderboard"
           Standings={this.state.standings}
           key={Math.random()}
           />

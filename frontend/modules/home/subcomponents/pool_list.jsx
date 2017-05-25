@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import PoolListItem from './pool_list_item';
 
-const poolList = props => {
+class PoolList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <div>
-      <h1>Pool List</h1>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <PoolListItem/>
+      </div>
+    );
+  }
+}
 
-export default poolList;
+export default PoolList;

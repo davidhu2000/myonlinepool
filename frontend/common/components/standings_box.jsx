@@ -25,7 +25,9 @@ class StandingsBox extends React.Component {
     return (
       <div className="standings-box">
         <div className="standings-box-title">
-          {this.props.Title}
+          <h1>
+            {this.props.Title}
+          </h1>
         </div>
         <div className="standings-box-top-item">
             <div className="title">Player</div>
