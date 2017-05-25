@@ -5,7 +5,8 @@ const StandingsBoxItem = props => {
 
   return (
     <div>
-      <h1>standings box item</h1>
+      {props.Name}
+      {props.Score}
     </div>
   );
 };

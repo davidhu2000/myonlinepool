@@ -11,9 +11,11 @@ class standingsBox extends React.Component {
 
   genList() {
     let stands = this.props.Standings;
-    console.log(stands);
     return stands.map( standing => (
-      <StandingsBoxItem/>
+      <StandingsBoxItem
+        Name={standing.name}
+        Score={standing.score}
+        />
     ));
   }
 
