@@ -12,9 +12,9 @@ const AccountDropdown = props => {
         <a>
           Sign Up
         </a>
-        <a>
-          Support
-        </a>
+        <Link to={`/`}>
+          Splash
+        </Link>
         <Link to={`/home`}>
           Home
         </Link>

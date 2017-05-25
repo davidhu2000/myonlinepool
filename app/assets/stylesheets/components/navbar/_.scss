@@ -8,7 +8,6 @@ $drk-text: #CDCDCD;
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
@@ -34,7 +33,7 @@ $drk-text: #CDCDCD;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: $drk-text;
+  color: white;
   background-color: $drk-primary;
   border-bottom: 15px solid $lt-primary;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -67,11 +66,6 @@ $drk-text: #CDCDCD;
       position: absolute;
       left: 0px;
     }
-
-  }
-
-  .account-button:hover {
-    color: red;
   }
 
   .info-button {
@@ -88,11 +82,10 @@ $drk-text: #CDCDCD;
       position: absolute;
       left: 0px;
     }
-
   }
 
-  .info-button:hover {
-    color: red;
+  .info-button:hover, .account-button:hover {
+    color: $drk-text;
   }
 
   .account-button, .info-button {
