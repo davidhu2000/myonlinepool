@@ -10,17 +10,35 @@ class Splash extends React.Component {
     return (
       <div className="splash-container">
         <div className="splash-top">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <h1>Welcome to<span> My Online Pool</span> </h1>
+          <p>
+          A simple app to organize your sports pools.
+          <br/>
+          No more organizational nightmares.
+          </p>
         </div>
         <div className="splash-mid">
-          <img src="assets/cardinals.png" />
-          <img src="assets/ravens.png" />
-          <img src="assets/bears.png" />
-          <img src="assets/bills.png" />
-          <img src="assets/panthers.png" />
+          <h1>Play with your favorite teams</h1>
+          <div className="splash-mid-carousel">
+            <img className="shield" src="assets/shield.svg"/>
+            <img src="assets/cardinals.png"/>
+            <img src="assets/bears.png"/>
+            <img src="assets/bills.png"/>
+            <img src="assets/panthers.png"/>
+          </div>
         </div>
         <div className="splash-bottom">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <h1>Create or join pools with all of your groups</h1>
+          <div className="splash-bottom-body">
+            <p>Work</p>
+            <p>Family</p>
+            <p>Friends</p>
+          </div>
+          <div className="splash-bottom-body">
+            <p>Enemies</p>
+            <p>Frenemies</p>
+            <p>Strangers</p>
+          </div>
         </div>
       </div>
     );

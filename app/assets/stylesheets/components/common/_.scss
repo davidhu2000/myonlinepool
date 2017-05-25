@@ -1,19 +1,35 @@
 $drk-primary: #1c1c1c;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
+$off-white: #e9ebee;
+$white: #F6F7F9;
 
 .relative-content {
-  min-width: 900px;
   height: 100vh;
-  position: relative;
+  min-width: 900px;
+  min-height: 1080px;
+  // min-height: 1090px;
+  // position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background: $off-white;
   // background-image: url('http://stmedia.startribune.com/images/ows_138759385328271.jpg');
   // background-repeat: no-repeat;
   // background-size: cover;
   // background-attachment: fixed;
+}
+
+.app-container {
+  height: 100%;
+  min-height: 980px;
+  width: 100%;
+  min-width: 900px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden {
