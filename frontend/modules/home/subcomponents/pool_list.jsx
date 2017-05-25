@@ -20,7 +20,8 @@ class PoolList extends React.Component {
   render() {
     return (
       <div className="pool-list">
-        {this.props.Title}
+        <p className="pool-list-title">My Pools</p>
+        <div className="pool-list-top-item">{this.props.Title}</div>
         {this.genList()}
       </div>
     );
