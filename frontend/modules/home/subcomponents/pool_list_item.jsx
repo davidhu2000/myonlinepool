@@ -5,7 +5,11 @@ const PoolListItem = props => {
 
   return (
     <div className="pool-list-item">
-      {props.Name}
+      <Link to={`/pool/1`}>
+        <p>
+        {props.Name}
+        </p>
+      </Link>
     </div>
   );
 };

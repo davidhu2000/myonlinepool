@@ -1,5 +1,8 @@
+$drk-text: #CDCDCD;
+
 .pool-list {
-  padding: 20px;
+  padding: 10px;
+  padding-top: 20px;
   background: white;
   position: relative;
   border-radius: 5px;
@@ -10,6 +13,15 @@
   padding: 5px;
   border: .2px black solid;
   border-top: none;
+
+  p {
+    transition: .5s;
+    cursor: pointer;
+  }
+
+  p:hover {
+    opacity: .5;
+  }
 }
 
 .pool-list-top-item {
