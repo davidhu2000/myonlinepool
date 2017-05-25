@@ -2,66 +2,26 @@ $white: #F6F7F9;
 $off-white: #e9ebee;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
+@import "chat_box";
+@import "mod_board";
 
 .pool-container {
   height: 100%;
   width: 50%;
-  padding-top: 30px;
+  padding: 50px 0px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background: $off-white;
 
-  .pool-title {
-    padding-left: 20px;
-    width: 100%;
-    text-align: left;
-    font-size: 25px;
-  }
 }
 
-.pool-body {
-  padding-top: 15px;
+.pool-standings {
   display: flex;
-  align-items: flex-start;
 }
 
-.pool-left {
-  margin-right: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-}
-
-.pool-top, .pool-bottom {
-  padding: 20px 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  background: $white;
-}
-
-.pool-bottom {
+.pool-coms {
   margin-top: 20px;
-}
-
-.pool-right {
-  // height: 600px;
-  padding: 20px 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  background: $white;
-
-  img {
-    margin: 10px 0px;
-    padding: 10px;
-    // height: 120px;
-    width: 90px;
-    height: 90px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  }
-
 }
