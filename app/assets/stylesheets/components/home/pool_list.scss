@@ -1,4 +1,8 @@
+$drk-primary: #1c1c1c;
+$lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
+$off-white: #e9ebee;
+$white: #F6F7F9;
 
 .pool-list {
   padding: 10px;
@@ -11,7 +15,7 @@ $drk-text: #CDCDCD;
 .pool-list-item {
   width: 200px;
   padding: 5px;
-  border: .2px black solid;
+  border: .2px $off-white solid;
   border-top: none;
 
   p {
@@ -25,9 +29,11 @@ $drk-text: #CDCDCD;
 }
 
 .pool-list-top-item {
+  margin-top: 10px;
   width: 200px;
-  padding: 5px;
-  border-bottom: .2px black solid;
+  padding: 0px 5px;
+  border-bottom: .2px $off-white solid;
+  background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE))
 }
 
 .pool-list-title {

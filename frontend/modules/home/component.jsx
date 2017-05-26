@@ -37,7 +37,12 @@ class Home extends React.Component {
           key={Math.random()}
           />
         <StandingsBox
-          Title="Leaderboard"
+          Title="Weekly"
+          Standings={this.state.standings}
+          key={Math.random()}
+          />
+        <StandingsBox
+          Title="Season Total"
           Standings={this.state.standings}
           key={Math.random()}
           />

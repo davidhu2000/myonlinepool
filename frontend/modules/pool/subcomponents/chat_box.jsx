@@ -11,7 +11,7 @@ class ChatBox extends React.Component {
     return (
       <div className="chat-box">
         <p className="chat-box-title">Chat</p>
-        <div className="chat-box-top-item">{this.props.Title}</div>
+        <ChatBoxItem/>
       </div>
     );
   }

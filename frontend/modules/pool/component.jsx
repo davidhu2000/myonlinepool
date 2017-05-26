@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router';
 import StandingsBox from "../../common/components/standings_box";
 import ChatBox from "./subcomponents/chat_box";
-// import ModBoard from "./subcomponents/mod_board";
+import ModBoard from "./subcomponents/mod_board";
 
 class Pool extends React.Component {
   constructor(props) {
@@ -39,6 +39,8 @@ class Pool extends React.Component {
         </div>
         <div className="pool-coms">
           <ChatBox
+            />
+          <ModBoard
             />
         </div>
       </div>
