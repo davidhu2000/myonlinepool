@@ -8,8 +8,7 @@ $white: #F6F7F9;
 .relative-content {
   height: 100vh;
   min-width: 900px;
-  min-height: 1080px;
-  // min-height: 1090px;
+  // min-height: 1080px;
   // position: relative;
   display: flex;
   flex-direction: column;
@@ -24,7 +23,7 @@ $white: #F6F7F9;
 
 .app-container {
   height: 100%;
-  min-height: 980px;
+  // min-height: 980px;
   width: 100%;
   min-width: 900px;
   margin-top: 50px;
@@ -32,6 +31,7 @@ $white: #F6F7F9;
   justify-content: center;
   align-items: center;
   background: $off-white;
+  overflow-y: scroll;
 }
 
 .hidden {
