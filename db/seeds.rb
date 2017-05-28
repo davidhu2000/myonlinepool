@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'roo'
+
+data = Roo::Spreadsheet.open('db/seed/seed.xlsx')
+
+# seed the database with NFL team information
+data.sheet('team_nfl').each_with_index do |team, idx|
+  next if idx.zero?
+  Team.create!(
+    city: team[0].downcase, 
+    name: team[1].downcase,
+    abbreviation: team[2].downcase, 
+    league: team[3].downcase
+  )
+end

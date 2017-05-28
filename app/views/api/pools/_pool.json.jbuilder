@@ -1,0 +1,1 @@
+json.extract! pool, :id, :title, :description, :moderator_id, :league, :season, :members
