@@ -31,21 +31,31 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
-        <PoolList
-          Title="My Pools"
-          Pools={this.state.pools}
-          key={Math.random()}
-          />
-        <StandingsBox
-          Title="Weekly"
-          Standings={this.state.standings}
-          key={Math.random()}
-          />
-        <StandingsBox
-          Title="Season Total"
-          Standings={this.state.standings}
-          key={Math.random()}
-          />
+        <div className="home-left">
+          <div className="home-message">
+            <h2>Welcome back,</h2>
+            <p>Create a pool</p>
+            <p>Browse your pools</p>
+            <p>Checkout leaderboards</p>
+          </div>
+          <PoolList
+            Title="My Pools"
+            Pools={this.state.pools}
+            key={Math.random()}
+            />
+        </div>
+        <div className="home-right">
+          <StandingsBox
+            Title="Weekly"
+            Standings={this.state.standings}
+            key={Math.random()}
+            />
+          <StandingsBox
+            Title="Season Total"
+            Standings={this.state.standings}
+            key={Math.random()}
+            />
+          </div>
       </div>
     );
   }
