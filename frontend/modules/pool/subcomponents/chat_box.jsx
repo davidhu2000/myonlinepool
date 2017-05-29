@@ -5,6 +5,10 @@ import ChatBoxItem from './chat_box_item';
 class ChatBox extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      post: ""
+    }
   }
 
   genList() {
@@ -24,9 +28,12 @@ class ChatBox extends React.Component {
         <div className="message-container">
           {this.genList()}
         </div>
-        <input className="chat-form">
-          
-        </input>
+        <div className="chat-form">
+          <i className="fa fa-angle-right" aria-hidden="true"/>
+          <input className="chat-input">
+          </input>
+          <button>Submit</button>
+        </div>
       </div>
     );
   }
