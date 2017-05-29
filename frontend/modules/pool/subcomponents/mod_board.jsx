@@ -20,7 +20,7 @@ class ModBoard extends React.Component {
   render() {
     return (
       <div className="mod-board">
-        <p className="mod-board-title">Mod Board</p>
+        <h2>Mod Board</h2>
         {this.genList()}
       </div>
     );

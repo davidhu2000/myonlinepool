@@ -11,7 +11,8 @@ class ChatBox extends React.Component {
     let chat = this.props.Chat;
     return chat.map( msg => (
       <ChatBoxItem
-        Message={msg}
+        Name={msg.name}
+        Message={msg.message}
         />
     ));
   }
@@ -20,7 +21,12 @@ class ChatBox extends React.Component {
     return (
       <div className="chat-box">
         <h2>Chat</h2>
-        {this.genList()}
+        <div className="message-container">
+          {this.genList()}
+        </div>
+        <input className="chat-form">
+          
+        </input>
       </div>
     );
   }
