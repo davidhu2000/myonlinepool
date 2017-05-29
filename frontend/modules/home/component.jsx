@@ -33,10 +33,10 @@ class Home extends React.Component {
       <div className="home-container">
         <div className="home-left">
           <div className="home-message">
-            <h2>Welcome back,</h2>
-            <p>Create a pool</p>
-            <p>Browse your pools</p>
-            <p>Checkout leaderboards</p>
+            <div className="title">Welcome</div>
+            <div>-Create or join a pool</div>
+            <div>-Browse your pools</div>
+            <div>-Checkout leaderboards</div>
           </div>
           <PoolList
             Title="My Pools"
@@ -46,7 +46,7 @@ class Home extends React.Component {
         </div>
         <div className="home-right">
           <StandingsBox
-            Title="Weekly"
+            Title="Week Total"
             Standings={this.state.standings}
             key={Math.random()}
             />
