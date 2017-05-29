@@ -33,10 +33,10 @@ class Home extends React.Component {
       <div className="home-container">
         <div className="home-left">
           <div className="home-message">
-            <h2>Welcome</h2>
-            <p>-Create or join a pool</p>
-            <p>-Browse your pools</p>
-            <p>-Checkout leaderboards</p>
+            <div className="title">Welcome</div>
+            <div>-Create or join a pool</div>
+            <div>-Browse your pools</div>
+            <div>-Checkout leaderboards</div>
           </div>
           <PoolList
             Title="My Pools"

@@ -40,10 +40,16 @@ class Pool extends React.Component {
       <div className="pool-container">
         <div className="pool-coms">
           <div className="pool-message">
-            <h2>Office Pool 1</h2>
-            <p>-Check standings</p>
-            <p>-Make picks</p>
-            <p>-Talk smack</p>
+            <div className="title">Office Pool 1</div>
+            <div>
+              -Check standings
+            </div>
+            <div>
+              -Make picks
+            </div>
+            <div>
+              -Talk smack
+            </div>
           </div>
           <ChatBox
             Chat={this.state.chat.slice(0,5)}
