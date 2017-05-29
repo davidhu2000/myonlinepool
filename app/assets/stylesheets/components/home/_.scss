@@ -16,12 +16,14 @@ $white: #F6F7F9;
 }
 
 .home-left {
+  width: 300px;
   display: flex;
   flex-direction: column;
 }
 
 .home-right {
   display: flex;
+  flex-direction: column;
 }
 
 .home-message {

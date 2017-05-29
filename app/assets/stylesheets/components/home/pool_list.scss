@@ -5,7 +5,7 @@ $off-white: #e9ebee;
 $white: #F6F7F9;
 
 .pool-list {
-  width: 200px;
+  width: 100%;
   padding: 5px;
   background: white;
   position: relative;
@@ -22,10 +22,6 @@ $white: #F6F7F9;
     transition: .5s;
     cursor: pointer;
   }
-
-  // p:hover {
-  //   opacity: .5;
-  // }
 }
 
 .pool-list-item:hover {
