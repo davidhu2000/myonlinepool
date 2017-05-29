@@ -12,29 +12,30 @@
  *
  *= require_tree .
  *= require_self
- */
- @import 'base/reset.scss';
- @import "font-awesome-sprockets";
- @import "font-awesome";
- @import 'components/common/_.scss';
- @import 'components/footer/_.scss';
- @import 'components/home/_.scss';
- @import 'components/leaderboard/_.scss';
- @import 'components/metrics/_.scss';
- @import 'components/moderator/_.scss';
- @import 'components/navbar/_.scss';
- @import 'components/picks/_.scss';
- @import 'components/pool/_.scss';
- @import 'components/splash/_.scss';
- /******************************/
+*/
 
- html {
-  //  font-family: 'Karla', sans-serif;
-  //  font-family: 'Montserrat', sans-serif;
-  //  font-family: 'Montez', cursive;
-   font-family: 'Baloo Bhaina', cursive;
-  //  font-family: 'Lobster', cursive;
- }
+@import 'base/reset.scss';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'components/common/_.scss';
+@import 'components/footer/_.scss';
+@import 'components/home/_.scss';
+@import 'components/leaderboard/_.scss';
+@import 'components/metrics/_.scss';
+@import 'components/moderator/_.scss';
+@import 'components/navbar/_.scss';
+@import 'components/picks/_.scss';
+@import 'components/pool/_.scss';
+@import 'components/splash/_.scss';
+/******************************/
 
- /******************************/
- @import url('base/responsive.scss');
+html {
+  // font-family: 'Karla', sans-serif;
+  // font-family: 'Montserrat', sans-serif;
+  // font-family: 'Montez', cursive;
+  font-family: 'Baloo Bhaina', cursive;
+  // font-family: 'Lobster', cursive;
+}
+
+/******************************/
+@import 'base/responsive.scss';
