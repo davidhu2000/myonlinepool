@@ -7,11 +7,20 @@ class ChatBox extends React.Component {
     super(props);
   }
 
+  genList() {
+    let chat = this.props.Chat;
+    return chat.map( msg => (
+      <ChatBoxItem
+        Message={msg}
+        />
+    ));
+  }
+
   render() {
     return (
       <div className="chat-box">
-        <p className="chat-box-title">Chat</p>
-        <ChatBoxItem/>
+        <h2>Chat</h2>
+        {this.genList()}
       </div>
     );
   }

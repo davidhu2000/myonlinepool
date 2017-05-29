@@ -20,27 +20,37 @@ class Pool extends React.Component {
         {name: "clowney", score: 103, losses: 3, pool: "family pool 3"},
         {name: "watt", score: 77, losses: 5, pool: "random pool 2"},
         {name: "sanders", score: 44, losses: 3, pool: "random pool 1"}
-      ]
+      ],
+      chat: ["one","two","three","four","five","six","seven"],
+      modcoms: ["one", "two", "three", "four", "five", "six", "seven"]
     }
   }
 
   render() {
     return (
       <div className="pool-container">
-        <div className="pool-standings">
-          <StandingsBox
-            Title="Week"
-            Standings={this.state.standings}
-            />
-          <StandingsBox
-            Title="Season"
-            Standings={this.state.standings}
-            />
-        </div>
         <div className="pool-coms">
+          <div className="pool-message">
+            <h2>Office Pool 1</h2>
+            <p>-Check standings</p>
+            <p>-Make picks</p>
+            <p>-Talk smack</p>
+          </div>
           <ChatBox
+            Chat={this.state.chat.slice(0,5)}
             />
           <ModBoard
+            Chat={this.state.modcoms.slice(0,5)}
+            />
+        </div>
+        <div className="pool-standings">
+          <StandingsBox
+            Title="Week Total"
+            Standings={this.state.standings}
+            />
+          <StandingsBox
+            Title="Season Total"
+            Standings={this.state.standings}
             />
         </div>
       </div>

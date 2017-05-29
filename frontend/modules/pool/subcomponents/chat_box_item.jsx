@@ -5,7 +5,9 @@ const ChatBoxItem = props => {
 
   return (
     <div className="chat-box-item">
-      <p>chat box item</p>
+      <p>
+        {props.Message}
+      </p>
     </div>
   );
 };

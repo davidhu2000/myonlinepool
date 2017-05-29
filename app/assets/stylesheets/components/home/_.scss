@@ -8,7 +8,7 @@ $white: #F6F7F9;
 .home-container {
   height: 100%;
   // width: 50%;
-  padding: 50px 0px;
+  padding: 20px 0px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -26,9 +26,9 @@ $white: #F6F7F9;
 
 .home-message {
   width: 200px;
-  padding: 10px;
-  padding-top: 20px;
-  margin-bottom: 20px;
+  padding: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
   background: white;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 5px;
@@ -36,14 +36,23 @@ $white: #F6F7F9;
   flex-direction: column;
   justify-content: center;
 
+
   h2 {
-    font-size: 25px;
-    line-height: 25px;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 5px;
+    line-height: 20px;
     margin-bottom: 5px;
+    border-radius: 0px;
+    font-size: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
   }
 
   p {
     font-size: 15px;
-    line-height: 20px;
+    line-height: 15px;
+    padding-top: 5px;
+    padding-left: 2px;
   }
 }

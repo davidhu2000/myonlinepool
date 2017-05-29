@@ -5,7 +5,9 @@ const ModBoardItem = props => {
 
   return (
     <div className="chat-box-item">
-      <p>mod board item</p>
+      <p>
+        {props.Message}
+      </p>
     </div>
   );
 };
