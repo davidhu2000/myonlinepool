@@ -13,19 +13,19 @@
  *= require_tree .
  *= require_self
  */
- @import url('base/reset.scss');
+ @import 'base/reset.scss';
  @import "font-awesome-sprockets";
  @import "font-awesome";
- @import url('components/common/_.scss');
- @import url('components/footer/_.scss');
- @import url('components/home/_.scss');
- @import url('components/leaderboard/_.scss');
- @import url('components/metrics/_.scss');
- @import url('components/moderator/_.scss');
- @import url('components/navbar/_.scss');
- @import url('components/picks/_.scss');
- @import url('components/pool/_.scss');
- @import url('components/splash/_.scss');
+ @import 'components/common/_.scss';
+ @import 'components/footer/_.scss';
+ @import 'components/home/_.scss';
+ @import 'components/leaderboard/_.scss';
+ @import 'components/metrics/_.scss';
+ @import 'components/moderator/_.scss';
+ @import 'components/navbar/_.scss';
+ @import 'components/picks/_.scss';
+ @import 'components/pool/_.scss';
+ @import 'components/splash/_.scss';
  /******************************/
 
  html {
