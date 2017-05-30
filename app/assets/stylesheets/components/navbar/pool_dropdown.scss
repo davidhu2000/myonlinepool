@@ -2,7 +2,7 @@ $drk-primary: #1c1c1c;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
 
-@keyframes slideIn {
+@keyframes diveIn {
   0% {
     opacity: 0;
   }
@@ -12,30 +12,30 @@ $drk-text: #CDCDCD;
   }
 }
 
-.account-dropdown {
+.pool-dropdown {
   z-index: 2;
   position: absolute;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   opacity: 0;
   top: 45px;
-  right: 10%;
+  left: 9%;
 
-  animation-name: slideIn;
+  animation-name: diveIn;
   animation-iteration-count: 1;
   animation-timing-function: ease-out;
   animation-duration: .5s;
   animation-fill-mode: forwards;
 }
 
-.account-dropdown-list {
-  padding-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  font-size: 15px;
-  font-weight: bold;
-  background-color: $lt-primary;
+.pool-dropdown-list {
+padding-bottom: 15px;
+display: flex;
+flex-direction: column;
+font-size: 15px;
+font-weight: bold;
+background-color: $lt-primary;
 
-  a, Link {
+  a {
     background-color: $lt-primary;
     text-align: left;
     width: 100%;
@@ -44,9 +44,8 @@ $drk-text: #CDCDCD;
     cursor: pointer;
   }
 
-  a:hover, Link:hover {
+  a:hover {
     background-color: white;
     color: black;
   }
-
 }

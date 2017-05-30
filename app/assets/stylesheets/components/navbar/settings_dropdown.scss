@@ -2,7 +2,7 @@ $drk-primary: #1c1c1c;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
 
-@keyframes diveIn {
+@keyframes moveIn {
   0% {
     opacity: 0;
   }
@@ -18,9 +18,9 @@ $drk-text: #CDCDCD;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   opacity: 0;
   top: 45px;
-  left: 19%;
+  left: 9%;
 
-  animation-name: diveIn;
+  animation-name: moveIn;
   animation-iteration-count: 1;
   animation-timing-function: ease-out;
   animation-duration: .5s;

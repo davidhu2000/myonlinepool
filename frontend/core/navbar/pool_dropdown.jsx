@@ -4,8 +4,8 @@ import { Link, withRouter } from 'react-router';
 const PoolDropdown = props => {
 
   return (
-    <div className="settings-dropdown" id="settings-dropdown">
-      <div className="settings-dropdown-list">
+    <div className="pool-dropdown" id="pool-dropdown">
+      <div className="pool-dropdown-list">
         <a>
           Pool Dropdown
         </a>
