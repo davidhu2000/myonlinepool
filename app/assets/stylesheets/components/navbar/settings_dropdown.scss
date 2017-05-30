@@ -12,7 +12,7 @@ $drk-text: #CDCDCD;
   }
 }
 
-.pool-dropdown {
+.settings-dropdown {
   z-index: 2;
   position: absolute;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -27,7 +27,7 @@ $drk-text: #CDCDCD;
   animation-fill-mode: forwards;
 }
 
-.pool-dropdown-list {
+.settings-dropdown-list {
 padding-bottom: 15px;
 display: flex;
 flex-direction: column;

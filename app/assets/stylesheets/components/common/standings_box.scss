@@ -27,9 +27,10 @@ $off-white: #e9ebee;
 .standings-box-item {
   display: flex;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: 5px;
 
   div {
-    padding: 5px;
+
     text-align: left;
   }
 
@@ -56,27 +57,15 @@ $off-white: #e9ebee;
 .standings-box-top-item {
   display: flex;
   margin-top: 10px;
+  padding: 5px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
 
-  div {
-    padding: 0px 5px;
-    text-align: left;
-    background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
-  }
-
-  .title {
+  .title, .pool {
     width: 125px;
   }
 
-  .score {
+  .score, .losses {
     width: 75px;
-  }
-
-  .losses {
-    width: 75px;
-  }
-
-  .pool {
-    width: 125px;
   }
 }
