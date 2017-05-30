@@ -49,6 +49,7 @@ class Navbar extends React.Component {
           toggleSettings={this.toggleSettings.bind(this)}
           user={this.props.user}/> : null }
         { this.state.showSettings && this.locationCheck() ? <PoolDropdown
+          PoolId={this.props.PoolId}
           context={this}
           toggleSettings={this.toggleSettings.bind(this)}
           user={this.props.user}/> : null }

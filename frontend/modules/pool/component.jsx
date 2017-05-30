@@ -40,7 +40,7 @@ class Pool extends React.Component {
       <div className="pool-container">
         <div className="pool-coms">
           <div className="pool-message">
-            <div className="title">Office Pool 1</div>
+            <div className="title">Office Pool {this.props.params.poolId}</div>
             <div>
               -Check standings
             </div>
