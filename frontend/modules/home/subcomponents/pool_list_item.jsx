@@ -5,10 +5,10 @@ const PoolListItem = props => {
 
   return (
     <div className="pool-list-item">
-      <Link to={`/pool/1`}>
-        <p>
-        {props.Name}
-        </p>
+      <Link to={`/pool/${props.Id}`}>
+        <div>
+          {props.Name}
+        </div>
       </Link>
     </div>
   );
