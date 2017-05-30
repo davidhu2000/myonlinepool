@@ -13,6 +13,7 @@ class PoolList extends React.Component {
     return pools.map( pool => (
       <PoolListItem
         Name={pool.name}
+        Id={pool.id}
         />
     ));
   }
@@ -22,6 +23,9 @@ class PoolList extends React.Component {
       <div className="pool-list">
         <div className="pool-list-top-item">{this.props.Title}</div>
         {this.genList()}
+        <form className="pool-form">
+
+        </form>
       </div>
     );
   }

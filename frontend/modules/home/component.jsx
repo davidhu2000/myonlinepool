@@ -21,9 +21,9 @@ class Home extends React.Component {
         {name: "sanders", score: 44, losses: 3, pool: "random pool 1"}
       ],
       pools: [
-        {name: "office"},
-        {name: "friends"},
-        {name: "enemies"}
+        {id: 1, name: "office"},
+        {id: 1, name: "friends"},
+        {id: 1, name: "enemies"}
       ]
     };
   }
