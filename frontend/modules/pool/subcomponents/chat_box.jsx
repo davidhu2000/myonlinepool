@@ -9,6 +9,20 @@ class ChatBox extends React.Component {
     this.state = {
       post: ""
     }
+
+    this.submitPost = this.submitPost.bind(this);
+  }
+
+  submitPost(e) {
+    e.preventDefault();
+  }
+
+  update(field) {
+    return e => {
+      this.setState({
+        [field]: e.target.value
+      });
+    };
   }
 
   genList() {
@@ -25,15 +39,20 @@ class ChatBox extends React.Component {
     return (
       <div className="chat-box">
         <h2>Chat</h2>
-        <div className="message-container">
-          {this.genList()}
+        <div className="message-container-container">
+          <div className="message-container">
+            {this.genList()}
+          </div>
         </div>
-        <div className="chat-form">
-          <i className="fa fa-angle-right" aria-hidden="true"/>
-          <input className="chat-input">
-          </input>
-          <button>Submit</button>
-        </div>
+        <form onSubmit={ this.submitPost } className="chat-form">
+          <input  name="post"
+                  value={ this.state.post }
+                  onChange={ this.update("post") }
+                  className="chat-input"></input>
+          <input type='submit'
+                 className="chat-form-button"
+                 value="submit"></input>
+        </form>
       </div>
     );
   }
