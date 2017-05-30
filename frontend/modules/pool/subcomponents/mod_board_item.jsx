@@ -10,4 +10,4 @@ const ModBoardItem = props => {
   );
 };
 
-export default ModBoardItem;
+export { ModBoardItem };

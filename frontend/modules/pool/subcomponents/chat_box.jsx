@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import ChatBoxItem from './chat_box_item';
+import { ChatBoxItem } from './chat_box_item';
 
 class ChatBox extends React.Component {
   constructor(props) {
@@ -58,4 +58,4 @@ class ChatBox extends React.Component {
   }
 }
 
-export default ChatBox;
+export { ChatBox };
