@@ -34,15 +34,14 @@ class Navbar extends React.Component {
   }
 
   locationCheck() {
-    if (this.props.Title.includes('pool')) {
+    if (this.props.Location.includes('pool')) {
       return true;
     } else {
-      false;
+      return false;
     }
   }
 
   render() {
-    this.locationCheck();
     return (
       <div className='navbar-container'>
         { this.state.showSettings && !this.locationCheck() ? <SettingsDropdown
@@ -54,12 +53,13 @@ class Navbar extends React.Component {
           toggleSettings={this.toggleSettings.bind(this)}
           user={this.props.user}/> : null }
         <button className="info-button" onClick={this.toggleSettings.bind(this)}>
-            { this.state.showSettings ? <i
-              className="fa fa-angle-down"
-              aria-hidden="true"/>    : <i
-              className="fa fa-angle-right"
-              aria-hidden="true"/> }
-          { this.locationCheck() ? <span>Pool</span> : <span>Info</span> }
+          { this.state.showSettings ? <i
+            className="fa fa-angle-down"
+            aria-hidden="true"/>    : <i
+            className="fa fa-angle-right"
+            aria-hidden="true"/> }
+          { this.locationCheck() ? <span>Pool</span>
+            : <span>Info</span> }
         </button>
         <h1>My Online Pool</h1>
         <button className="account-button" onClick={this.toggleDropdown.bind(this)}>

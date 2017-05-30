@@ -8,19 +8,20 @@ class App extends React.Component {
   constructor(props){
     super(props);
 
-    this.createNavbarTitle = this.createNavbarTitle.bind(this);
+    this.grabLocation = this.grabLocation.bind(this);
   }
 
-  createNavbarTitle() {
+  grabLocation() {
     let location = this.props.location.pathname;
     return location;
   }
 
   render() {
+    console.log(this.props);
     return(
     <div className="relative-content">
         <Navbar
-          Title={ this.createNavbarTitle() }
+          Location={ this.grabLocation() }
           />
         <div className="app-container">
           { this.props.children }
