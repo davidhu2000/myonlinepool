@@ -1,4 +1,4 @@
-.mod-board {
+.modboard {
   width: 100%;
   padding: 5px;
   margin-top: 10px;
@@ -7,13 +7,33 @@
 
   h2 {
     width: 100%;
-    padding-left: 5px;
-    padding-top: 5px;
-    line-height: 20px;
+    padding: 5px;
     margin-bottom: 5px;
     border-radius: 0px;
     font-size: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
+  }
+
+  .modboard-container-container {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding: 5px;
+
+  }
+
+  .modboard-container {
+    height: 116px;
+    overflow-y: scroll;
+
+    .modboard-item {
+      font-size: 12px;
+      line-height: 15px;
+      margin: 2.5px 0px;
+
+      span {
+        font-size: 15px;
+        text-decoration: underline;
+      }
+    }
   }
 }

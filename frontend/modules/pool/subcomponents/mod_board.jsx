@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import ModBoardItem from './chat_box_item';
+import ModBoardItem from './mod_board_item';
 
 class ModBoard extends React.Component {
   constructor(props) {
@@ -19,9 +19,14 @@ class ModBoard extends React.Component {
 
   render() {
     return (
-      <div className="mod-board">
-        <h2>Mod Board</h2>
-        {this.genList()}
+      <div className="modboard">
+        <h2>Pool Alerts</h2>
+          <div className="modboard-container-container">
+            <div className="modboard-container">
+              {this.genList()}
+            </div>
+          </div>
+
       </div>
     );
   }
