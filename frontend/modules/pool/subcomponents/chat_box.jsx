@@ -39,8 +39,10 @@ class ChatBox extends React.Component {
     return (
       <div className="chat-box">
         <h2>Chat</h2>
-        <div className="message-container">
-          {this.genList()}
+        <div className="message-container-container">
+          <div className="message-container">
+            {this.genList()}
+          </div>
         </div>
         <form onSubmit={ this.submitPost } className="chat-form">
           <input  name="post"
