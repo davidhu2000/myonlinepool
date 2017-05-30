@@ -50,7 +50,7 @@ $white: #F6F7F9;
     justify-content: flex-start;
     align-items: flex-end;
 
-    input {
+    .chat-input {
       height: 20px;
       width: 80%;
       padding-left: 2px;
@@ -58,7 +58,7 @@ $white: #F6F7F9;
       font-size: 15px;
     }
 
-    button {
+    .chat-form-button {
       width: 20%;
       height: 20px;
       margin-left: 5px;
@@ -74,7 +74,7 @@ $white: #F6F7F9;
       transition: .2s;
     }
 
-    button:hover {
+    .chat-form-button:hover {
       // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
       margin-bottom: 3px;
     }
