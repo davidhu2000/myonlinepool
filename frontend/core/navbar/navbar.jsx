@@ -34,11 +34,7 @@ class Navbar extends React.Component {
   }
 
   locationCheck() {
-    if (this.props.Location.includes('pool')) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.props.Location.includes('pool');
   }
 
   render() {
@@ -64,11 +60,11 @@ class Navbar extends React.Component {
         </button>
         <h1>My Online Pool</h1>
         <button className="account-button" onClick={this.toggleDropdown.bind(this)}>
-          { this.state.showDropdown ? <i
-            className="fa fa-angle-down"
-            aria-hidden="true"/>    : <i
-            className="fa fa-angle-right"
-            aria-hidden="true"/> }
+          { this.state.showDropdown ? (
+            <i className="fa fa-angle-down" aria-hidden="true" />
+          ) : (
+            <i className="fa fa-angle-right" aria-hidden="true" /> 
+          )}
           <span>Account</span>
         </button>
         { this.state.showDropdown ? <AccountDropdown
