@@ -1,0 +1,45 @@
+$white: #F6F7F9;
+$off-white: #e9ebee;
+$lt-primary: #2d2d2d;
+$drk-text: #CDCDCD;
+
+.picks-container {
+  height: 100%;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: $off-white;
+
+  .picks-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    button {
+      font-size: 15px;
+      padding: 5px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: white;
+    }
+
+    .picks-form {
+      position: absolute;
+      top: 25px;
+      right: 0px;
+      display: flex;
+      flex-direction: column;
+
+      button {
+        padding: 5px;
+        width: 25px;
+        text-align: right;
+        background: black;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
