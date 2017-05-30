@@ -29,7 +29,6 @@ class ChatBox extends React.Component {
           {this.genList()}
         </div>
         <div className="chat-form">
-          <i className="fa fa-angle-right" aria-hidden="true"/>
           <input className="chat-input">
           </input>
           <button>Submit</button>
