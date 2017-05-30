@@ -19,25 +19,54 @@ $drk-text: #CDCDCD;
     button {
       font-size: 15px;
       padding: 5px;
+      margin-bottom: 5px;
       display: flex;
       justify-content: space-around;
       align-items: center;
       background: white;
     }
 
+    .picks-selection-container-container {
+      padding: 5px;
+      background: white;
+    }
+
+    .picks-selection-container {
+      height: 600px;
+      overflow-y: scroll;
+    }
+
+    .selection-item {
+      display: flex;
+      flex-direction: row;
+      height: 80px;
+      margin-bottom: 5px;
+
+      img {
+        border-radius: 2px;
+      }
+
+      div {
+        height: 100%;
+        margin: 0px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
     .picks-form {
       position: absolute;
-      top: 25px;
-      right: 0px;
+      top: 0px;
+      left: -30px;
       display: flex;
       flex-direction: column;
+      background: white;
 
       button {
         padding: 5px;
         width: 25px;
         text-align: right;
-        background: black;
-        color: white;
         cursor: pointer;
       }
     }

@@ -62,8 +62,9 @@ class Picks extends React.Component {
 
   createSelections() {
     return this.state.games.map( game => (
-      <div className="selection-tile">
+      <div className="selection-item">
         <img src={`assets/logos/${game.home}.gif`}></img>
+        <div>At</div>
         <img src={`assets/logos/${game.away}.gif`}></img>
       </div>
     ))
@@ -77,11 +78,13 @@ class Picks extends React.Component {
             Week {this.state.week}
           </button>
           { this.state.showDropdown ?
-            <form className="picks-form">
-            {this.createLinks()}
-            </form> : null }
-          <div className="picks-selection-container">
-            { this.createSelections() }
+          <form className="picks-form">
+          {this.createLinks()}
+          </form> : null }
+          <div className="picks-selection-container-container">
+            <div className="picks-selection-container">
+              { this.createSelections() }
+            </div>
           </div>
         </div>
         <div className="picks-right">
