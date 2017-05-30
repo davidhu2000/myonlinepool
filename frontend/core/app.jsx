@@ -8,31 +8,26 @@ class App extends React.Component {
   constructor(props){
     super(props);
 
-    this.grabLocation = this.grabLocation.bind(this);
-  }
-
-  grabLocation() {
-    let location = this.props.location.pathname;
-    return location;
   }
 
   render() {
-    console.log(this.props);
     return(
     <div className="relative-content">
         <Navbar
-          Location={ this.grabLocation() }
+          Location={ this.props.location.pathname }
+          PoolId={ this.props.params.poolId }
           />
+
         <div className="app-container">
           { this.props.children }
         </div>
-        <Footer/>
+
+        <Footer
+          />
       </div>
     );
   }
 }
-
-
 
 const mapStateToProps = (state, ownProps) => ({
 

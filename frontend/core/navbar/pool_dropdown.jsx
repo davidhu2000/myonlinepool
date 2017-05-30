@@ -6,21 +6,18 @@ const PoolDropdown = props => {
   return (
     <div className="pool-dropdown" id="pool-dropdown">
       <div className="pool-dropdown-list">
-        <a>
-          Pool Dropdown
-        </a>
-        <a>
-          Not FAQS
-        </a>
-        <a>
-          Not Contact
-        </a>
-        <a>
-          Not Affiliates
-        </a>
-        <a>
-          Not Pricing
-        </a>
+        <Link to={`/pool/1`}>
+          Pool Homepage {props.PoolId}
+        </Link>
+        <Link to={`/pool/1/picks`}>
+          Picks
+        </Link>
+        <Link to={`/pool/1/leaderboard`}>
+          Leaderboard
+        </Link>
+        <Link to={`/pool/1/moderator`}>
+          Moderator
+        </Link>
       </div>
     </div>
   );

@@ -3,8 +3,7 @@ import { withRouter } from 'react-router';
 import Pool from './component';
 
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = ( state ) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
