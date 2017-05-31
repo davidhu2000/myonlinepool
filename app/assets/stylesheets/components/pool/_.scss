@@ -7,11 +7,15 @@ $drk-text: #CDCDCD;
 
 .pool-container {
   height: 100%;
-  padding: 10px 0px;
+  // padding: 10px 0px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   // background: $off-white;
+}
+
+.pool-body {
+  display: flex;
 }
 
 .pool-standings {

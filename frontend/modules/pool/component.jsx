@@ -37,6 +37,7 @@ class Pool extends React.Component {
   render() {
     return (
       <div className="pool-container">
+        <div className="pool-body">
         <div className="pool-coms">
           <div className="pool-message">
             <div className="title">Office Pool {this.props.params.poolId}</div>
@@ -67,6 +68,7 @@ class Pool extends React.Component {
             Title="Season Total"
             Standings={this.state.standings}
           />
+        </div>
         </div>
       </div>
     );
