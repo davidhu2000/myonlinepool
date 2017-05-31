@@ -7,7 +7,8 @@ class SignUp extends React.Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      email: ""
     };
 
     this.submitUser = this.submitUser.bind(this);
@@ -34,6 +35,11 @@ class SignUp extends React.Component {
                   value={ this.state.username }
                   onChange={ this.update("username") }
                   className="auth-form-name"></input>
+          <input  name="email"
+                  placeholder="Email"
+                  value={ this.state.email }
+                  onChange={ this.update("email") }
+                  className="auth-form-email"></input>
           <input  name="password"
                   placeholder="Password"
                   value={ this.state.password }
