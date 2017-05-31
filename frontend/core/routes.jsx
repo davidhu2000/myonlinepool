@@ -9,10 +9,18 @@ import MetricsContainer from 'modules/metrics';
 import LeaderboardContainer from 'modules/leaderboard';
 import ModeratorContainer from 'modules/moderator';
 import PoolContainer from 'modules/pool';
+import SigninContainer from 'modules/user/signin';
+import SignupContainer from 'modules/user/signup';
 
 const routes = (
   <Route path="/" component={ App }>
   <IndexRoute component={ SplashContainer }/>
+
+    <Route path="/signin" component={ SigninContainer }>
+    </Route>
+
+    <Route path="/signup" component={ SignupContainer }>
+    </Route>
 
     <Route path="/home" component={ HomeContainer }>
     </Route>
