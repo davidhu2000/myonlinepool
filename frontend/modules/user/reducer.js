@@ -1,10 +1,12 @@
-  
+import { AUTH } from './actions';
 
-let _defaultState = {};
+let _defaultState = null;
 
 const userReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
+    case AUTH.RECEIVE_USER:
+      return action.user;
     default:
       return state;
   }
