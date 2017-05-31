@@ -86,7 +86,12 @@ class Picks extends React.Component {
             </div>
         </div>
         <div className="picks-right">
+          <button>
           Favorites
+          </button>
+          <div className="picks-selection-container">
+            { this.createSelections() }
+          </div>
         </div>
       </div>
     );
