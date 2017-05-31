@@ -53,7 +53,7 @@ $drk-text: #CDCDCD;
     animation-name: welcomeIn;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
   }
 
@@ -71,10 +71,10 @@ $drk-text: #CDCDCD;
     margin-left: 100px;
     opacity: 0;
     animation-name: paraIn;
-    animation-delay: 3s;
+    animation-delay: 2s;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
   }
 
@@ -105,10 +105,10 @@ $drk-text: #CDCDCD;
   margin-left: 100px;
   opacity: 0;
   animation-name: midIn;
-  animation-delay: 6s;
+  animation-delay: 4s;
   animation-iteration-count: 1;
   animation-timing-function: ease-out;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
 
   h1 {
@@ -170,10 +170,10 @@ $drk-text: #CDCDCD;
     margin-left: 100px;
     opacity: 0;
     animation-name: bottomIn;
-    animation-delay: 9s;
+    animation-delay: 6s;
     animation-iteration-count: 1;
     animation-timing-function: ease-out;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
   }
 
