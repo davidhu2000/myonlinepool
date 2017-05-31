@@ -20,7 +20,18 @@
       padding-left: 5px;
       display: flex;
       justify-content: space-between;
+    }
 
+    .utility-row {
+      font-size: 12px;
+      width: 100%;
+      padding-left: 5px;
+      display: flex;
+      flex-direction: column;
+
+      .utility-item {
+        margin-top: 10px;
+      }
     }
 
     .reroute {

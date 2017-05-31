@@ -47,6 +47,14 @@ class SignIn extends React.Component {
                    className="auth-form-button"
                    value="Sign In"></input>
           </div>
+          <div className="utility-row">
+            <div>
+              Forgot your password?
+            </div>
+            <div className="utility-item">
+              Remember me?
+            </div>
+          </div>
         </form>
       </div>
     );
