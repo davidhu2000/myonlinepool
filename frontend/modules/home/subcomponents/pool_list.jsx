@@ -64,6 +64,14 @@ class PoolList extends React.Component {
     };
   }
 
+  clearField(field) {
+    return e => {
+      this.setState({
+        [field]: ""
+      });
+    };
+  }
+
   render() {
     return (
       <div className="pool-list">
@@ -93,31 +101,35 @@ class PoolList extends React.Component {
         { this.state.showJoin ?
           <form onSubmit={ this.submitJoin } className="pool-join-form">
             <input  name="joinName"
+                    placeholder="Pool Name"
                     value={ this.state.joinName }
                     onChange={ this.update("joinName") }
                     className="pool-form-name"></input>
             <input  name="joinPass"
+                    placeholder="Pool Password"
                     value={ this.state.joinPass }
                     onChange={ this.update("joinPass") }
                     className="pool-form-input"></input>
             <input type='submit'
                    className="pool-form-button"
-                   value="submit"></input>
+                   value="join"></input>
           </form> : null }
 
         { this.state.showCreate ?
           <form onSubmit={ this.submitCreate } className="pool-create-form">
             <input  name="createName"
+                    placeholder="Pool Name"
                     value={ this.state.createName }
                     onChange={ this.update("createName") }
                     className="pool-form-name"></input>
             <input  name="createPass"
+                    placeholder="Pool Password"
                     value={ this.state.createPass }
                     onChange={ this.update("createPass") }
                     className="pool-form-input"></input>
             <input type='submit'
                    className="pool-form-button"
-                   value="submit"></input>
+                   value="create"></input>
           </form> : null }
 
       </div>
