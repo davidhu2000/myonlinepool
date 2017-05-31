@@ -1,3 +1,7 @@
+$drk-primary: #1c1c1c;
+$lt-primary: #2d2d2d;
+$drk-text: #CDCDCD;
+
 .signup-container {
   width: 400px;
   font-size: 20px;
@@ -7,6 +11,7 @@
     flex-direction: column;
     align-items: flex-end;
     margin-bottom: 15px;
+
 
     .auth-form-name, .auth-form-password, .auth-form-email {
       width: 100%;
@@ -51,18 +56,21 @@
     }
 
     .auth-form-button {
-      padding: 5px 20px;
+      padding: 10px 20px;
+      font-size: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 2px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
-      transition: .2s;
+      transition: .3s;
+      background: $lt-primary;
+      color: white;
+      font-weight: bold;
     }
 
     .auth-form-button:hover {
-      color: #AF1E2C;
+      color: $drk-text;
     }
   }
 
