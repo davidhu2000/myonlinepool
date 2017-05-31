@@ -29,6 +29,7 @@
     "babel-preset-react": "^6.16.0",
     "lodash": "^4.17.4",
     "node-sass": "^4.5.3",
+    "prop-types": "^15.5.10",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-rating": "^0.3.0",

@@ -12,7 +12,7 @@ export const receiveUser = user => ({
 export const signin = user => dispatch => (
   AuthAPI.signin(user).then(
     res => dispatch(receiveUser(res))
-  ).catch(
+  ).fail(
     err => console.log(err)
   )
 );
@@ -20,7 +20,7 @@ export const signin = user => dispatch => (
 export const signout = () => dispatch => (
   AuthAPI.signout().then(
     () => dispatch(receiveUser(null))
-  ).catch(
+  ).fail(
     err => console.log(err)
   )
 );
@@ -28,7 +28,7 @@ export const signout = () => dispatch => (
 export const signup = user => dispatch => (
   AuthAPI.signup(user).then(
     res => dispatch(receiveUser(res))
-  ).catch(
+  ).fail(
     err => console.log(err)
   )
 );

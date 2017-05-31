@@ -1,7 +1,8 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router';
+import { withRouter, Link, hashHistory } from 'react-router';
+import PropTypes from 'prop-types';
 
-class SignUp extends React.Component {
+class AuthForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,6 +12,16 @@ class SignUp extends React.Component {
     };
 
     this.submitForm = this.submitForm.bind(this);
+  }
+
+  componentDidMount() {
+    this._redirectIfLoggedIn();
+  }
+
+  _redirectIfLoggedIn() {
+    if (this.props.loggedIn) {
+      hashHistory.replace('/home');
+    }
   }
 
   submitForm(e) {
@@ -81,4 +92,10 @@ class SignUp extends React.Component {
   }
 }
 
-export default withRouter(SignUp);
+AuthForm.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+  signin: PropTypes.func.isRequired,
+  signup: PropTypes.func.isRequired
+};
+
+export default withRouter(AuthForm);
