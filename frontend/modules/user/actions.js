@@ -9,16 +9,16 @@ export const receiveUser = user => ({
   user
 });
 
-export const login = user => dispatch => (
-  AuthAPI.login(user).then(
+export const signin = user => dispatch => (
+  AuthAPI.signin(user).then(
     res => dispatch(receiveUser(res))
   ).catch(
     err => console.log(err)
   )
 );
 
-export const logout = () => dispatch => (
-  AuthAPI.logout().then(
+export const signout = () => dispatch => (
+  AuthAPI.signout().then(
     () => dispatch(receiveUser(null))
   ).catch(
     err => console.log(err)
