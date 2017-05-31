@@ -22,6 +22,10 @@ $off-white: #e9ebee;
       font-size: 15px;
       opacity: .5;
   }
+
+  div:nth-child(3) {
+    color: #AF1E2C;
+  }
 }
 
 .standings-box-item {
@@ -29,6 +33,10 @@ $off-white: #e9ebee;
   // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-top: .2px rgba(51, 51, 51,.2) solid;
   padding: 5px;
+
+  div:nth-child(3) {
+    color: inherit;
+  }
 
   div {
     text-align: left;
@@ -67,5 +75,9 @@ $off-white: #e9ebee;
 
   .score, .losses {
     width: 75px;
+  }
+
+  div:nth-child(3) {
+    color: inherit;
   }
 }

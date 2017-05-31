@@ -38,7 +38,7 @@ class ChatBox extends React.Component {
   render() {
     return (
       <div className="chat-box">
-        <h2>Message Board</h2>
+        <h2>Messages</h2>
         <div className="message-container-container">
           <div className="message-container">
             {this.genList()}
