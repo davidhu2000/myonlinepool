@@ -10,7 +10,9 @@ class PoolList extends React.Component {
       showJoin: false,
       showCreate: false,
       joinName: "",
-      joinPass: ""
+      joinPass: "",
+      createName: "",
+      createPass: ""
     };
 
     this.genList = this.genList.bind(this);
