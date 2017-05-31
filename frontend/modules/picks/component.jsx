@@ -81,11 +81,9 @@ class Picks extends React.Component {
           <form className="picks-form">
           {this.createLinks()}
           </form> : null }
-          <div className="picks-selection-container-container">
             <div className="picks-selection-container">
               { this.createSelections() }
             </div>
-          </div>
         </div>
         <div className="picks-right">
           Favorites
