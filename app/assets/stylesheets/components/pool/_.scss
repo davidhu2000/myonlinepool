@@ -6,14 +6,12 @@ $drk-text: #CDCDCD;
 @import "mod_board";
 
 .pool-container {
-  min-height: 100%;
-  // width: 50%;
-  padding: 20px 0px;
+  height: 100%;
+  padding: 10px 0px;
   display: flex;
-  // flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  background: $off-white;
+  // background: $off-white;
 }
 
 .pool-standings {
