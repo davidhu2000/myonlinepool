@@ -38,14 +38,16 @@ class SignIn extends React.Component {
                   placeholder="Password"
                   value={ this.state.password }
                   onChange={ this.update("password") }
-                  className="auth-form-input"></input>
-          <input type='submit'
-                 className="auth-form-button"
-                 value="Sign In"></input>
+                  className="auth-form-password"></input>
+          <div className="submit-row">
+            <div className="reroute">
+              Don't have an Account? <span><Link to={`/signup`}> Sign Up</Link></span>
+            </div>
+            <input type='submit'
+                   className="auth-form-button"
+                   value="Sign In"></input>
+          </div>
         </form>
-        <div>
-          Don't have an Account? <span><Link to={`/signup`}>Sign Up</Link></span>
-        </div>
       </div>
     );
   }
