@@ -3,6 +3,15 @@ $off-white: #e9ebee;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
 
+@keyframes picksIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .picks-container {
   height: 100%;
   width: 50%;
@@ -10,7 +19,7 @@ $drk-text: #CDCDCD;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: $off-white;
+  background: white;
 
   .picks-left, .picks-right {
     position: relative;
@@ -18,8 +27,9 @@ $drk-text: #CDCDCD;
     flex-direction: column;
 
     button {
-      font-size: 25px;
-      margin-bottom: 10px;
+      font-size: 40px;
+      padding-left: 10px;
+      padding-bottom: 20px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -31,7 +41,8 @@ $drk-text: #CDCDCD;
     }
 
     .picks-selection-container {
-      width: 311px;
+      width: 331px;
+      padding: 10px;
       display: flex;
       flex-wrap: wrap;
       overflow-y: scroll;
@@ -47,8 +58,14 @@ $drk-text: #CDCDCD;
 
       img {
         width: 50px;
-        border-radius: 50%;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.24);
+        border-radius: 25%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        transition: .2s;
+        cursor: pointer;
+      }
+
+      img:hover {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
       }
 
       div {
@@ -62,15 +79,21 @@ $drk-text: #CDCDCD;
 
     .picks-form {
       position: absolute;
-      top: 4px;
-      left: -35px;
+      top: -50px;
+      left: -150px;
       display: flex;
-      flex-direction: column;
+      opacity: 0;
+      animation-name: picksIn;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-out;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
 
       button {
-        font-size: 20px;
+        font-size: 25px;
         cursor: pointer;
         transition: .5s;
+        padding-right: 10px;
         // border-bottom: .2px rgba(51, 51, 51,.2) solid;
       }
 
