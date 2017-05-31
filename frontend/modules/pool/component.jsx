@@ -1,8 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
-import StandingsBox from "../../common/components/standings_box";
-import ChatBox from "./subcomponents/chat_box";
-import ModBoard from "./subcomponents/mod_board";
+import StandingsBox from "common/components/standings_box";
+import { ChatBox, ModBoard } from "./subcomponents";
 
 class Pool extends React.Component {
   constructor(props) {
@@ -52,22 +51,22 @@ class Pool extends React.Component {
             </div>
           </div>
           <ChatBox
-            Chat={this.state.chat.slice(0,5)}
-            />
+            Chat={this.state.chat.slice(0, 5)}
+          />
           <ModBoard
-            Chat={this.state.modcoms.slice(0,5)}
+            Chat={this.state.modcoms.slice(0, 5)}
             Mod={this.state.moderator}
-            />
+          />
         </div>
         <div className="pool-standings">
           <StandingsBox
             Title="Week Total"
             Standings={this.state.standings}
-            />
+          />
           <StandingsBox
             Title="Season Total"
             Standings={this.state.standings}
-            />
+          />
         </div>
       </div>
     );

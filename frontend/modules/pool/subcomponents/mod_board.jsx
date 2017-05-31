@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import ModBoardItem from './mod_board_item';
+import { ModBoardItem } from './mod_board_item';
 
 class ModBoard extends React.Component {
   constructor(props) {
@@ -32,4 +32,4 @@ class ModBoard extends React.Component {
   }
 }
 
-export default ModBoard;
+export { ModBoard };

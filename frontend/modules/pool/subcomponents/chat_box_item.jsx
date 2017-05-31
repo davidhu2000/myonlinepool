@@ -10,4 +10,4 @@ const ChatBoxItem = props => {
   );
 };
 
-export default ChatBoxItem;
+export { ChatBoxItem };
