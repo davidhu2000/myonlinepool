@@ -43,6 +43,9 @@ class SignUp extends React.Component {
                  className="auth-form-button"
                  value="Sign Up"></input>
         </form>
+        <div>
+          Already have an Account? <span><Link to={`/signin`}>Sign In</Link></span>
+        </div>
       </div>
     );
   }

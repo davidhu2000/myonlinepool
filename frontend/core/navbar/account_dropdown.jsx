@@ -6,12 +6,12 @@ const AccountDropdown = props => {
   return (
     <div className="account-dropdown" id="account-dropdown">
       <div className="account-dropdown-list">
-        <a>
+        <Link to={`/signin`}>
           Sign In
-        </a>
-        <a>
+        </Link>
+        <Link to={`/signup`}>
           Sign Up
-        </a>
+        </Link>
         <Link to={`/`}>
           Splash
         </Link>
