@@ -1,12 +1,24 @@
 class Api::Users::SessionsController < Devise::SessionsController
   respond_to :json
   # before_action :configure_sign_in_params, only: [:create]
+  skip_before_action :require_no_authentication
+
   before_action :ensure_params_exist
 
   # GET /resource/sign_in
   # def new
   #   super
   # end
+
+  def after_sign_in_path_for(resource)
+    # sign_in_url = url_for(:action => 'show_info', :controller => 'sessions', :only_path => false, :protocol => 'http')
+    render json: ['testing']
+    return
+  end
+
+  def show_info 
+    render json: current_user
+  end
 
   # POST /resource/sign_in
   def create
