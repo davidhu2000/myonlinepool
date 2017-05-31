@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
+import './styles.scss';
 
 class Splash extends React.Component {
   constructor(props) {
