@@ -42,21 +42,39 @@ class AuthForm extends React.Component {
     };
   }
 
+  renderUtility() {
+    if (this.props.location.pathname === '/signin') {
+      return (
+        <div className="utility-row">
+          <div>
+            Forgot your password?
+          </div>
+          <div className="utility-item">
+            Remember me?
+          </div>
+        </div>
+      );
+    }
+  }
+
   render() {
     let submitValue;
     let otherForm;
     let otherLink;
+    let text;
 
     switch (this.props.location.pathname) {
       case '/signup':
         submitValue = 'Sign Up';
         otherForm = 'Sign in';
         otherLink = '/signin';
+        text = 'Already have an account?';
         break;
       default:
         submitValue = 'Sign In';
         otherForm = 'Sign up';
         otherLink = '/signup';
+        text = 'Don\'t have an account?';
     }
 
     return (
@@ -78,13 +96,15 @@ class AuthForm extends React.Component {
           />
           <div className="submit-row">
             <div className="reroute">
-              Already have an Account?
+              {text}
               <span>
                 <Link to={otherLink}>{otherForm}</Link>
               </span>
             </div>
             <input type='submit' className="auth-form-button" value={submitValue} />
+
           </div>
+          { this.renderUtility() }
         </form>
 
       </div>
