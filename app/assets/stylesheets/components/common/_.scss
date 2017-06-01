@@ -7,21 +7,23 @@ $white: #F6F7F9;
 @import "sign_in";
 
 .base-wrapper {
-  min-height: 1080px;;
+  height: 100vh;
+  min-height: 950px;;
   min-width: 900px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  // background-image: url('http://stmedia.startribune.com/images/ows_138759385328271.jpg');
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-attachment: fixed;
-  background:-webkit-gradient(linear, center bottom, center top, from(#105b9e), to(#82C6F5));
+  // background-image: url('http://www.csnbayarea.com/sites/csnbayarea/files/2016/11/28/nfl-logo.jpg');
+  background-image: url('http://cdn.pcwallart.com/images/blue-gradient-texture-wallpaper-3.jpgg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  // background:-webkit-gradient(linear, center bottom, center top, from(#105b9e), to(#82C6F5));
 }
 
 .base-container {
-  height: 80%;
-  width: 85%;
+  height: 100%;
+  width: 95%;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   // height: 95%;
   // width: 100%;
@@ -33,7 +35,6 @@ $white: #F6F7F9;
   justify-content: space-between;
   align-items: center;
   background: white;
-
 }
 
 .app-container {
@@ -41,7 +42,7 @@ $white: #F6F7F9;
   // min-height: 750px;
   width: 100%;
   min-width: 900px;
-  margin-top: 60px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
