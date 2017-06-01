@@ -7,23 +7,21 @@ import Navbar from './navbar/navbar';
 class App extends React.Component {
   constructor(props){
     super(props);
-
   }
 
   render() {
-    return(
-    <div className="relative-content">
+    return (
+      <div className="relative-content">
         <Navbar
-          Location={ this.props.location.pathname }
-          PoolId={ this.props.params.poolId }
-          />
+          Location={this.props.location.pathname}
+          PoolId={this.props.params.poolId}
+        />
 
         <div className="app-container">
           { this.props.children }
         </div>
 
-        <Footer
-          />
+        <Footer />
       </div>
     );
   }

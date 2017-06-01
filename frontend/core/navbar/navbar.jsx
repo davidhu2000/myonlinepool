@@ -4,7 +4,7 @@ import autoBind from 'react-autobind';
 
 import { toggleCover } from 'helpers/dropdown.js';
 
-import { PoolDropdown, SettingsDropdown, AccountDropdown, DropdownHOC } from './subcomponents';
+import { PoolDropdown, SettingsDropdown, AccountDropdown } from './subcomponents';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -12,8 +12,7 @@ class Navbar extends React.Component {
 
     this.state = {
       showRightDropdown: false,
-      showLeftDropdown: false,
-      dropdown: null
+      showLeftDropdown: false
     };
 
     autoBind(this);
@@ -42,23 +41,36 @@ class Navbar extends React.Component {
           />
         ) : null }
 
-        { this.state.showLeftDropdown && this.locationCheck() ? <PoolDropdown
-          PoolId={this.props.PoolId}
-          context={this}
-          toggleLeftDropdown={this.toggleLeftDropdown}
-          user={this.props.user}/> : null }
+        { this.state.showLeftDropdown && this.locationCheck() ? (
+          <PoolDropdown
+            PoolId={this.props.PoolId}
+            context={this}
+            toggleLeftDropdown={this.toggleLeftDropdown}
+            user={this.props.user}
+          />
+        ) : null }
 
-        <button className="info-button" onClick={this.toggleLeftDropdown}>
-          { this.state.showLeftDropdown ? <i
-            className="fa fa-angle-down"
-            aria-hidden="true" />    : <i
-            className="fa fa-angle-right"
-            aria-hidden="true"/> }
-          { this.locationCheck() ? <span>Pool</span>
-            : <span>Info</span> }
+        <button
+          className="info-button"
+          onClick={this.toggleLeftDropdown}
+          disabled={this.state.showLeftDropdown}
+        >
+          { this.state.showLeftDropdown ? (
+            <i className="fa fa-angle-down" aria-hidden="true" />
+          ) : (
+            <i className="fa fa-angle-right" aria-hidden="true" />
+          )}
+
+          { this.locationCheck() ? <span>Pool</span> : <span>Info</span> }
         </button>
+
         <h1>My Online Pool</h1>
-        <button className="account-button" onClick={this.toggleRightDropdown}>
+
+        <button
+          className="account-button"
+          onClick={this.toggleRightDropdown}
+          disabled={this.state.showRightDropdown}
+        >
           { this.state.showRightDropdown ? (
             <i className="fa fa-angle-down" aria-hidden="true" />
           ) : (
@@ -66,10 +78,15 @@ class Navbar extends React.Component {
           )}
           <span>Account</span>
         </button>
-        { this.state.showRightDropdown ? <AccountDropdown
-          context={this}
-          toggleRightDropdown={this.toggleRightDropdown}
-          user={this.props.user} /> : null }
+
+        { this.state.showRightDropdown ? (
+          <AccountDropdown
+            context={this}
+            toggleRightDropdown={this.toggleRightDropdown}
+            user={this.props.user}
+          />
+        ) : null }
+
       </div>
     );
   }
