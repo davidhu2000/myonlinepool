@@ -23,4 +23,4 @@ const PoolDropdown = props => {
   );
 };
 
-export default PoolDropdown;
+export { PoolDropdown };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
-const SettingsDropdown = props => {
+const SettingsDropdown = () => {
 
   return (
     <div className="settings-dropdown" id="settings-dropdown">
@@ -26,4 +26,4 @@ const SettingsDropdown = props => {
   );
 };
 
-export default SettingsDropdown;
+export { SettingsDropdown };

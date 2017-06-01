@@ -1,9 +1,9 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
-import AccountDropdown from './account_dropdown';
-import SettingsDropdown from './settings_dropdown';
-import PoolDropdown from './pool_dropdown';
-import { toggleCover } from '../../helpers/dropdown.js';
+
+import { toggleCover } from 'helpers/dropdown.js';
+
+import { PoolDropdown, SettingsDropdown, AccountDropdown } from './subcomponents';
 
 class Navbar extends React.Component {
   constructor(props) {
