@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter, Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
+import { FormGroup } from './subcomponents';
+
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +14,7 @@ class AuthForm extends React.Component {
     };
 
     this.submitForm = this.submitForm.bind(this);
+    this.update = this.update.bind(this);
   }
 
   componentDidMount() {
@@ -81,29 +84,19 @@ class AuthForm extends React.Component {
       <div className="signup-container">
         <form onSubmit={this.submitForm} className="auth-form">
 
-          <div className="authform-group">
-            <input
-              required
-              name="email"
-              value={this.state.email}
-              onChange={this.update("email")}
-              className="auth-form-name"
-            />
-            <span className="bar" />
-            <label htmlFor='email'>Email</label>
-          </div>
+          <FormGroup
+            update={this.update}
+            value={this.state.email}
+            type="email"
+            label="Email"
+          />
 
-          <div className="authform-group">
-            <input
-              required
-              name="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              className="auth-form-password"
-            />
-            <span className="bar" />
-            <label htmlFor='password'>Password</label>
-          </div>
+          <FormGroup
+            update={this.update}
+            value={this.state.password}
+            type="password"
+            label="Password"
+          />
           
           <div className="submit-row">
             <div className="reroute">
