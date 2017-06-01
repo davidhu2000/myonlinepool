@@ -6,9 +6,26 @@ $white: #F6F7F9;
 @import "standings_box";
 @import "sign_in";
 
-.relative-content {
-  height: 100vh;
+.base-wrapper {
+  min-height: 1080px;;
   min-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  // background-image: url('http://stmedia.startribune.com/images/ows_138759385328271.jpg');
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
+  background:-webkit-gradient(linear, center bottom, center top, from(#105b9e), to(#82C6F5));
+}
+
+.base-container {
+  height: 80%;
+  width: 85%;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  // height: 95%;
+  // width: 100%;
+  // margin-top: 5%;
   // min-height: 1080px;
   // position: relative;
   display: flex;
@@ -16,15 +33,12 @@ $white: #F6F7F9;
   justify-content: space-between;
   align-items: center;
   background: white;
-  // background-image: url('http://stmedia.startribune.com/images/ows_138759385328271.jpg');
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-attachment: fixed;
+
 }
 
 .app-container {
   height: 100%;
-  min-height: 750px;
+  // min-height: 750px;
   width: 100%;
   min-width: 900px;
   margin-top: 60px;
