@@ -40,28 +40,6 @@ class Pool extends React.Component {
   render() {
     return (
       <div className="pool-container">
-        <div className="pool-body">
-        <div className="pool-coms">
-          <div className="pool-message">
-            <div className="title">Office Pool {this.props.params.poolId}</div>
-            <div>
-              -Check standings
-            </div>
-            <div>
-              -Make picks
-            </div>
-            <div>
-              -Talk smack
-            </div>
-          </div>
-          <ChatBox
-            Chat={this.state.chat.slice(0, 20)}
-          />
-          <ModBoard
-            Chat={this.state.modcoms.slice(0, 5)}
-            Mod={this.state.moderator}
-          />
-        </div>
         <div className="pool-standings">
           <StandingsBox
             Title="Week Total"
@@ -72,6 +50,14 @@ class Pool extends React.Component {
             Standings={this.state.standings}
           />
         </div>
+        <div className="pool-coms">
+          <ChatBox
+            Chat={this.state.chat.slice(0, 20)}
+          />
+          <ModBoard
+            Chat={this.state.modcoms.slice(0, 5)}
+            Mod={this.state.moderator}
+          />
         </div>
       </div>
     );

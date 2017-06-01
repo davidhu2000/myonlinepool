@@ -5,20 +5,22 @@ $off-white: #e9ebee;
 $white: #F6F7F9;
 
 .chat-box {
-  width: 100%;
-  padding: 5px;
-  background: white;
-  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  width: 420px;
+  margin-right: 15px;
+  padding: 0px 5px;
+  padding-top: 30px;
+  // padding: 5px;
+  // background: white;
   font-family: 'Karla', sans-serif;
+  position: relative;
 
   h2 {
-    width: 100%;
-    padding: 10px 5px;
-    line-height: 18px;
-    margin-bottom: 5px;
-    font-size: 18px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    font-size: 20px;
+    text-align: left;
+    opacity: .5;
   }
 
   .message-container-container {
@@ -26,8 +28,8 @@ $white: #F6F7F9;
   }
 
   .message-container {
-    height: 488px;
-    overflow-y: scroll;
+    height: 200px;
+    overflow-y: auto;
 
     .chat-box-item {
       font-size: 12px;
@@ -51,7 +53,7 @@ $white: #F6F7F9;
       height: 30px;
       width: 80%;
       padding-left: 5px;
-      border: .2px rgba(51, 51, 51,.2) solid;
+      border-bottom: .2px rgba(51, 51, 51,.2) solid;
       font-size: 15px;
     }
 
