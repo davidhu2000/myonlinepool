@@ -80,14 +80,22 @@ class AuthForm extends React.Component {
     return (
       <div className="signup-container">
         <form onSubmit={this.submitForm} className="auth-form">
+
+          <div className="authform-group">
+            <input
+              required
+              name="email"
+              value={this.state.email}
+              onChange={this.update("email")}
+              className="auth-form-name"
+            />
+            <span className="bar" />
+            <label htmlFor='email'>Email</label>
+          </div>
+
+
           <input
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.update("email")}
-            className="auth-form-name"
-          />
-          <input
+            required
             name="password"
             placeholder="Password"
             value={this.state.password}
