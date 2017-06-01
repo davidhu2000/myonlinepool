@@ -29,32 +29,36 @@ $white: #F6F7F9;
 }
 
 .pool-list {
-  width: 100%;
-  padding: 5px;
-  background: white;
+  width: 420px;
   position: relative;
   border-radius: 5px;
-  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding-top: 30px;
 
   .pool-list-top-item {
-    padding: 10px 5px;
-    font-size: 18px;
-    line-height: 18px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE))
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    font-size: 20px;
+    text-align: left;
+    opacity: .5;
   }
 
   .pool-list-item {
-    width: 100%;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    // width: 100%;
+    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: .25s;
-    margin-top: 5px;
+    // margin-top: 5px;
+    padding-left: 5px;
 
     div {
       width: 100%;
       padding: 10px 5px;
-      font-size: 15px;
+      // font-size: 15px;
       cursor: pointer;
+    }
+
+    i {
+      margin-right: 5px;
     }
   }
 
@@ -64,7 +68,7 @@ $white: #F6F7F9;
 
   .pool-join-button, .pool-create-button {
     width: 100%;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: .25s;
     margin-top: 5px;
     padding: 7px 5px;
@@ -81,7 +85,7 @@ $white: #F6F7F9;
   .pool-create-form {
     width: 200px;
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
     // left: -205px;
     left: -405px;
     padding: 5px;
@@ -133,7 +137,7 @@ $white: #F6F7F9;
   .pool-join-form {
     width: 200px;
     position: absolute;
-    bottom: 44px;
+    bottom: 40px;
     // left: -205px;
     left: -405px;
     padding: 5px;

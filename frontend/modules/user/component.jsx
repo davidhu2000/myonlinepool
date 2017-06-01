@@ -99,7 +99,7 @@ class AuthForm extends React.Component {
             type="password"
             label="Password"
           />
-          
+
           <div className="submit-row">
             <div className="reroute">
               {text}

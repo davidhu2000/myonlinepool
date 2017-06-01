@@ -26,7 +26,7 @@ $drk-text: #CDCDCD;
 
 .navbar-container {
   height: 50px;
-  width: 100%;
+  width: 95%;
   min-width: 900px;
   padding: 0px 100px;
   position: fixed;
@@ -61,7 +61,7 @@ $drk-text: #CDCDCD;
     font-size: 15px;
     font-weight: bold;
     transition: .5s;
-    right: 10%;
+    right: 5%;
 
     i {
       position: absolute;
@@ -78,7 +78,7 @@ $drk-text: #CDCDCD;
     font-size: 15px;
     font-weight: bold;
     transition: .5s;
-    left: 10%;
+    left: 5%;
 
     i {
       position: absolute;

@@ -7,7 +7,9 @@ const PoolListItem = props => {
     <div className="pool-list-item">
       <Link to={`/pool/${props.Id}`}>
         <div>
-          {props.Name}
+          <i
+          className="fa fa-angle-right"
+          aria-hidden="true"/> {props.Name}
         </div>
       </Link>
     </div>

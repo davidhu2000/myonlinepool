@@ -1,20 +1,20 @@
 .modboard {
-  width: 100%;
-  padding: 5px;
-  margin-top: 10px;
-  background: white;
-  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  width: 420px;
+  margin-left: 15px;
+  padding: 0px 5px;
+  padding-top: 30px;
+  position: relative;
 
   h2 {
-    width: 100%;
-    font-size: 18px;
-    line-height: 18px;
-    padding: 10px 5px;
-    margin-bottom: 5px;
-    border-radius: 0px;
+    // width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 5px;
     font-size: 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
+    text-align: left;
+    opacity: .5;
+    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    // background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
   }
 
   .modboard-container-container {
@@ -24,8 +24,8 @@
   }
 
   .modboard-container {
-    height: 118px;
-    overflow-y: scroll;
+    height: 200px;
+    overflow-y: auto; 
 
     .modboard-item {
       font-size: 12px;

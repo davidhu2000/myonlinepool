@@ -18,7 +18,9 @@ class Home extends React.Component {
         {name: "cinco", score: 2, losses: 88, pool: "family pool 1"},
         {name: "clowney", score: 103, losses: 3, pool: "family pool 3"},
         {name: "watt", score: 77, losses: 5, pool: "random pool 2"},
-        {name: "sanders", score: 44, losses: 3, pool: "random pool 1"}
+        {name: "sanders", score: 44, losses: 3, pool: "random pool 1"},
+        {name: "ditka", score: 23, losses: 2, pool: "office pool 2"},
+        {name: "brady", score: 54, losses: 28, pool: "random pool 1"}
       ],
       pools: [
         {id: 1, name: "office"},
@@ -31,33 +33,25 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
-        <div className="home-body">
-        <div className="home-left">
-          <div className="home-message">
-            <div className="title">Welcome</div>
-            <div>-Create or join a pool</div>
-            <div>-Browse your pools</div>
-            <div>-Checkout leaderboards</div>
-          </div>
+        <div className="home-top">
+          <StandingsBox
+            Title="Weekly Leaders"
+            Standings={this.state.standings}
+            key={Math.random()}
+            />
+          <StandingsBox
+            Title="Season Leaders"
+            Standings={this.state.standings}
+            key={Math.random()}
+            />
+        </div>
+        <div className="home-bottom">
           <PoolList
             Title="My Pools"
             Pools={this.state.pools}
             key={Math.random()}
             />
         </div>
-        <div className="home-right">
-          <StandingsBox
-            Title="Week Total"
-            Standings={this.state.standings}
-            key={Math.random()}
-            />
-          <StandingsBox
-            Title="Season Total"
-            Standings={this.state.standings}
-            key={Math.random()}
-            />
-          </div>
-        </div>  
       </div>
     );
   }

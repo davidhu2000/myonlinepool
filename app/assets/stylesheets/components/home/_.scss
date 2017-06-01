@@ -6,30 +6,50 @@ $white: #F6F7F9;
 @import "pool_list";
 
 .home-container {
-  height: 100%;
-  // width: 50%;
-  // padding: 10px 0px;
+  // height: 100%;
+  // width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+
+  .standings-box {
+
+  }
 }
 
-.home-body {
+.home-top {
+  margin-bottom: 25px;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  div:first-child {
+    margin-right: 15px;
+  }
+
+  div:last-child {
+    margin-left: 15px;
+  }
+
+  .standings-box {
+    div:first-child {
+      margin-right: 0px;
+    }
+    div:last-child {
+      margin-left: 0px;
+    }
+  }
 }
 
-.home-left {
-  width: 300px;
+.home-bottom {
+  width: 100%;
+  padding-left: 5px;
   display: flex;
-  flex-direction: column;
-}
-
-.home-right {
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .home-message {
+  width: 420px;
   margin: 5px;
   margin-bottom: 10px;
   padding: 5px;
