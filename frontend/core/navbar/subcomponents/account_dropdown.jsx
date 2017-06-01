@@ -4,7 +4,9 @@ import enhanceWithClickOutside from 'react-click-outside';
 
 class Dropdown extends React.Component {
   handleClickOutside(e) {
-    this.props.toggleRightDropdown();
+    if (e.path[1].id !== 'right-dropdown-button') {
+      this.props.toggleRightDropdown();
+    }
   }
 
   render() {
