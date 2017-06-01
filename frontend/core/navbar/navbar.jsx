@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
+import autoBind from 'react-autobind';
 
 import { toggleCover } from 'helpers/dropdown.js';
 
@@ -14,12 +15,12 @@ class Navbar extends React.Component {
       showSettings: false
     };
 
-    this.locationCheck = this.locationCheck.bind(this);
+    autoBind(this);
   }
 
   toggleDropdown() {
     if (this.state.showSettings) {
-      this.setState({ showSettings: false, showDropdown: !this.state.showDropdown});
+      this.setState({ showSettings: false, showDropdown: !this.state.showDropdown });
     } else {
       this.setState({ showDropdown: !this.state.showDropdown });
     }
@@ -27,9 +28,9 @@ class Navbar extends React.Component {
 
   toggleSettings() {
     if (this.state.showDropdown) {
-      this.setState({ showDropdown: false, showSettings: !this.state.showSettings});
+      this.setState({ showDropdown: false, showSettings: !this.state.showSettings });
     } else {
-      this.setState({ showSettings: !this.state.showSettings});
+      this.setState({ showSettings: !this.state.showSettings });
     }
   }
 
@@ -42,14 +43,14 @@ class Navbar extends React.Component {
       <div className='navbar-container'>
         { this.state.showSettings && !this.locationCheck() ? <SettingsDropdown
           context={this}
-          toggleSettings={this.toggleSettings.bind(this)}
+          toggleSettings={this.toggleSettings}
           user={this.props.user}/> : null }
         { this.state.showSettings && this.locationCheck() ? <PoolDropdown
           PoolId={this.props.PoolId}
           context={this}
-          toggleSettings={this.toggleSettings.bind(this)}
+          toggleSettings={this.toggleSettings}
           user={this.props.user}/> : null }
-        <button className="info-button" onClick={this.toggleSettings.bind(this)}>
+        <button className="info-button" onClick={this.toggleSettings}>
           { this.state.showSettings ? <i
             className="fa fa-angle-down"
             aria-hidden="true"/>    : <i
@@ -69,7 +70,7 @@ class Navbar extends React.Component {
         </button>
         { this.state.showDropdown ? <AccountDropdown
           context={this}
-          toggleDropdown={this.toggleDropdown.bind(this)}
+          toggleDropdown={this.toggleDropdown}
           user={this.props.user}/> : null }
       </div>
     );
