@@ -4,34 +4,27 @@ import autoBind from 'react-autobind';
 
 import { toggleCover } from 'helpers/dropdown.js';
 
-import { PoolDropdown, SettingsDropdown, AccountDropdown } from './subcomponents';
+import { PoolDropdown, SettingsDropdown, AccountDropdown, DropdownHOC } from './subcomponents';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showDropdown: false,
-      showSettings: false
+      showRightDropdown: false,
+      showLeftDropdown: false,
+      dropdown: null
     };
 
     autoBind(this);
   }
 
-  toggleDropdown() {
-    if (this.state.showSettings) {
-      this.setState({ showSettings: false, showDropdown: !this.state.showDropdown });
-    } else {
-      this.setState({ showDropdown: !this.state.showDropdown });
-    }
+  toggleRightDropdown() {
+    this.setState({ showLeftDropdown: false, showRightDropdown: !this.state.showRightDropdown });
   }
 
-  toggleSettings() {
-    if (this.state.showDropdown) {
-      this.setState({ showDropdown: false, showSettings: !this.state.showSettings });
-    } else {
-      this.setState({ showSettings: !this.state.showSettings });
-    }
+  toggleLeftDropdown() {
+    this.setState({ showRightDropdown: false, showLeftDropdown: !this.state.showLeftDropdown });
   }
 
   locationCheck() {
@@ -41,37 +34,42 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className='navbar-container'>
-        { this.state.showSettings && !this.locationCheck() ? <SettingsDropdown
-          context={this}
-          toggleSettings={this.toggleSettings}
-          user={this.props.user}/> : null }
-        { this.state.showSettings && this.locationCheck() ? <PoolDropdown
+        { this.state.showLeftDropdown && !this.locationCheck() ? (
+          <SettingsDropdown
+            context={this}
+            toggleLeftDropdown={this.toggleLeftDropdown}
+            user={this.props.user}
+          />
+        ) : null }
+
+        { this.state.showLeftDropdown && this.locationCheck() ? <PoolDropdown
           PoolId={this.props.PoolId}
           context={this}
-          toggleSettings={this.toggleSettings}
+          toggleLeftDropdown={this.toggleLeftDropdown}
           user={this.props.user}/> : null }
-        <button className="info-button" onClick={this.toggleSettings}>
-          { this.state.showSettings ? <i
+
+        <button className="info-button" onClick={this.toggleLeftDropdown}>
+          { this.state.showLeftDropdown ? <i
             className="fa fa-angle-down"
-            aria-hidden="true"/>    : <i
+            aria-hidden="true" />    : <i
             className="fa fa-angle-right"
             aria-hidden="true"/> }
           { this.locationCheck() ? <span>Pool</span>
             : <span>Info</span> }
         </button>
         <h1>My Online Pool</h1>
-        <button className="account-button" onClick={this.toggleDropdown.bind(this)}>
-          { this.state.showDropdown ? (
+        <button className="account-button" onClick={this.toggleRightDropdown}>
+          { this.state.showRightDropdown ? (
             <i className="fa fa-angle-down" aria-hidden="true" />
           ) : (
-            <i className="fa fa-angle-right" aria-hidden="true" /> 
+            <i className="fa fa-angle-right" aria-hidden="true" />
           )}
           <span>Account</span>
         </button>
-        { this.state.showDropdown ? <AccountDropdown
+        { this.state.showRightDropdown ? <AccountDropdown
           context={this}
-          toggleDropdown={this.toggleDropdown}
-          user={this.props.user}/> : null }
+          toggleRightDropdown={this.toggleRightDropdown}
+          user={this.props.user} /> : null }
       </div>
     );
   }
