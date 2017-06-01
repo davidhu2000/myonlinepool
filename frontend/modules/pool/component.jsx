@@ -42,11 +42,11 @@ class Pool extends React.Component {
       <div className="pool-container">
         <div className="pool-standings">
           <StandingsBox
-            Title="Week Total"
+            Title="Weekly Leaders"
             Standings={this.state.standings}
           />
           <StandingsBox
-            Title="Season Total"
+            Title="Season Leaders"
             Standings={this.state.standings}
           />
         </div>
