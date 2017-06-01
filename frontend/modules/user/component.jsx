@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
+import autoBind from 'react-autobind';
 
 import { FormGroup } from './subcomponents';
 
@@ -13,8 +14,7 @@ class AuthForm extends React.Component {
       password: ""
     };
 
-    this.submitForm = this.submitForm.bind(this);
-    this.update = this.update.bind(this);
+    autoBind(this);
   }
 
   componentDidMount() {
@@ -37,6 +37,8 @@ class AuthForm extends React.Component {
       default:
         this.props.signin(this.state);
     }
+
+    hashHistory.push('/home');
   }
 
   update(field) {

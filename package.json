@@ -31,6 +31,7 @@
     "node-sass": "^4.5.3",
     "prop-types": "^15.5.10",
     "react": "^15.4.2",
+    "react-autobind": "^1.0.6",
     "react-dom": "^15.4.2",
     "react-rating": "^0.3.0",
     "react-redux": "^5.0.1",
