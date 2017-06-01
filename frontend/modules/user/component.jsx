@@ -93,15 +93,18 @@ class AuthForm extends React.Component {
             <label htmlFor='email'>Email</label>
           </div>
 
-
-          <input
-            required
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.update("password")}
-            className="auth-form-password"
-          />
+          <div className="authform-group">
+            <input
+              required
+              name="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              className="auth-form-password"
+            />
+            <span className="bar" />
+            <label htmlFor='password'>Password</label>
+          </div>
+          
           <div className="submit-row">
             <div className="reroute">
               {text}
