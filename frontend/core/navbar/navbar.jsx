@@ -31,6 +31,7 @@ class Navbar extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className='navbar-container'>
         { this.state.showLeftDropdown && !this.locationCheck() ? (
@@ -52,7 +53,6 @@ class Navbar extends React.Component {
           id='left-dropdown-button'
           className="info-button"
           onClick={this.toggleLeftDropdown}
-          disabled={this.state.showLeftDropdown}
         >
           { this.state.showLeftDropdown ? (
             <i className="fa fa-angle-down" aria-hidden="true" />

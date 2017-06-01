@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 import enhanceWithClickOutside from 'react-click-outside';
 
 class Dropdown extends React.Component {
-  handleClickOutside() {
-    if (e.path[1].id !== 'left-dropdown-button') {
+  handleClickOutside(e) {
+    if (![e.path[0].id, e.path[1].id].includes('left-dropdown-button')) {
       this.props.toggleLeftDropdown();
     }
   }
