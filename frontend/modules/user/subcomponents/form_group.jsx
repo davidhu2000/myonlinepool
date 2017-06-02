@@ -5,7 +5,8 @@ const FormGroup = ({ update, type, value, label  }) => (
   <div className="authform-group">
     <input
       required
-      name="password"
+      name={type}
+      type={type === 'password' ? 'password' : 'text'}
       value={value}
       onChange={update(type)}
       className="auth-form-password"
