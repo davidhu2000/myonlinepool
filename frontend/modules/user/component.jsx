@@ -11,7 +11,8 @@ class AuthForm extends React.Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      name: ""
     };
 
     autoBind(this);
@@ -67,8 +68,9 @@ class AuthForm extends React.Component {
     let otherForm;
     let otherLink;
     let text;
+    let path = this.props.location.pathname;
 
-    switch (this.props.location.pathname) {
+    switch (path) {
       case '/signup':
         submitValue = 'Sign Up';
         otherForm = 'Sign in';
@@ -85,6 +87,15 @@ class AuthForm extends React.Component {
     return (
       <div className="signup-container">
         <form onSubmit={this.submitForm} className="auth-form">
+
+          { path === '/signup' ? (
+            <FormGroup
+              update={this.update}
+              value={this.state.name}
+              type='name'
+              label='Full Name'
+            />
+          ) : null }
 
           <FormGroup
             update={this.update}
