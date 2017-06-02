@@ -31,7 +31,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className='navbar-container'>
         { this.state.showLeftDropdown && !this.locationCheck() ? (
