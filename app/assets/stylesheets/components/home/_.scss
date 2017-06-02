@@ -14,7 +14,7 @@ $white: #F6F7F9;
 }
 
 .home-bulletin {
-  height: 300px;
+  height: 431px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -22,6 +22,10 @@ $white: #F6F7F9;
 
   .modboard {
     width: 870px;
+
+    .modboard-container {
+      height: 300px;
+    }
   }
 }
 
@@ -63,7 +67,7 @@ $white: #F6F7F9;
 }
 
 .home-bottom {
-  height: 431px;
+  height: 300px;
   padding: 20px 0px;
   display: flex;
   flex-direction: row;
