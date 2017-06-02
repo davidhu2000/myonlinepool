@@ -7,24 +7,20 @@ $white: #F6F7F9;
 @keyframes poolJoinIn {
   0% {
     opacity: 0;
-    left: -405px;
   }
 
   100% {
     opacity: 1;
-    left: -205px;
   }
 }
 
 @keyframes poolCreateIn {
   0% {
     opacity: 0;
-    left: -405;
   }
 
   100% {
     opacity: 1;
-    left: -205px;
   }
 }
 
@@ -39,7 +35,7 @@ $white: #F6F7F9;
   .pool-list-top-item {
     position: absolute;
     top: 0px;
-    left: 5px;
+    left: 10px;
     font-size: 20px;
     text-align: left;
     opacity: .5;
@@ -65,7 +61,7 @@ $white: #F6F7F9;
   }
 
   .pool-list-item:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    color: #AF1E2C;
   }
 
   .pool-join-button, .pool-create-button {
@@ -81,7 +77,7 @@ $white: #F6F7F9;
   }
 
   .pool-join-button:hover, .pool-create-button:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    color: #AF1E2C;
   }
 
   .pool-create-form {
@@ -89,7 +85,7 @@ $white: #F6F7F9;
     position: absolute;
     bottom: 0px;
     // left: -205px;
-    left: -405px;
+    left: -205px;
     padding: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
@@ -141,7 +137,7 @@ $white: #F6F7F9;
     position: absolute;
     bottom: 40px;
     // left: -205px;
-    left: -405px;
+    left: -205px;
     padding: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
