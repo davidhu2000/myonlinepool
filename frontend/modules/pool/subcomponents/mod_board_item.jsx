@@ -5,7 +5,7 @@ const ModBoardItem = props => {
 
   return (
     <div className="modboard-item">
-      <span>moderator:</span> {props.Message}
+      <span>admin:</span> {props.Message}
     </div>
   );
 };

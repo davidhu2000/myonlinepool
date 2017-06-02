@@ -1,5 +1,5 @@
 .modboard {
-  width: 420px;
+  // width: 420px;
   margin-left: 15px;
   padding: 0px 5px;
   padding-top: 30px;
@@ -24,8 +24,8 @@
   }
 
   .modboard-container {
-    height: 200px;
-    overflow-y: auto; 
+    height: 150px;
+    overflow-y: auto;
 
     .modboard-item {
       font-size: 12px;
