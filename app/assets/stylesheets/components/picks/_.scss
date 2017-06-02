@@ -17,6 +17,14 @@ $drk-text: #CDCDCD;
   display: flex;
   align-items: center;
 
+  .picks-left {
+    margin-right: 25px;
+  }
+
+  .picks-right {
+    margin-left: 25px;
+  }
+
   .picks-left, .picks-right {
     position: relative;
     display: flex;

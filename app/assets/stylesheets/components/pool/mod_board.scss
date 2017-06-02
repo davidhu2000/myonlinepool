@@ -1,6 +1,5 @@
 .modboard {
-  width: 420px;
-  margin-left: 15px;
+  // width: 420px;
   padding: 0px 5px;
   padding-top: 30px;
   position: relative;
@@ -9,7 +8,7 @@
     // width: 100%;
     position: absolute;
     top: 0px;
-    left: 5px;
+    left: 10px;
     font-size: 20px;
     text-align: left;
     opacity: .5;
@@ -24,18 +23,23 @@
   }
 
   .modboard-container {
-    height: 200px;
-    overflow-y: auto; 
+    height: 150px;
+    overflow-y: auto;
 
     .modboard-item {
-      font-size: 12px;
-      line-height: 15px;
-      margin: 2.5px 0px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
 
-      span {
-        color: #AF1E2C;
+      .author {
         font-size: 15px;
-        text-decoration: underline;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .message {
+        font-size: 12px;
       }
     }
   }

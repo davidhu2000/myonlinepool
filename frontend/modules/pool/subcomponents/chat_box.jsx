@@ -39,20 +39,25 @@ class ChatBox extends React.Component {
     return (
       <div className="chat-box">
         <h2>Messages</h2>
+        <form onSubmit={ this.submitPost } className="chat-form">
+          <div>
+          <input  name="post"
+                  value={ this.state.post }
+                  onChange={ this.update("post") }
+                  className="chat-input"></input>
+          </div>
+          <div className="chat-form-button-row">
+          <input type='submit'
+                 className="chat-form-button"
+                 value="submit"></input>
+          </div>
+        </form>
         <div className="message-container-container">
           <div className="message-container">
             {this.genList()}
           </div>
         </div>
-        <form onSubmit={ this.submitPost } className="chat-form">
-          <input  name="post"
-                  value={ this.state.post }
-                  onChange={ this.update("post") }
-                  className="chat-input"></input>
-          <input type='submit'
-                 className="chat-form-button"
-                 value="submit"></input>
-        </form>
+
       </div>
     );
   }

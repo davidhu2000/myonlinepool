@@ -6,22 +6,47 @@ $white: #F6F7F9;
 @import "pool_list";
 
 .home-container {
-  // height: 100%;
-  // width: 100%;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+}
+
+.home-bulletin {
+  height: 431px;
+  width: 100%;
+  display: flex;
   justify-content: center;
+  align-items: center;
 
-  .standings-box {
+  .modboard {
+    width: 870px;
 
+    .modboard-container {
+      height: 300px;
+    }
   }
 }
 
 .home-top {
-  margin-bottom: 25px;
+  width: 100%;
+  height: 431px;
+  // padding: 20px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  background: $lt-primary;
+
+  .standings-box {
+    font-size: 12px;
+    color: white;
+    .standings-box-top-item{
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
 
   div:first-child {
     margin-right: 15px;
@@ -42,10 +67,11 @@ $white: #F6F7F9;
 }
 
 .home-bottom {
-  width: 100%;
-  padding-left: 5px;
+  height: 300px;
+  padding: 20px 0px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .home-message {

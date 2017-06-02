@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
-import './styles.scss';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -21,11 +20,11 @@ class Splash extends React.Component {
         <div className="splash-mid">
           <h1>Play with your favorite teams</h1>
           <div className="splash-mid-carousel">
-            <img className="shield" src="assets/shield.svg"/>
-            <img src="assets/cardinals.png"/>
-            <img src="assets/bears.png"/>
-            <img src="assets/bills.png"/>
-            <img src="assets/panthers.png"/>
+            <img src="assets/logos/Raiders.gif"/>
+            <img src="assets/logos/Cardinals.gif"/>
+            <img src="assets/logos/Bears.gif"/>
+            <img src="assets/logos/Bills.gif"/>
+            <img src="assets/logos/Panthers.gif"/>
           </div>
         </div>
         <div className="splash-bottom">
