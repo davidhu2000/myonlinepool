@@ -1,6 +1,7 @@
-  
-
-let _defaultState = {};
+let _defaultState = {
+  name: "Alex",
+  id: 1
+};
 
 const userReducer = (state = _defaultState, action) => {
   Object.freeze(state);
