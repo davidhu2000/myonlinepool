@@ -11,10 +11,12 @@ class ChatBox extends React.Component {
     }
 
     this.submitPost = this.submitPost.bind(this);
+    this.sendMessage = this.props.Dispatch.bind(this);
   }
 
   submitPost(e) {
     e.preventDefault();
+    this.sendMessage({name:"alex", message:"hi"});
   }
 
   update(field) {
