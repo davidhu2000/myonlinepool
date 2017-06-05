@@ -14,7 +14,7 @@ $white: #F6F7F9;
 }
 
 .home-bulletin {
-  height: 431px;
+  min-height: 431px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -24,14 +24,14 @@ $white: #F6F7F9;
     width: 870px;
 
     .modboard-container {
-      height: 300px;
+      height: 340px;
     }
   }
 }
 
 .home-top {
   width: 100%;
-  height: 431px;
+  min-height: 431px;
   // padding: 20px 0px;
   display: flex;
   flex-direction: row;
@@ -67,7 +67,7 @@ $white: #F6F7F9;
 }
 
 .home-bottom {
-  height: 300px;
+  min-height: 300px;
   padding: 20px 0px;
   display: flex;
   flex-direction: row;
