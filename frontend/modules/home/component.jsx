@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
-import StandingsBox from '../../common/components/standings_box';
+import StandingsBox from 'common/components/standings_box';
 import PoolList from './subcomponents/pool_list';
 import { ModBoard } from 'modules/pool/subcomponents';
 

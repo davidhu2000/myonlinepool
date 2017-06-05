@@ -1,0 +1,34 @@
+import React from 'react';
+import { Link } from 'react-router';
+import enhanceWithClickOutside from 'react-click-outside';
+
+class Dropdown extends React.Component {
+  handleClickOutside(e) {
+    if (![e.path[0].id, e.path[1].id].includes('left-dropdown-button')) {
+      this.props.toggleLeftDropdown();
+    }
+  }
+
+  render() {
+    return (
+      <div className="pool-dropdown" id="pool-dropdown">
+        <div className="pool-dropdown-list">
+          <Link to={`/pool/1`}>
+            Pool Homepage {this.props.PoolId}
+          </Link>
+          <Link to={`/pool/1/picks`}>
+            Picks
+          </Link>
+          <Link to={`/pool/1/leaderboard`}>
+            Leaderboard
+          </Link>
+          <Link to={`/pool/1/moderator`}>
+            Moderator
+          </Link>
+        </div>
+      </div>
+    );
+  }
+}
+
+export const PoolDropdown = enhanceWithClickOutside(Dropdown);

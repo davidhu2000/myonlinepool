@@ -7,25 +7,21 @@ import Navbar from './navbar/navbar';
 class App extends React.Component {
   constructor(props){
     super(props);
-
   }
 
   render() {
-    return(
-    <div className="base-wrapper">
-      <div className="base-container">
-          <Navbar
-            Location={ this.props.location.pathname }
-            PoolId={ this.props.params.poolId }
-            />
+    return (
+      <div className="relative-content">
+        <Navbar
+          Location={this.props.location.pathname}
+          PoolId={this.props.params.poolId}
+        />
 
-          <div className="app-container">
-            { this.props.children }
-          </div>
-
-          <Footer
-            />
+        <div className="app-container">
+          { this.props.children }
         </div>
+
+        <Footer />
       </div>
     );
   }
