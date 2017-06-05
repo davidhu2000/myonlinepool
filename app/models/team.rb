@@ -2,12 +2,13 @@
 #
 # Table name: teams
 #
-#  id         :integer          not null, primary key
-#  name       :string           not null
-#  city       :string           not null
-#  league     :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  name         :string           not null
+#  city         :string           not null
+#  league       :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  abbreviation :string
 #
 
 class Team < ApplicationRecord

@@ -27,4 +27,6 @@ class Pool < ApplicationRecord
   has_many :members, through: :memberships, source: :user
 
   has_many :picks
+  has_many :messages
+  has_many :bulletins
 end

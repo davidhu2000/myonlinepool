@@ -12,6 +12,7 @@
 #  completed  :boolean          default("false"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  start_time :date             not null
 #
 
 require 'test_helper'
