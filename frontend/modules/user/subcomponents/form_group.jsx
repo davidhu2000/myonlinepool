@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FormGroup = ({ update, type, value, label  }) => (
+const FormGroup = ({ update, type, value, label }) => (
   <div className="authform-group">
     <input
       required
