@@ -11,7 +11,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="relative-content">
+      <div className="base-wrapper">
+      <div className="base-container">
         <Navbar
           Location={this.props.location.pathname}
           PoolId={this.props.params.poolId}
@@ -22,6 +23,7 @@ class App extends React.Component {
         </div>
 
         <Footer />
+      </div>
       </div>
     );
   }
