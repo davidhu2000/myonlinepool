@@ -31,19 +31,19 @@ class Picks extends React.Component {
         {game_id: 1, home: "Cowboys", away:"Patriots", pick: "home"},
         {game_id: 2, home: "Raiders", away:"Seahawks", pick: "away"},
         {game_id: 3, home: "Giants", away: "Stealers", pick: "home"},
-        {game_id: 4, home: "Packers", away: "Broncos"},
-        {game_id: 5, home: "Vikings", away: "49ers"},
-        {game_id: 6, home: "Eagles", away: "Redskins"},
-        {game_id: 7, home: "Lions", away: "Texans"},
-        {game_id: 8, home: "Saints", away: "Panthers"},
-        {game_id: 9, home: "Bears", away: "Cardinals"},
-        {game_id: 10, home: "Browns", away: "Falcons"},
-        {game_id: 11, home: "Ravens", away: "Jets"},
-        {game_id: 12, home: "Bills", away: "Rams"},
-        {game_id: 13, home: "Chargers", away: "Chiefs"},
-        {game_id: 14, home: "Colts", away: "Bengals"},
-        {game_id: 15, home: "Dolphins", away: "Buccaneers"},
-        {game_id: 16, home: "Titans", away: "Jaguars"}
+        {game_id: 4, home: "Packers", away: "Broncos", pick: "home"},
+        {game_id: 5, home: "Vikings", away: "49ers", pick: "away"},
+        {game_id: 6, home: "Eagles", away: "Redskins", pick: "home"},
+        {game_id: 7, home: "Lions", away: "Texans", pick: "away"},
+        {game_id: 8, home: "Saints", away: "Panthers", pick: "home"},
+        {game_id: 9, home: "Bears", away: "Cardinals", pick: "home"},
+        {game_id: 10, home: "Browns", away: "Falcons", pick: "away"},
+        {game_id: 11, home: "Ravens", away: "Jets", pick: "away"},
+        {game_id: 12, home: "Bills", away: "Rams", pick: "away"},
+        {game_id: 13, home: "Chargers", away: "Chiefs", pick: "away"},
+        {game_id: 14, home: "Colts", away: "Bengals", pick: "away"},
+        {game_id: 15, home: "Dolphins", away: "Buccaneers", pick: "away"},
+        {game_id: 16, home: "Titans", away: "Jaguars", pick: "away"}
       ]
     }
 
@@ -80,11 +80,11 @@ class Picks extends React.Component {
 
   createSelections() {
     return this.state.games.map( game => (
-      <div className="selection-item">
+      <form className="selection-item">
         <img src={`assets/logos/${game.home}.gif`}></img>
         <div>At</div>
         <img src={`assets/logos/${game.away}.gif`}></img>
-      </div>
+      </form>
     ))
   }
 
