@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605201306) do
+ActiveRecord::Schema.define(version: 20170605201958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,14 +65,15 @@ ActiveRecord::Schema.define(version: 20170605201306) do
   end
 
   create_table "pools", force: :cascade do |t|
-    t.string   "title",                    null: false
+    t.string   "title",                       null: false
     t.string   "description"
-    t.integer  "moderator_id",             null: false
-    t.integer  "buy_in",       default: 0, null: false
-    t.string   "league",                   null: false
-    t.integer  "season",                   null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "moderator_id",                null: false
+    t.integer  "buy_in",          default: 0, null: false
+    t.string   "league",                      null: false
+    t.integer  "season",                      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "password_digest",             null: false
     t.index ["moderator_id"], name: "index_pools_on_moderator_id", using: :btree
     t.index ["title"], name: "index_pools_on_title", using: :btree
   end
