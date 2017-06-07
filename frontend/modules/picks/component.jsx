@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
 import range from 'lodash';
+import PickForm from 'modules/picks/subcomponents/pick_form';
 
 class Picks extends React.Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class Picks extends React.Component {
     this.toggleWeek = this.toggleWeek.bind(this);
     this.createLinks = this.createLinks.bind(this);
     this.updateWeek = this.updateWeek.bind(this);
+    this.submitPick = this.submitPick.bind(this);
   }
 
   toggleWeek() {
@@ -69,22 +71,39 @@ class Picks extends React.Component {
     this.setState({week:e.target.value})
   }
 
+  submitPick(e) {
+    e.preventDefault();
+    console.log("submitted");
+  }
+
   createLinks() {
     return _.range(1,17).map( week => (
-      <button name= "week"
-              value= { week }
-              onClick={ this.updateWeek.bind(this) }
-              className="picks-form-item">{week}</button>
+      <button
+        name="week"
+        value={week}
+        onClick={this.updateWeek.bind(this)}
+        className="picks-form-item"
+      >
+        {week}
+      </button>
     ));
   }
 
+  // createSelections() {
+  //   return this.state.games.map( game => (
+  //     <form className="selection-item">
+  //       <img src={`assets/logos/${game.home}.gif`}></img>
+  //       <div>At</div>
+  //       <img src={`assets/logos/${game.away}.gif`}></img>
+  //     </form>
+  //   ))
+  // }
+
   createSelections() {
     return this.state.games.map( game => (
-      <form className="selection-item">
-        <img src={`assets/logos/${game.home}.gif`}></img>
-        <div>At</div>
-        <img src={`assets/logos/${game.away}.gif`}></img>
-      </form>
+      <PickForm
+        Game={game}
+      />
     ))
   }
 

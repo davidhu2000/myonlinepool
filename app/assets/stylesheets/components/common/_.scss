@@ -14,17 +14,18 @@ $white: #F6F7F9;
   justify-content: center;
   align-items: flex-end;
   // background-image: url('http://www.csnbayarea.com/sites/csnbayarea/files/2016/11/28/nfl-logo.jpg');
-  background-image: url('http://cdn.pcwallart.com/images/blue-gradient-texture-wallpaper-3.jpgg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  // background-image: url('http://cdn.pcwallart.com/images/blue-gradient-texture-wallpaper-3.jpgg');
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
   // background:-webkit-gradient(linear, center bottom, center top, from(#105b9e), to(#82C6F5));
+  background: #e5e5e4;
 }
 
 .base-container {
   height: 100%;
-  width: 95%;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  width: 85%;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   // height: 95%;
   // width: 100%;
   // margin-top: 5%;
@@ -43,7 +44,9 @@ $white: #F6F7F9;
   width: 100%;
   min-width: 900px;
   margin-top: 50px;
+  // padding-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: white;

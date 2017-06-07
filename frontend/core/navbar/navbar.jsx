@@ -54,9 +54,9 @@ class Navbar extends React.Component {
           onClick={this.toggleLeftDropdown}
         >
           { this.state.showLeftDropdown ? (
-            <i className="fa fa-angle-down" aria-hidden="true" />
+            <i className="fa fa-minus" aria-hidden="true" />
           ) : (
-            <i className="fa fa-angle-right" aria-hidden="true" />
+            <i className="fa fa-bars" aria-hidden="true"></i>
           )}
 
           { this.locationCheck() ? <span>Pool</span> : <span>Info</span> }
@@ -70,9 +70,9 @@ class Navbar extends React.Component {
           onClick={this.toggleRightDropdown}
         >
           { this.state.showRightDropdown ? (
-            <i className="fa fa-angle-down" aria-hidden="true" />
+            <i className="fa fa-minus" aria-hidden="true" />
           ) : (
-            <i className="fa fa-angle-right" aria-hidden="true" />
+            <i className="fa fa-bars" aria-hidden="true"></i>
           )}
           <span>Account</span>
         </button>

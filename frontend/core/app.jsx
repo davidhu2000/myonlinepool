@@ -20,9 +20,10 @@ class App extends React.Component {
 
         <div className="app-container">
           { this.props.children }
+          <Footer />
         </div>
 
-        <Footer />
+
       </div>
       </div>
     );

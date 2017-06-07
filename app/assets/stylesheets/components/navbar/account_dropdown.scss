@@ -15,10 +15,12 @@ $drk-text: #CDCDCD;
 .account-dropdown {
   z-index: 2;
   position: absolute;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  color: black;
+
+  // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   opacity: 0;
   top: 45px;
-  right: 5%;
+  right: 99px;
 
   animation-name: slideIn;
   animation-iteration-count: 1;
@@ -28,25 +30,26 @@ $drk-text: #CDCDCD;
 }
 
 .account-dropdown-list {
-  padding-bottom: 15px;
+
+  // padding-bottom: 15px;
   display: flex;
   flex-direction: column;
   font-size: 15px;
   font-weight: bold;
-  background-color: $lt-primary;
+  // background-color: $lt-primary;
 
   a, Link {
-    background-color: $lt-primary;
+    // background-color: $lt-primary;
     text-align: left;
     width: 100%;
-    padding: 10px 25px;
+    padding: 10px 0px;
     transition: .5s;
     cursor: pointer;
   }
 
   a:hover, Link:hover {
-    background-color: white;
-    color: black;
+    // background-color: white;
+    color: $drk-text;
   }
 
 }
