@@ -62,7 +62,7 @@ class Navbar extends React.Component {
           { this.locationCheck() ? <span>Pool</span> : <span>Info</span> }
         </button>
 
-        <h1>My Online Pool</h1>
+        <div className="title">My Online Pool</div>
 
         <button
           id='right-dropdown-button'

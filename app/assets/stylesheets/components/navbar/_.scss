@@ -47,10 +47,10 @@ $drk-text: #CDCDCD;
   height: 50px;
   width: 85%;
   min-width: 900px;
-  padding: 0px 100px;
+  // padding: 0px 100px;
   position: fixed;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   color: black;
   // background-color: $drk-primary;
@@ -59,15 +59,16 @@ $drk-text: #CDCDCD;
   z-index: 100;
   // font-family: 'Baloo Bhaina', cursive;
 
-  h1 {
-    height: 100%;
-    padding: 0px 40px;
-    padding-top: 10px;
+  .title {
+    // height: 100%;
+    // padding: 0px 40px;
+    padding-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
+    font-family: 'Baloo Bhaina', cursive;
     // background-color: $lt-primary;
     // box-shadow: -8px 0px 5px -5px rgba(0,0,0,0.16), 8px 0px 5px -5px rgba(0,0,0,0.16);
   }

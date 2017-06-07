@@ -13,10 +13,9 @@ $drk-text: #CDCDCD;
 }
 
 .account-dropdown {
+  color: $drk-text;
   z-index: 2;
   position: absolute;
-  color: black;
-
   // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   opacity: 0;
   top: 45px;
@@ -49,7 +48,7 @@ $drk-text: #CDCDCD;
 
   a:hover, Link:hover {
     // background-color: white;
-    color: $drk-text;
+    color: red;
   }
 
 }

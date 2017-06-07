@@ -13,6 +13,7 @@ $drk-text: #CDCDCD;
 }
 
 .settings-dropdown {
+  color: $drk-text;
   z-index: 2;
   position: absolute;
   // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -46,6 +47,6 @@ font-weight: bold;
 
   a:hover {
     // background-color: white;
-    color: $drk-text;
+    color: red;
   }
 }

@@ -17,12 +17,9 @@ class App extends React.Component {
           Location={this.props.location.pathname}
           PoolId={this.props.params.poolId}
         />
-
         <div className="app-container">
           { this.props.children }
-          <Footer />
         </div>
-
 
       </div>
       </div>
