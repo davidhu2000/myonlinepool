@@ -1,3 +1,5 @@
+/* global $ */
+
 export const createPool = pool => (
   $.ajax({
     method: "POST",
