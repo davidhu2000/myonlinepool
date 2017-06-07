@@ -5,7 +5,7 @@ $drk-text: #CDCDCD;
 @import "settings_dropdown";
 @import "pool_dropdown";
 
-@keyframes arrowIn {
+@keyframes barsIn {
   0% {
     opacity: 0;
   }
@@ -14,10 +14,29 @@ $drk-text: #CDCDCD;
   }
 }
 
-.fa-angle-down, .fa-angle-right {
+@keyframes minusIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fa-minus {
   opacity: 0;
 
-  animation-name: arrowIn;
+  animation-name: minusIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.fa-bars {
+  opacity: 0;
+
+  animation-name: barsIn;
   animation-iteration-count: 1;
   animation-timing-function: ease-out;
   animation-duration: 1s;
@@ -26,30 +45,32 @@ $drk-text: #CDCDCD;
 
 .navbar-container {
   height: 50px;
-  width: 95%;
+  width: 85%;
   min-width: 900px;
-  padding: 0px 100px;
+  // padding: 0px 100px;
   position: fixed;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  color: white;
-  background-color: $drk-primary;
-  border-bottom: 15px solid $lt-primary;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color: black;
+  // background-color: $drk-primary;
+  // border-bottom: 15px solid $lt-primary;
+  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   z-index: 100;
+  // font-family: 'Baloo Bhaina', cursive;
 
-  h1 {
-    height: 100%;
-    padding: 0px 40px;
-    padding-top: 10px;
+  .title {
+    // height: 100%;
+    // padding: 0px 40px;
+    padding-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
-    background-color: $lt-primary;
-    box-shadow: -8px 0px 5px -5px rgba(0,0,0,0.16), 8px 0px 5px -5px rgba(0,0,0,0.16);
+    font-family: 'Baloo Bhaina', cursive;
+    // background-color: $lt-primary;
+    // box-shadow: -8px 0px 5px -5px rgba(0,0,0,0.16), 8px 0px 5px -5px rgba(0,0,0,0.16);
   }
 
   .account-button {
@@ -57,11 +78,11 @@ $drk-text: #CDCDCD;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px 15px;
+    padding-left: 20px;
     font-size: 15px;
     font-weight: bold;
     transition: .5s;
-    right: 5%;
+    right: 75px;
 
     i {
       position: absolute;
@@ -74,11 +95,11 @@ $drk-text: #CDCDCD;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px 15px;
+    padding-left: 20px;
     font-size: 15px;
     font-weight: bold;
     transition: .5s;
-    left: 5%;
+    left: 75px;
 
     i {
       position: absolute;
@@ -92,7 +113,7 @@ $drk-text: #CDCDCD;
 
   .account-button, .info-button {
     span {
-      margin-top: 5px;
+      // margin-top: 5px;
     }
   }
 }
