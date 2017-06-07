@@ -48,8 +48,8 @@ class PoolForm extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <div className='pool-form'>
-        <form onSubmit={this.createPool} >
+      <div className="pool-form-container">
+        <form className='pool-form' onSubmit={this.createPool} >
           <FormTextInput
             update={this.update}
             type='text'
@@ -58,15 +58,13 @@ class PoolForm extends React.Component {
             field='title'
           />
 
-          <div className="">
-            <textarea
-              type="text"
-              className=""
-              value={this.state.description}
-              onChange={this.update('description')}
-            />
-            <label htmlFor="description">Description</label>
-          </div>
+          <FormTextInput
+            update={this.update}
+            type='text'
+            value={this.state.description}
+            label="Description"
+            field="description"
+          />
 
           <FormTextInput
             update={this.update}
@@ -92,14 +90,16 @@ class PoolForm extends React.Component {
             field='password_confirmation'
           />
 
-          <div className="">
-            <input id="buy_in" type="submit" className="" value="Create Pool" />
+         <div className="pool-create-button">
+            <input id="buy_in" type="submit" className="" value="Create" />
           </div>
 
         </form>
       </div>
     );
   }
+
+
 }
 
 PoolForm.propTypes = {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const FormTextInput = ({ update, type, value, label, field }) => (
-  <div className="authform-group">
+  <div className="poolform-group">
     <input
       required
       name={type}

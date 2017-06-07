@@ -36,9 +36,18 @@ $white: #F6F7F9;
   justify-content: space-between;
   align-items: center;
   background: white;
+
+  .backdrop {
+    position: absolute;
+    // left: 0px;
+    top: 50px;
+    height: 100%;
+    width: 85%;;
+  }
 }
 
 .app-container {
+  position: relative;
   height: 100%;
   // min-height: 750px;
   width: 100%;
@@ -49,10 +58,12 @@ $white: #F6F7F9;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: white;
+  // background: white;
   overflow-y: scroll;
   // font-family: 'Karla', sans-serif;
   font-family: 'Open Sans', sans-serif;
+
+
 }
 
 .hidden {

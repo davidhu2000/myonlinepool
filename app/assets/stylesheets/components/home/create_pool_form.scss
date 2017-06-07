@@ -1,0 +1,89 @@
+.pool-form {
+  width: 400px;
+  font-size: 20px;
+  background: none;
+
+  .pool-create-button {
+    margin-left: auto;
+    width: 30%;
+    padding: 5px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: .2s;
+    background: black;
+    color: white;
+  }
+
+  .pool-create-button:hover {
+    color: #AF1E2C;
+  }
+}
+
+.poolform-group {
+  position: relative;
+  margin-bottom: 45px;
+  width: 100%;
+
+  input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid #757575;
+
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  label {
+    color: #999;
+    font-size: 20px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 8px;
+    transition: 0.2s ease all;
+  }
+
+  input:focus~label,
+  input:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+  }
+
+  .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  .bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+  }
+
+  .bar:before {
+    left: 50%;
+  }
+
+  .bar:after {
+    right: 50%;
+  }
+
+  input:focus~.bar:before, input:focus~.bar:after {
+    width: 50%;
+  }
+}
