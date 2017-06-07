@@ -44,19 +44,19 @@ class Home extends React.Component {
             Title="Weekly Leaders"
             Standings={this.state.standings}
             key={Math.random()}
-            />
+          />
           <StandingsBox
             Title="Season Leaders"
             Standings={this.state.standings}
             key={Math.random()}
-            />
+          />
         </div>
         <div className="home-bottom">
           <PoolList
             Title="My Pools"
             Pools={this.state.pools}
             key={Math.random()}
-            />
+          />
         </div>
       </div>
     );

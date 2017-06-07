@@ -37,6 +37,6 @@ class Api::PoolsController < ApplicationController
   private
 
   def pool_params
-    params.require(:pool).permit(:title, :description, :buy_in, :league, :season)
+    params.require(:pool).permit(:title, :description, :buy_in, :league, :season, :password)
   end
 end

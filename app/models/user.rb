@@ -34,4 +34,5 @@ class User < ApplicationRecord
   has_many :picks
   has_many :memberships
   has_many :pools, through: :memberships, source: :pool
+  has_many :messages
 end

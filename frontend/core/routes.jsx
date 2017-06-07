@@ -1,34 +1,33 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Route, IndexRoute} from 'react-router';
+import { Route, IndexRoute } from 'react-router';
+import Splash from 'modules/splash/';
+import Home from 'modules/home/';
+import Picks from 'modules/picks/';
+import Metrics from 'modules/metrics';
+import Leaderboard from 'modules/leaderboard';
+import Moderator from 'modules/moderator';
+import Pool from 'modules/pool';
+import Auth from 'modules/user';
+import PoolForm from 'modules/pool_form';
 import App from './app';
-import SplashContainer from 'modules/splash/';
-import HomeContainer from 'modules/home/';
-import PicksContainer from 'modules/picks/';
-import MetricsContainer from 'modules/metrics';
-import LeaderboardContainer from 'modules/leaderboard';
-import ModeratorContainer from 'modules/moderator';
-import PoolContainer from 'modules/pool';
-// import SigninContainer from 'modules/user/signin';
-import SignupContainer from 'modules/user';
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={SplashContainer}/> 
-    
-    <Route path="/signin" component={ SignupContainer }>
-    </Route>
+    <IndexRoute component={Splash} />
 
-    <Route path="/signup" component={SignupContainer}></Route>
+    <Route path="/pool/create" component={PoolForm} />
 
-    <Route path="/home" component={HomeContainer}></Route>
+    <Route path="/signin" component={Auth} />
+    <Route path="/signup" component={Auth} />
+
+    <Route path="/home" component={Home}></Route>
 
     <Route path="/pool/:poolId">
-      <IndexRoute component={PoolContainer} />
-      <Route path="picks" component={PicksContainer}></Route>
-      <Route path="leaderboard" component={LeaderboardContainer}></Route>
-      <Route path="metrics" component={MetricsContainer}></Route>
-      <Route path="moderator" component={ModeratorContainer}></Route>
+      <IndexRoute component={Pool} />
+      <Route path="picks" component={Picks}></Route>
+      <Route path="leaderboard" component={Leaderboard}></Route>
+      <Route path="metrics" component={Metrics}></Route>
+      <Route path="moderator" component={Moderator}></Route>
     </Route>
 
   </Route>
