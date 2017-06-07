@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import PoolForm from './FileName.jsx';
+import PoolForm from './component.jsx';
 
 const mapStateToProps = (state, ownProps) => ({
 });

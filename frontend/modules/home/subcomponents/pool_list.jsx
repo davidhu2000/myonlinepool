@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link, withRouter, hashHistory } from 'react-router';
+import autoBind from 'react-autobind';
 import PoolListItem from './pool_list_item';
 
 class PoolList extends React.Component {
@@ -15,20 +16,16 @@ class PoolList extends React.Component {
       createPass: ""
     };
 
-    this.genList = this.genList.bind(this);
-    this.toggleJoin = this.toggleJoin.bind(this);
-    this.submitJoin = this.submitJoin.bind(this);
-    this.toggleCreate = this.toggleCreate.bind(this);
-    this.submitCreate = this.submitCreate.bind(this);
+    autoBind(this);
   }
 
   genList() {
     let pools = this.props.Pools;
-    return pools.map( pool => (
+    return pools.map(pool => (
       <PoolListItem
         Name={pool.name}
         Id={pool.id}
-        />
+      />
     ));
   }
 
@@ -87,19 +84,15 @@ class PoolList extends React.Component {
           Join Pool
           </div>
         </button>
-        <button className="pool-create-button" onClick={this.toggleCreate.bind(this)}>
+        <button className="pool-create-button" onClick={() => hashHistory.push('pool/create')}>
           <div>
-          { this.state.showCreate ? <i
-            className="fa fa-minus"
-            aria-hidden="true"/> : <i
-            className="fa fa-plus"
-            aria-hidden="true"/> }
-          Create Pool
+            <i className="fa fa-plus" aria-hidden="true" />
+            Create Pool
           </div>
         </button>
 
         { this.state.showJoin ?
-          <form onSubmit={ this.submitJoin } className="pool-join-form">
+          <form onSubmit={this.submitJoin} className="pool-join-form">
             <input  name="joinName"
                     placeholder="Pool Name"
                     value={ this.state.joinName }
@@ -114,24 +107,6 @@ class PoolList extends React.Component {
                    className="pool-form-button"
                    value="join"></input>
           </form> : null }
-
-        { this.state.showCreate ?
-          <form onSubmit={ this.submitCreate } className="pool-create-form">
-            <input  name="createName"
-                    placeholder="Pool Name"
-                    value={ this.state.createName }
-                    onChange={ this.update("createName") }
-                    className="pool-form-name"></input>
-            <input  name="createPass"
-                    placeholder="Pool Password"
-                    value={ this.state.createPass }
-                    onChange={ this.update("createPass") }
-                    className="pool-form-input"></input>
-            <input type='submit'
-                   className="pool-form-button"
-                   value="create"></input>
-          </form> : null }
-
       </div>
     );
   }
