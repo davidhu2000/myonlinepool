@@ -1,7 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Route, IndexRoute} from 'react-router';
-import App from './app';
+import { Route, IndexRoute } from 'react-router';
 import Splash from 'modules/splash/';
 import Home from 'modules/home/';
 import Picks from 'modules/picks/';
@@ -11,10 +9,11 @@ import Moderator from 'modules/moderator';
 import Pool from 'modules/pool';
 import Auth from 'modules/user';
 import PoolForm from 'modules/pool_form';
+import App from './app';
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Splash} /> 
+    <IndexRoute component={Splash} />
 
     <Route path="/pool/create" component={PoolForm} />
     
