@@ -26,7 +26,11 @@ class PoolForm extends React.Component {
   }
 
   validateForm() {
-    // check everything is valid
+    let { title, password, password_confirmation } = this.state;
+    let matchingPassword = password === password_confirmation;
+    let titlePresent = title.length > 0;
+
+    return matchingPassword && titlePresent;
   }
 
   createPool(e) {
@@ -35,7 +39,7 @@ class PoolForm extends React.Component {
       this.props.createPool(this.state);
     } else {
       // render errors
-      console.log('error')
+      console.log('error');
     }
   }
 
