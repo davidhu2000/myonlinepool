@@ -1,5 +1,6 @@
 import React from 'react';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 
 class PoolForm extends React.Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class PoolForm extends React.Component {
       description: '',
       buy_in: 0,
       season: 2017,
-      league: 'nfl'
+      league: 'nfl',
+      password: '',
+      password_confirmation: ''
     };
 
     autoBind(this);
@@ -22,9 +25,18 @@ class PoolForm extends React.Component {
     };
   }
 
+  validateForm() {
+    // check everything is valid
+  }
+
   createPool(e) {
     e.preventDefault();
-    console.log(this.state);
+    if (this.validateForm()) {
+      this.props.createPool(this.state);
+    } else {
+      // render errors
+      console.log('error')
+    }
   }
 
   render() {
@@ -62,6 +74,26 @@ class PoolForm extends React.Component {
           </div>
 
           <div className="">
+            <input
+              type="password"
+              className=""
+              value={this.state.password}
+              onChange={this.update('password')}
+            />
+            <label htmlFor="password">Password</label>
+          </div>
+
+          <div className="">
+            <input
+              type="password"
+              className=""
+              value={this.state.password_confirmation}
+              onChange={this.update('password_confirmation')}
+            />
+            <label htmlFor="password_confirmation">Password Confirmation</label>
+          </div>
+
+          <div className="">
             <input id="buy_in" type="submit" className="" value="Create Pool" />
           </div>
 
@@ -70,5 +102,9 @@ class PoolForm extends React.Component {
     );
   }
 }
+
+PoolForm.propTypes = {
+  createPool: PropTypes.func.isRequired
+};
 
 export default PoolForm;
