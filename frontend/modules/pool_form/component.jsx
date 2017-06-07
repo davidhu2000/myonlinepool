@@ -2,6 +2,8 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
+import { FormTextInput } from 'common/components';
+
 class PoolForm extends React.Component {
   constructor(props) {
     super(props);
@@ -44,18 +46,17 @@ class PoolForm extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className='pool-form'>
         <form onSubmit={this.createPool} >
-          <div className="">
-            <input
-              type="text"
-              className=""
-              value={this.state.title}
-              onChange={this.update('title')}
-            />
-            <label htmlFor="title">Title</label>
-          </div>
+          <FormTextInput
+            update={this.update}
+            type='text'
+            value={this.state.title}
+            label="Title"
+            field='title'
+          />
 
           <div className="">
             <textarea
@@ -67,35 +68,29 @@ class PoolForm extends React.Component {
             <label htmlFor="description">Description</label>
           </div>
 
-          <div className="">
-            <input
-              type="number"
-              className=""
-              value={this.state.buy_in}
-              onChange={this.update('buy_in')}
-            />
-            <label htmlFor="buy_in">Buy In</label>
-          </div>
+          <FormTextInput
+            update={this.update}
+            value={this.state.buy_in}
+            type='number'
+            label="Buy In"
+            field='buy_in'
+          />
 
-          <div className="">
-            <input
-              type="password"
-              className=""
-              value={this.state.password}
-              onChange={this.update('password')}
-            />
-            <label htmlFor="password">Password</label>
-          </div>
+          <FormTextInput
+            update={this.update}
+            type='password'
+            value={this.state.password}
+            label="Password"
+            field='password'
+          />
 
-          <div className="">
-            <input
-              type="password"
-              className=""
-              value={this.state.password_confirmation}
-              onChange={this.update('password_confirmation')}
-            />
-            <label htmlFor="password_confirmation">Password Confirmation</label>
-          </div>
+          <FormTextInput
+            update={this.update}
+            type='password'
+            value={this.state.password_confirmation}
+            label="Password Confirmation"
+            field='password_confirmation'
+          />
 
           <div className="">
             <input id="buy_in" type="submit" className="" value="Create Pool" />
