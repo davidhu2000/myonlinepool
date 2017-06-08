@@ -29,22 +29,8 @@ class Picks extends React.Component {
         {id: 16, home: "Titans", away: "Jaguars"}
       ],
       picks: [
-        {id: 1, home: "Cowboys", away:"Patriots", pick: "home"},
-        {id: 2, home: "Raiders", away:"Seahawks", pick: "away"},
-        {id: 3, home: "Giants", away: "Stealers", pick: "home"},
-        {id: 4, home: "Packers", away: "Broncos", pick: "home"},
-        {id: 5, home: "Vikings", away: "49ers", pick: "away"},
-        {id: 6, home: "Eagles", away: "Redskins", pick: "home"},
-        {id: 7, home: "Lions", away: "Texans", pick: "away"},
-        {id: 8, home: "Saints", away: "Panthers", pick: "home"},
-        {id: 9, home: "Bears", away: "Cardinals", pick: "home"},
-        {id: 10, home: "Browns", away: "Falcons", pick: "away"},
-        {id: 11, home: "Ravens", away: "Jets", pick: "away"},
-        {id: 12, home: "Bills", away: "Rams", pick: "away"},
-        {id: 13, home: "Chargers", away: "Chiefs", pick: "away"},
-        {id: 14, home: "Colts", away: "Bengals", pick: "away"},
-        {id: 15, home: "Dolphins", away: "Buccaneers", pick: "away"},
-        {id: 16, home: "Titans", away: "Jaguars", pick: "away"}
+        {id: 1, home: "Cowboys", away:"Patriots", pick: "Cowboys"},
+        {id: 2, home: "Raiders", away:"Seahawks", pick: "Seahawks"}
       ]
     }
 
@@ -102,6 +88,7 @@ class Picks extends React.Component {
   createSelections() {
     return this.state.games.map( game => (
       <PickForm
+        Picks={this.state.picks}
         Game={game}
       />
     ))
