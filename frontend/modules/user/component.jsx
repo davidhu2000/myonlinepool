@@ -3,7 +3,7 @@ import { withRouter, Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { FormGroup } from './subcomponents';
+import { FormTextInput } from 'common/components';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class AuthForm extends React.Component {
   }
 
   validateForm(type) {
-    let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let correctEmail = emailRegex.test(this.state.email);
 
     if (type === 'signup') {
@@ -113,34 +113,37 @@ class AuthForm extends React.Component {
         <form onSubmit={this.submitForm} className="auth-form">
 
           { path === '/signup' ? (
-            <FormGroup
+            <FormTextInput
               update={this.update}
               value={this.state.name}
               type='name'
+              field="name"
               label='Full Name'
             />
           ) : null }
 
-          <FormGroup
+          <FormTextInput
             update={this.update}
             value={this.state.email}
-            type="email"
+            type="text"
+            field="email"
             label="Email"
           />
 
-          <FormGroup
+          <FormTextInput
             update={this.update}
             value={this.state.password}
             type="password"
+            field="password"
             label="Password"
           />
 
           { path === '/signup' ? (
-            <FormGroup
+            <FormTextInput
               update={this.update}
-              value={this.state.password_confirmation}
+              value={this.state.passwordConfirmation}
               type='password'
-              field='password_confirmation'
+              field='passwordConfirmation'
               label='Password Confirmation'
             />
           ) : null }
