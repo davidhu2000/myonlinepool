@@ -60,7 +60,7 @@ class Navbar extends React.Component {
           )}
         </button>
 
-        <div className="title">My Online Pool</div>
+        <div className="title">MyOnlinePool</div>
 
         <button
           id='right-dropdown-button'
