@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import enhanceWithClickOutside from 'react-click-outside';
 
@@ -30,5 +31,10 @@ class Dropdown extends React.Component {
     );
   }
 }
+
+Dropdown.propTypes = {
+  PoolId: PropTypes.number.isRequired,
+  toggleLeftDropdown: PropTypes.func.isRequired
+};
 
 export const PoolDropdown = enhanceWithClickOutside(Dropdown);

@@ -1,8 +1,6 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router';
+import { withRouter, Link, hashHistory } from 'react-router';
 import autoBind from 'react-autobind';
-
-import { toggleCover } from 'helpers/dropdown.js';
 
 import { PoolDropdown, SettingsDropdown, AccountDropdown } from './subcomponents';
 
@@ -56,19 +54,19 @@ class Navbar extends React.Component {
           { this.state.showLeftDropdown ? (
             <i className="fa fa-minus fa-2x" aria-hidden="true" />
           ) : (
-            <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
+            <i className="fa fa-bars fa-2x" aria-hidden="true" />
           )}
         </button>
 
         <div className="title">MyOnlinePool</div>
 
-        <button
+        <Link
+          to='signin'
           id='right-dropdown-button'
           className="account-button"
-          onClick={this.toggleRightDropdown}
         >
           <span>Sign In</span>
-        </button>
+        </Link>
       </div>
     );
   }
