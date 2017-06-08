@@ -13,21 +13,30 @@ class Dropdown extends React.Component {
     return (
       <div className="settings-dropdown" id="settings-dropdown">
         <div className="settings-dropdown-list">
-          <a>
-            About Us
-          </a>
-          <a>
-            FAQs
-          </a>
-          <a>
-            Contact Us
-          </a>
-          <a>
-            Affiliates
-          </a>
-          <a>
-            Pricing
-          </a>
+          <Link to={`/signin`}>
+            Sign In
+          </Link>
+          <Link to={`/signup`}>
+            Sign Up
+          </Link>
+          <Link to={`/`}>
+            Splash
+          </Link>
+          <Link to={`/home`}>
+            Home
+          </Link>
+          <Link to={`/pool/1`}>
+            Pool Homepage
+          </Link>
+          <Link to={`/pool/1/picks`}>
+            Picks
+          </Link>
+          <Link to={`/pool/1/leaderboard`}>
+            Leaderboard
+          </Link>
+          <Link to={`/pool/1/moderator`}>
+            Moderator
+          </Link>
         </div>
       </div>
     );

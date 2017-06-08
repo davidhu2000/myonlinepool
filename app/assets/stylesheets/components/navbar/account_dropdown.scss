@@ -13,13 +13,13 @@ $drk-text: #CDCDCD;
 }
 
 .account-dropdown {
-  color: $drk-text;
+  color: black;
   z-index: 2;
   position: absolute;
   // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   opacity: 0;
-  top: 45px;
-  right: 99px;
+  top: 60px;
+  right: 25px;
 
   animation-name: slideIn;
   animation-iteration-count: 1;

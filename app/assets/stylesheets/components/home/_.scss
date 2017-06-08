@@ -9,6 +9,8 @@ $white: #F6F7F9;
 .home-container {
   height: 100%;
   width: 100%;
+  min-width: 900px;
+  background: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

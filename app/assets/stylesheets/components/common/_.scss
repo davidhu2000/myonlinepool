@@ -7,7 +7,10 @@ $white: #F6F7F9;
 @import "authform";
 
 .base-wrapper {
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 2.5%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
   // min-height: 950px;
   // min-width: 900px;
   display: flex;
@@ -25,42 +28,38 @@ $white: #F6F7F9;
 .base-container {
   height: 100%;
   // min-height: 950px;
-  width: 85%;
+  width: 100%;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  // background: white;
+  background: white;
 
-  .backdrop {
+  svg {
+    display: none;
     position: absolute;
     // left: 0px;
     // top: 50px;
     height: 100%;
-    width: 85%;;
+    width: 85%;
   }
 }
 
 .app-container {
   position: relative;
   height: 100%;
-  min-height: 750px;
   width: 100%;
   min-width: 900px;
-  margin-top: 50px;
-  // padding-top: 20px;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // background: white;
-  overflow-y: scroll;
-  // font-family: 'Karla', sans-serif;
+  // overflow-y: scroll;
   font-family: 'Open Sans', sans-serif;
-
-
+  background: white;
 }
 
 .hidden {
