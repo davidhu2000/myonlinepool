@@ -32,24 +32,25 @@ $white: #F6F7F9;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  // background: white;
+  background: white;
 
-  .backdrop {
+  svg {
+    display: none;
     position: absolute;
     // left: 0px;
     // top: 50px;
     height: 100%;
-    width: 85%;;
+    width: 85%;
   }
 }
 
 .app-container {
   position: relative;
   height: 100%;
-  min-height: 750px;
+  // min-height: 750px;
   width: 100%;
   min-width: 900px;
-  margin-top: 50px;
+  padding-top: 50px;
   // padding-top: 20px;
   display: flex;
   flex-direction: column;
