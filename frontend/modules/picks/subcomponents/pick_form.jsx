@@ -13,45 +13,20 @@ class PickForm extends React.Component {
     }
 
     this.submitPick = this.submitPick.bind(this);
-    // this.expressPick = this.expressPick.bind(this);
   }
 
   componentDidMount() {
-    console.log("k");
     if (this.props.Picks) {
       let picks = this.props.Picks;
       picks.forEach((pick) => {
-        // console.log(pick);
         if (pick.id === this.state.id) {
-
-          // let selection = pick.pick;
-          console.log(pick.pick);
           let game = document.getElementById(pick.pick);
-          console.log(game);
           game.classList.remove('pick-button');
           game.classList.add('selected-button');
         }
       })
     }
   }
-
-  // expressPick() {
-  //   if (this.props.Picks) {
-  //     let picks = this.props.Picks;
-  //     picks.forEach((pick) => {
-  //       // console.log(pick);
-  //       if (pick.id === this.state.id) {
-  //
-  //         // let selection = pick.pick;
-  //         console.log(pick.pick);
-  //         let game = document.getElementById(pick.pick);
-  //         console.log(game);
-  //         // game.classList.remove('pick-button');
-  //         // game.classList.add('selected-button');
-  //       }
-  //     })
-  //   }
-  // }
 
   submitPick(pick) {
     let away = document.getElementById(this.props.Game.away);
