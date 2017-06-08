@@ -10,9 +10,10 @@ class AuthForm extends React.Component {
     super(props);
 
     this.state = {
+      name: "",
       email: "",
       password: "",
-      name: ""
+      passwordConfirmation: ""
     };
 
     autoBind(this);
@@ -28,18 +29,41 @@ class AuthForm extends React.Component {
     }
   }
 
+  validateForm(type) {
+    let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let correctEmail = emailRegex.test(this.state.email);
+
+    if (type === 'signup') {
+      let namePresent = this.state.name.length > 0;
+      let matchingPassword = this.state.password === this.state.passwordConfirmation;
+      return correctEmail && namePresent && matchingPassword;
+    } else {
+      let passwordPresent = this.state.password.length > 0;
+      return correctEmail && passwordPresent;
+    }
+  }
+
   submitForm(e) {
     e.preventDefault();
 
     switch (this.props.location.pathname) {
       case '/signup':
-        this.props.signup(this.state);
+        if (this.validateForm('signup')) {
+          this.props.signup(this.state);
+          hashHistory.push('/home');
+        } else {
+          // render errors
+        }
         break;
       default:
-        this.props.signin(this.state);
+        if (this.validateForm('signin')) {
+          this.props.signin(this.state);
+          hashHistory.push('/home');
+        } else {
+          // render errors
+        }
     }
 
-    hashHistory.push('/home');
   }
 
   update(field) {
@@ -110,6 +134,16 @@ class AuthForm extends React.Component {
             type="password"
             label="Password"
           />
+
+          { path === '/signup' ? (
+            <FormGroup
+              update={this.update}
+              value={this.state.password_confirmation}
+              type='password'
+              field='password_confirmation'
+              label='Password Confirmation'
+            />
+          ) : null }
 
           <div className="submit-row">
             <div className="reroute">

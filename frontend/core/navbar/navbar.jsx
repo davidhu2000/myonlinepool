@@ -49,6 +49,7 @@ class Navbar extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className='navbar-container'>
         { this.state.showLeftDropdown && !this.locationCheck() ? (
@@ -80,27 +81,22 @@ class Navbar extends React.Component {
 
         <div className="title">MyOnlinePool</div>
 
-        <Link
-          to='signin'
-          id='right-dropdown-button'
-          className="account-button"
-        >
-          <span>Sign In</span>
-        </Link>
+        { this.renderAuthButton() }
       </div>
     );
   }
 }
 
 Navbar.propTypes = {
-  user: PropTypes.shape().isRequired,
+  user: PropTypes.shape(),
   loggedIn: PropTypes.bool.isRequired,
   PoolId: PropTypes.number,
   Location: PropTypes.string.isRequired
 };
 
 Navbar.defaultProps = {
-  PoolId: null
+  PoolId: null,
+  user: {}
 };
 
 export default withRouter(Navbar);

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router';
-import Footer from './footer/footer';
-import Navbar from './navbar/navbar';
+import Footer from './footer';
+import Navbar from './navbar';
 
 class App extends React.Component {
   constructor(props){
