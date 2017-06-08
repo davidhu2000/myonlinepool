@@ -44,7 +44,7 @@ $drk-text: #CDCDCD;
 }
 
 .navbar-container {
-  height: 50px;
+  height: 60px;
   width: 85%;
   min-width: 900px;
   // padding: 0px 100px;
@@ -63,13 +63,14 @@ $drk-text: #CDCDCD;
   // font-family: 'Baloo Bhaina', cursive;
 
   .title {
-    // height: 100%;
-    // padding: 0px 40px;
-    padding-top: 10px;
+    position: absolute;
+    left: 75px;
+    // width: 900px;
+    // padding-left: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     // font-family: 'Baloo Bhaina', cursive;
     // background-color: $lt-primary;
@@ -85,7 +86,7 @@ $drk-text: #CDCDCD;
     font-size: 15px;
     font-weight: bold;
     transition: .5s;
-    right: 75px;
+    right: 25px;
 
     i {
       position: absolute;
@@ -102,7 +103,7 @@ $drk-text: #CDCDCD;
     font-size: 15px;
     font-weight: bold;
     transition: .5s;
-    left: 75px;
+    left: 25px;
 
     i {
       position: absolute;
@@ -116,6 +117,8 @@ $drk-text: #CDCDCD;
 
   .account-button, .info-button {
     span {
+      font-size: 20px;
+      // display: none;
       // margin-top: 5px;
     }
   }

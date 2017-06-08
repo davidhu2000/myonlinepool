@@ -54,12 +54,10 @@ class Navbar extends React.Component {
           onClick={this.toggleLeftDropdown}
         >
           { this.state.showLeftDropdown ? (
-            <i className="fa fa-minus" aria-hidden="true" />
+            <i className="fa fa-minus fa-2x" aria-hidden="true" />
           ) : (
-            <i className="fa fa-bars" aria-hidden="true"></i>
+            <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
           )}
-
-          { this.locationCheck() ? <span>Pool</span> : <span>Info</span> }
         </button>
 
         <div className="title">My Online Pool</div>
@@ -69,21 +67,8 @@ class Navbar extends React.Component {
           className="account-button"
           onClick={this.toggleRightDropdown}
         >
-          { this.state.showRightDropdown ? (
-            <i className="fa fa-minus" aria-hidden="true" />
-          ) : (
-            <i className="fa fa-bars" aria-hidden="true"></i>
-          )}
-          <span>Account</span>
+          <span>Sign In</span>
         </button>
-
-        { this.state.showRightDropdown ? (
-          <AccountDropdown
-            toggleRightDropdown={this.toggleRightDropdown}
-            user={this.props.user}
-          />
-        ) : null }
-
       </div>
     );
   }
