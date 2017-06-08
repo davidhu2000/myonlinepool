@@ -106,4 +106,9 @@ $drk-text: #CDCDCD;
       }
     }
   }
+
+  .selected-button {
+    border: 2px green solid;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
 }

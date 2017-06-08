@@ -15,36 +15,31 @@ class PickForm extends React.Component {
     this.submitPick = this.submitPick.bind(this);
   }
 
-  submitPick(e) {
-    e.preventDefault();
-    console.log(e.target.value);
-  }
-
-  update(field) {
-    return e => {
-      this.setState({
-        [field]: e.target.value
-      });
-    };
+  submitPick(pick) {
+    if (pick === "away") {
+      let away = document.getElementById(this.props.Game.away);
+      away.classList.add('selected-button');
+    } else {
+      let home = document.getElementById(this.props.Game.home);
+      home.classList.add('selected-button');
+    }
   }
 
   render() {
     return (
-      <form onSubmit={ this.submitPick } className="selection-item">
+      <div className="selection-item">
         <label>
-          <button type="submit"
-                  name="home"
-                  value="home" />
-          <img src={`assets/logos/${this.props.Game.home}.gif`} />
+          <button onClick={() => this.submitPick("away")}
+            />
+          <img id={this.props.Game.away} src={`assets/logos/${this.props.Game.away}.gif`} />
         </label>
-        <div>At</div>
+      <div>At</div>
         <label>
-          <button type="submit"
-                  name="away"
-                  value="away" />
-          <img src={`assets/logos/${this.props.Game.away}.gif`} />
+          <button onClick={() => this.submitPick("home")}
+              />
+            <img id={this.props.Game.home} src={`assets/logos/${this.props.Game.home}.gif`} />
         </label>
-      </form>
+      </div>
     );
   }
 }
