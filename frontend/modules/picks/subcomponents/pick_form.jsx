@@ -15,36 +15,57 @@ class PickForm extends React.Component {
     this.submitPick = this.submitPick.bind(this);
   }
 
-  submitPick(e) {
-    e.preventDefault();
-    console.log(e.target.value);
+  componentDidMount() {
+    if (this.props.Picks) {
+      let picks = this.props.Picks;
+      picks.forEach((pick) => {
+        if (pick.id === this.state.id) {
+          let game = document.getElementById(pick.pick);
+          game.classList.remove('pick-button');
+          game.classList.add('selected-button');
+        }
+      })
+    }
   }
 
-  update(field) {
-    return e => {
-      this.setState({
-        [field]: e.target.value
-      });
-    };
+  submitPick(pick) {
+    let away = document.getElementById(this.props.Game.away);
+    let home = document.getElementById(this.props.Game.home);
+    if (pick === "away") {
+      away.classList.remove('pick-button');
+      away.classList.add('selected-button');
+      home.classList.remove('selected-button');
+      home.classList.add('pick-button');
+    } else {
+      home.classList.remove('pick-button');
+      home.classList.add('selected-button');
+      away.classList.remove('selected-button');
+      away.classList.add('pick-button');
+    }
   }
 
   render() {
     return (
-      <form onSubmit={ this.submitPick } className="selection-item">
+      <div className="selection-item">
         <label>
-          <button type="submit"
-                  name="home"
-                  value="home" />
-          <img src={`assets/logos/${this.props.Game.home}.gif`} />
+          <button onClick={() => this.submitPick("away")}
+            />
+          <img
+            className="pick-button"
+            id={this.props.Game.away}
+            src={`assets/logos/${this.props.Game.away}.gif`} />
         </label>
-        <div>At</div>
+      <div>At</div>
         <label>
-          <button type="submit"
-                  name="away"
-                  value="away" />
-          <img src={`assets/logos/${this.props.Game.away}.gif`} />
+          <button onClick={() => this.submitPick("home")}
+              />
+            <img
+              className='pick-button'
+              id={this.props.Game.home}
+              src={`assets/logos/${this.props.Game.home}.gif`} />
         </label>
-      </form>
+
+      </div>
     );
   }
 }

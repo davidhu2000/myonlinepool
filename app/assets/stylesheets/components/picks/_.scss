@@ -60,7 +60,7 @@ $drk-text: #CDCDCD;
       margin-right: 20px;
       margin-bottom: 20px;
 
-      img {
+      .pick-button {
         width: 50px;
         border-radius: 25%;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -68,7 +68,7 @@ $drk-text: #CDCDCD;
         cursor: pointer;
       }
 
-      img:hover {
+      .pick-button:hover {
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
       }
 
@@ -77,7 +77,7 @@ $drk-text: #CDCDCD;
         padding: 0px 10px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
       }
     }
 
@@ -105,5 +105,12 @@ $drk-text: #CDCDCD;
         color: red;
       }
     }
+  }
+
+  .selected-button {
+    width: 50px;
+    border-radius: 25%;
+    border: 2px green solid;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   }
 }
