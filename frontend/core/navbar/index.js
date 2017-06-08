@@ -1,9 +1,9 @@
-import Navbar from './navbar';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import Navbar from './navbar';
 
-const mapStateToProps = state => ({
-  user: state.user
+const mapStateToProps = ({ user }) => ({
+  user,
+  loggedIn: Boolean(user)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -11,6 +11,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  null,
-  null
-)(withRouter(Navbar));
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar);

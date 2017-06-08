@@ -1,23 +1,19 @@
 import React from 'react';
-import { withRouter, Link, hashHistory } from 'react-router';
+import { withRouter, Link } from 'react-router';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 
-import { PoolDropdown, SettingsDropdown, AccountDropdown } from './subcomponents';
+import { PoolDropdown, SettingsDropdown } from './subcomponents';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showRightDropdown: false,
       showLeftDropdown: false
     };
 
     autoBind(this);
-  }
-
-  toggleRightDropdown() {
-    this.setState({ showLeftDropdown: false, showRightDropdown: !this.state.showRightDropdown });
   }
 
   toggleLeftDropdown() {
@@ -26,6 +22,30 @@ class Navbar extends React.Component {
 
   locationCheck() {
     return this.props.Location.includes('pool');
+  }
+
+  renderAuthButton() {
+    if (this.props.loggedIn) {
+      return (
+        <Link
+          to='#'
+          id='right-dropdown-button'
+          className="account-button"
+        >
+          <span>Sign Out</span>
+        </Link>
+      );
+    } else {
+      return (
+        <Link
+          to='signin'
+          id='right-dropdown-button'
+          className="account-button"
+        >
+          <span>Sign In</span>
+        </Link>
+      );
+    }
   }
 
   render() {
@@ -72,4 +92,15 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+Navbar.propTypes = {
+  user: PropTypes.shape().isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  PoolId: PropTypes.number,
+  Location: PropTypes.string.isRequired
+};
+
+Navbar.defaultProps = {
+  PoolId: null
+};
+
+export default withRouter(Navbar);

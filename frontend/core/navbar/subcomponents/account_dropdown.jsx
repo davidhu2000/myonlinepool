@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import enhanceWithClickOutside from 'react-click-outside';
 
@@ -30,5 +31,9 @@ class Dropdown extends React.Component {
     );
   }
 }
+
+Dropdown.propTypes = {
+  toggleRightDropdown: PropTypes.func.isRequired
+};
 
 export const AccountDropdown = enhanceWithClickOutside(Dropdown);
