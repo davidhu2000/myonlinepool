@@ -15,13 +15,13 @@ const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Splash} />
 
-    <Route path="/pool/create" component={PoolForm} />
 
     <Route path="/signin" component={Auth} />
     <Route path="/signup" component={Auth} />
 
     <Route path="/home" component={Home}></Route>
 
+    <Route path="/pool/create" component={PoolForm} />
     <Route path="/pool/:poolId">
       <IndexRoute component={Pool} />
       <Route path="picks" component={Picks}></Route>

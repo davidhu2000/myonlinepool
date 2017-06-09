@@ -12,8 +12,8 @@ class Dropdown extends React.Component {
 
   render() {
     return (
-      <div className="settings-dropdown" id="settings-dropdown">
-        <div className="settings-dropdown-list">
+      <div className="navbar-dropdown" id="settings-dropdown">
+        <div className="navbardropdown-list">
           <Link to={`/`}>
             Splash
           </Link>

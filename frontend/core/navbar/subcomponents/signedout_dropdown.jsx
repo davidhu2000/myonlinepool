@@ -14,8 +14,8 @@ class Dropdown extends React.Component {
 
   render() {
     return (
-      <div className="settings-dropdown" id="account-dropdown">
-        <div className="settings-dropdown-list">
+      <div className="navbar-dropdown" id="account-dropdown">
+        <div className="navbar-dropdown-list">
 
           { signedoutLinks.map(item => (
             <Link to={item.link} onClick={this.props.toggleLeftDropdown}>

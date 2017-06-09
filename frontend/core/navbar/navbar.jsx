@@ -77,7 +77,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className='navbar-container'>
         { this.renderDropdown() }
