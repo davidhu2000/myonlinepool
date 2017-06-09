@@ -14,6 +14,9 @@ class Dropdown extends React.Component {
     return (
       <div className="navbar-dropdown" id="pool-dropdown">
         <div className="navbar-dropdown-list">
+          <Link to={`/home`}>
+            Home
+          </Link>
           <Link to={`/pool/1`}>
             Pool Homepage {this.props.PoolId}
           </Link>

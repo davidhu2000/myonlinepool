@@ -11,9 +11,9 @@ class AuthForm extends React.Component {
 
     this.state = {
       name: "",
-      email: "",
-      password: "",
-      passwordConfirmation: ""
+      email: "me@gmail.com",
+      password: "password",
+      passwordConfirmation: "password"
     };
 
     autoBind(this);

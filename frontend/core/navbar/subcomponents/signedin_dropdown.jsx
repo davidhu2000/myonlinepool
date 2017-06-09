@@ -13,7 +13,7 @@ class Dropdown extends React.Component {
   render() {
     return (
       <div className="navbar-dropdown" id="settings-dropdown">
-        <div className="navbardropdown-list">
+        <div className="navbar-dropdown-list">
           <Link to={`/`}>
             Splash
           </Link>
