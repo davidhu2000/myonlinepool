@@ -14,12 +14,6 @@ class Dropdown extends React.Component {
     return (
       <div className="settings-dropdown" id="settings-dropdown">
         <div className="settings-dropdown-list">
-          <Link to={`/signin`}>
-            Sign In
-          </Link>
-          <Link to={`/signup`}>
-            Sign Up
-          </Link>
           <Link to={`/`}>
             Splash
           </Link>
@@ -48,4 +42,4 @@ Dropdown.propTypes = {
   toggleLeftDropdown: PropTypes.func.isRequired
 };
 
-export const SignedInDropdown = enhanceWithClickOutside(Dropdown);
+export const SignedinDropdown = enhanceWithClickOutside(Dropdown);

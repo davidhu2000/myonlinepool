@@ -48,24 +48,39 @@ class Navbar extends React.Component {
     }
   }
 
-  render() {
-    console.log(this.props)
-    return (
-      <div className='navbar-container'>
-        { this.state.showLeftDropdown && !this.locationCheck() ? (
-          <SignedoutDropdown
-            toggleLeftDropdown={this.toggleLeftDropdown}
-            user={this.props.user}
-          />
-        ) : null }
-
-        { this.state.showLeftDropdown && this.locationCheck() ? (
+  renderDropdown() {
+    if (this.state.showLeftDropdown) {
+      if (this.locationCheck()) {
+        return (
           <PoolDropdown
             PoolId={this.props.PoolId}
             toggleLeftDropdown={this.toggleLeftDropdown}
             user={this.props.user}
           />
-        ) : null }
+        );
+      } else if (this.props.loggedIn) {
+        return (
+          <SignedinDropdown
+            toggleLeftDropdown={this.toggleLeftDropdown}
+            user={this.props.user}
+          />
+        );
+      } else {
+        return (
+          <SignedoutDropdown
+            toggleLeftDropdown={this.toggleLeftDropdown}
+            user={this.props.user}
+          />
+        );
+      }
+    }
+  }
+
+  render() {
+    console.log(this.props)
+    return (
+      <div className='navbar-container'>
+        { this.renderDropdown() }
 
         <button
           id='left-dropdown-button'
