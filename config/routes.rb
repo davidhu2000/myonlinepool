@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  # scope :api, default: { format: :json } do 
-  #   devise_for :users
-  # end
 
   namespace :api, default: { format: :json } do 
     devise_for :users, controllers: {
