@@ -27,13 +27,13 @@ class Navbar extends React.Component {
   renderAuthButton() {
     if (this.props.loggedIn) {
       return (
-        <Link
-          to='#'
+        <button
+          onClick={this.props.signout}
           id='right-dropdown-button'
           className="account-button"
         >
           <span>Sign Out</span>
-        </Link>
+        </button>
       );
     } else {
       return (
@@ -106,7 +106,8 @@ Navbar.propTypes = {
   user: PropTypes.shape(),
   loggedIn: PropTypes.bool.isRequired,
   PoolId: PropTypes.number,
-  Location: PropTypes.string.isRequired
+  Location: PropTypes.string.isRequired,
+  signout: PropTypes.func.isRequired
 };
 
 Navbar.defaultProps = {
