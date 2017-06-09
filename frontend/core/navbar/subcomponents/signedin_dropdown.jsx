@@ -11,6 +11,7 @@ class Dropdown extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="navbar-dropdown" id="settings-dropdown">
         <div className="navbar-dropdown-list">
