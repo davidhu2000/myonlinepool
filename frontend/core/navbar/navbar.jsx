@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
-import { PoolDropdown, SettingsDropdown } from './subcomponents';
+import { PoolDropdown, SignedinDropdown, SignedoutDropdown } from './subcomponents';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Navbar extends React.Component {
   }
 
   toggleLeftDropdown() {
-    this.setState({ showRightDropdown: false, showLeftDropdown: !this.state.showLeftDropdown });
+    this.setState({ showLeftDropdown: !this.state.showLeftDropdown });
   }
 
   locationCheck() {
@@ -53,7 +53,7 @@ class Navbar extends React.Component {
     return (
       <div className='navbar-container'>
         { this.state.showLeftDropdown && !this.locationCheck() ? (
-          <SettingsDropdown
+          <SignedoutDropdown
             toggleLeftDropdown={this.toggleLeftDropdown}
             user={this.props.user}
           />

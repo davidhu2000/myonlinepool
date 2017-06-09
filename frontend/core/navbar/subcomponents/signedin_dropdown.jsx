@@ -48,4 +48,4 @@ Dropdown.propTypes = {
   toggleLeftDropdown: PropTypes.func.isRequired
 };
 
-export const SettingsDropdown = enhanceWithClickOutside(Dropdown);
+export const SignedInDropdown = enhanceWithClickOutside(Dropdown);
