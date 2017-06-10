@@ -13,30 +13,18 @@ import Pool from 'modules/pool';
 import Auth from 'modules/user';
 import PoolForm from 'modules/pool_form';
 
-const _redirectIfSignedOut = (nextState, replace) => {
-  if (!window.currentUser) {
-    replace('/signin');
-  }
-};
-
-const _redirectIfSignedIn = (nextState, replace) => {
-  if (window.currentUser) {
-    replace('/home');
-  }
-};
-
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Splash} />
 
 
-    <Route path="/signin" component={Auth} onEnter={_redirectIfSignedIn} />
-    <Route path="/signup" component={Auth} onEnter={_redirectIfSignedIn} />
+    <Route path="/signin" component={Auth} />
+    <Route path="/signup" component={Auth} />
 
-    <Route path="/home" component={Home} onEnter={_redirectIfSignedOut} />
+    <Route path="/home" component={Home} />
 
-    <Route path="/pool/create" component={PoolForm} onEnter={_redirectIfSignedOut} />
-    <Route path="/pool/:poolId" onEnter={_redirectIfSignedOut} >
+    <Route path="/pool/create" component={PoolForm} />
+    <Route path="/pool/:poolId" >
       <IndexRoute component={Pool} />
       <Route path="picks" component={Picks}></Route>
       <Route path="leaderboard" component={Leaderboard}></Route>

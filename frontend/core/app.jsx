@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router';
+import { withRouter, Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
 import Footer from './footer';
@@ -22,17 +22,33 @@ class App extends React.Component {
   }
 
   _redirect(isLoggedIn) {
+    console.log('REDIRECT')
     let route = this.props.location.pathname.slice(1);
+    console.log(route)
+    console.log(isLoggedIn)
 
-    if (['/', '/splash'].includes(route)) {
-      return;
-    }
-
+    // routes that does not require signing in first
     if (isLoggedIn && ['signin', 'signup'].includes(route)) {
-      this.props.router.replace('home');
+      console.log('replace to home')
+      this.props.router.replace('/home');
     } else if (!isLoggedIn) {
-      this.props.router.replace('signin');
+      console.log('replace to signin')
+      this.props.router.replace('/signin');
     }
+
+    // console.log('1')
+    // if (!isLoggedIn) {
+    //   console.log('replace to signin')
+      
+    //   return;
+    // }
+
+    // console.log('2')
+    // console.log(['signin', 'signup'].includes(route))
+    // if (isLoggedIn && ['signin', 'signup'].includes(route)) {
+    //   console.log('replace to home')
+      
+    // }
   }
 
   render() {
