@@ -8,11 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
-    <% if signed_in? %>
-      <script type="text/javascript">
+    <script type="text/javascript">
+      <% if signed_in? %>
         window.currentUser = <%= render("user.json.jbuilder", formats: [:json], user: current_user).html_safe %>
-      </script>
-    <% end %>
+      <% else %> 
+        window.currentUser = null
+      <% end %>
+    </script>
   </head>
 
   <body>
