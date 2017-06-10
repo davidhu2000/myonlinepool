@@ -11,27 +11,17 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="navbar-dropdown" id="settings-dropdown">
         <div className="navbar-dropdown-list">
-          <Link to={`/`}>
+          <Link to={`/`} onClick={this.props.toggleLeftDropdown}>
             Splash
           </Link>
-          <Link to={`/home`}>
+          <Link to={`/home`} onClick={this.props.toggleLeftDropdown}>
             Home
           </Link>
-          <Link to={`/pool/1`}>
-            Pool Homepage
-          </Link>
-          <Link to={`/pool/1/picks`}>
-            Picks
-          </Link>
-          <Link to={`/pool/1/leaderboard`}>
-            Leaderboard
-          </Link>
-          <Link to={`/pool/1/moderator`}>
-            Moderator
+          <Link to={`/pool`} onClick={this.props.toggleLeftDropdown}>
+            My Pools
           </Link>
         </div>
       </div>
