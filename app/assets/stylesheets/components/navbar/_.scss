@@ -71,9 +71,14 @@ $drk-text: #CDCDCD;
     align-items: center;
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
     // font-family: 'Baloo Bhaina', cursive;
     // background-color: $lt-primary;
     // box-shadow: -8px 0px 5px -5px rgba(0,0,0,0.16), 8px 0px 5px -5px rgba(0,0,0,0.16);
+
+    &:hover {
+      color: red;
+    }
   }
 
   .account-button {
