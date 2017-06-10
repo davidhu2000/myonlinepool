@@ -2,6 +2,8 @@ $drk-primary: #1c1c1c;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
 
+@import 'hamburger.scss';
+
 @keyframes barsIn {
   0% {
     opacity: 0;
@@ -89,27 +91,6 @@ $drk-text: #CDCDCD;
       position: absolute;
       left: 0px;
     }
-  }
-
-  .info-button {
-    position: absolute;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 20px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: .5s;
-    left: 25px;
-
-    i {
-      position: absolute;
-      left: 0px;
-    }
-  }
-
-  .info-button:hover, .account-button:hover {
-    color: $drk-text;
   }
 
   .account-button, .info-button {

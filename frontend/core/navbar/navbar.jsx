@@ -80,17 +80,16 @@ class Navbar extends React.Component {
     return (
       <div className='navbar-container'>
         { this.renderDropdown() }
-
+        
         <button
           id='left-dropdown-button'
-          className="info-button"
+          className={`${this.state.showLeftDropdown ? 'open' : ''}`}
           onClick={this.toggleLeftDropdown}
         >
-          { this.state.showLeftDropdown ? (
-            <i className="fa fa-minus fa-2x" aria-hidden="true" />
-          ) : (
-            <i className="fa fa-bars fa-2x" aria-hidden="true" />
-          )}
+          <span />
+          <span />
+          <span />
+          <span />
         </button>
 
         <div className="title">MyOnlinePool</div>
@@ -104,7 +103,7 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
   user: PropTypes.shape(),
   loggedIn: PropTypes.bool.isRequired,
-  PoolId: PropTypes.number,
+  PoolId: PropTypes.string,
   Location: PropTypes.string.isRequired,
   signout: PropTypes.func.isRequired
 };
