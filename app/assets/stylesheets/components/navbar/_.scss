@@ -72,6 +72,7 @@ $drk-text: #CDCDCD;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    transition: .5s;
     // font-family: 'Baloo Bhaina', cursive;
     // background-color: $lt-primary;
     // box-shadow: -8px 0px 5px -5px rgba(0,0,0,0.16), 8px 0px 5px -5px rgba(0,0,0,0.16);
@@ -91,6 +92,10 @@ $drk-text: #CDCDCD;
     font-weight: bold;
     transition: .5s;
     right: 25px;
+
+    &:hover {
+      color: red;
+    }
 
     i {
       position: absolute;

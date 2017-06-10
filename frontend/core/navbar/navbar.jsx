@@ -92,7 +92,9 @@ class Navbar extends React.Component {
           <span />
         </button>
 
-        <div className="title" onClick={() => this.props.router.push('/')}>MyOnlinePool</div>
+        <div className="title" onClick={() => this.props.router.push('/')}>
+          MyOnlinePool
+        </div>
 
         { this.renderAuthButton() }
       </div>
