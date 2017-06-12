@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { withValidation } from 'helpers';
+
 const FormTextInput = ({ update, type, value, label, field }) => (
   <div className="poolform-group">
     <input
