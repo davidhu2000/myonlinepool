@@ -6,7 +6,6 @@ export function withValidation(Component) {
   class WithValidation extends React.Component {
     constructor(props) {
       super(props);
-      console.log(props)
 
       this.state = {
         isValid: null
@@ -22,8 +21,6 @@ export function withValidation(Component) {
 
     validatePresence() {
       let { value } = this.props;
-      console.log(value);
-      console.log(value && value.length > 0)
       this.setState({ isValid: value.length > 0 });
     }
 
@@ -57,7 +54,6 @@ export function withValidation(Component) {
     }
 
     render() {
-      console.log(this.state);
       return (
         <Component {...this.props} isValid={this.state.isValid} validate={this.validateField()} />
       );

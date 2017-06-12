@@ -14,7 +14,6 @@ const TextInput = ({ update, type, value, label, field, isValid, validate, error
       className="auth-form-password"
       onBlur={validate}
     />
-    { console.log(field + ': ' + isValid)}
     <span className={`bar ${isValid === false ? 'hidden' : ''}`} />
     <label htmlFor={type}>{label}</label>
     <div className={`form-group-error-message ${isValid === false ? '' : 'hidden'}`}>
