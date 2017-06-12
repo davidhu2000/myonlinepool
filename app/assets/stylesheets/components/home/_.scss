@@ -17,33 +17,25 @@ $white: #F6F7F9;
 }
 
 .home-bulletin {
-  min-height: 431px;
+  min-height: 327px;
   width: 100%;
+  padding: 20px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: $lt-primary;
-
-  .modboard {
-    .modboard-container {
-      height: 340px;
-    }
-  }
 }
 
 .home-top {
   width: 100%;
   min-height: 431px;
-  // padding: 20px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  // background: $lt-primary;
 
   .standings-box {
     font-size: 12px;
-    // color: white;
     .standings-box-top-item{
       font-size: 14px;
       font-weight: bold;
