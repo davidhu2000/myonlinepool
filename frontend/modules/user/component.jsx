@@ -4,7 +4,7 @@ import { withRouter, Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { FormTextInput, EmailInput } from 'common/components';
+import { FormTextInput, EmailInput, PasswordInput } from 'common/components';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -111,8 +111,6 @@ class AuthForm extends React.Component {
         text = 'Don\'t have an account?';
     }
 
-    console.log(this.state)
-
     return (
       <div className="signup-container">
         <form onSubmit={this.submitForm} className="auth-form">
@@ -130,14 +128,7 @@ class AuthForm extends React.Component {
 
           <EmailInput context={this} email={this.state.email} />
 
-          <FormTextInput
-            update={this.update}
-            value={this.state.password}
-            type="password"
-            field="password"
-            label="Password"
-            errorMessage="Password needs to be at least 6 characters"
-          />
+          <PasswordInput context={this} password={this.state.password} />
 
           { path === '/signup' ? (
             <FormTextInput
