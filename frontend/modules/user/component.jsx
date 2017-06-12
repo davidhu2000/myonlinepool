@@ -3,9 +3,8 @@ import React from 'react';
 import { withRouter, Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import { values } from 'lodash';
 
-import { FormTextInput } from 'common/components';
+import { FormTextInput, EmailInput } from 'common/components';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -112,6 +111,8 @@ class AuthForm extends React.Component {
         text = 'Don\'t have an account?';
     }
 
+    console.log(this.state)
+
     return (
       <div className="signup-container">
         <form onSubmit={this.submitForm} className="auth-form">
@@ -127,14 +128,7 @@ class AuthForm extends React.Component {
             />
           ) : null }
 
-          <FormTextInput
-            update={this.update}
-            value={this.state.email}
-            type="text"
-            field="email"
-            label="Email"
-            errorMessage="Please enter a valid email"
-          />
+          <EmailInput context={this} email={this.state.email} />
 
           <FormTextInput
             update={this.update}
