@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { withValidation } from 'helpers';
 
-const TextInput = ({ update, type, value, label, field, isValid, validate }) => (
+const TextInput = ({ update, type, value, label, field, isValid, validate, errorMessage }) => (
   <div className={`poolform-group ${isValid ? '' : 'form-has-error'}`}>
     <input
       required
@@ -18,7 +18,7 @@ const TextInput = ({ update, type, value, label, field, isValid, validate }) => 
     <span className="bar" />
     <label htmlFor={type}>{label}</label>
     <div className={`form-group-error-message ${isValid ? 'hidden' : ''}`}>
-      Error
+      {`${errorMessage}`}
     </div>
   </div>
 );
@@ -30,7 +30,8 @@ TextInput.propTypes = {
   label: PropTypes.string.isRequired,
   field: PropTypes.string.isRequired,
   isValid: PropTypes.bool,
-  validate: PropTypes.func.isRequired
+  validate: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string.isRequired
 };
 
 TextInput.defaultProps = {

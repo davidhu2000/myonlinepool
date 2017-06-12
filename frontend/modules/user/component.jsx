@@ -118,6 +118,7 @@ class AuthForm extends React.Component {
               type='name'
               field="name"
               label='Full Name'
+              errorMessage="Please enter your name"
             />
           ) : null }
 
@@ -127,6 +128,7 @@ class AuthForm extends React.Component {
             type="text"
             field="email"
             label="Email"
+            errorMessage="Please enter a valid email"
           />
 
           <FormTextInput
@@ -135,6 +137,7 @@ class AuthForm extends React.Component {
             type="password"
             field="password"
             label="Password"
+            errorMessage="Password needs to be at least 6 characters"
           />
 
           { path === '/signup' ? (
@@ -144,6 +147,7 @@ class AuthForm extends React.Component {
               type='password'
               field='passwordConfirmation'
               label='Password Confirmation'
+              errorMessage="Password needs to be at least 6 characters"
             />
           ) : null }
 
