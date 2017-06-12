@@ -128,3 +128,25 @@
     width: 50%;
   }
 }
+
+.form-has-error {
+  position: relative;
+
+  > input {
+    border-bottom: 2px solid red !important;
+    z-index: 10;
+  }
+
+  .form-group-error-message {
+    position: absolute;
+    right: 0;
+    bottom: -27px;
+    display: inline-block;
+    font-size: 13px;
+    background: red;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+  }
+}
+

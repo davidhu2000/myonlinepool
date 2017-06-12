@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withValidation } from 'helpers';
 
 const TextInput = ({ update, type, value, label, field, isValid, validate, errorMessage }) => (
-  <div className={`poolform-group ${isValid ? '' : 'form-has-error'}`}>
+  <div className={`poolform-group ${isValid === false ? 'form-has-error' : ''}`}>
     <input
       required
       name={type}
@@ -14,10 +14,9 @@ const TextInput = ({ update, type, value, label, field, isValid, validate, error
       className="auth-form-password"
       onBlur={validate}
     />
-    { console.log(field + ': ' + isValid)}
-    <span className="bar" />
+    <span className={`bar ${isValid === false ? 'hidden' : ''}`} />
     <label htmlFor={type}>{label}</label>
-    <div className={`form-group-error-message ${isValid ? 'hidden' : ''}`}>
+    <div className={`form-group-error-message ${isValid === false ? '' : 'hidden'}`}>
       {`${errorMessage}`}
     </div>
   </div>
