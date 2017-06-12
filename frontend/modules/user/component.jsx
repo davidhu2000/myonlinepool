@@ -29,39 +29,22 @@ class AuthForm extends React.Component {
     }
   }
 
-  validateForm(type) {
-    let emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let correctEmail = emailRegex.test(this.state.email);
-
-    if (type === 'signup') {
-      let namePresent = this.state.name.length > 0;
-      let matchingPassword = this.state.password === this.state.passwordConfirmation;
-      return correctEmail && namePresent && matchingPassword;
-    } else {
-      let passwordPresent = this.state.password.length > 0;
-      return correctEmail && passwordPresent;
-    }
-  }
-
   submitForm(e) {
     e.preventDefault();
 
     switch (this.props.location.pathname) {
       case '/signup':
-        if (this.validateForm('signup')) {
-          this.props.signup(this.state);
-          hashHistory.push('/home');
-        } else {
-          // render errors
-        }
+        this.props.signup(this.state).then(
+          () => console.log('show confirm with email message'),
+          err => console.log(err)
+        );
+
         break;
       default:
-        if (this.validateForm('signin')) {
-          this.props.signin(this.state);
-          hashHistory.push('/home');
-        } else {
-          // render errors
-        }
+        this.props.signin(this.state).then(
+          () => hashHistory.push('/home'),
+          err => console.log(err)
+        );
     }
   }
 
