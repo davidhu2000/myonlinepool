@@ -1,7 +1,7 @@
+/* global document */
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import { hashHistory } from 'react-router';
 
 import { EmailInput } from 'common/components';
 
@@ -10,20 +10,32 @@ class ForgetPassword extends React.Component {
     super(props);
 
     this.state = {
-      email: ''
+      email: '',
+      isValid: false
     };
 
     autoBind(this);
   }
 
-  componentDidMount() {
-    this._redirectIfLoggedIn();
+  submitForm(e) {
+    e.preventDefault();
+
+    this.props.resetPassword(this.state).then(
+      () => console.log('show check email message'),
+      err => console.log(err)
+    );
   }
 
-  _redirectIfLoggedIn() {
-    if (this.props.loggedIn) {
-      hashHistory.replace('/home');
-    }
+  isFormValid() {
+    let inputs = [];
+
+    inputs.push(
+      this.state.email,
+    );
+
+    let noEmptyFields = inputs.every(val => !!val);
+    let noError = document.getElementsByClassName('form-group-error-message').length === 0;
+    this.setState({ isValid: noEmptyFields && noError });
   }
 
   update(field) {
@@ -34,15 +46,25 @@ class ForgetPassword extends React.Component {
 
   render() {
     return (
-      <div className='signup-container'>
+      <form onSubmit={this.submitForm} className="auth-form">
         <EmailInput context={this} email={this.state.email} />
-      </div>
+
+        <input
+          id="form-submit-button"
+          type='submit'
+          className="auth-form-button"
+          value={'Reset password'}
+          onMouseEnter={this.isFormValid}
+          disabled={!this.state.isValid}
+        />
+
+      </form>
     );
   }
 }
 
 ForgetPassword.propTypes = {
-  loggedIn: PropTypes.bool.isRequired
+  resetPassword: PropTypes.func.isRequired
 };
 
 export { ForgetPassword };

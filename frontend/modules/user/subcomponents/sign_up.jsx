@@ -69,7 +69,6 @@ class SignupForm extends React.Component {
           errorMessage="Please enter your name"
         />
 
-
         <EmailInput context={this} email={this.state.email} />
 
         <PasswordInput context={this} password={this.state.password} />

@@ -47,9 +47,9 @@ class SigninForm extends React.Component {
   renderUtility() {
     return (
       <div className="utility-row">
-        <div>
+        <Link to='auth?form=forget-password'>
           Forgot your password?
-        </div>
+        </Link>
         <div className="utility-item">
           Remember me?
         </div>

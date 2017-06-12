@@ -3,7 +3,7 @@ import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { SigninForm, SignupForm } from './subcomponents';
+import { SigninForm, SignupForm, ForgetPassword } from './subcomponents';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -27,6 +27,8 @@ class AuthForm extends React.Component {
     switch (form) {
       case 'signup':
         return <SignupForm signup={this.props.signup} />;
+      case 'forget-password':
+        return <ForgetPassword resetPassword={() => console.log('reset password')} />;
       default:
         return <SigninForm signin={this.props.signin} />;
     }
