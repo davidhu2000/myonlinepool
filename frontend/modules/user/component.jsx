@@ -3,6 +3,7 @@ import React from 'react';
 import { withRouter, Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
+import { values } from 'lodash';
 
 import { FormTextInput } from 'common/components';
 
@@ -51,9 +52,22 @@ class AuthForm extends React.Component {
   }
 
   isFormValid() {
-    console.log(this.state)
-    let isValid = document.getElementsByClassName('form-group-error-message').length === 0;
-    this.setState({ isValid });
+    let inputs = [];
+
+    if (this.props.location.pathname === '/signin') {
+      inputs.push(this.state.email, this.state.password);
+    } else {
+      inputs.push(
+        this.state.name,
+        this.state.email,
+        this.state.password,
+        this.state.passwordConfirmation
+      );
+    }
+
+    let noEmptyFields = inputs.every(val => !!val);
+    let noError = document.getElementsByClassName('form-group-error-message').length === 0;
+    this.setState({ isValid: noEmptyFields && noError });
   }
 
   update(field) {

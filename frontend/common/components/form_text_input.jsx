@@ -12,6 +12,7 @@ const TextInput = ({ update, type, value, label, field, isValid, validate, error
       value={value}
       onChange={update(field)}
       className="auth-form-password"
+      onKeyUp={isValid === false ? validate : null}
       onBlur={validate}
     />
     <span className={`bar ${isValid === false ? 'hidden' : ''}`} />
