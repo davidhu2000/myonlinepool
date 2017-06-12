@@ -15,10 +15,11 @@ $white: #F6F7F9;
   h2 {
     position: absolute;
     top: 0px;
-    left: 10px;
+    left: 5px;
     font-size: 20px;
     text-align: left;
     opacity: .5;
+    font-weight: bold;
   }
 
   .message-container-container {
@@ -26,8 +27,8 @@ $white: #F6F7F9;
   }
 
   .message-container {
-    height: 300px;
-    overflow-y: auto;
+    // height: 300px;
+    // overflow-y: auto;
 
     .chat-box-item {
       margin-bottom: 10px;
