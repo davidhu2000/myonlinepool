@@ -27,6 +27,18 @@
   .pool-create-button:hover {
     color: #AF1E2C;
   }
+
+  .pool-create-button:hover {
+      color: #AF1E2C;
+  }
+
+  .pool-create-button:disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .poolform-group {

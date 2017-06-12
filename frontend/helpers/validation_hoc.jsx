@@ -45,6 +45,7 @@ export function withValidation(Component) {
         case 'password':
           return this.validatePassword;
         case 'passwordConfirmation':
+        case 'password_confirmation':
           return this.validatePasswordConfirmation;
         case 'buy_in':
           return this.validateInteger;
