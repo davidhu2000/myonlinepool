@@ -60,6 +60,14 @@
     .auth-form-button:hover {
       color: #AF1E2C;
     }
+
+    .auth-form-button:disabled {
+      cursor: not-allowed;
+
+      &:hover {
+        color: white;
+      }
+    }
   }
 }
 

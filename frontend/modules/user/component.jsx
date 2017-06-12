@@ -1,3 +1,4 @@
+/* global document */
 import React from 'react';
 import { withRouter, Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
@@ -13,7 +14,8 @@ class AuthForm extends React.Component {
       name: "",
       email: "me@gmail.com",
       password: "password",
-      passwordConfirmation: "password"
+      passwordConfirmation: "password",
+      isValid: false
     };
 
     autoBind(this);
@@ -46,6 +48,12 @@ class AuthForm extends React.Component {
           err => console.log(err)
         );
     }
+  }
+
+  isFormValid() {
+    console.log(this.state)
+    let isValid = document.getElementsByClassName('form-group-error-message').length === 0;
+    this.setState({ isValid });
   }
 
   update(field) {
@@ -142,7 +150,15 @@ class AuthForm extends React.Component {
                 <Link to={otherLink}>{otherForm}</Link>
               </span>
             </div>
-            <input type='submit' className="auth-form-button" value={submitValue} />
+
+            <input
+              id="form-submit-button"
+              type='submit'
+              className="auth-form-button"
+              value={submitValue}
+              onMouseEnter={this.isFormValid}
+              disabled={!this.state.isValid}
+            />
 
           </div>
           { this.renderUtility() }

@@ -16,9 +16,12 @@ const TextInput = ({ update, type, value, label, field, isValid, validate, error
     />
     <span className={`bar ${isValid === false ? 'hidden' : ''}`} />
     <label htmlFor={type}>{label}</label>
-    <div className={`form-group-error-message ${isValid === false ? '' : 'hidden'}`}>
-      {`${errorMessage}`}
-    </div>
+
+    { isValid === false && (
+      <div className={`form-group-error-message`}>
+        {`${errorMessage}`}
+      </div>
+    ) }
   </div>
 );
 
@@ -30,7 +33,7 @@ TextInput.propTypes = {
   field: PropTypes.string.isRequired,
   isValid: PropTypes.bool,
   validate: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string.isRequired
 };
 
 TextInput.defaultProps = {
