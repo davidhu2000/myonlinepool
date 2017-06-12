@@ -38,7 +38,7 @@ class Navbar extends React.Component {
     } else {
       return (
         <Link
-          to='signin'
+          to='auth?form=signin'
           id='right-dropdown-button'
           className="account-button"
         >

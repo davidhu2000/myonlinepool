@@ -58,55 +58,52 @@ class SignupForm extends React.Component {
     let text = 'Already have an account?';
 
     return (
-      <div className="signup-container">
-        <form onSubmit={this.submitForm} className="auth-form">
+      <form onSubmit={this.submitForm} className="auth-form">
 
-          <FormTextInput
-            update={this.update}
-            value={this.state.name}
-            type='name'
-            field="name"
-            label='Full Name'
-            errorMessage="Please enter your name"
-          />
-
-
-          <EmailInput context={this} email={this.state.email} />
-
-          <PasswordInput context={this} password={this.state.password} />
-
-          <FormTextInput
-            update={this.update}
-            value={this.state.passwordConfirmation}
-            type='password'
-            field='passwordConfirmation'
-            label='Password Confirmation'
-            password={this.state.password}
-            errorMessage="Password confirmation does not match password."
-          />
+        <FormTextInput
+          update={this.update}
+          value={this.state.name}
+          type='name'
+          field="name"
+          label='Full Name'
+          errorMessage="Please enter your name"
+        />
 
 
-          <div className="submit-row">
-            <div className="reroute">
-              {text}
-              <span>
-                <Link to={otherLink}>{otherForm}</Link>
-              </span>
-            </div>
+        <EmailInput context={this} email={this.state.email} />
 
-            <input
-              id="form-submit-button"
-              type='submit'
-              className="auth-form-button"
-              value={submitValue}
-              onMouseEnter={this.isFormValid}
-              disabled={!this.state.isValid}
-            />
+        <PasswordInput context={this} password={this.state.password} />
 
+        <FormTextInput
+          update={this.update}
+          value={this.state.passwordConfirmation}
+          type='password'
+          field='passwordConfirmation'
+          label='Password Confirmation'
+          password={this.state.password}
+          errorMessage="Password confirmation does not match password."
+        />
+
+
+        <div className="submit-row">
+          <div className="reroute">
+            {text}
+            <span>
+              <Link to={`auth?form=${otherLink}`}>{otherForm}</Link>
+            </span>
           </div>
-        </form>
 
-      </div>
+          <input
+            id="form-submit-button"
+            type='submit'
+            className="auth-form-button"
+            value={submitValue}
+            onMouseEnter={this.isFormValid}
+            disabled={!this.state.isValid}
+          />
+
+        </div>
+      </form>
     );
   }
 }
@@ -115,4 +112,4 @@ SignupForm.propTypes = {
   signup: PropTypes.func.isRequired
 };
 
-export default SignupForm;
+export { SignupForm };

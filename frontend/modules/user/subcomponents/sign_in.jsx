@@ -60,41 +60,37 @@ class SigninForm extends React.Component {
   render() {
     let submitValue = 'Sign In';
     let otherForm = 'Sign up';
-    let otherLink = '/signup';
+    let otherLink = 'signup';
     let text = 'Don\'t have an account?';
 
-
     return (
-      <div className="signup-container">
-        <form onSubmit={this.submitForm} className="auth-form">
+      <form onSubmit={this.submitForm} className="auth-form">
 
-          <EmailInput context={this} email={this.state.email} />
+        <EmailInput context={this} email={this.state.email} />
 
-          <PasswordInput context={this} password={this.state.password} />
+        <PasswordInput context={this} password={this.state.password} />
 
-          <div className="submit-row">
-            <div className="reroute">
-              {text}
-              <span>
-                <Link to={otherLink}>{otherForm}</Link>
-              </span>
-            </div>
-
-            <input
-              id="form-submit-button"
-              type='submit'
-              className="auth-form-button"
-              value={submitValue}
-              onMouseEnter={this.isFormValid}
-              disabled={!this.state.isValid}
-            />
-
+        <div className="submit-row">
+          <div className="reroute">
+            {text}
+            <span>
+              <Link to={`auth?form=${otherLink}`}>{otherForm}</Link>
+            </span>
           </div>
-          { this.renderUtility() }
-        </form>
 
-      </div>
-    );
+          <input
+            id="form-submit-button"
+            type='submit'
+            className="auth-form-button"
+            value={submitValue}
+            onMouseEnter={this.isFormValid}
+            disabled={!this.state.isValid}
+          />
+
+        </div>
+        { this.renderUtility() }
+      </form>
+  );
   }
 }
 
@@ -102,4 +98,4 @@ SigninForm.propTypes = {
   signin: PropTypes.func.isRequired,
 };
 
-export default SigninForm;
+export { SigninForm };
