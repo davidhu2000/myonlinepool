@@ -32,7 +32,7 @@ class JoinForm extends React.Component {
           <FormTextInput
             update={this.update}
             type='text'
-            value={this.state.password}
+            value={this.state.title}
             label="Title"
             field='title'
           />
