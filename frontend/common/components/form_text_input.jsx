@@ -28,7 +28,13 @@ TextInput.propTypes = {
   type: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   label: PropTypes.string.isRequired,
-  field: PropTypes.string.isRequired
+  field: PropTypes.string.isRequired,
+  isValid: PropTypes.bool,
+  validate: PropTypes.func.isRequired
+};
+
+TextInput.defaultProps = {
+  isValid: null
 };
 
 export const FormTextInput = withValidation(TextInput);
