@@ -16,19 +16,9 @@ $white: #F6F7F9;
   justify-content: flex-start;
 }
 
-.home-bulletin {
-  min-height: 327px;
-  width: 100%;
-  padding: 20px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $lt-primary;
-}
-
 .home-top {
   width: 100%;
-  min-height: 431px;
+  min-height: 374px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -60,9 +50,19 @@ $white: #F6F7F9;
   }
 }
 
-.home-bottom {
-  min-height: 300px;
+.home-bulletin {
+  min-height: 327px;
+  width: 100%;
   padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $lt-primary;
+}
+
+.home-bottom {
+  min-height: 290px;
+  // padding: 20px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -13,19 +13,9 @@ $drk-text: #CDCDCD;
   justify-content: flex-start;
 }
 
-.pool-bulletin {
-  min-height: 327px;
-  width: 100%;
-  padding: 20px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $lt-primary;
-}
-
 .pool-standings {
   width: 100%;
-  min-height: 431px;
+  min-height: 374px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -55,6 +45,16 @@ $drk-text: #CDCDCD;
       margin-left: 0px;
     }
   }
+}
+
+.pool-bulletin {
+  min-height: 327px;
+  width: 100%;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $lt-primary;
 }
 
 .pool-coms {
