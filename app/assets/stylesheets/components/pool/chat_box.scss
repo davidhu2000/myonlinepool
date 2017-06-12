@@ -8,8 +8,9 @@ $white: #F6F7F9;
   width: 870px;
   padding: 0px 5px;
   padding-top: 30px;
-  font-family: 'Karla', sans-serif;
+  // font-family: 'Karla', sans-serif;
   position: relative;
+  // color: white;
 
   h2 {
     position: absolute;
@@ -57,6 +58,7 @@ $white: #F6F7F9;
       width: 100%;
       padding-left: 5px;
       border-bottom: .2px rgba(51, 51, 51,.2) solid;
+      // border-bottom: .2px white solid;
       font-size: 15px;
     }
 

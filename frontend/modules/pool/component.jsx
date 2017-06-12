@@ -15,12 +15,6 @@ class Pool extends React.Component {
   render() {
     return (
       <div className="pool-container">
-        <div className="pool-bulletin">
-          <ModBoard
-            Chat={this.props.pool.bulletins}
-            Mod={this.props.pool.admin}
-          />
-        </div>
         <div className="pool-standings">
           <StandingsBox
             Title="Weekly Leaders"
@@ -31,13 +25,19 @@ class Pool extends React.Component {
             Standings={this.props.pool.leaders}
           />
         </div>
+        <div className="pool-bulletin">
+        <ModBoard
+          Chat={this.props.pool.bulletins}
+          Mod={this.props.pool.admin}
+        />
+        </div>
         <div className="pool-coms">
           <ChatBox
             Dispatch={this.props.sendMessage}
             Chat={this.props.messages}
           />
         </div>
-      </div>
+        </div>
     );
   }
 }

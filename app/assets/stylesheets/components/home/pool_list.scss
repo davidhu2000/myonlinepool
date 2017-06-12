@@ -31,6 +31,8 @@ $white: #F6F7F9;
   position: relative;
   border-radius: 5px;
   padding-top: 30px;
+  // background: $lt-primary;
+  // color: white;
 
   .pool-list-top-item {
     position: absolute;
@@ -42,16 +44,12 @@ $white: #F6F7F9;
   }
 
   .pool-list-item {
-    // width: 100%;
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: .25s;
-    // margin-top: 5px;
     padding-left: 5px;
 
     div {
       width: 100%;
       padding: 10px 5px;
-      // font-size: 15px;
       cursor: pointer;
     }
 

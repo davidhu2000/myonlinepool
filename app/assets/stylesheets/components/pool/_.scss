@@ -21,10 +21,7 @@ $drk-text: #CDCDCD;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  .modboard {
-    width: 870px;
-  }
+  background: $lt-primary;
 
   .modboard-container {
     height: 200px;
@@ -39,11 +36,11 @@ $drk-text: #CDCDCD;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: $lt-primary;
+  // background: $lt-primary;
 
   .standings-box {
     font-size: 12px;
-    color: white;
+    // color: white;
     .standings-box-top-item{
       font-size: 14px;
       font-weight: bold;
@@ -74,7 +71,7 @@ $drk-text: #CDCDCD;
   display: flex;
   flex-direction: row;
   justify-content: center;
-
+  // background: $lt-primary;
 }
 
 .pool-message {
