@@ -147,7 +147,8 @@ class AuthForm extends React.Component {
               type='password'
               field='passwordConfirmation'
               label='Password Confirmation'
-              errorMessage="Password needs to be at least 6 characters"
+              password={this.state.password}
+              errorMessage="Password confirmation does not match password."
             />
           ) : null }
 

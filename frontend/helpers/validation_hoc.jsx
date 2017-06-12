@@ -22,11 +22,18 @@ export function withValidation(Component) {
 
     validatePresence() {
       let { value } = this.props;
-      this.setState({ isValid: value && value.length > 0 });
+      console.log(value);
+      console.log(value && value.length > 0)
+      this.setState({ isValid: value.length > 0 });
     }
 
     validatePassword() {
       this.setState({ isValid: this.props.value.length > 5 });
+    }
+
+    validatePasswordConfirmation() {
+      let { password, value } = this.props;
+      this.setState({ isValid: password === value });
     }
 
     validateInteger() {
@@ -40,6 +47,8 @@ export function withValidation(Component) {
           return this.validateEmail;
         case 'password':
           return this.validatePassword;
+        case 'passwordConfirmation':
+          return this.validatePasswordConfirmation;
         case 'buy_in':
           return this.validateInteger;
         default:
@@ -48,6 +57,7 @@ export function withValidation(Component) {
     }
 
     render() {
+      console.log(this.state);
       return (
         <Component {...this.props} isValid={this.state.isValid} validate={this.validateField()} />
       );
@@ -56,7 +66,12 @@ export function withValidation(Component) {
 
   WithValidation.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    field: PropTypes.string.isRequired
+    field: PropTypes.string.isRequired,
+    password: PropTypes.string
+  };
+
+  WithValidation.defaultProps = {
+    password: ''
   };
 
   return WithValidation;

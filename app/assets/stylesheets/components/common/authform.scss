@@ -140,13 +140,14 @@
   .form-group-error-message {
     position: absolute;
     right: 0;
-    bottom: -27px;
+    bottom: -28px;
     display: inline-block;
     font-size: 13px;
     background: red;
     padding: 5px;
     color: white;
-    border-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
 }
 
