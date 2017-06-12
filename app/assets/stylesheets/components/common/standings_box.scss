@@ -1,20 +1,17 @@
 $off-white: #e9ebee;
 
 .standings-box {
-  // padding: 5px;
-  padding-top: 30px;
-  // border-radius: 5px;
-  // background: white;
-  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding-top: 20px;
   position: relative;
 
   .standings-box-title {
     position: absolute;
     top: 0px;
-    left: 5px;
+    left: 0px;
     font-size: 20px;
     text-align: left;
     opacity: .5;
+    font-weight: bold;
   }
 
   div:nth-child(3) {

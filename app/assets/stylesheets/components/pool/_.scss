@@ -11,39 +11,18 @@ $drk-text: #CDCDCD;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  // justify-content: center;
-  // align-items: center;
-}
-
-.pool-bulletin {
-  min-height: 300px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .modboard {
-    width: 870px;
-  }
-
-  .modboard-container {
-    height: 200px;
-  }
 }
 
 .pool-standings {
   width: 100%;
-  min-height: 431px;
-  // padding: 20px 0px;
+  min-height: 374px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: $lt-primary;
 
   .standings-box {
     font-size: 12px;
-    color: white;
     .standings-box-top-item{
       font-size: 14px;
       font-weight: bold;
@@ -68,13 +47,22 @@ $drk-text: #CDCDCD;
   }
 }
 
+.pool-bulletin {
+  min-height: 327px;
+  width: 100%;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $lt-primary;
+}
+
 .pool-coms {
   min-height: 431px;
   padding: 20px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-
 }
 
 .pool-message {
