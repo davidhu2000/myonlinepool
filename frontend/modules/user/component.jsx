@@ -63,7 +63,6 @@ class AuthForm extends React.Component {
           // render errors
         }
     }
-
   }
 
   update(field) {
