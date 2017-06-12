@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { withValidation } from 'helpers';
 
-const FormTextInput = ({ update, type, value, label, field }) => (
+const TextInput = ({ update, type, value, label, field }) => (
   <div className="poolform-group">
     <input
       required
@@ -18,7 +18,7 @@ const FormTextInput = ({ update, type, value, label, field }) => (
   </div>
 );
 
-FormTextInput.propTypes = {
+TextInput.propTypes = {
   update: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -26,4 +26,4 @@ FormTextInput.propTypes = {
   field: PropTypes.string.isRequired
 };
 
-export { FormTextInput };
+export const FormTextInput = withValidation(TextInput);
