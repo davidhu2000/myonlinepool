@@ -1,0 +1,7 @@
+{
+  "signedoutLinks": [
+    { "link": "/signin", "text": "Sign In" },
+    { "link": "/signup", "text": "Sign Up" },
+    { "link": "/", "text": "Splash" }
+  ]
+}

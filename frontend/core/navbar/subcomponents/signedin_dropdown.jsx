@@ -12,22 +12,16 @@ class Dropdown extends React.Component {
 
   render() {
     return (
-      <div className="navbar-dropdown" id="pool-dropdown">
+      <div className="navbar-dropdown" id="settings-dropdown">
         <div className="navbar-dropdown-list">
+          <Link to={`/`} onClick={this.props.toggleLeftDropdown}>
+            Splash
+          </Link>
           <Link to={`/home`} onClick={this.props.toggleLeftDropdown}>
             Home
           </Link>
-          <Link to={`/pool/1`} onClick={this.props.toggleLeftDropdown}>
-            Pool Homepage {this.props.PoolId}
-          </Link>
-          <Link to={`/pool/1/picks`} onClick={this.props.toggleLeftDropdown}>
-            Picks
-          </Link>
-          <Link to={`/pool/1/leaderboard`} onClick={this.props.toggleLeftDropdown}>
-            Leaderboard
-          </Link>
-          <Link to={`/pool/1/moderator`} onClick={this.props.toggleLeftDropdown}>
-            Moderator
+          <Link to={`/pool`} onClick={this.props.toggleLeftDropdown}>
+            My Pools
           </Link>
         </div>
       </div>
@@ -36,8 +30,7 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
-  PoolId: PropTypes.number.isRequired,
   toggleLeftDropdown: PropTypes.func.isRequired
 };
 
-export const PoolDropdown = enhanceWithClickOutside(Dropdown);
+export const SignedinDropdown = enhanceWithClickOutside(Dropdown);

@@ -1,9 +1,8 @@
 $drk-primary: #1c1c1c;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
-@import "account_dropdown";
-@import "settings_dropdown";
-@import "pool_dropdown";
+
+@import 'hamburger.scss';
 
 @keyframes barsIn {
   0% {
@@ -72,9 +71,15 @@ $drk-text: #CDCDCD;
     align-items: center;
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
+    transition: .5s;
     // font-family: 'Baloo Bhaina', cursive;
     // background-color: $lt-primary;
     // box-shadow: -8px 0px 5px -5px rgba(0,0,0,0.16), 8px 0px 5px -5px rgba(0,0,0,0.16);
+
+    &:hover {
+      color: red;
+    }
   }
 
   .account-button {
@@ -88,31 +93,14 @@ $drk-text: #CDCDCD;
     transition: .5s;
     right: 25px;
 
-    i {
-      position: absolute;
-      left: 0px;
+    &:hover {
+      color: red;
     }
-  }
-
-  .info-button {
-    position: absolute;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 20px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: .5s;
-    left: 25px;
 
     i {
       position: absolute;
       left: 0px;
     }
-  }
-
-  .info-button:hover, .account-button:hover {
-    color: $drk-text;
   }
 
   .account-button, .info-button {
@@ -122,4 +110,59 @@ $drk-text: #CDCDCD;
       // margin-top: 5px;
     }
   }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.navbar-dropdown {
+  color: black;
+  z-index: 2;
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  opacity: 0;
+  top: 60px;
+  left: 0px;
+  width: 220px;
+  box-sizing: border-box;
+
+  animation-name: slideIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+.navbar-dropdown-list {
+
+  // padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  font-weight: bold;
+  // background-color: $lt-primary;
+
+  a {
+    // background-color: $lt-primary;
+    padding: 10px 40px;
+    text-align: left;
+    width: 100%;
+    transition: .5s;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  a:hover {
+    background-color: #ddd;
+    color: red;
+  }
+
 }

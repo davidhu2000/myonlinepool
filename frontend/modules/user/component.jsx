@@ -3,16 +3,17 @@ import { withRouter, Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { FormGroup } from './subcomponents';
+import { FormTextInput } from 'common/components';
 
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: "",
-      password: "",
-      name: ""
+      name: "",
+      email: "me@gmail.com",
+      password: "password",
+      passwordConfirmation: "password"
     };
 
     autoBind(this);
@@ -28,18 +29,41 @@ class AuthForm extends React.Component {
     }
   }
 
+  validateForm(type) {
+    let emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let correctEmail = emailRegex.test(this.state.email);
+
+    if (type === 'signup') {
+      let namePresent = this.state.name.length > 0;
+      let matchingPassword = this.state.password === this.state.passwordConfirmation;
+      return correctEmail && namePresent && matchingPassword;
+    } else {
+      let passwordPresent = this.state.password.length > 0;
+      return correctEmail && passwordPresent;
+    }
+  }
+
   submitForm(e) {
     e.preventDefault();
 
     switch (this.props.location.pathname) {
       case '/signup':
-        this.props.signup(this.state);
+        if (this.validateForm('signup')) {
+          this.props.signup(this.state);
+          hashHistory.push('/home');
+        } else {
+          // render errors
+        }
         break;
       default:
-        this.props.signin(this.state);
+        if (this.validateForm('signin')) {
+          this.props.signin(this.state);
+          hashHistory.push('/home');
+        } else {
+          // render errors
+        }
     }
 
-    hashHistory.push('/home');
   }
 
   update(field) {
@@ -89,27 +113,40 @@ class AuthForm extends React.Component {
         <form onSubmit={this.submitForm} className="auth-form">
 
           { path === '/signup' ? (
-            <FormGroup
+            <FormTextInput
               update={this.update}
               value={this.state.name}
               type='name'
+              field="name"
               label='Full Name'
             />
           ) : null }
 
-          <FormGroup
+          <FormTextInput
             update={this.update}
             value={this.state.email}
-            type="email"
+            type="text"
+            field="email"
             label="Email"
           />
 
-          <FormGroup
+          <FormTextInput
             update={this.update}
             value={this.state.password}
             type="password"
+            field="password"
             label="Password"
           />
+
+          { path === '/signup' ? (
+            <FormTextInput
+              update={this.update}
+              value={this.state.passwordConfirmation}
+              type='password'
+              field='passwordConfirmation'
+              label='Password Confirmation'
+            />
+          ) : null }
 
           <div className="submit-row">
             <div className="reroute">

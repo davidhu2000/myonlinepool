@@ -1,16 +1,17 @@
-import Navbar from './navbar';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { signout } from 'modules/user/actions';
+import Navbar from './navbar';
 
-const mapStateToProps = state => ({
-  user: state.user
+const mapStateToProps = ({ user }) => ({
+  user,
+  loggedIn: Boolean(user)
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  signout: () => dispatch(signout())
 });
 
 export default connect(
-  null,
-  null
-)(withRouter(Navbar));
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar);

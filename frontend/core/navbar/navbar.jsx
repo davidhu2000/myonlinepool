@@ -1,77 +1,118 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 
-import { toggleCover } from 'helpers/dropdown.js';
-
-import { PoolDropdown, SettingsDropdown, AccountDropdown } from './subcomponents';
+import { PoolDropdown, SignedinDropdown, SignedoutDropdown } from './subcomponents';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showRightDropdown: false,
       showLeftDropdown: false
     };
 
     autoBind(this);
   }
 
-  toggleRightDropdown() {
-    this.setState({ showLeftDropdown: false, showRightDropdown: !this.state.showRightDropdown });
-  }
-
   toggleLeftDropdown() {
-    this.setState({ showRightDropdown: false, showLeftDropdown: !this.state.showLeftDropdown });
+    this.setState({ showLeftDropdown: !this.state.showLeftDropdown });
   }
 
   locationCheck() {
     return this.props.Location.includes('pool');
   }
 
-  render() {
-    return (
-      <div className='navbar-container'>
-        { this.state.showLeftDropdown && !this.locationCheck() ? (
-          <SettingsDropdown
-            toggleLeftDropdown={this.toggleLeftDropdown}
-            user={this.props.user}
-          />
-        ) : null }
+  renderAuthButton() {
+    if (this.props.loggedIn) {
+      return (
+        <button
+          onClick={this.props.signout}
+          id='right-dropdown-button'
+          className="account-button"
+        >
+          <span>Sign Out</span>
+        </button>
+      );
+    } else {
+      return (
+        <Link
+          to='signin'
+          id='right-dropdown-button'
+          className="account-button"
+        >
+          <span>Sign In</span>
+        </Link>
+      );
+    }
+  }
 
-        { this.state.showLeftDropdown && this.locationCheck() ? (
+  renderDropdown() {
+    if (this.state.showLeftDropdown) {
+      if (this.locationCheck()) {
+        return (
           <PoolDropdown
             PoolId={this.props.PoolId}
             toggleLeftDropdown={this.toggleLeftDropdown}
             user={this.props.user}
           />
-        ) : null }
+        );
+      } else if (this.props.loggedIn) {
+        return (
+          <SignedinDropdown
+            toggleLeftDropdown={this.toggleLeftDropdown}
+            user={this.props.user}
+          />
+        );
+      } else {
+        return (
+          <SignedoutDropdown
+            toggleLeftDropdown={this.toggleLeftDropdown}
+            user={this.props.user}
+          />
+        );
+      }
+    }
+  }
 
+  render() {
+    return (
+      <div className='navbar-container'>
+        { this.renderDropdown() }
+        
         <button
           id='left-dropdown-button'
-          className="info-button"
+          className={`${this.state.showLeftDropdown ? 'open' : ''}`}
           onClick={this.toggleLeftDropdown}
         >
-          { this.state.showLeftDropdown ? (
-            <i className="fa fa-minus fa-2x" aria-hidden="true" />
-          ) : (
-            <i className="fa fa-bars fa-2x" aria-hidden="true"></i>
-          )}
+          <span />
+          <span />
+          <span />
+          <span />
         </button>
 
-        <div className="title">MyOnlinePool</div>
+        <div className="title" onClick={() => this.props.router.push('/')}>
+          MyOnlinePool
+        </div>
 
-        <button
-          id='right-dropdown-button'
-          className="account-button"
-          onClick={this.toggleRightDropdown}
-        >
-          <span>Sign In</span>
-        </button>
+        { this.renderAuthButton() }
       </div>
     );
   }
 }
 
-export default Navbar;
+Navbar.propTypes = {
+  user: PropTypes.shape(),
+  loggedIn: PropTypes.bool.isRequired,
+  PoolId: PropTypes.string,
+  Location: PropTypes.string.isRequired,
+  signout: PropTypes.func.isRequired
+};
+
+Navbar.defaultProps = {
+  PoolId: null,
+  user: {}
+};
+
+export default withRouter(Navbar);

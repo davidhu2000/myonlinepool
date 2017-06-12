@@ -2,8 +2,9 @@ class Api::Users::SessionsController < Devise::SessionsController
   respond_to :json
   # before_action :configure_sign_in_params, only: [:create]
   skip_before_action :require_no_authentication
+  skip_before_action :verify_signed_out_user, only: [:destroy]
 
-  before_action :ensure_params_exist
+  before_action :ensure_params_exist, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -36,7 +37,8 @@ class Api::Users::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def destroy
-    sign_out(resource_name)
+    # sign_out current_user
+    super
   end
 
   protected
