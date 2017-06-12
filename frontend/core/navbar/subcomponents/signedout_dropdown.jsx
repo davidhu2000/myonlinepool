@@ -7,7 +7,7 @@ import { signedoutLinks } from './links.json';
 
 class Dropdown extends React.Component {
   handleClickOutside(e) {
-    if (![e.path[0].id, e.path[1].id].includes('right-dropdown-button')) {
+    if (![e.path[0].id, e.path[1].id].includes('left-dropdown-button')) {
       this.props.toggleLeftDropdown();
     }
   }
