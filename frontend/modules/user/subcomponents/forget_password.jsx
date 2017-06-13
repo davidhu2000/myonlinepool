@@ -1,4 +1,4 @@
-/* global document */
+/* global document, $ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
@@ -10,7 +10,7 @@ class ForgetPassword extends React.Component {
     super(props);
 
     this.state = {
-      email: '',
+      email: 'me@gmail.com',
       isValid: false
     };
 
@@ -20,7 +20,13 @@ class ForgetPassword extends React.Component {
   submitForm(e) {
     e.preventDefault();
 
-    this.props.resetPassword(this.state).then(
+    $.ajax({
+      method: 'POST',
+      url: '/api/users/password',
+      data: {
+        user: { email: this.state.email }
+      }
+    }).then(
       () => console.log('show check email message'),
       err => console.log(err)
     );

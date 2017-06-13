@@ -5,9 +5,14 @@ class Api::Users::PasswordsController < Devise::PasswordsController
   # end
 
   # POST /resource/password
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.send_reset_password_instructions(params[:user])
+    if successfully_sent?(@user)
+      head :status => 200
+    else
+      render :status => 422, :json => { :errors => @user.errors.full_messages }
+    end
+  end
 
   # GET /resource/password/edit?reset_password_token=abcdef
   # def edit
