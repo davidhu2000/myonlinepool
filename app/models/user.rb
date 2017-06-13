@@ -44,6 +44,8 @@ class User < ApplicationRecord
   has_many :pools, through: :memberships, source: :pool
   has_many :messages
 
+  attr_accessor :password_confirmation
+
   def ensure_session_token
     self.session_token ||= generate_session_token
   end
