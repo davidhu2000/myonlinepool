@@ -33,11 +33,28 @@ class User < ApplicationRecord
     user && user.valid_password?(password) ? user : nil
   end
 
+  after_initialize :ensure_session_token
+
   validates :email, presence: true
   validates :password_digest, presence: true
+  validates :session_token, presence: true
 
   has_many :picks
   has_many :memberships
   has_many :pools, through: :memberships, source: :pool
   has_many :messages
+
+  def ensure_session_token
+    self.session_token ||= generate_session_token
+  end
+
+  def reset_session_token!
+    self.session_token = generate_session_token
+    self.save!
+    self.session_token
+  end
+
+  def generate_session_token
+    SecureRandom.urlsafe_base64(128)
+  end
 end
