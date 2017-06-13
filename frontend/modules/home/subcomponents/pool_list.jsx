@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter, hashHistory } from 'react-router';
 import autoBind from 'react-autobind';
 import PoolListItem from './pool_list_item';
-import JoinForm from './join_form';
+import { JoinForm } from './join_form';
 
 class PoolList extends React.Component {
   constructor(props) {
@@ -82,7 +82,7 @@ class PoolList extends React.Component {
                 Create Pool
               </div>
             </button>
-            <button className="pool-join-button" onClick={this.toggleJoin.bind(this)}>
+            <button id="pool-join-button" className="pool-join-button" onClick={this.toggleJoin.bind(this)}>
               <div>
               { this.state.showJoin ? <i
                 className="fa fa-minus"
@@ -96,7 +96,9 @@ class PoolList extends React.Component {
         </div>
         {this.genList()}
         { this.state.showJoin ?
-          <JoinForm/> : null }
+          <JoinForm
+            toggleJoinForm={this.toggleJoin}
+            /> : null }
       </div>
     );
   }

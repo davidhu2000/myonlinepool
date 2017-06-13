@@ -1,9 +1,9 @@
 import React from 'react';
 import autoBind from 'react-autobind';
-
+import enhanceWithClickOutside from 'react-click-outside';
 import { FormTextInput } from 'common/components';
 
-class JoinForm extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
 
@@ -23,6 +23,12 @@ class JoinForm extends React.Component {
 
   joinPool(e) {
     e.preventDefault();
+  }
+
+  handleClickOutside(e) {
+    if (![e.path[0].id, e.path[1].id].includes('pool-join-button')) {
+      this.props.toggleJoinForm();
+    }
   }
 
   render() {
@@ -52,8 +58,6 @@ class JoinForm extends React.Component {
       </div>
     );
   }
-
-
 }
 
-export default JoinForm;
+export const JoinForm = enhanceWithClickOutside(Form);
