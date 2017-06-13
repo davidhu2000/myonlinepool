@@ -5,13 +5,13 @@ const PoolListItem = props => {
 
   return (
     <div className="pool-list-item">
-      <Link to={`/pool/${props.Id}`}>
         <div>
+          <Link to={`/pool/${props.Id}`}>
           <i
           className="fa fa-angle-right"
           aria-hidden="true"/> {props.Name}
+          </Link>
         </div>
-      </Link>
     </div>
   );
 };

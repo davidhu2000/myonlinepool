@@ -91,8 +91,8 @@ class PoolForm extends React.Component {
           />
 
          <div className="pool-create-button">
-            <input id="buy_in" type="submit" className="" value="Create" />
-          </div>
+           <input id="buy_in" type="submit" className="" value="Create" />
+         </div>
 
         </form>
       </div>

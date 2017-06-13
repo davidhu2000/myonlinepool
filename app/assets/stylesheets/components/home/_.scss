@@ -62,11 +62,11 @@ $white: #F6F7F9;
 
 .home-bottom {
   min-height: 200px;
-  // padding: 20px 0px;
+  padding: 20px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  // background: $lt-primary;
+  align-items: flex-start;
 }
 
 .home-message {
@@ -84,7 +84,6 @@ $white: #F6F7F9;
 
   .title {
     width: 100%;
-    // line-height: 20px;
     padding: 10px 5px;
     margin-bottom: 10px;
     font-size: 18px;
@@ -96,7 +95,6 @@ $white: #F6F7F9;
   div {
     padding: 0px 5px;
     padding-bottom: 10px;
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     font-size: 15px;
   }
 }
