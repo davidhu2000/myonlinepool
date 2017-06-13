@@ -15,6 +15,9 @@
 #
 
 class Pool < ApplicationRecord
+  include ApplicationHelper
+  include Api::PoolsHelper
+
   validates :title, presence: true, uniqueness: true
   validates :moderator_id, presence: true, numericality: { only_integer: true }
   validates :buy_in, presence: true, numericality: { only_integer: true }
@@ -32,21 +35,5 @@ class Pool < ApplicationRecord
   has_many :picks
   has_many :messages
   has_many :bulletins
-
-  def self.find_by_credentials(title, password)
-    pool = Pool.find_by(title: title)
-    pool && pool.valid_password?(password) ? pool : nil
-  end
-
-  attr_reader :password
-
-  def password=(password)
-    @password = password
-    self.password_digest = BCrypt::Password.create(password)
-  end
-
-  def valid_password?(password)
-    BCrypt::Password.new(self.password_digest).is_password?(password)
-  end
 
 end

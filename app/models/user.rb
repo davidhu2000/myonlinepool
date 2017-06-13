@@ -25,6 +25,9 @@
 #
 
 class User < ApplicationRecord
+  validates :email, presence: true
+  validates :encrypted_password, presence: true
+
   has_many :picks
   has_many :memberships
   has_many :pools, through: :memberships, source: :pool
