@@ -6,7 +6,7 @@ class Api::Auth::SessionsController < ApplicationController
       render json: ["Invalid username or password"], status: 401
     end
 
-    if unconfirmed_email
+    unless @user.confirmed_at
       render json: ['Please confirm your email first.'], status: 401
     end
 

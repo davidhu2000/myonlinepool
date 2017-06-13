@@ -25,7 +25,7 @@ export const signup = user => (
     method: 'POST',
     url: "/api/auth/registrations",
     data: {
-      api_user: {
+      user: {
         name: user.name,
         email: user.email,
         password: user.password,

@@ -1,5 +1,10 @@
 class Api::Auth::RegistrationsController < ApplicationController
   def create
+
+    unless user_params[:password] == user_params[:password_confirmation]
+      render json: ["Passwords do not match"], status: 422
+    end
+
     @user = User.new(user_params)
     @user.unconfirmed_email = user_params[:email]
     @user.confirmation_token = generate_token
@@ -15,6 +20,6 @@ class Api::Auth::RegistrationsController < ApplicationController
   private 
 
     def user_params
-      params.require(:user).permit(:name, :password, :email, :password_confirmation)
+      params.require(:user).permit(:name, :password, :email)
     end
 end
