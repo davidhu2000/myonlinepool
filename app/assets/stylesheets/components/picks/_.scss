@@ -19,26 +19,97 @@ $drk-text: #CDCDCD;
   align-items: center;
   justify-content: center;
 
-    button {
-      font-size: 40px;
-      padding-bottom: 10px;
+  .picks-header {
+    width: 100%;
+    font-size: 40px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: .5s;
+    flex: 0 0 auto;
+
+    i:first-child {
+      padding-right: 10px;
+    }
+
+    i:last-child {
+      padding-left: 10px;
+    }
+
+    i:hover {
+      color: #AF1E2C;
+    }
+  }
+
+  .picks-selections {
+    
+    .picks-labels {
+      padding-bottom: 30px;
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      transition: .5s;
       flex: 0 0 auto;
-    }
 
-    button:hover {
-      color: red;
-    }
+      div {
+        text-align: center;
+      }
 
+      div:first-child {
+        width: 75px;
+      }
+
+      div:nth-child(2) {
+        width: 75px;
+      }
+
+      div:nth-child(3) {
+        width: 100px;
+      }
+
+      div:nth-child(4) {
+        width: 100px;
+      }
+
+      div:nth-child(5) {
+        width: 100px;
+      }
+
+      div:nth-child(6) {
+        width: 100px;
+      }
+    }
+   
     .selection-item {
       display: flex;
       flex-direction: row;
       height: 50px;
       margin-bottom: 25px;
       flex: 0 0 auto;
+
+      .home-symbol {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .selection-form-picks {
+        width: 150px;
+      }
+
+      .selection-form-date {
+        width: 100px;
+      }
+
+      .selection-form-time {
+        width: 100px;
+      }
+
+      .selection-form-line {
+        width: 100px;
+      }
+
+      .selection-form-over {
+        width: 100px;
+      }
 
       .pick-button {
         width: 50px;
@@ -61,7 +132,7 @@ $drk-text: #CDCDCD;
       }
 
       .pick-button:hover {
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 3px 6px #AF1E2C, 0 3px 6px #AF1E2C;
         transform: scale(1.2,1.2);
       }
 
@@ -78,35 +149,11 @@ $drk-text: #CDCDCD;
       }
     }
 
-    .picks-form {
-      position: absolute;
-      top: -50px;
-      left: -150px;
-      display: flex;
-      opacity: 0;
-      animation-name: picksIn;
-      animation-iteration-count: 1;
-      animation-timing-function: ease-out;
-      animation-duration: 1s;
-      animation-fill-mode: forwards;
-
-      button {
-        font-size: 25px;
-        cursor: pointer;
-        transition: .5s;
-        padding-right: 10px;
-      }
-
-      button:hover {
-        color: red;
-      }
+    .selected-button {
+      width: 50px;
+      border-radius: 25%;
+      transform: scale(1.2,1.2);
+      box-shadow: 0 3px 6px #AF1E2C, 0 3px 6px #AF1E2C;
     }
-  
-
-  .selected-button {
-    width: 50px;
-    border-radius: 25%;
-    transform: scale(1.2,1.2);
-    box-shadow: 0 3px 6px green, 0 3px 6px green;
   }
 }
