@@ -31,6 +31,9 @@ $white: #F6F7F9;
   position: relative;
   border-radius: 5px;
   padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
 
   .pool-list-top {
     width: 100%;
@@ -81,22 +84,22 @@ $white: #F6F7F9;
   }
 
   .pool-list-item {
+    display: inline-flex;
     transition: .25s;
     padding-left: 5px;
 
     div {
-      width: 100%;
       padding: 10px 5px;
       cursor: pointer;
+    }
+
+    div:hover {
+       color: #AF1E2C;
     }
 
     i {
       margin-right: 5px;
     }
-  }
-
-  .pool-list-item:hover {
-    color: #AF1E2C;
   }
 
   .pool-join-form {

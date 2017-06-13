@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import enhanceWithClickOutside from 'react-click-outside';
 import { FormTextInput } from 'common/components';
@@ -51,7 +52,7 @@ class Form extends React.Component {
             field="password"
           />
 
-          <button>
+          <button type="submit">
             Submit
           </button>    
         </form>
@@ -59,5 +60,9 @@ class Form extends React.Component {
     );
   }
 }
+
+Form.propTypes = {
+  toggleJoinForm: PropTypes.func.isRequired
+};
 
 export const JoinForm = enhanceWithClickOutside(Form);
