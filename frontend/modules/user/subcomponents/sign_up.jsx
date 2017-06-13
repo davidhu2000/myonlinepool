@@ -4,7 +4,7 @@ import { withRouter, Link } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { FormTextInput, EmailInput, PasswordInput } from 'common/components';
+import { FormTextInput, EmailInput, PasswordInput, PasswordConfirmation } from 'common/components';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -73,16 +73,11 @@ class SignupForm extends React.Component {
 
         <PasswordInput context={this} password={this.state.password} />
 
-        <FormTextInput
-          update={this.update}
-          value={this.state.passwordConfirmation}
-          type='password'
-          field='passwordConfirmation'
-          label='Password Confirmation'
+        <PasswordConfirmation
+          context={this}
           password={this.state.password}
-          errorMessage="Password confirmation does not match password."
+          passwordConfirmation={this.state.passwordConfirmation}
         />
-
 
         <div className="submit-row">
           <div className="reroute">
