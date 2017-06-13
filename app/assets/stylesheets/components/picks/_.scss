@@ -14,20 +14,21 @@ $drk-text: #CDCDCD;
 
 .picks-container {
   padding: 10px 0px;
+  padding-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   .picks-header {
-    width: 100%;
-    font-size: 40px;
+    position: absolute;
+    top: 20px;
+    left: -5px;
+    font-size: 25px;
+    font-weight: bold;
     padding-bottom: 10px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     transition: .5s;
-    flex: 0 0 auto;
 
     i:first-child {
       padding-right: 10px;
@@ -51,6 +52,7 @@ $drk-text: #CDCDCD;
 
       div {
         text-align: center;
+        font-weight: bold;
       }
 
       div:first-child {
@@ -97,18 +99,30 @@ $drk-text: #CDCDCD;
 
       .selection-form-date {
         width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .selection-form-time {
         width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .selection-form-line {
         width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .selection-form-over {
         width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .pick-button {
