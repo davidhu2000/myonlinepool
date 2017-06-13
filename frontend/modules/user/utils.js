@@ -3,22 +3,27 @@
 export const signin = user => (
   $.ajax({
     method: 'POST',
-    url: "/api/users/sign_in",
-    data: { user }
+    url: "/api/auth/session",
+    data: {
+      user: {
+        email: user.email,
+        password: user.password
+      }
+    }
   })
 );
 
 export const signout = () => (
   $.ajax({
     method: 'DELETE',
-    url: "/api/users/sign_out",
+    url: "/api/auth/session"
   })
 );
 
 export const signup = user => (
   $.ajax({
     method: 'POST',
-    url: "/api/users",
+    url: "/api/auth/registrations",
     data: {
       api_user: {
         name: user.name,

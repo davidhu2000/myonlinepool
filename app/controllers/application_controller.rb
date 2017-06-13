@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
       render json: ['You must be logged in to view this page'], status: 401
     end
   end
+
+  def generate_token
+    SecureRandom.urlsafe_base64(128)
+  end
 end
