@@ -13,63 +13,60 @@ $drk-text: #CDCDCD;
 }
 
 .picks-container {
-  height: 850px;
   padding: 10px 0px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-
-  .picks-left {
-    margin-right: 25px;
-  }
-
-  .picks-right {
-    margin-left: 25px;
-  }
-
-  .picks-left, .picks-right {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow-y: none;
+  justify-content: center;
 
     button {
       font-size: 40px;
-      padding-left: 10px;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       transition: .5s;
+      flex: 0 0 auto;
     }
 
     button:hover {
       color: red;
     }
 
-    .picks-selection-container {
-      width: 332px;
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-    }
-
     .selection-item {
       display: flex;
       flex-direction: row;
       height: 50px;
-      margin-right: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      flex: 0 0 auto;
 
       .pick-button {
         width: 50px;
+        position: relative;
+        display: inline-block;
         border-radius: 25%;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-        transition: .2s;
-        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .pick-button::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        border-radius: 5px;
+        transition: opacity 0.3s ease-in-out;
       }
 
       .pick-button:hover {
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        transform: scale(1.2,1.2);
+      }
+
+      .pick-button::after {
+        opacity: 1;
       }
 
       div {
@@ -98,19 +95,18 @@ $drk-text: #CDCDCD;
         cursor: pointer;
         transition: .5s;
         padding-right: 10px;
-        // border-bottom: .2px rgba(51, 51, 51,.2) solid;
       }
 
       button:hover {
         color: red;
       }
     }
-  }
+  
 
   .selected-button {
     width: 50px;
     border-radius: 25%;
-    border: 2px green solid;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transform: scale(1.2,1.2);
+    box-shadow: 0 3px 6px green, 0 3px 6px green;
   }
 }

@@ -97,7 +97,6 @@ class Picks extends React.Component {
   render() {
     return (
       <div className="picks-container">
-        <div className="picks-left">
           <button onClick={ this.toggleWeek }>
             Week {this.state.week}
           </button>
@@ -105,18 +104,7 @@ class Picks extends React.Component {
           <form className="picks-form">
           {this.createLinks()}
           </form> : null }
-            <div className="picks-selection-container">
-              { this.createSelections() }
-            </div>
-        </div>
-        <div className="picks-right">
-          <button>
-          Favorites
-          </button>
-          <div className="picks-selection-container">
-            { this.createSelections() }
-          </div>
-        </div>
+          { this.createSelections() }
       </div>
     );
   }
