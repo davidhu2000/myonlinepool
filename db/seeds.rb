@@ -4,10 +4,10 @@ data = Roo::Spreadsheet.open('db/seed/seed.xlsx')
 
 # seed a basic user
 mainAdminUser = User.new(
+    name: 'Me Admin',
     email: "me@gmail.com",
     password: 'password'
 )
-mainAdminUser.skip_confirmation!
 mainAdminUser.save!
 
 # seed the database with NFL team information
@@ -24,6 +24,7 @@ end
 # seed test schedule
 data.sheet('test_schedule').each_with_index do |game, idx|
   next if idx.zero?
+  p game
   GameNfl.create!(
     season: game[0],
     week: game[1],

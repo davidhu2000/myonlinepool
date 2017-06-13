@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   validates :email, presence: true
-  validates :encrypted_password, presence: true
+  validates :password_digest, presence: true
 
   has_many :picks
   has_many :memberships
