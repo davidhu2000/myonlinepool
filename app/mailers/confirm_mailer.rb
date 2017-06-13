@@ -1,2 +1,0 @@
-class ConfirmMailer < ApplicationMailer
-end
