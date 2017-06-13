@@ -16,7 +16,11 @@
 
 class Pool < ApplicationRecord
   include ApplicationHelper
-  include Api::PoolsHelper
+
+  def self.find_by_credentials(title, password)
+    pool = Pool.find_by(title: title)
+    pool && pool.valid_password?(password) ? pool : nil
+  end
 
   validates :title, presence: true, uniqueness: true
   validates :moderator_id, presence: true, numericality: { only_integer: true }

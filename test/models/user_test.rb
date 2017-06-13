@@ -22,6 +22,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  unconfirmed_email      :string
+#  name                   :string           not null
 #
 
 require 'test_helper'

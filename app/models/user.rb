@@ -22,9 +22,17 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  unconfirmed_email      :string
+#  name                   :string           not null
 #
 
 class User < ApplicationRecord
+  include ApplicationHelper 
+
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
+    user && user.valid_password?(password) ? user : nil
+  end
+
   validates :email, presence: true
   validates :encrypted_password, presence: true
 
