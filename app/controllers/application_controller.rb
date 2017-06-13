@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
 
-  def signed_in?
+  def is_signed_in?
     !!current_user
   end
 
@@ -9,5 +9,5 @@ class ApplicationController < ActionController::Base
     session['warden.user.user.key']
   end
 
-  helper_method :signed_in, :current_user
+  helper_method :is_signed_in?, :current_user
 end
