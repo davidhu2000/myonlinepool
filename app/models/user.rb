@@ -35,7 +35,7 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :session_token, presence: true
 
