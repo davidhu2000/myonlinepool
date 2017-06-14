@@ -60,7 +60,7 @@ class SignupForm extends React.Component {
   render() {
     let submitValue = 'Sign Up';
     let otherForm = 'Sign in';
-    let otherLink = '/signin';
+    let otherLink = 'signin';
     let text = 'Already have an account?';
 
     return (

@@ -1,4 +1,6 @@
 class Api::Auth::PasswordsController < ApplicationController
+
+  # create reset password token, and send email
   def create
     user = User.find_by(email: params[:user][:email])
 
@@ -16,6 +18,10 @@ class Api::Auth::PasswordsController < ApplicationController
     else
       render json: @user.errors.full_messages, status: 422
     end
+  end
+
+  # create new password
+  def update
   end
 
   private
