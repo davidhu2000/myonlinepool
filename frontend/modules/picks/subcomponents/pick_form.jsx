@@ -54,7 +54,7 @@ class PickForm extends React.Component {
         <label className="selection-form-away" id={this.props.Game.away}>
           <button onClick={() => this.submitPick("away")} />
           <img
-            className="pick-button"
+            className="pick-button pick-away-button"
             src={`assets/logos/${this.props.Game.away}.gif`} 
           />
           <div className="selection-form-away-name">
@@ -69,7 +69,7 @@ class PickForm extends React.Component {
           <div className="selection-form-home-name">{this.state.home}</div>
           <button onClick={() => this.submitPick("home")} />
           <img
-            className='pick-button'
+            className='pick-button pick-home-button'
             src={`assets/logos/${this.props.Game.home}.gif`}
           />
         </label>

@@ -15,6 +15,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  font-weight: bold;
 
   .picks-header {
     position: absolute;
@@ -44,6 +45,7 @@
     .picks-labels {
       padding-bottom: 10px;
       padding-top: 10px;
+      margin-bottom: 5px;
       display: flex;
       justify-content: flex-start;
       flex: 0 0 auto;
@@ -52,60 +54,47 @@
       color: white;
 
       div {
-        padding: 0px;
+        width: 95px;
         text-align: center;
         font-weight: bold;
       }
 
       div:first-child {
-        margin-left: 95px;
-        width: 75px;
+        width: 200px;
       }
 
-      div:nth-child(2) {
-        width: 75px;
-      }
-
-      div:nth-child(3) {
-        width: 75px;
-      }
-
-      div:nth-child(4) {
-        width: 75px;
-      }
-
-      div:nth-child(5) {
-        width: 75px;
-      }
-
-      div:nth-child(6) {
-        width: 75px;
+      div:last-child {
+        width: 200px;
       }
     }
    
     .selection-item {
+      margin-bottom: 5px;
       display: flex;
       flex-direction: row;
       flex: 0 0 auto;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
+      label {
+        width: 200px;
+        display: flex;
+        cursor: pointer;
+      }
+
       label:first-child {
-        width: 170px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        border-right: .2px rgba(51, 51, 51,.2) solid;
+      }
+
+      label:hover {
+        .pick-button {
+          transform: scale(1.05,1.05);
         }
-      label:last-child {
-        width: 170px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;  
-        }
+      }
     }
 
       .selection-form-home-name, .selection-form-away-name {
         height: 88px;
-        width: 75px;
+        width: 121.78px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -113,21 +102,31 @@
 
       .selection-form-date, .selection-form-time, .selection-form-line, .selection-form-over {
         height: 88px;
-        width: 75px;
+        width: 95px;
+        border-right: .2px rgba(51, 51, 51,.2) solid;
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
       .pick-button {
-        margin: 0 auto;
-        width: 50px;
+        height: 88px;
         position: relative;
         display: inline-block;
         border-radius: 10px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: all 0.3s ease-in-out;
         cursor: pointer;
+      }
+
+      .pick-home-button {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+
+      .pick-away-button {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
       }
 
       .pick-button::after {
@@ -141,10 +140,7 @@
         transition: opacity 0.3s ease-in-out;
       }
 
-      .pick-button:hover {
-        box-shadow: 0 3px 6px #AF1E2C, 0 3px 6px #AF1E2C;
-        transform: scale(1.2,1.2);
-      }
+      
 
       .pick-button::after {
         opacity: 1;
@@ -152,12 +148,7 @@
     }
 
     .selected-button {
-      // margin: 0 auto;
-      // width: 50px;
-      // border-radius: 25%;
-      // transform: scale(1.2,1.2);
-      // box-shadow: 0 3px 6px #1160a2, 0 3px 6px #1160a2;
-      background: grey;
+      background: rgba(17, 96, 162, .5);
     }
   }
 
