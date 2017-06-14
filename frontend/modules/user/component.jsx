@@ -24,6 +24,7 @@ class AuthForm extends React.Component {
 
   renderForm() {
     let { query } = this.props.location;
+
     switch (query.form) {
       case 'signup':
         return <SignupForm signup={this.props.signup} />;

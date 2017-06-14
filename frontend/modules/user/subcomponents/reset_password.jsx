@@ -1,3 +1,4 @@
+/* global document */
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
@@ -10,10 +11,47 @@ class ResetPassword extends React.Component {
     this.state = {
       password: '',
       passwordConfirmation: '',
-      email: props.email
+      email: props.email,
+      token: props.token,
+      isValid: false
     };
 
     autoBind(this);
+  }
+
+  submitForm(e) {
+    e.preventDefault();
+    let message = 'Password successfully reset. Please sign in now.';
+
+    let url = {
+      pathname: 'auth',
+      query: { form: 'message', message }
+    };
+
+    $.ajax({
+      method: 'POST'
+    })
+  }
+
+  isFormValid() {
+    let inputs = [];
+
+    inputs.push(
+      this.state.email,
+      this.state.token,
+      this.state.password,
+      this.state.passwordConfirmation
+    );
+
+    let noEmptyFields = inputs.every(val => !!val);
+    let noError = document.getElementsByClassName('form-group-error-message').length === 0;
+    this.setState({ isValid: noEmptyFields && noError });
+  }
+
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
   }
 
   render() {
@@ -29,22 +67,14 @@ class ResetPassword extends React.Component {
         />
 
         <div className="submit-row">
-          <div className="reroute">
-            {text}
-            <span>
-              <Link to={`auth?form=${otherLink}`}>{otherForm}</Link>
-            </span>
-          </div>
-
           <input
             id="form-submit-button"
             type='submit'
             className="auth-form-button"
-            value={submitValue}
+            value={'Reset Password'}
             onMouseEnter={this.isFormValid}
             disabled={!this.state.isValid}
           />
-
         </div>
       </form>
     );

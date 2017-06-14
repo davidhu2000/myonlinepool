@@ -59,4 +59,13 @@ class User < ApplicationRecord
   def generate_session_token
     SecureRandom.urlsafe_base64(128)
   end
+
+  def update_password(password, confirmation)
+    if password == confirmation 
+      self.password = password
+      self.save
+    else 
+      return false
+    end
+  end
 end

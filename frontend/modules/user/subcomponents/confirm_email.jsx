@@ -6,7 +6,6 @@ class ConfirmEmail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      confirmSuccessful: false,
       message: 'Confirming email...'
     };
   }
