@@ -1,8 +1,3 @@
-$white: #F6F7F9;
-$off-white: #e9ebee;
-$lt-primary: #2d2d2d;
-$drk-text: #CDCDCD;
-
 @keyframes picksIn {
   0% {
     opacity: 0;
@@ -63,28 +58,28 @@ $drk-text: #CDCDCD;
       }
 
       div:first-child {
-        margin-left: 100px;
-        width: 100px;
+        margin-left: 95px;
+        width: 75px;
       }
 
       div:nth-child(2) {
-        width: 100px;
+        width: 75px;
       }
 
       div:nth-child(3) {
-        width: 100px;
+        width: 75px;
       }
 
       div:nth-child(4) {
-        width: 100px;
+        width: 75px;
       }
 
       div:nth-child(5) {
-        width: 100px;
+        width: 75px;
       }
 
       div:nth-child(6) {
-        width: 100px;
+        width: 75px;
       }
     }
    
@@ -94,54 +89,45 @@ $drk-text: #CDCDCD;
       flex: 0 0 auto;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
-      label {
-        width: 100px;
+      label:first-child {
+        width: 170px;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         }
-      }
+      label:last-child {
+        width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;  
+        }
+    }
 
-      .selection-form-date {
+      .selection-form-home-name, .selection-form-away-name {
         height: 88px;
-        width: 100px;
+        width: 75px;
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
-      .selection-form-time {
+      .selection-form-date, .selection-form-time, .selection-form-line, .selection-form-over {
         height: 88px;
-        width: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .selection-form-line {
-        height: 88px;
-        width: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .selection-form-over {
-        height: 88px;
-        width: 100px;
+        width: 75px;
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
       .pick-button {
+        margin: 0 auto;
         width: 50px;
         position: relative;
         display: inline-block;
-        border-radius: 25%;
+        border-radius: 10px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: all 0.3s ease-in-out;
+        cursor: pointer;
       }
 
       .pick-button::after {
@@ -166,10 +152,11 @@ $drk-text: #CDCDCD;
     }
 
     .selected-button {
+      margin: 0 auto;
       width: 50px;
       border-radius: 25%;
       transform: scale(1.2,1.2);
-      box-shadow: 0 3px 6px #AF1E2C, 0 3px 6px #AF1E2C;
+      box-shadow: 0 3px 6px #1160a2, 0 3px 6px #1160a2;
     }
   }
 

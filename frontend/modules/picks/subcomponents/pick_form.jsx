@@ -58,25 +58,22 @@ class PickForm extends React.Component {
             id={this.props.Game.away}
             src={`assets/logos/${this.props.Game.away}.gif`} 
           />
-         
+          <div className="selection-form-away-name">
+            {this.state.away}
+          </div>
         </label>
-        <div className="selection-form-date">
-          {this.state.away}
-           
-        </div>
         <div className="selection-form-date">{this.state.date}</div>
         <div className="selection-form-time">{this.state.time}</div>
         <div className="selection-form-line">{this.state.line}</div>
         <div className="selection-form-over">{this.state.over_under}</div>
-        <div className="selection-form-date">{this.state.home}</div>
         <label className="selection-form-home">
+          <div className="selection-form-home-name">{this.state.home}</div>
           <button onClick={() => this.submitPick("home")} />
           <img
             className='pick-button'
             id={this.props.Game.home}
             src={`assets/logos/${this.props.Game.home}.gif`}
           />
-          
         </label>
       </div>
     );
