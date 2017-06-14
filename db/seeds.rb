@@ -6,7 +6,8 @@ data = Roo::Spreadsheet.open('db/seed/seed.xlsx')
 mainAdminUser = User.new(
     name: 'Me Admin',
     email: "me@gmail.com",
-    password: 'password'
+    password: 'password',
+    confirmed_at: Date.new
 )
 mainAdminUser.save!
 

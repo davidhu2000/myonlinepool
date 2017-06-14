@@ -11,9 +11,10 @@
   background: none;
 
   .pool-create-button {
+    width: 90px;
+    height: 30px;
+    font-size: 15px;
     margin-left: auto;
-    width: 30%;
-    padding: 5px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,18 +26,18 @@
   }
 
   .pool-create-button:hover {
-    color: #AF1E2C;
-  }
-
-  .pool-create-button:hover {
-      color: #AF1E2C;
+    color: $lt-primary;
+    border: 1px black solid;
+    background: white;
   }
 
   .pool-create-button:disabled {
     cursor: not-allowed;
 
     &:hover {
-      color: white;
+      color: $lt-primary;
+      border: 1px black solid;
+      background: white;
     }
   }
 }
