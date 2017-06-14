@@ -21,6 +21,20 @@ class Api::Auth::RegistrationsController < ApplicationController
     end
   end
 
+  # 
+  def update
+    token = params[:token]
+    user = User.find_by(email: params[:email])
+
+    if user.confirmation_token == params[:token]
+      user.confirmed_at = Date.new
+      render json: ["Email successfully confirmed, please sign in"]
+    else 
+      render json: ["Code is invalid."], status: 422
+    end
+
+  end
+
   private 
 
     def user_params
