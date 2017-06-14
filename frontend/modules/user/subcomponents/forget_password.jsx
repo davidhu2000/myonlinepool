@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
+import { hashHistory } from 'react-router';
 
 import { EmailInput } from 'common/components';
 
@@ -20,14 +21,21 @@ class ForgetPassword extends React.Component {
   submitForm(e) {
     e.preventDefault();
 
+    let message = 'Please check your email to reset your password.';
+
+    let url = {
+      pathname: 'auth',
+      query: { form: 'message', message }
+    };
+
     $.ajax({
       method: 'POST',
-      url: '/api/users/password',
+      url: '/api/auth/passwords',
       data: {
         user: { email: this.state.email }
       }
     }).then(
-      () => console.log('show check email message'),
+      () => hashHistory.push(url),
       err => console.log(err)
     );
   }

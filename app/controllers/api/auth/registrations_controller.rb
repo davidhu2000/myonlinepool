@@ -14,10 +14,8 @@ class Api::Auth::RegistrationsController < ApplicationController
     if @user.save
       AuthMailer.confirm_email(@user).deliver
       render json: ["Please check your email to confirm your account"]
-      return
     else
       render json: @user.errors.full_messages, status: 422
-      return
     end
   end
 
