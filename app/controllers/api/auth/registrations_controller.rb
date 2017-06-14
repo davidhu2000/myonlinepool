@@ -21,9 +21,8 @@ class Api::Auth::RegistrationsController < ApplicationController
     end
   end
 
-  # 
+  # confirm user email
   def update
-    token = params[:token]
     user = User.find_by(email: params[:email])
 
     if user.confirmation_token == params[:token]
