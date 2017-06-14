@@ -23,11 +23,11 @@ class Api::Auth::RegistrationsController < ApplicationController
 
   # confirm user email
   def update
-
     user = User.find_by(email: params[:user][:email])
 
     if user && user.confirmation_token == params[:user][:confirmation_token]
       user.confirmed_at = Date.new
+      user.save
       render json: ["Email successfully confirmed, please sign in"]
     else 
       render json: ["Code is invalid."], status: 422

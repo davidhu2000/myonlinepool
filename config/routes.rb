@@ -4,9 +4,8 @@ Rails.application.routes.draw do
     resources :pools, only: [:show, :create, :destroy, :update]
 
     namespace :auth do 
+      post 'registrations/confirm', to: 'registrations#update'
       resources :registrations, only: [:create]
-
-      patch 'registrations', to: 'registrations#update'
       
       resource :session, only: [:create, :destroy]
     end
