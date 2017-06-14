@@ -30,7 +30,8 @@ class AuthForm extends React.Component {
       case 'forget-password':
         return <ForgetPassword resetPassword={() => console.log('reset password')} />;
       case 'confirm-email':
-        return <ConfirmEmail />;
+        let { email, token } = this.props.location.query;
+        return <ConfirmEmail email={email} token={token} />;
       default:
         return <SigninForm signin={this.props.signin} />;
     }

@@ -23,9 +23,10 @@ class Api::Auth::RegistrationsController < ApplicationController
 
   # confirm user email
   def update
-    user = User.find_by(email: params[:email])
 
-    if user.confirmation_token == params[:token]
+    user = User.find_by(email: params[:user][:email])
+
+    if user && user.confirmation_token == params[:user][:confirmation_token]
       user.confirmed_at = Date.new
       render json: ["Email successfully confirmed, please sign in"]
     else 
@@ -37,6 +38,6 @@ class Api::Auth::RegistrationsController < ApplicationController
   private 
 
     def user_params
-      params.require(:user).permit(:name, :password, :email, :password_confirmation)
+      params.require(:user).permit(:name, :password, :email, :password_confirmation, :confirmation_token)
     end
 end

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
     resources :pools, only: [:show, :create, :destroy, :update]
 
     namespace :auth do 
-      resources :registrations
+      resources :registrations, only: [:create]
+
+      patch 'registrations', to: 'registrations#update'
+      
       resource :session, only: [:create, :destroy]
     end
   end
