@@ -1,21 +1,13 @@
 import React from 'react';
-import { withRouter, Link, hashHistory } from 'react-router';
+import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { FormTextInput } from 'common/components';
+import { SigninForm, SignupForm, ForgetPassword, ConfirmEmail } from './subcomponents';
 
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      name: "",
-      email: "me@gmail.com",
-      password: "password",
-      passwordConfirmation: "password"
-    };
-
     autoBind(this);
   }
 
@@ -29,138 +21,27 @@ class AuthForm extends React.Component {
     }
   }
 
-  validateForm(type) {
-    let emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    let correctEmail = emailRegex.test(this.state.email);
+  renderForm() {
+    let { form } = this.props.location.query;
 
-    if (type === 'signup') {
-      let namePresent = this.state.name.length > 0;
-      let matchingPassword = this.state.password === this.state.passwordConfirmation;
-      return correctEmail && namePresent && matchingPassword;
-    } else {
-      let passwordPresent = this.state.password.length > 0;
-      return correctEmail && passwordPresent;
-    }
-  }
-
-  submitForm(e) {
-    e.preventDefault();
-
-    switch (this.props.location.pathname) {
-      case '/signup':
-        if (this.validateForm('signup')) {
-          this.props.signup(this.state);
-          hashHistory.push('/home');
-        } else {
-          // render errors
-        }
-        break;
+    switch (form) {
+      case 'signup':
+        return <SignupForm signup={this.props.signup} />;
+      case 'forget-password':
+        return <ForgetPassword resetPassword={() => console.log('reset password')} />;
+      case 'confirm-email':
+        let { email, token } = this.props.location.query;
+        return <ConfirmEmail email={email} token={token} />;
       default:
-        if (this.validateForm('signin')) {
-          this.props.signin(this.state);
-          hashHistory.push('/home');
-        } else {
-          // render errors
-        }
-    }
-
-  }
-
-  update(field) {
-    return e => {
-      this.setState({ [field]: e.target.value });
-    };
-  }
-
-  renderUtility() {
-    if (this.props.location.pathname === '/signin') {
-      return (
-        <div className="utility-row">
-          <div>
-            Forgot your password?
-          </div>
-          <div className="utility-item">
-            Remember me?
-          </div>
-        </div>
-      );
+        return <SigninForm signin={this.props.signin} />;
     }
   }
 
   render() {
-    let submitValue;
-    let otherForm;
-    let otherLink;
-    let text;
-    let path = this.props.location.pathname;
-
-    switch (path) {
-      case '/signup':
-        submitValue = 'Sign Up';
-        otherForm = 'Sign in';
-        otherLink = '/signin';
-        text = 'Already have an account?';
-        break;
-      default:
-        submitValue = 'Sign In';
-        otherForm = 'Sign up';
-        otherLink = '/signup';
-        text = 'Don\'t have an account?';
-    }
-
+    console.log(this.props);
     return (
       <div className="signup-container">
-        <form onSubmit={this.submitForm} className="auth-form">
-
-          { path === '/signup' ? (
-            <FormTextInput
-              update={this.update}
-              value={this.state.name}
-              type='name'
-              field="name"
-              label='Full Name'
-            />
-          ) : null }
-
-          <FormTextInput
-            update={this.update}
-            value={this.state.email}
-            type="text"
-            field="email"
-            label="Email"
-          />
-
-          <FormTextInput
-            update={this.update}
-            value={this.state.password}
-            type="password"
-            field="password"
-            label="Password"
-          />
-
-          { path === '/signup' ? (
-            <FormTextInput
-              update={this.update}
-              value={this.state.passwordConfirmation}
-              type='password'
-              field='passwordConfirmation'
-              label='Password Confirmation'
-            />
-          ) : null }
-
-          <div className="submit-row">
-            <div className="reroute">
-              {text}
-              <span>
-                <Link to={otherLink}>{otherForm}</Link>
-              </span>
-            </div>
-            <input type='submit' className="auth-form-button" value={submitValue} />
-
-          </div>
-          { this.renderUtility() }
-        </form>
-
+        { this.renderForm() }
       </div>
     );
   }

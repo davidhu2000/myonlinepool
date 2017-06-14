@@ -22,17 +22,41 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  unconfirmed_email      :string
+#  name                   :string           not null
 #
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable
+  include ApplicationHelper 
+
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
+    user && user.valid_password?(password) ? user : nil
+  end
+
+  after_initialize :ensure_session_token
+
+  validates :email, presence: true
+  validates :password_digest, presence: true
+  validates :session_token, presence: true
 
   has_many :picks
   has_many :memberships
   has_many :pools, through: :memberships, source: :pool
   has_many :messages
+
+  attr_accessor :password_confirmation
+
+  def ensure_session_token
+    self.session_token ||= generate_session_token
+  end
+
+  def reset_session_token!
+    self.session_token = generate_session_token
+    self.save!
+    self.session_token
+  end
+
+  def generate_session_token
+    SecureRandom.urlsafe_base64(128)
+  end
 end

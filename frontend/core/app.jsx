@@ -20,10 +20,10 @@ class App extends React.Component {
   _redirect(isLoggedIn) {
     let route = this.props.location.pathname.slice(1);
 
-    if (isLoggedIn && ['signin', 'signup'].includes(route)) {
+    if (isLoggedIn && /auth/.test(route)) {
       this.props.router.replace('/home');
-    } else if (!isLoggedIn) {
-      this.props.router.replace('/signin');
+    } else if (!isLoggedIn && !/auth/.test(route)) {
+      this.props.router.replace('/auth');
     }
   }
 

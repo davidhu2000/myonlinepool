@@ -42,7 +42,7 @@ $white: #F6F7F9;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 #dropdown-cover{

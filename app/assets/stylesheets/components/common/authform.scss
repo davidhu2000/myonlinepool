@@ -61,6 +61,14 @@
     .auth-form-button:hover {
       color: #AF1E2C;
     }
+
+    .auth-form-button:disabled {
+      cursor: not-allowed;
+
+      &:hover {
+        color: white;
+      }
+    }
   }
 }
 
@@ -129,3 +137,26 @@
     width: 50%;
   }
 }
+
+.form-has-error {
+  position: relative;
+
+  > input {
+    border-bottom: 2px solid red !important;
+    z-index: 10;
+  }
+
+  .form-group-error-message {
+    position: absolute;
+    right: 0;
+    bottom: -28px;
+    display: inline-block;
+    font-size: 13px;
+    background: red;
+    padding: 5px;
+    color: white;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+}
+

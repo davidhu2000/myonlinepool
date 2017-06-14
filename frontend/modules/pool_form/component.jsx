@@ -11,14 +11,33 @@ class PoolForm extends React.Component {
     this.state = {
       title: '',
       description: '',
-      buy_in: 0,
-      season: 2017,
+      buy_in: '',
+      season: '2017',
       league: 'nfl',
       password: '',
-      password_confirmation: ''
+      password_confirmation: '',
+      isValid: false
     };
 
     autoBind(this);
+  }
+
+  isFormValid() {
+    let inputs = [];
+
+    inputs.push(
+      this.state.title,
+      this.state.description,
+      this.state.buy_in,
+      this.state.season,
+      this.state.league,
+      this.state.password,
+      this.state.password_confirmation
+    );
+
+    let noEmptyFields = inputs.every(val => !!val);
+    let noError = document.getElementsByClassName('form-group-error-message').length === 0;
+    this.setState({ isValid: noEmptyFields && noError });
   }
 
   update(type) {
@@ -27,22 +46,13 @@ class PoolForm extends React.Component {
     };
   }
 
-  validateForm() {
-    let { title, password, password_confirmation } = this.state;
-    let matchingPassword = password === password_confirmation;
-    let titlePresent = title.length > 0;
-
-    return matchingPassword && titlePresent;
-  }
-
   createPool(e) {
     e.preventDefault();
-    if (this.validateForm()) {
-      this.props.createPool(this.state);
-    } else {
-      // render errors
-      console.log('error');
-    }
+
+    this.props.createPool(this.state).then(
+      () => console.log('success'),
+      err => console.log(err)
+    );
   }
 
   render() {
@@ -56,6 +66,7 @@ class PoolForm extends React.Component {
             value={this.state.title}
             label="Title"
             field='title'
+            errorMessage="Please enter a title"
           />
 
           <FormTextInput
@@ -64,6 +75,7 @@ class PoolForm extends React.Component {
             value={this.state.description}
             label="Description"
             field="description"
+            errorMessage="Please enter a description"
           />
 
           <FormTextInput
@@ -72,6 +84,7 @@ class PoolForm extends React.Component {
             type='number'
             label="Buy In"
             field='buy_in'
+            errorMessage="Please enter a buy in."
           />
 
           <FormTextInput
@@ -80,6 +93,7 @@ class PoolForm extends React.Component {
             value={this.state.password}
             label="Password"
             field='password'
+            errorMessage="Password needs to be at least 6 characters"
           />
 
           <FormTextInput
@@ -88,12 +102,17 @@ class PoolForm extends React.Component {
             value={this.state.password_confirmation}
             label="Password Confirmation"
             field='password_confirmation'
+            password={this.state.password}
+            errorMessage="Password confirmation does not match password."
           />
-
-         <div className="pool-create-button">
-           <input id="buy_in" type="submit" className="" value="Create" />
-         </div>
-
+          
+          <input
+            type="submit"
+            className="pool-create-button"
+            value="Create"
+            onMouseEnter={this.isFormValid}
+            disabled={!this.state.isValid}
+          />
         </form>
       </div>
     );

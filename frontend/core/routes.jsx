@@ -18,8 +18,7 @@ const routes = (
     <IndexRoute component={Splash} />
 
 
-    <Route path="/signin" component={Auth} />
-    <Route path="/signup" component={Auth} />
+    <Route path="/auth" component={Auth} />
 
     <Route path="/home" component={Home} />
 
