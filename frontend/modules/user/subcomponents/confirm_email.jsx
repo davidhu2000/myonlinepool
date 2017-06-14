@@ -15,8 +15,8 @@ class ConfirmEmail extends React.Component {
     let { email, token } = this.props;
 
     $.ajax({
-      method: 'PATCH',
-      url: '/api/auth/registrations',
+      method: 'POST',
+      url: '/api/auth/registrations/confirm',
       data: {
         user: {
           email,

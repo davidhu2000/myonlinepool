@@ -3,7 +3,7 @@ import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { SigninForm, SignupForm, ForgetPassword, ConfirmEmail } from './subcomponents';
+import { SigninForm, SignupForm, ForgetPassword, ConfirmEmail, Message, ResetPassword } from './subcomponents';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -32,6 +32,9 @@ class AuthForm extends React.Component {
       case 'confirm-email':
         let { email, token } = this.props.location.query;
         return <ConfirmEmail email={email} token={token} />;
+      case 'message':
+        let { message } = this.props.location.query;
+        return <Message message={message} />;
       default:
         return <SigninForm signin={this.props.signin} />;
     }

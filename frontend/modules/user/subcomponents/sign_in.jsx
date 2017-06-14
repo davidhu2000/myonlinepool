@@ -50,9 +50,9 @@ class SigninForm extends React.Component {
         <Link to='auth?form=forget-password'>
           Forgot your password?
         </Link>
-        <div className="utility-item">
+        {/*<div className="utility-item">
           Remember me?
-        </div>
+        </div>*/}
       </div>
     );
   }
@@ -90,12 +90,12 @@ class SigninForm extends React.Component {
         </div>
         { this.renderUtility() }
       </form>
-  );
+    );
   }
 }
 
 SigninForm.propTypes = {
-  signin: PropTypes.func.isRequired,
+  signin: PropTypes.func.isRequired
 };
 
 export { SigninForm };

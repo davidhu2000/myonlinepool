@@ -14,20 +14,18 @@ class Api::Auth::RegistrationsController < ApplicationController
     if @user.save
       AuthMailer.confirm_email(@user).deliver
       render json: ["Please check your email to confirm your account"]
-      return
     else
       render json: @user.errors.full_messages, status: 422
-      return
     end
   end
 
   # confirm user email
   def update
-
     user = User.find_by(email: params[:user][:email])
 
     if user && user.confirmation_token == params[:user][:confirmation_token]
       user.confirmed_at = Date.new
+      user.save
       render json: ["Email successfully confirmed, please sign in"]
     else 
       render json: ["Code is invalid."], status: 422

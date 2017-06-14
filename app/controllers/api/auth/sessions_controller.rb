@@ -4,19 +4,21 @@ class Api::Auth::SessionsController < ApplicationController
 
     unless @user
       render json: ["Invalid username or password"], status: 401
+      return
     end
 
     unless @user.confirmed_at
       render json: ['Please confirm your email first.'], status: 401
+      return
     end
 
     if @user.sign_in_count >= @user.failed_attempts
       render json: ['You have made to many failed sign in attempts. Please reset your password'], status: 401 
+      return
     end
 
     login(@user)
     render 'api/users/show'
-
   end
 
   def destroy

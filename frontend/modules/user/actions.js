@@ -27,7 +27,7 @@ export const signout = () => dispatch => (
 
 export const signup = user => dispatch => (
   AuthAPI.signup(user).then(
-    res => dispatch(receiveUser(res))
+    () => dispatch(receiveUser(null))
   ).fail(
     err => console.log(err)
   )
