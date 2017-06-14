@@ -24,7 +24,7 @@ $drk-text: #CDCDCD;
   .picks-header {
     position: absolute;
     top: 20px;
-    left: -5px;
+    left: 5px;
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 10px;
@@ -39,28 +39,36 @@ $drk-text: #CDCDCD;
     }
 
     i:hover {
-      color: #AF1E2C;
+      opacity: .5;
+      cursor: pointer;
     }
   }
 
   .picks-selections {
     
     .picks-labels {
-      padding-bottom: 30px;
+      padding-bottom: 10px;
+      padding-top: 10px;
       display: flex;
+      justify-content: flex-start;
       flex: 0 0 auto;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      background: $lt-primary;
+      color: white;
 
       div {
+        padding: 0px;
         text-align: center;
         font-weight: bold;
       }
 
       div:first-child {
-        width: 75px;
+        margin-left: 100px;
+        width: 100px;
       }
 
       div:nth-child(2) {
-        width: 75px;
+        width: 100px;
       }
 
       div:nth-child(3) {
@@ -83,21 +91,20 @@ $drk-text: #CDCDCD;
     .selection-item {
       display: flex;
       flex-direction: row;
-      height: 50px;
-      margin-bottom: 25px;
       flex: 0 0 auto;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 
-      .home-symbol {
+      label {
+        width: 100px;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-      }
-
-      .selection-form-picks {
-        width: 150px;
+        justify-content: center;
+        }
       }
 
       .selection-form-date {
+        height: 88px;
         width: 100px;
         display: flex;
         justify-content: center;
@@ -105,6 +112,7 @@ $drk-text: #CDCDCD;
       }
 
       .selection-form-time {
+        height: 88px;
         width: 100px;
         display: flex;
         justify-content: center;
@@ -112,6 +120,7 @@ $drk-text: #CDCDCD;
       }
 
       .selection-form-line {
+        height: 88px;
         width: 100px;
         display: flex;
         justify-content: center;
@@ -119,6 +128,7 @@ $drk-text: #CDCDCD;
       }
 
       .selection-form-over {
+        height: 88px;
         width: 100px;
         display: flex;
         justify-content: center;
@@ -153,14 +163,6 @@ $drk-text: #CDCDCD;
       .pick-button::after {
         opacity: 1;
       }
-
-      div {
-        height: 100%;
-        padding: 0px 10px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-      }
     }
 
     .selected-button {
@@ -170,4 +172,4 @@ $drk-text: #CDCDCD;
       box-shadow: 0 3px 6px #AF1E2C, 0 3px 6px #AF1E2C;
     }
   }
-}
+

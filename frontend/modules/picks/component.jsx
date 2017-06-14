@@ -82,11 +82,11 @@ class Picks extends React.Component {
         <div className="picks-selections">
           <div className="picks-labels">
             <div>Away</div>
-            <div>Home</div>
             <div>Date</div>
             <div>Time</div>
             <div>Line</div>
             <div>Spread</div>
+            <div>Home</div>
           </div>
           { this.createSelections() }
         </div>
