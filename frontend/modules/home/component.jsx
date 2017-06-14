@@ -33,12 +33,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
-        <div className="home-bulletin">
-          <ModBoard
-            Chat={this.state.bulletins.slice(0, 5)}
-            Mod={this.state.moderator}
-          />
-        </div>
+       
         <div className="home-top">
           <StandingsBox
             Title="Weekly Leaders"
@@ -50,6 +45,12 @@ class Home extends React.Component {
             Standings={this.state.standings}
             key={Math.random()}
           />
+        </div>
+        <div className="home-bulletin">
+        <ModBoard
+          Chat={this.state.bulletins.slice(0, 5)}
+          Mod={this.state.moderator}
+        />
         </div>
         <div className="home-bottom">
           <PoolList

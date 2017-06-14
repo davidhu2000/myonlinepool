@@ -105,7 +105,7 @@ class PoolForm extends React.Component {
             password={this.state.password}
             errorMessage="Password confirmation does not match password."
           />
-
+          
           <input
             type="submit"
             className="pool-create-button"
@@ -113,7 +113,6 @@ class PoolForm extends React.Component {
             onMouseEnter={this.isFormValid}
             disabled={!this.state.isValid}
           />
-
         </form>
       </div>
     );

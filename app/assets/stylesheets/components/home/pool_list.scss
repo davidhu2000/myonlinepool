@@ -25,34 +25,76 @@ $white: #F6F7F9;
 }
 
 .pool-list {
-  margin: auto 0;
+  // margin: auto 0;
   width: 870px;
   padding: 0px 5px;
   position: relative;
   border-radius: 5px;
   padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
 
-  .pool-list-top-item {
+  .pool-list-top {
+    width: 100%;
     position: absolute;
     top: 0px;
     left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
     font-size: 20px;
-    text-align: left;
-    opacity: .5;
+
+    .pool-list-top-title {
+      // width: 300px;
+      font-weight: bold;
+      opacity: .5;
+    }
+
+    .pool-list-top-buttons {
+      display: flex;
+      width: 220px;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+      height: 30px;
+      margin-top: 5px;
+      width: 100px;
+      margin-bottom: 1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      line-height: 12px;
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      background: $lt-primary;
+      transition: .2s;
+      color: white;
+        i {
+        padding-right: 10px;
+        }
+      }
+
+      button:hover {
+        color: red;
+      }
+    }
   }
 
   .pool-list-item {
-    // width: 100%;
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    display: inline-flex;
     transition: .25s;
-    // margin-top: 5px;
     padding-left: 5px;
 
     div {
-      width: 100%;
       padding: 10px 5px;
-      // font-size: 15px;
       cursor: pointer;
+    }
+
+    div:hover {
+       color: #AF1E2C;
     }
 
     i {
@@ -60,86 +102,11 @@ $white: #F6F7F9;
     }
   }
 
-  .pool-list-item:hover {
-    color: #AF1E2C;
-  }
-
-  .pool-join-button, .pool-create-button {
-    width: 100%;
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: .25s;
-    margin-top: 5px;
-    padding: 7px 5px;
-
-    i {
-      padding-right: 10px;
-    }
-  }
-
-  .pool-join-button:hover, .pool-create-button:hover {
-    color: #AF1E2C;
-  }
-
-  .pool-create-form {
-    width: 200px;
-    position: absolute;
-    bottom: 0px;
-    // left: -205px;
-    left: -205px;
-    padding: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
-    opacity: 0;
-    animation-name: poolJoinIn;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-
-    .pool-form-name {
-      height: 38px;
-      width: 100%;
-      margin-bottom: 5px;
-      padding-left: 5px;
-      border: .2px rgba(51, 51, 51,.2) solid;
-    }
-
-    .pool-form-input {
-      height: 38px;
-      width: 100%;
-      padding-left: 5px;
-      border: .2px rgba(51, 51, 51,.2) solid;
-    }
-
-    .pool-form-button {
-      width: 187px;
-      height: 36px;
-      margin: 0 auto;
-      margin-top: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 15px;
-      line-height: 15px;
-      border-radius: 2px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
-      transition: .2s;
-    }
-
-    .pool-form-button:hover {
-      color: #AF1E2C;
-    }
-  }
-
   .pool-join-form {
-    width: 200px;
+    width: 300px;
     position: absolute;
-    bottom: 40px;
-    // left: -205px;
-    left: -205px;
-    padding: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    top: 0px;
+    right: -325px;
 
     opacity: 0;
     animation-name: poolJoinIn;
@@ -148,40 +115,69 @@ $white: #F6F7F9;
     animation-duration: 1s;
     animation-fill-mode: forwards;
 
-    .pool-form-name {
-      height: 38px;
-      width: 100%;
-      margin-bottom: 5px;
-      padding-left: 5px;
-      border: .2px rgba(51, 51, 51,.2) solid;
+
+    .poolform-group {
+      margin-bottom: 20px;
     }
 
-    .pool-form-input {
-      height: 38px;
+    .poolform-group input {
       width: 100%;
-      padding-left: 5px;
-      border: .2px rgba(51, 51, 51,.2) solid;
     }
 
-    .pool-form-button {
-      width: 187px;
-      height: 36px;
-      margin: 0 auto;
+    button {
+      height: 30px;
       margin-top: 5px;
+      width: 100px;
+      margin-bottom: 1px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 15px;
-      line-height: 15px;
+      font-size: 12px;
+      line-height: 12px;
       border-radius: 2px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
+      background: $lt-primary;
       transition: .2s;
+      color: white;
+        i {
+        padding-right: 10px;
+        }
     }
 
-    .pool-form-button:hover {
-      color: #AF1E2C;
-    }
+    // .pool-form-name {
+    //   height: 38px;
+    //   width: 100%;
+    //   margin-bottom: 5px;
+    //   padding-left: 5px;
+    //   border: .2px rgba(51, 51, 51,.2) solid;
+    // }
+
+    // .pool-form-input {
+    //   height: 38px;
+    //   width: 100%;
+    //   padding-left: 5px;
+    //   border: .2px rgba(51, 51, 51,.2) solid;
+    // }
+
+    // .pool-form-button {
+    //   width: 187px;
+    //   height: 36px;
+    //   margin: 0 auto;
+    //   margin-top: 5px;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   font-size: 15px;
+    //   line-height: 15px;
+    //   border-radius: 2px;
+    //   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    //   background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
+    //   transition: .2s;
+    // }
+
+    // .pool-form-button:hover {
+    //   color: #AF1E2C;
+    // }
   }
 
 }

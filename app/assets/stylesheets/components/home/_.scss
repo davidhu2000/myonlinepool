@@ -16,35 +16,16 @@ $white: #F6F7F9;
   justify-content: flex-start;
 }
 
-.home-bulletin {
-  min-height: 431px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .modboard {
-    width: 870px;
-
-    .modboard-container {
-      height: 340px;
-    }
-  }
-}
-
 .home-top {
   width: 100%;
-  min-height: 431px;
-  // padding: 20px 0px;
+  min-height: 374px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: $lt-primary;
 
   .standings-box {
     font-size: 12px;
-    color: white;
     .standings-box-top-item{
       font-size: 14px;
       font-weight: bold;
@@ -69,12 +50,23 @@ $white: #F6F7F9;
   }
 }
 
+.home-bulletin {
+  min-height: 327px;
+  width: 100%;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $lt-primary;
+}
+
 .home-bottom {
-  min-height: 300px;
+  min-height: 200px;
   padding: 20px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .home-message {
@@ -92,7 +84,6 @@ $white: #F6F7F9;
 
   .title {
     width: 100%;
-    // line-height: 20px;
     padding: 10px 5px;
     margin-bottom: 10px;
     font-size: 18px;
@@ -104,7 +95,6 @@ $white: #F6F7F9;
   div {
     padding: 0px 5px;
     padding-bottom: 10px;
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     font-size: 15px;
   }
 }
