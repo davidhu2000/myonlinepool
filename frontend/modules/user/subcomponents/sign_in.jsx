@@ -66,9 +66,9 @@ class SigninForm extends React.Component {
     return (
       <form onSubmit={this.submitForm} className="auth-form">
 
-        <EmailInput context={this} email={this.state.email} />
+        <EmailInput update={this.update} email={this.state.email} />
 
-        <PasswordInput context={this} password={this.state.password} />
+        <PasswordInput update={this.update} password={this.state.password} />
 
         <div className="submit-row">
           <div className="reroute">

@@ -67,10 +67,10 @@ class ResetPassword extends React.Component {
     return (
       <form onSubmit={this.submitForm} className="auth-form">
 
-        <PasswordInput context={this} password={this.state.password} />
+        <PasswordInput update={this.update} password={this.state.password} />
 
         <PasswordConfirmation
-          context={this}
+          update={this.update}
           password={this.state.password}
           passwordConfirmation={this.state.passwordConfirmation}
         />

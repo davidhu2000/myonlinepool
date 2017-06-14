@@ -60,7 +60,7 @@ class ForgetPassword extends React.Component {
   render() {
     return (
       <form onSubmit={this.submitForm} className="auth-form">
-        <EmailInput context={this} email={this.state.email} />
+        <EmailInput update={this.update} email={this.state.email} />
 
         <input
           id="form-submit-button"
