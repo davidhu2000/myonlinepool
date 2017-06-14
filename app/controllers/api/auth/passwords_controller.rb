@@ -11,7 +11,7 @@ class Api::Auth::PasswordsController < ApplicationController
     user.reset_password_sent_at = Date.new
 
     if user.save
-      AuthMailer.reset_password(@user).deliver
+      AuthMailer.reset_password(user).deliver
       render json: ["Please check your email to confirm your account"]
     else
       render json: @user.errors.full_messages, status: 422
