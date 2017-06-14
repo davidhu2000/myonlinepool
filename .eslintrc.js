@@ -15,7 +15,6 @@ module.exports = {
         "block-scoped-var": "error",
         "consistent-return": "error",
         "arrow-parens": ["error", "as-needed"],
-        "jsx-a11y/img-has-alt": "off",
         "import/no-extraneous-dependencies": "off",
         "import/extensions": "off",
         "import/no-unresolved": "off",

@@ -13,18 +13,18 @@ class Splash extends React.Component {
           <h1>Welcome to<span> My Online Pool</span> </h1>
           <p>
           A simple app to organize your sports pools.
-          <br/>
+          <br />
           No more organizational nightmares.
           </p>
         </div>
         <div className="splash-mid">
           <h1>Play with your favorite teams</h1>
           <div className="splash-mid-carousel">
-            <img src="assets/logos/Raiders.gif"/>
-            <img src="assets/logos/Cardinals.gif"/>
-            <img src="assets/logos/Bears.gif"/>
-            <img src="assets/logos/Bills.gif"/>
-            <img src="assets/logos/Panthers.gif"/>
+            <img src="assets/logos/Raiders.gif" />
+            <img src="assets/logos/Cardinals.gif" />
+            <img src="assets/logos/Bears.gif" />
+            <img src="assets/logos/Bills.gif" />
+            <img src="assets/logos/Panthers.gif" />
           </div>
         </div>
         <div className="splash-bottom">

@@ -90,12 +90,12 @@ class SigninForm extends React.Component {
         </div>
         { this.renderUtility() }
       </form>
-  );
+    );
   }
 }
 
 SigninForm.propTypes = {
-  signin: PropTypes.func.isRequired,
+  signin: PropTypes.func.isRequired
 };
 
 export { SigninForm };
