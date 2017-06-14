@@ -48,7 +48,7 @@
     }
     .auth-form-button {
       height: 30px;
-      width: 90px;
+      // width: 90px;
       font-size: 15px;
       display: flex;
       justify-content: center;
@@ -59,6 +59,8 @@
       background: black;
       transition: .2s;
       color: white;
+      padding: 0 10px;
+      box-sizing: border-box;
     }
     .auth-form-button:hover {
       color: $lt-primary;
