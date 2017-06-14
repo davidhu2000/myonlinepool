@@ -1,6 +1,6 @@
 /* global document */
 import React from 'react';
-import { withRouter, Link } from 'react-router';
+import { hashHistory, Link } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
@@ -23,9 +23,15 @@ class SignupForm extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
+    let message = 'Please check your email to activate your account.';
+
+    let url = {
+      pathname: 'auth',
+      query: { form: 'message', message }
+    };
 
     this.props.signup(this.state).then(
-      () => console.log('show confirm with email message'),
+      () => hashHistory.push(url),
       err => console.log(err)
     );
   }
