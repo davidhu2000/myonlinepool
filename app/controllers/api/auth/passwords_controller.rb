@@ -16,6 +16,7 @@ class Api::Auth::PasswordsController < ApplicationController
 
   # create new password
   def update
+    p params
     if @user.reset_password_token == params[:user][:reset_password_token]
       if @user.update_password(params[:user][:password], params[:user][:password_confirmation])
         render json: ["Password successfully reset. Please sign in now."]
