@@ -52,7 +52,8 @@ class ResetPassword extends React.Component {
 }
 
 ResetPassword.propTypes = {
-  email: PropTypes.string.isRequired
+  email: PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired
 };
 
-export default ResetPassword;
+export { ResetPassword };

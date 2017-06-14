@@ -1,3 +1,4 @@
+/* eslint no-fallthrough: 0 */
 import React from 'react';
 import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
@@ -22,26 +23,28 @@ class AuthForm extends React.Component {
   }
 
   renderForm() {
-    let { form } = this.props.location.query;
-
-    switch (form) {
+    let { query } = this.props.location;
+    switch (query.form) {
       case 'signup':
         return <SignupForm signup={this.props.signup} />;
       case 'forget-password':
-        return <ForgetPassword resetPassword={() => console.log('reset password')} />;
-      case 'confirm-email':
-        let { email, token } = this.props.location.query;
-        return <ConfirmEmail email={email} token={token} />;
+        return <ForgetPassword />;
       case 'message':
-        let { message } = this.props.location.query;
-        return <Message message={message} />;
+        return <Message message={query.message} />;
+      case 'confirm-email':
+        if (query.email && query.token) {
+          return <ConfirmEmail email={query.email} token={query.token} />;
+        }
+      case 'reset-password':
+        if (query.email && query.token) {
+          return <ResetPassword email={query.email} token={query.token} />;
+        }
       default:
         return <SigninForm signin={this.props.signin} />;
     }
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="signup-container">
         { this.renderForm() }

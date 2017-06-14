@@ -1,6 +1,5 @@
 /* global document, $ */
 import React from 'react';
-import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { hashHistory } from 'react-router';
 
@@ -76,9 +75,5 @@ class ForgetPassword extends React.Component {
     );
   }
 }
-
-ForgetPassword.propTypes = {
-  resetPassword: PropTypes.func.isRequired
-};
 
 export { ForgetPassword };
