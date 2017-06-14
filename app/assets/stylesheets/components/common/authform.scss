@@ -37,7 +37,7 @@
     .reroute {
       font-size: 12px;
       display: flex;
-      align-items: center; // padding: 5px;
+      align-items: center;
       span {
         margin-left: 3px;
         text-decoration: underline;
@@ -47,7 +47,9 @@
       }
     }
     .auth-form-button {
-      padding: 5px 20px;
+      height: 30px;
+      width: 90px;
+      font-size: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -59,14 +61,18 @@
       color: white;
     }
     .auth-form-button:hover {
-      color: #AF1E2C;
+      color: $lt-primary;
+      background: white;
+      border: 1px black solid;
     }
 
     .auth-form-button:disabled {
       cursor: not-allowed;
 
       &:hover {
-        color: white;
+        color: $lt-primary;
+        background: white;
+        border: 1px black solid;
       }
     }
   }

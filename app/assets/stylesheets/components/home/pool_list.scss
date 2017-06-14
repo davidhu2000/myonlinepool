@@ -80,6 +80,7 @@ $white: #F6F7F9;
       button:hover {
         background: white;
         color: $lt-primary; 
+        border: 1px black solid;
       }
     }
   }
@@ -143,6 +144,12 @@ $white: #F6F7F9;
         i {
         padding-right: 10px;
         }
+    }
+
+    button:hover {
+      background: white;
+      color: $lt-primary;
+      border: 1px black solid;
     }
   }
 }
