@@ -2,7 +2,6 @@ class Api::Auth::PasswordsController < ApplicationController
   before_action :find_user
   # create reset password token, and send email
   def create
-
     @user.reset_password_token = generate_token
     @user.reset_password_sent_at = Date.new
 
@@ -16,9 +15,10 @@ class Api::Auth::PasswordsController < ApplicationController
 
   # create new password
   def update
-    p params
     if @user.reset_password_token == params[:user][:reset_password_token]
       if @user.update_password(params[:user][:password], params[:user][:password_confirmation])
+        @user.sign_in_count = 0
+        @user.save
         render json: ["Password successfully reset. Please sign in now."]
       else 
         render json: @user.errors.full_messages, status: 422
