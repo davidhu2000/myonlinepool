@@ -23,6 +23,7 @@ Errors.propTypes = {
     messages: PropTypes.shape({
       [PropTypes.number]: PropTypes.string
     })
-  }).isRequired
+  }).isRequired,
+  removeError: PropTypes.func.isRequired
 };
 export default Errors;
