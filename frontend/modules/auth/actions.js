@@ -52,7 +52,7 @@ export const resetPassword = user => dispatch => (
   AuthAPI.resetPassword(user).then(
     () => {
       hashHistory.push('/auth?form=signin');
-      return dispatch(receiveAlerts([{ type: 'success', message: "Password successfuly reset." }]));
+      return dispatch(receiveAlerts([{ type: 'success', message: "Password updated. Please sign in." }]));
     },
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
