@@ -72,9 +72,9 @@
       cursor: not-allowed;
 
       &:hover {
-        color: $lt-primary;
-        background: white;
-        border: 1px black solid;
+        color: white;
+        background: black;
+        border: none;
       }
     }
   }
