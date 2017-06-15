@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { difference } from 'lodash';
 import AlertContainer from 'react-alert';
 
-class Errors extends React.Component {
+class Alerts extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
@@ -21,21 +21,21 @@ class Errors extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.errors.length > 0) {
-      this.props.errors.forEach(error => this.showAlert(error));
+    if (this.props.alerts.length > 0) {
+      this.props.alerts.forEach(alert => this.showAlert(alert));
     }
   }
 
   componentWillReceiveProps(newProps) {
-    difference(newProps.errors, this.props.errors).forEach(error => this.showAlert(error));
+    difference(newProps.alerts, this.props.alerts).forEach(alert => this.showAlert(alert));
   }
 
-  showAlert(error) {
-    this.messages.show(error, {
+  showAlert(alert) {
+    this.messages.show(alert, {
       time: 5000,
       type: 'error',
       icon: <i className='fa fa-exclamation-triangle' />,
-      onClose: () => this.props.removeError(error)
+      onClose: () => this.props.removeAlert(alert)
     });
   }
 
@@ -48,9 +48,9 @@ class Errors extends React.Component {
   }
 }
 
-Errors.propTypes = {
-  errors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  removeError: PropTypes.func.isRequired
+Alerts.propTypes = {
+  alerts: PropTypes.arrayOf(PropTypes.string).isRequired,
+  removeAlert: PropTypes.func.isRequired
 };
 
-export default Errors;
+export default Alerts;

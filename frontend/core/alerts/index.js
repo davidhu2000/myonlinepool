@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 
-import { removeError } from 'common/actions';
+import { removeAlert } from 'common/actions';
 
-import Errors from './component';
+import Alerts from './component';
 
-const mapStateToProps = ({ errors }) => ({
-  errors
+const mapStateToProps = ({ alerts }) => ({
+  alerts
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeError: error => dispatch(removeError(error))
+  removeAlert: alert => dispatch(removeAlert(alert))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Errors);
+)(Alerts);
