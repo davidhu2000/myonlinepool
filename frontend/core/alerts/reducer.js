@@ -9,9 +9,9 @@ const errorsReducer = (state = _defaultState, action) => {
   switch (action.type) {
     case ALERTS.RECEIVE:
       let newState = state.concat(action.alerts);
-      return uniqBy(newState, str => str.message);
+      return uniqBy(newState, alert => alert.message);
     case ALERTS.REMOVE:
-      return state.filter(str => str.alert !== action.alert.message);
+      return state.filter(alert => alert.message !== action.alert.message);
     case ALERTS.CLEAR:
       return _defaultState;
     default :

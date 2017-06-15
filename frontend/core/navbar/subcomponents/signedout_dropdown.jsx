@@ -17,7 +17,7 @@ class Dropdown extends React.Component {
       <div className="navbar-dropdown" id="account-dropdown">
         <div className="navbar-dropdown-list">
           { signedoutLinks.map(item => (
-            <Link to={item.link} onClick={this.props.toggleLeftDropdown}>
+            <Link to={item.link} onClick={this.props.toggleLeftDropdown} key={item.link}>
               {item.text}
             </Link>
           ))}
