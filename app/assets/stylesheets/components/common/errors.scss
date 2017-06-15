@@ -1,13 +1,26 @@
-.errors-container {
-  position: fixed;
-  top: 100px;
-  z-index: 100;
-}
+.alerts-container {
+  > div[class^='css-'] > span > div[class^='css-'] {
+    width: 400px;
+    
+    div {
+      // alert icon
+      &:first-child {
+        font-size: 30px;
+        color: red;
+        opacity: 0.8;
+      }
+    
+      // alert message div
+      &:nth-child(2) {
+        font-size: 15px;
+        font-weight: 700;
+        
+      }
 
-.error-body {
-  background: rgba(255, 40, 0, 0.8);
-  color: $white;
-  padding: 5px 10px;
-  border-radius: 3px;
-  margin: 10px;
+      // alert close div
+      &:last-child {
+      }
+    }
+    
+  }
 }

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import Footer from './footer';
+// import Footer from './footer';
 import Navbar from './navbar';
 import Alerts from './alerts';
 
