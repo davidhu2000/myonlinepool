@@ -1,18 +1,18 @@
 import { uniqBy } from 'lodash';
 
-import { ERRORS } from 'common/actions';
+import { ALERTS } from 'common/actions';
 
 let _defaultState = [];
 
 const errorsReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
-    case ERRORS.RECEIVE:
-      let newState = state.concat(action.errors);
-      return uniqBy(newState, str => str);
-    case ERRORS.REMOVE:
-      return state.filter(str => str !== action.error);
-    case ERRORS.CLEAR:
+    case ALERTS.RECEIVE:
+      let newState = state.concat(action.alerts);
+      return uniqBy(newState, str => str.message);
+    case ALERTS.REMOVE:
+      return state.filter(str => str.alert !== action.alert.message);
+    case ALERTS.CLEAR:
       return _defaultState;
     default :
       return state;

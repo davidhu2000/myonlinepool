@@ -31,9 +31,9 @@ class Alerts extends React.Component {
   }
 
   showAlert(alert) {
-    this.messages.show(alert, {
+    this.messages.show(alert.message, {
       time: 5000,
-      type: 'error',
+      type: alert.type,
       icon: <i className='fa fa-exclamation-triangle' />,
       onClose: () => this.props.removeAlert(alert)
     });
@@ -49,7 +49,10 @@ class Alerts extends React.Component {
 }
 
 Alerts.propTypes = {
-  alerts: PropTypes.arrayOf(PropTypes.string).isRequired,
+  alerts: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.string,
+    message: PropTypes.string
+  })).isRequired,
   removeAlert: PropTypes.func.isRequired
 };
 

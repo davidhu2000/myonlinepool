@@ -8,5 +8,5 @@ export const processMessages = (array, statusCode) => {
     type = 'success';
   }
 
-  return array.map(alert => ({ type, alert }));
+  return array.map(message => ({ type, message }));
 };
