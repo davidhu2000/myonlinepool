@@ -12,6 +12,7 @@ class StandingsBox extends React.Component {
     let stands = this.props.Standings;
     return stands.map( standing => (
       <StandingsBoxItem
+        key={Math.random()}
         Name={standing.name}
         Score={standing.score}
         Losses={standing.losses}

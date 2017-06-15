@@ -24,6 +24,7 @@ class PoolList extends React.Component {
     let pools = this.props.Pools;
     return pools.map(pool => (
       <PoolListItem
+        key={Math.random()}
         Name={pool.name}
         Id={pool.id}
       />

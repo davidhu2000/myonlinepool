@@ -13,6 +13,7 @@ class ModBoard extends React.Component {
     return chat.map( message => (
       <ModBoardItem
         Message={message}
+        key={Math.random()}
         />
     ));
   }
