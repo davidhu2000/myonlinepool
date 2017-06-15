@@ -3,7 +3,6 @@ import React from 'react';
 import { hashHistory, Link } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import { debounce } from 'lodash';
 
 import { FormTextInput, EmailInput, PasswordInput, PasswordConfirmation } from 'common/components';
 
