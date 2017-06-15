@@ -1,6 +1,13 @@
 .errors-container {
   position: fixed;
   top: 100px;
-  background: orange;
   z-index: 100;
+}
+
+.error-body {
+  background: rgba(255, 40, 0, 0.8);
+  color: $white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin: 10px;
 }
