@@ -10,20 +10,15 @@ class Errors extends React.Component {
 
   render() {
     return (
-      <div>
-        Content
+      <div className='errors-container'>
+        { this.props.errors }
       </div>
     );
   }
 }
 
 Errors.propTypes = {
-  errors: PropTypes.shape({
-    numberOfErrors: PropTypes.number.isRequired,
-    messages: PropTypes.shape({
-      [PropTypes.number]: PropTypes.string
-    })
-  }).isRequired,
+  errors: PropTypes.arrayOf(PropTypes.string).isRequired,
   removeError: PropTypes.func.isRequired
 };
 export default Errors;

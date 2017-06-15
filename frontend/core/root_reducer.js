@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
-import userReducer from 'modules/user/reducer';
-import poolReducer from 'modules/pool/reducer';
-import messageReducer from 'modules/pool/subcomponents/reducer';
+import user from 'modules/user/reducer';
+import pool from 'modules/pool/reducer';
+import errors from 'common/errors/reducer';
+
+import messages from 'modules/pool/subcomponents/reducer';
 
 const rootReducer = combineReducers({
-  user: userReducer,
-  pool: poolReducer,
-  messages: messageReducer
+  user,
+  pool,
+  messages,
+  errors
 });
 
 export default rootReducer;

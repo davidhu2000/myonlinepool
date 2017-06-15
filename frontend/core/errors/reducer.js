@@ -1,8 +1,8 @@
-import { ERRORS } from './actions';
+import { ERRORS } from 'common/actions';
 
 let _defaultState = [];
 
-const poolReducer = (state = _defaultState, action) => {
+const errorsReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch (action.type) {
     case ERRORS.RECEIVE:
@@ -14,4 +14,4 @@ const poolReducer = (state = _defaultState, action) => {
   }
 };
 
-export default poolReducer;
+export default errorsReducer;
