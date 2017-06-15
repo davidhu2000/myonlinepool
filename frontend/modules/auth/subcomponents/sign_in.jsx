@@ -23,8 +23,7 @@ class SigninForm extends React.Component {
     e.preventDefault();
 
     this.props.signin(this.state).then(
-      () => hashHistory.push('/home'),
-      err => console.log(err)
+      () => hashHistory.push('/home')
     );
   }
 

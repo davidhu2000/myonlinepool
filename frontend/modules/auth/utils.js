@@ -47,3 +47,11 @@ export const confirmEmail = (email, token) => (
     }
   })
 );
+
+export const resetPassword = user => (
+  $.ajax({
+    method: 'POST',
+    url: '/api/auth/passwords/reset',
+    data: { user }
+  })
+);

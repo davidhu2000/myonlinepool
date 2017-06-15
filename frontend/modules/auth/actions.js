@@ -42,7 +42,17 @@ export const confirmEmail = (email, token) => dispatch => (
   AuthAPI.confirmEmail(email, token).then(
     () => {
       hashHistory.push('/auth?form=signin');
-      return dispatch(receiveAlerts([{ type: 'success', message: "Email confirmed. Please sign in." }]))
+      return dispatch(receiveAlerts([{ type: 'success', message: "Email confirmed. Please sign in." }]));
+    },
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+  )
+);
+
+export const resetPassword = user => dispatch => (
+  AuthAPI.resetPassword(user).then(
+    () => {
+      hashHistory.push('/auth?form=signin');
+      return dispatch(receiveAlerts([{ type: 'success', message: "Password successfuly reset." }]));
     },
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )

@@ -1,8 +1,8 @@
-/* global document, $ */
+/* global document */
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import { hashHistory } from 'react-router';
+
 import { PasswordInput, PasswordConfirmation } from 'common/components';
 
 class ResetPassword extends React.Component {
@@ -19,28 +19,15 @@ class ResetPassword extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-    let message = 'Password successfully reset. Please sign in now.';
 
-    let url = {
-      pathname: 'auth',
-      query: { form: 'message', message }
+    let user = {
+      email: this.props.email,
+      reset_password_token: this.props.token,
+      password: this.state.password,
+      password_confirmation: this.state.passwordConfirmation
     };
 
-    $.ajax({
-      method: 'POST',
-      url: '/api/auth/passwords/reset',
-      data: {
-        user: {
-          email: this.props.email,
-          reset_password_token: this.props.token,
-          password: this.state.password,
-          password_confirmation: this.state.passwordConfirmation
-        }
-      }
-    }).then(
-      () => hashHistory.push(url),
-      err => console.log(err)
-    );
+    this.props.resetPassword(user);
   }
 
   isFormValid() {
@@ -91,7 +78,8 @@ class ResetPassword extends React.Component {
 
 ResetPassword.propTypes = {
   email: PropTypes.string.isRequired,
-  token: PropTypes.string.isRequired
+  token: PropTypes.string.isRequired,
+  resetPassword: PropTypes.func.isRequired
 };
 
 export { ResetPassword };

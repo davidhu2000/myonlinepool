@@ -38,7 +38,13 @@ class AuthForm extends React.Component {
         }
       case 'reset-password':
         if (query.email && query.token) {
-          return <ResetPassword email={query.email} token={query.token} />;
+          return (
+            <ResetPassword
+              email={query.email}
+              token={query.token}
+              resetPassword={this.props.resetPassword}
+            />
+          );
         }
       default:
         return <SigninForm signin={this.props.signin} />;
@@ -58,7 +64,8 @@ AuthForm.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   signin: PropTypes.func.isRequired,
   signup: PropTypes.func.isRequired,
-  confirmEmail: PropTypes.func.isRequired
+  confirmEmail: PropTypes.func.isRequired,
+  resetPassword: PropTypes.func.isRequired
 };
 
 export default withRouter(AuthForm);

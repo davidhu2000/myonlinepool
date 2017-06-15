@@ -31,8 +31,7 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(this.state).then(
-      () => hashHistory.push(url),
-      err => console.log(err)
+      () => hashHistory.push(url)
     );
   }
 
