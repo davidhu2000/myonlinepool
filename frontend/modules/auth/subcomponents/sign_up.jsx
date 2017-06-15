@@ -11,7 +11,7 @@ class SignupForm extends React.Component {
     super(props);
 
     this.state = {
-      name: "",
+      name: "a",
       email: "me@gmail.com",
       password: "password",
       passwordConfirmation: "password",
