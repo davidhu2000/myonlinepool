@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Footer from './footer';
 import Navbar from './navbar';
+import Errors from './errors';
 
 class App extends React.Component {
   componentDidMount() {
@@ -35,6 +36,7 @@ class App extends React.Component {
             Location={this.props.location.pathname}
             PoolId={this.props.params.poolId}
           />
+          <Errors />
           <div className="app-container">
             { this.props.children }
           </div>

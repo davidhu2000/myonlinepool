@@ -9,6 +9,11 @@ export const receiveErrors = errors => ({
   errors
 });
 
+export const removeError = error => ({
+  type: ERRORS.REMOVE,
+  error
+});
+
 export const clearErrors = () => ({
   type: ERRORS.REMOVE
 });
