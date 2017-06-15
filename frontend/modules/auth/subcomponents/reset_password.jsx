@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { hashHistory } from 'react-router';
-
 import { PasswordInput, PasswordConfirmation } from 'common/components';
 
 class ResetPassword extends React.Component {
