@@ -6,8 +6,15 @@
       // alert icon
       &:first-child {
         font-size: 30px;
-        color: red;
         opacity: 0.8;
+
+        .fa-exclamation-triangle {
+          color: red;
+        }
+
+        .fa-check-circle {
+          color: green;
+        }
       }
     
       // alert message div

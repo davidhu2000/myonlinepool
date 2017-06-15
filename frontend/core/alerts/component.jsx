@@ -31,10 +31,11 @@ class Alerts extends React.Component {
   }
 
   showAlert(alert) {
+    let icon = alert.type === 'error' ? 'fa-exclamation-triangle' : 'fa-check-circle';
     this.messages.show(alert.message, {
       time: 5000,
       type: alert.type,
-      icon: <i className='fa fa-exclamation-triangle' />,
+      icon: <i className={`fa ${icon}`} />,
       onClose: () => this.props.removeAlert(alert)
     });
   }
