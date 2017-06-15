@@ -2,6 +2,8 @@ $drk-primary: #1c1c1c;
 $lt-primary: #2d2d2d;
 $drk-text: #CDCDCD;
 
+$transition-time: 0.1s;
+
 @import 'hamburger.scss';
 
 @keyframes barsIn {
@@ -20,26 +22,6 @@ $drk-text: #CDCDCD;
   100% {
     opacity: 1;
   }
-}
-
-.fa-minus {
-  opacity: 0;
-
-  animation-name: minusIn;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-.fa-bars {
-  opacity: 0;
-
-  animation-name: barsIn;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
 }
 
 .navbar-container {
@@ -65,7 +47,7 @@ $drk-text: #CDCDCD;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    transition: .5s;
+    transition: $transition-time;
 
     &:hover {
       color: red;
@@ -80,7 +62,7 @@ $drk-text: #CDCDCD;
     padding-left: 20px;
     font-size: 15px;
     font-weight: bold;
-    transition: .5s;
+    transition: $transition-time;
     right: 25px;
 
     &:hover {
@@ -128,7 +110,7 @@ $drk-text: #CDCDCD;
   animation-name: slideIn;
   animation-iteration-count: 1;
   animation-timing-function: ease-out;
-  animation-duration: .5s;
+  animation-duration: $transition-time;
   animation-fill-mode: forwards;
 }
 
