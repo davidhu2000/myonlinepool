@@ -4,7 +4,7 @@ import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { SigninForm, SignupForm, ForgetPassword, ConfirmEmail, Message, ResetPassword } from './subcomponents';
+import { SigninForm, SignupForm, ForgetPassword, Message, ResetPassword } from './subcomponents';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class AuthForm extends React.Component {
         return <Message message={query.message} />;
       case 'confirm-email':
         if (query.email && query.token) {
-          return <ConfirmEmail email={query.email} token={query.token} />;
+          this.props.confirmEmail(query.email, query.token);
         }
       case 'reset-password':
         if (query.email && query.token) {
@@ -57,7 +57,8 @@ class AuthForm extends React.Component {
 AuthForm.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   signin: PropTypes.func.isRequired,
-  signup: PropTypes.func.isRequired
+  signup: PropTypes.func.isRequired,
+  confirmEmail: PropTypes.func.isRequired
 };
 
 export default withRouter(AuthForm);

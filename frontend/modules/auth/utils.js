@@ -34,3 +34,16 @@ export const signup = user => (
     }
   })
 );
+
+export const confirmEmail = (email, token) => (
+  $.ajax({
+    method: 'POST',
+    url: '/api/auth/registrations/confirm',
+    data: {
+      user: {
+        email,
+        confirmation_token: token
+      }
+    }
+  })
+);
