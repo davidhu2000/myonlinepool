@@ -12,8 +12,8 @@ class Errors extends React.Component {
     this.state = {
       offset: 65,
       position: 'top right',
-      theme: 'light',
-      time: 45000,
+      theme: 'dark',
+      time: 5000,
       transition: 'scale'
     };
 
@@ -32,7 +32,7 @@ class Errors extends React.Component {
 
   showAlert(error) {
     this.messages.show(error, {
-      time: 43000,
+      time: 5000,
       type: 'error',
       icon: <i className='fa fa-exclamation-triangle' />,
       onClose: () => this.props.removeError(error)
