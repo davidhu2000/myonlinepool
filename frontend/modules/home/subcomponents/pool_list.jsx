@@ -3,21 +3,47 @@ import { Link, withRouter, hashHistory } from 'react-router';
 import autoBind from 'react-autobind';
 import PoolListItem from './pool_list_item';
 import { JoinForm } from './join_form';
+import Modal from 'react-modal';
+
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    padding               : '40px',
+    borderRadius          : '2px',
+    boxShadow             : '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'
+  }
+};
 
 class PoolList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showJoin: false,
-      showCreate: false,
       joinName: "",
       joinPass: "",
       createName: "",
-      createPass: ""
+      createPass: "",
+      modalIsOpen: false
     };
 
     autoBind(this);
+  }
+
+  componentWillMount() {
+    Modal.setAppElement('body');
+  }
+
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
   }
 
   genList() {
@@ -83,23 +109,24 @@ class PoolList extends React.Component {
                 Create Pool
               </div>
             </button>
-            <button id="pool-join-button" className="pool-join-button" onClick={this.toggleJoin.bind(this)}>
+            <button id="pool-join-button" className="pool-join-button" onClick={this.openModal}>
               <div>
-              { this.state.showJoin ? <i
-                className="fa fa-minus"
-                aria-hidden="true"/> : <i
-                className="fa fa-plus"
-                aria-hidden="true"/> }
               Join Pool
               </div>
             </button>
           </div>  
         </div>
         {this.genList()}
-        { this.state.showJoin ?
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="label"
+        >
           <JoinForm
             toggleJoinForm={this.toggleJoin}
-            /> : null }
+          />
+        </Modal>
       </div>
     );
   }

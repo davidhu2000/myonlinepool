@@ -58,7 +58,6 @@ class Home extends React.Component {
             key={Math.random()}
           />
         </div>
-
       </div>
     );
   }

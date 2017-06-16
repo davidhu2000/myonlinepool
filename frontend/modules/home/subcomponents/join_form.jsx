@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import enhanceWithClickOutside from 'react-click-outside';
+// import enhanceWithClickOutside from 'react-click-outside';
 import { FormTextInput } from 'common/components';
 
 class Form extends React.Component {
@@ -26,11 +26,11 @@ class Form extends React.Component {
     e.preventDefault();
   }
 
-  handleClickOutside(e) {
-    if (![e.path[0].id, e.path[1].id].includes('pool-join-button')) {
-      this.props.toggleJoinForm();
-    }
-  }
+  // handleClickOutside(e) {
+  //   if (![e.path[0].id, e.path[1].id].includes('pool-join-button')) {
+  //     this.props.toggleJoinForm();
+  //   }
+  // }
 
   render() {
     return (
@@ -52,7 +52,7 @@ class Form extends React.Component {
             field="password"
           />
 
-          <button type="submit">
+          <button className="join-form-button" type="submit">
             Submit
           </button>    
         </form>
@@ -65,4 +65,4 @@ Form.propTypes = {
   toggleJoinForm: PropTypes.func.isRequired
 };
 
-export const JoinForm = enhanceWithClickOutside(Form);
+export const JoinForm = Form;

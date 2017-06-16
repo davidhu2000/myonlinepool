@@ -8,19 +8,21 @@
 }
 
 .picks-container {
-  padding: 10px 0px;
-  padding-top: 70px;
+  margin: 20px 0px;
+  padding: 10px 20px;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
   .picks-header {
     position: absolute;
-    top: 20px;
-    left: 5px;
+    top: 15px;
+    left: 15px;
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 10px;
