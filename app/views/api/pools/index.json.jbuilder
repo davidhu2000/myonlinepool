@@ -1,6 +1,5 @@
-json.array! @pools.each do |pool|
-  json.set! pool.identifier do 
-    json.title pool.title
-    json.id pool.id
+@pools.each do |pool|
+  json.set! pool.id do 
+    json.extract! pool, :id, :title, :identifier, :moderator_id
   end
 end
