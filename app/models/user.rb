@@ -35,7 +35,7 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :session_token, presence: true
 
@@ -58,5 +58,14 @@ class User < ApplicationRecord
 
   def generate_session_token
     SecureRandom.urlsafe_base64(128)
+  end
+
+  def update_password(password, confirmation)
+    if password == confirmation 
+      self.password = password
+      self.save
+    else 
+      return false
+    end
   end
 end

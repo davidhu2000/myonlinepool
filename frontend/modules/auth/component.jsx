@@ -1,9 +1,10 @@
+/* eslint no-fallthrough: 0 */
 import React from 'react';
 import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { SigninForm, SignupForm, ForgetPassword, ConfirmEmail, Message, ResetPassword } from './subcomponents';
+import { SigninForm, SignupForm, ForgetPassword, Message, ResetPassword } from './subcomponents';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -22,26 +23,35 @@ class AuthForm extends React.Component {
   }
 
   renderForm() {
-    let { form } = this.props.location.query;
+    let { query } = this.props.location;
 
-    switch (form) {
+    switch (query.form) {
       case 'signup':
         return <SignupForm signup={this.props.signup} />;
       case 'forget-password':
-        return <ForgetPassword resetPassword={() => console.log('reset password')} />;
-      case 'confirm-email':
-        let { email, token } = this.props.location.query;
-        return <ConfirmEmail email={email} token={token} />;
+        return <ForgetPassword />;
       case 'message':
-        let { message } = this.props.location.query;
-        return <Message message={message} />;
+        return <Message message={query.message} />;
+      case 'confirm-email':
+        if (query.email && query.token) {
+          this.props.confirmEmail(query.email, query.token);
+        }
+      case 'reset-password':
+        if (query.email && query.token) {
+          return (
+            <ResetPassword
+              email={query.email}
+              token={query.token}
+              resetPassword={this.props.resetPassword}
+            />
+          );
+        }
       default:
         return <SigninForm signin={this.props.signin} />;
     }
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="signup-container">
         { this.renderForm() }
@@ -53,7 +63,9 @@ class AuthForm extends React.Component {
 AuthForm.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   signin: PropTypes.func.isRequired,
-  signup: PropTypes.func.isRequired
+  signup: PropTypes.func.isRequired,
+  confirmEmail: PropTypes.func.isRequired,
+  resetPassword: PropTypes.func.isRequired
 };
 
 export default withRouter(AuthForm);

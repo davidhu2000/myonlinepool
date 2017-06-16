@@ -11,7 +11,7 @@ class SignupForm extends React.Component {
     super(props);
 
     this.state = {
-      name: "",
+      name: "a",
       email: "me@gmail.com",
       password: "password",
       passwordConfirmation: "password",
@@ -31,8 +31,7 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(this.state).then(
-      () => hashHistory.push(url),
-      err => console.log(err)
+      () => hashHistory.push(url)
     );
   }
 
@@ -75,12 +74,12 @@ class SignupForm extends React.Component {
           errorMessage="Please enter your name"
         />
 
-        <EmailInput context={this} email={this.state.email} />
+        <EmailInput update={this.update} email={this.state.email} />
 
-        <PasswordInput context={this} password={this.state.password} />
+        <PasswordInput update={this.update} password={this.state.password} />
 
         <PasswordConfirmation
-          context={this}
+          update={this.update}
           password={this.state.password}
           passwordConfirmation={this.state.passwordConfirmation}
         />

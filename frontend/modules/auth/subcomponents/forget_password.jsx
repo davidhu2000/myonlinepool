@@ -1,6 +1,5 @@
 /* global document, $ */
 import React from 'react';
-import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { hashHistory } from 'react-router';
 
@@ -61,7 +60,7 @@ class ForgetPassword extends React.Component {
   render() {
     return (
       <form onSubmit={this.submitForm} className="auth-form">
-        <EmailInput context={this} email={this.state.email} />
+        <EmailInput update={this.update} email={this.state.email} />
 
         <input
           id="form-submit-button"
@@ -76,9 +75,5 @@ class ForgetPassword extends React.Component {
     );
   }
 }
-
-ForgetPassword.propTypes = {
-  resetPassword: PropTypes.func.isRequired
-};
 
 export { ForgetPassword };

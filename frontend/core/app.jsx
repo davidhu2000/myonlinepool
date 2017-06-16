@@ -2,11 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
+import autoBind from 'react-autobind';
 
-import Footer from './footer';
+// import Footer from './footer';
 import Navbar from './navbar';
+import Alerts from './alerts';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    autoBind(this);
+  }
+
   componentDidMount() {
     this._redirect(this.props.loggedIn);
   }
@@ -35,6 +42,8 @@ class App extends React.Component {
             Location={this.props.location.pathname}
             PoolId={this.props.params.poolId}
           />
+
+          <Alerts />
           <div className="app-container">
             { this.props.children }
           </div>

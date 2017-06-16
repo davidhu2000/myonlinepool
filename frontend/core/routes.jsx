@@ -10,7 +10,7 @@ import Metrics from 'modules/metrics';
 import Leaderboard from 'modules/leaderboard';
 import Moderator from 'modules/moderator';
 import Pool from 'modules/pool';
-import Auth from 'modules/user';
+import Auth from 'modules/auth';
 import PoolForm from 'modules/pool_form';
 
 const routes = (
