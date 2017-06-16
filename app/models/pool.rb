@@ -29,23 +29,31 @@ class Pool < ApplicationRecord
     self.identifier = SecureRandom.urlsafe_base64(8)
   end
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
   validates :moderator_id, presence: true, numericality: { only_integer: true }
   validates :buy_in, presence: true, numericality: { only_integer: true }
   validates :league, presence: true
   validates :season, presence: true, numericality: { only_integer: true }
   validates :password_digest, presence: { message: 'Password cannot be blank' }
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :identifier, presence: true
+  validates :identifier, presence: true, uniqueness: true
 
   belongs_to :moderator, foreign_key: :moderator_id, class_name: :User, primary_key: :id
 
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
 
   has_many :members, through: :memberships, source: :user
 
-  has_many :picks
-  has_many :messages
-  has_many :bulletins
+  has_many :picks, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :bulletins, dependent: :destroy
+
+  def self.create_pool(pool)
+    Pool.transaction do
+      pool.save!
+      Membership.create!(user_id: pool.moderator_id, pool_id: pool.id)
+    end
+    pool
+  end
 
 end

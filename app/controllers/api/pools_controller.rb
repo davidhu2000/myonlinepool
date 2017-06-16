@@ -6,9 +6,8 @@ class Api::PoolsController < ApplicationController
   def create
     @pool = Pool.new(pool_params)
     @pool.moderator_id = current_user.id
-    @pool.league = 'nfl'
 
-    if @pool.save
+    if @pool = Pool.create_pool(@pool)
       render 'api/pools/show'
     else
       render json: @pool.errors.full_messages, status: 422
