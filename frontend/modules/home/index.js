@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import Home from './component';
 
+import Home from './component';
+import { fetchMyPools } from './actions';
 
 const mapStateToProps = () => ({
 
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchMyPools: () => dispatch(fetchMyPools())
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(Home));
+)(Home);
