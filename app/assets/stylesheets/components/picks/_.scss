@@ -18,11 +18,13 @@
   position: relative;
   font-weight: bold;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  background: #e5e5e4;
+  border-radius: 2px;
 
   .picks-header {
     position: absolute;
     top: 15px;
-    left: 15px;
+    left: 20px;
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 10px;
@@ -47,7 +49,7 @@
     .picks-labels {
       padding-bottom: 10px;
       padding-top: 10px;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       display: flex;
       justify-content: flex-start;
       flex: 0 0 auto;
@@ -71,11 +73,12 @@
     }
    
     .selection-item {
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       display: flex;
       flex-direction: row;
       flex: 0 0 auto;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      background: white;
 
       label {
         width: 200px;
@@ -91,6 +94,7 @@
         .pick-button {
           transform: scale(1.05,1.05);
         }
+        background: rgba(17, 96, 162, .2);
       }
     }
 
@@ -142,15 +146,13 @@
         transition: opacity 0.3s ease-in-out;
       }
 
-      
-
       .pick-button::after {
         opacity: 1;
       }
     }
 
     .selected-button {
-      background: $drk-text;
+      background: rgba(17, 96, 162, .2);
     }
   }
 
