@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613195303) do
+ActiveRecord::Schema.define(version: 20170616174932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170613195303) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "password_digest",             null: false
+    t.string   "identifier",                  null: false
     t.index ["moderator_id"], name: "index_pools_on_moderator_id", using: :btree
     t.index ["title"], name: "index_pools_on_title", using: :btree
   end

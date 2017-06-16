@@ -4,7 +4,7 @@
 #
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
+#  password_digest        :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -23,6 +23,8 @@
 #  updated_at             :datetime         not null
 #  unconfirmed_email      :string
 #  name                   :string           not null
+#  session_token          :string           not null
+#  remember_token         :string
 #
 
 class User < ApplicationRecord
