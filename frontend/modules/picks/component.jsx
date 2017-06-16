@@ -63,21 +63,32 @@ class Picks extends React.Component {
     }
   }
 
+  pickHomers() {
+
+  }
+
   render() {
     return (
       <div className="picks-container">
         <div className="picks-header">
-          <i
-            onClick={this.prevWeek}
-            className="fa fa-caret-left"
-            aria-hidden="true"
-          />
-          Week {this.state.week}
-          <i
-            onClick={this.nextWeek}
-            className="fa fa-caret-right"
-            aria-hidden="true"
-          />
+          <div>
+            <i
+              onClick={this.prevWeek}
+              className="fa fa-caret-left"
+              aria-hidden="true"
+            />
+            Week {this.state.week}
+            <i
+              onClick={this.nextWeek}
+              className="fa fa-caret-right"
+              aria-hidden="true"
+            />
+          </div>
+          <div>
+            <button>
+            Auto-Pick
+            </button>  
+          </div>  
         </div>
         <div className="picks-selections">
           <div className="picks-labels">

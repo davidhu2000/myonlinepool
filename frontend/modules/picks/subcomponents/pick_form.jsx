@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import autoBind from 'react-autobind';
 
 class PickForm extends React.Component {
   constructor(props) {
@@ -15,8 +16,7 @@ class PickForm extends React.Component {
       line: "-200",
       over_under: "11"
     };
-
-    this.submitPick = this.submitPick.bind(this);
+    autoBind(this);
   }
 
   componentDidMount() {
