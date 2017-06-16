@@ -25,7 +25,6 @@ end
 # seed test schedule
 data.sheet('test_schedule').each_with_index do |game, idx|
   next if idx.zero?
-  p game
   GameNfl.create!(
     season: game[0],
     week: game[1],

@@ -1,4 +1,8 @@
 class Api::PoolsController < ApplicationController
+  def index 
+    @pools = current_user.pools
+  end
+  
   def create
     @pool = Pool.new(pool_params)
     @pool.moderator_id = current_user.id

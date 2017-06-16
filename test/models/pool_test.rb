@@ -12,6 +12,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string           not null
+#  identifier      :string           not null
 #
 
 require 'test_helper'

@@ -12,6 +12,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string           not null
+#  identifier      :string           not null
 #
 
 class Pool < ApplicationRecord
@@ -22,6 +23,12 @@ class Pool < ApplicationRecord
     pool && pool.valid_password?(password) ? pool : nil
   end
 
+  after_initialize :set_key
+
+  def set_key
+    self.identifier = SecureRandom.urlsafe_base64(8)
+  end
+
   validates :title, presence: true, uniqueness: true
   validates :moderator_id, presence: true, numericality: { only_integer: true }
   validates :buy_in, presence: true, numericality: { only_integer: true }
@@ -29,6 +36,7 @@ class Pool < ApplicationRecord
   validates :season, presence: true, numericality: { only_integer: true }
   validates :password_digest, presence: { message: 'Password cannot be blank' }
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :identifier, presence: true
 
   belongs_to :moderator, foreign_key: :moderator_id, class_name: :User, primary_key: :id
 
