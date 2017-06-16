@@ -64,7 +64,14 @@ class Picks extends React.Component {
   }
 
   pickHomers() {
-
+    let newPicks = [];
+    this.state.games.forEach(game => {
+      let newPick = game;
+      game.pick = game.home;
+      newPicks.push(newPick);
+    });
+    this.setState({ picks: newPicks });
+    console.log(this.state);
   }
 
   render() {
@@ -85,7 +92,7 @@ class Picks extends React.Component {
             />
           </div>
           <div>
-            <button>
+            <button onClick={this.pickHomers}>
             Auto-Pick
             </button>  
           </div>  
