@@ -48,7 +48,7 @@ class Picks extends React.Component {
         Picks={this.state.picks}
         Game={game}
       />
-    ))
+    ));
   }
 
   prevWeek() {
