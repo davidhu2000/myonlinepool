@@ -63,21 +63,39 @@ class Picks extends React.Component {
     }
   }
 
+  pickHomers() {
+    let newPicks = [];
+    this.state.games.forEach(game => {
+      let newPick = game;
+      game.pick = game.home;
+      newPicks.push(newPick);
+    });
+    this.setState({ picks: newPicks });
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div className="picks-container">
         <div className="picks-header">
-          <i
-            onClick={this.prevWeek}
-            className="fa fa-caret-left"
-            aria-hidden="true"
-          />
-          Week {this.state.week}
-          <i
-            onClick={this.nextWeek}
-            className="fa fa-caret-right"
-            aria-hidden="true"
-          />
+          <div>
+            <i
+              onClick={this.prevWeek}
+              className="fa fa-caret-left"
+              aria-hidden="true"
+            />
+            Week {this.state.week}
+            <i
+              onClick={this.nextWeek}
+              className="fa fa-caret-right"
+              aria-hidden="true"
+            />
+          </div>
+          <div>
+            <button onClick={this.pickHomers}>
+            Auto-Pick
+            </button>  
+          </div>  
         </div>
         <div className="picks-selections">
           <div className="picks-labels">
