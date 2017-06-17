@@ -18,8 +18,8 @@
 class Pool < ApplicationRecord
   include ApplicationHelper
 
-  def self.find_by_credentials(title, password)
-    pool = Pool.find_by(title: title)
+  def self.find_by_credentials(identifier, password)
+    pool = Pool.find_by(identifier: identifier)
     pool && pool.valid_password?(password) ? pool : nil
   end
 
