@@ -18,3 +18,10 @@ export const fetchMyPools = () => dispatch => (
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );
+
+export const joinPool = (identifier, password) => dispatch => (
+  HomeAPI.joinPool(identifier, password).then(
+    res => dispatch(receiveMyPools(res)),
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+  )
+);

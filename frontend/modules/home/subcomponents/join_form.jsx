@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-// import enhanceWithClickOutside from 'react-click-outside';
+import { hasHistory } from 'react-router';
+
 import { FormTextInput } from 'common/components';
 
 class Form extends React.Component {
@@ -9,8 +10,8 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      identifier: '',
-      password: ''
+      identifier: 'bIxWviappRc',
+      password: 'password'
     };
 
     autoBind(this);
@@ -24,14 +25,14 @@ class Form extends React.Component {
 
   joinPool(e) {
     e.preventDefault();
+    let { identifier, password } = this.state;
+    this.props.joinPool(identifier, password).then(
+      res => {
+        console.log(res);
+        hasHistory.push(`/pool/${res.id}`);
+      }
+    );
   }
-
-  // handleClickOutside(e) {
-  //   if (![e.path[0].id, e.path[1].id].includes('pool-join-button')) {
-  //     this.props.toggleJoinForm();
-  //   }
-  // }
-
   render() {
     return (
       <div className="pool-join-form">
@@ -64,7 +65,8 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-  toggleJoinForm: PropTypes.func.isRequired
+  toggleJoinForm: PropTypes.func.isRequired,
+  joinPool: PropTypes.func.isRequired
 };
 
 export const JoinForm = Form;

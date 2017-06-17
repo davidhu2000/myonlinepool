@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 import { Link, hashHistory } from 'react-router';
 import { values } from 'lodash';
 
@@ -76,11 +77,16 @@ class PoolList extends React.Component {
           contentLabel="label"
           style={customStyles}
         >
-          <JoinForm toggleJoinForm={this.toggleModal} />
+          <JoinForm toggleJoinForm={this.toggleModal} joinPool={this.props.joinPool} />
         </Modal>
       </div>
     );
   }
 }
+
+PoolList.propsTypes = {
+  pools: PropTypes.shape().isRequired,
+  joinPool: PropTypes.func.isRequired
+};
 
 export { PoolList };

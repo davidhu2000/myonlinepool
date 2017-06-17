@@ -37,8 +37,8 @@ class Home extends React.Component {
       <div className="home-container">
         <div className="home-bottom">
           <PoolList
-            title="My Pools"
             pools={this.props.home.myPools}
+            joinPool={this.props.joinPool}
           />
         </div>
         <div className="home-bulletin">
@@ -64,6 +64,7 @@ class Home extends React.Component {
 
 Home.propTypes = {
   fetchMyPools: PropTypes.func.isRequired,
+  joinPool: PropTypes.func.isRequired,
   home: PropTypes.shape().isRequired
 };
 

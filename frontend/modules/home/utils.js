@@ -10,6 +10,6 @@ export const joinPool = (identifier, password) => (
   $.ajax({
     method: "POST",
     url: "api/memberships",
-    data: { pool: { identifier, password } }
+    data: { membership: { identifier, password } }
   })
 );
