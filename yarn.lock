@@ -2966,9 +2966,9 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-alert@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/react-alert/-/react-alert-2.1.1.tgz#710b9dce3cbad057a9be487ab8931af9cce5f383"
+react-alert@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-alert/-/react-alert-2.1.2.tgz#fc8a5d03a13561e02b92979a104338d999bf11de"
   dependencies:
     glamor "^2.20.24"
     glamorous "^3.13.1"
