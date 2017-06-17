@@ -132,4 +132,4 @@ class PoolList extends React.Component {
   }
 }
 
-export default PoolList;
+export { PoolList };

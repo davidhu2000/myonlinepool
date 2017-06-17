@@ -16,4 +16,4 @@ const PoolListItem = props => {
   );
 };
 
-export default PoolListItem;
+export { PoolListItem };

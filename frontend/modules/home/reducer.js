@@ -5,7 +5,7 @@ let _defaultState = {
   myPools: {}
 };
 
-const userReducer = (state = _defaultState, action) => {
+const homeReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   // console.log(action)
   switch (action.type) {
@@ -18,4 +18,4 @@ const userReducer = (state = _defaultState, action) => {
   }
 };
 
-export default userReducer;
+export default homeReducer;
