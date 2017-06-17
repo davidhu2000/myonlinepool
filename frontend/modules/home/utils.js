@@ -4,3 +4,11 @@ export const fetchMyPools = () => (
     url: 'api/pools'
   })
 );
+
+export const joinPool = identifier => (
+  $.ajax({
+    method: "POST",
+    url: "api/",
+    data: { pool: { identifier } }
+  })
+)

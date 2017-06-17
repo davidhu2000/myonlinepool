@@ -40,7 +40,7 @@ class Pool < ApplicationRecord
 
   belongs_to :moderator, foreign_key: :moderator_id, class_name: :User, primary_key: :id
 
-  has_many :memberships, dependent: :destroy
+  has_many :memberships, dependent: :destroy, inverse_of: :pool
 
   has_many :members, through: :memberships, source: :user
 
