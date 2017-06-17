@@ -9,7 +9,7 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      title: '',
+      identifier: '',
       password: ''
     };
 
@@ -39,17 +39,19 @@ class Form extends React.Component {
           <FormTextInput
             update={this.update}
             type='text'
-            value={this.state.title}
-            label="Title"
-            field='title'
+            value={this.state.identifier}
+            label="Pool Key"
+            field='identifier'
+            errorMessage='Please enter the unique pool key.'
           />
 
           <FormTextInput
             update={this.update}
-            type='text'
+            type='password'
             value={this.state.password}
             label="Password"
             field="password"
+            errorMessage='Please enter a password'
           />
 
           <button className="join-form-button" type="submit">

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import Home from './component';
 import { fetchMyPools } from './actions';
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = ({ home }) => ({
+  home
 });
 
 const mapDispatchToProps = dispatch => ({
