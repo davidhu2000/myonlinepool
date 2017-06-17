@@ -23,7 +23,7 @@ class Pool < ApplicationRecord
     pool && pool.valid_password?(password) ? pool : nil
   end
 
-  after_initialize :set_key
+  before_create :set_key
 
   def set_key
     self.identifier = SecureRandom.urlsafe_base64(8)

@@ -1,8 +1,8 @@
 class Api::MembershipsController < ApplicationController
   def create 
     @pool = Pool.find_by_credentials(
-      identifier: params[:membership][:identifier],
-      password: params[:membership][:password]
+      params[:membership][:identifier],
+      params[:membership][:password]
     )
     
     unless @pool 
