@@ -27,6 +27,6 @@ class Api::MembershipsController < ApplicationController
   private 
 
   def membership_params 
-    params.require(:membership).permit(:pool_id, :identifier, :password)
+    params.require(:membership).permit(:identifier, :password)
   end
 end

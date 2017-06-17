@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   namespace :api, default: { format: :json } do 
     resources :pools, only: [:show, :create, :destroy, :update, :index]
+    resources :memberships, only: [:create, :destroy]
 
     namespace :auth do 
       post 'registrations/confirm', to: 'registrations#update'

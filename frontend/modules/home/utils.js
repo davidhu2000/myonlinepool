@@ -1,3 +1,4 @@
+/* global $ */
 export const fetchMyPools = () => (
   $.ajax({
     method: 'GET',
@@ -5,10 +6,10 @@ export const fetchMyPools = () => (
   })
 );
 
-export const joinPool = identifier => (
+export const joinPool = (identifier, password) => (
   $.ajax({
     method: "POST",
-    url: "api/",
-    data: { pool: { identifier } }
+    url: "api/memberships",
+    data: { pool: { identifier, password } }
   })
-)
+);

@@ -27,6 +27,10 @@ class Pool < ApplicationRecord
 
   def set_key
     self.identifier = SecureRandom.urlsafe_base64(8)
+
+    while Pool.find_by(identifier: self.identifier)
+      self.identifier = SecureRandom.urlsafe_base64(8)
+    end
   end
 
   validates :title, presence: true
