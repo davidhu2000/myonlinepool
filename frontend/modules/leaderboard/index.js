@@ -3,11 +3,11 @@ import { withRouter } from 'react-router';
 import Leaderboard from './component';
 
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = state => ({
+  pool: state.pool
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = () => ({
 
 });
 

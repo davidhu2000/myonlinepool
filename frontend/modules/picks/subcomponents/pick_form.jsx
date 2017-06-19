@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 
 class PickForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: this.props.Game.id,
+      id: this.props.Game.game_id,
       home: this.props.Game.home,
       away: this.props.Game.away,
       pick: "",
@@ -21,14 +22,13 @@ class PickForm extends React.Component {
 
   componentDidMount() {
     if (this.props.Picks) {
-      let picks = this.props.Picks;
-      picks.forEach((pick) => {
-        if (pick.id === this.state.id) {
-          let game = document.getElementById(pick.pick);
+      this.props.Picks.forEach(pick => {
+        if (pick.game_id === this.state.id) {
+          let game = document.getElementById(this.state[pick.pick]);
           game.classList.remove('pick-button');
           game.classList.add('selected-button');
         }
-      })
+      });
     }
   }
 
@@ -36,15 +36,11 @@ class PickForm extends React.Component {
     let away = document.getElementById(this.props.Game.away);
     let home = document.getElementById(this.props.Game.home);
     if (pick === "away") {
-      // away.classList.remove('pick-button');
       away.classList.add('selected-button');
       home.classList.remove('selected-button');
-      // home.classList.add('pick-button');
     } else {
-      // home.classList.remove('pick-button');
       home.classList.add('selected-button');
       away.classList.remove('selected-button');
-      // away.classList.add('pick-button');
     }
   }
 
@@ -77,5 +73,10 @@ class PickForm extends React.Component {
     );
   }
 }
+
+PickForm.propTypes = {
+  Picks: PropTypes.array.isRequired,
+  Game: PropTypes.object.isRequired
+};
 
 export default PickForm;

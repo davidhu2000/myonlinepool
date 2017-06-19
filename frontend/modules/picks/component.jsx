@@ -29,7 +29,7 @@ class Picks extends React.Component {
   createSelections() {
     return Object.values(this.props.games).map(game => (
       <PickForm
-        Picks={this.state.picks}
+        Picks={Object.values(this.props.picks)}
         Game={game}
       />
     ));
