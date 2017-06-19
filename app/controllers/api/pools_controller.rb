@@ -7,7 +7,9 @@ class Api::PoolsController < ApplicationController
     @pool = Pool.new(pool_params)
     @pool.moderator_id = current_user.id
 
-    if @pool = Pool.create_pool(@pool)
+    @pool.memberships.new(user_id: current_user.id)
+
+    if @pool.save
       render 'api/pools/show'
     else
       render json: @pool.errors.full_messages, status: 422

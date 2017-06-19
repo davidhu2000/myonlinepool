@@ -23,7 +23,7 @@ class Pool < ApplicationRecord
     pool && pool.valid_password?(password) ? pool : nil
   end
 
-  before_create :set_key
+  before_validation :set_key
 
   def set_key
     self.identifier = SecureRandom.urlsafe_base64(8)
@@ -51,13 +51,5 @@ class Pool < ApplicationRecord
   has_many :picks, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :bulletins, dependent: :destroy
-
-  def self.create_pool(pool)
-    Pool.transaction do
-      pool.save!
-      Membership.create!(user_id: pool.moderator_id, pool_id: pool.id)
-    end
-    pool
-  end
 
 end

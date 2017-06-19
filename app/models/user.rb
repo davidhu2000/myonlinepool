@@ -42,7 +42,7 @@ class User < ApplicationRecord
   validates :session_token, presence: true
 
   has_many :picks
-  has_many :memberships
+  has_many :memberships, inverse_of: :user
   has_many :pools, through: :memberships, source: :pool
   has_many :messages
 
