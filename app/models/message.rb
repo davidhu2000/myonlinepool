@@ -11,8 +11,8 @@
 #
 
 class Message < ApplicationRecord
-  validates :user_id, presence: true, numericality: { only_integer: true }
-  validates :pool_id, presence: true, numericality: { only_integer: true }
+  validates :user, presence: true
+  validates :pool, presence: true
 
   belongs_to :user
   belongs_to :pool

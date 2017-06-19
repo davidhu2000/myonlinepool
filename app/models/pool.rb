@@ -34,7 +34,7 @@ class Pool < ApplicationRecord
   end
 
   validates :title, presence: true
-  validates :moderator_id, presence: true, numericality: { only_integer: true }
+  validates :moderator, presence: true
   validates :buy_in, presence: true, numericality: { only_integer: true }
   validates :league, presence: true
   validates :season, presence: true, numericality: { only_integer: true }

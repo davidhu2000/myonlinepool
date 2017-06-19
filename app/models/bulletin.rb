@@ -10,7 +10,7 @@
 #
 
 class Bulletin < ApplicationRecord
-  validates :pool_id, presence: true, numericality: { only_integer: true }
+  validates :pool, presence: true
   validates :body, presence: true
 
   belongs_to :pool
