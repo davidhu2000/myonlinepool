@@ -4,7 +4,13 @@ class Api::PicksController < ApplicationController
   end
   
   def create
-    render json: params
+    @picks = params[:picks]
+    @picks.each do |k, v| 
+      puts @picks[k][:game_id] 
+      
+      Pick
+
+    end 
   end
 
   private

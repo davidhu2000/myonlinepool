@@ -41,7 +41,7 @@ class Picks extends React.Component {
 
   pickHomers() {
     let newPicks = {};
-    Object.values(this.props.games).forEach(game => {
+    Object.values(this.props.picks).forEach(game => {
       let newPick = {
         user_id: 1,
         pool_id: 1,
@@ -51,6 +51,7 @@ class Picks extends React.Component {
       newPicks[game.game_id] = newPick;
     });
     this.props.sendPicks(newPicks);
+    console.log(newPicks);
     // console.log(newPicks);
   }
 

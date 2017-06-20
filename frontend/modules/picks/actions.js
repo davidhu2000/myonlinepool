@@ -1,4 +1,4 @@
-import * as APIUtil from 'util/pick_api_util';
+import * as APIUtil from './utils';
 
 export const RECEIVE_PICKS = "RECEIVE_PICKS";
 

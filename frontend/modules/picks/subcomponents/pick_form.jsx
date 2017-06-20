@@ -8,9 +8,6 @@ class PickForm extends React.Component {
     super(props);
 
     this.state = {
-      id: this.props.game.game_id,
-      home: this.props.game.home,
-      away: this.props.game.away,
       date: "1/2/3",
       time: "2:00 PM",
       line: "-200",
@@ -19,31 +16,13 @@ class PickForm extends React.Component {
     autoBind(this);
   }
 
-  // componentDidMount() {
-  //   console.log(this.props.game);
-  //   if (this.props.game) {
-  //     let element = document.getElementById(this.props[this.props.game.pick]);
-  //     element.classList.remove('pick-button');
-  //     element.classList.add('selected-button');
-  //   }
-  // }
-  
-
-  // componentWillReceiveProps(newProps) {
-  //   if (newProps.picks) {
-  //     console.log(newProps);
-  //     newProps.picks.forEach(pick => {
-  //       if (pick.game_id === this.state.id) {
-  //         let game = document.getElementById(this.state[pick.pick]);
-  //         game.classList.remove('pick-button');
-  //         game.classList.add('selected-button');
-  //       } else {
-  //         let game = document.getElementById(this.state[pick.pick]);
-  //         game.classList.remove('selected-button');
-  //       }
-  //     });
-  //   }
-  // }
+  componentDidMount() {
+    if (this.props.game.pick !== "") {
+      let chosen = document.getElementById(this.props.game[this.props.game.pick]);
+      chosen.classList.remove('pick-button');
+      chosen.classList.add('selected-button');
+    }
+  }
 
   submitPick(pick) {
     let away = document.getElementById(this.props.game.away);
