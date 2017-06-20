@@ -41,6 +41,11 @@ class ChatBox extends React.Component {
   }
 
   render() {
+    let { messages, poolId } = this.props;
+    let numberMessages = Object.keys(messages).length;
+
+    console.log(numberMessages)
+
     return (
       <div className="chat-box">
         <h2>Message Board</h2>
@@ -64,6 +69,13 @@ class ChatBox extends React.Component {
           </div>
         </div>
 
+        <button
+          className='messages-load-more-button'
+          onClick={() => this.props.fetchMessages(poolId, numberMessages)}
+        >
+          Load more
+        </button>
+
       </div>
     );
   }
@@ -73,7 +85,8 @@ class ChatBox extends React.Component {
 ChatBox.propTypes = {
   messages: PropTypes.shape().isRequired,
   poolId: PropTypes.string.isRequired,
-  createMessage: PropTypes.func.isRequired
+  createMessage: PropTypes.func.isRequired,
+  fetchMessages: PropTypes.func.isRequired
 };
 
 export { ChatBox };

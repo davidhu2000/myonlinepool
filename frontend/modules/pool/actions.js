@@ -12,8 +12,8 @@ export const receiveMessages = messages => ({
   messages
 });
 
-export const fetchMessages = poolId => dispatch => (
-  PoolAPI.fetchMessages(poolId).then(
+export const fetchMessages = (poolId, offset = 0) => dispatch => (
+  PoolAPI.fetchMessages(poolId, offset).then(
     res => dispatch(receiveMessages(res)),
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )

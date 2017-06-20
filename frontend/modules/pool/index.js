@@ -7,7 +7,7 @@ const mapStateToProps = ({ pool }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchMessages: poolId => dispatch(fetchMessages(poolId)),
+  fetchMessages: (poolId, offset) => dispatch(fetchMessages(poolId, offset)),
   createMessage: message => dispatch(createMessage(message))
 });
 

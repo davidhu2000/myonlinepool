@@ -1,6 +1,6 @@
 class Api::MessagesController < ApplicationController
   def index
-    @messages = Message.where(pool_id: params[:pool_id]).includes(:user)
+    @messages = Message.where(pool_id: params[:pool_id]).includes(:user).order(id: :desc).limit(20).offset(params[:offset] || 0)
   end
 
   def create

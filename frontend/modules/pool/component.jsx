@@ -36,6 +36,7 @@ class Pool extends React.Component {
             messages={this.props.pool.messages}
             createMessage={this.props.createMessage}
             poolId={this.props.params.poolId}
+            fetchMessages={this.props.fetchMessages}
           />
         </div>
       </div>
