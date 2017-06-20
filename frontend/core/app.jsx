@@ -56,19 +56,19 @@ class App extends React.Component {
 App.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   params: PropTypes.shape({
-    poolId: PropTypes.poolId
+    poolId: PropTypes.string
   }).isRequired
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  loggedIn: Boolean(state.user)
+const mapStateToProps = ({ user }) => ({
+  loggedIn: Boolean(user)
 });
 
-const mapDispatchToProps = dispatch => ({
+// const mapDispatchToProps = dispatch => ({
 
-});
+// });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(withRouter(App));
