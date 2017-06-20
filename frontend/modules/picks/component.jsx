@@ -1,9 +1,8 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
-import range from 'lodash';
 import autoBind from 'react-autobind';
-import PickForm from 'modules/picks/subcomponents/pick_form';
 import PropTypes from 'prop-types';
+import { PickForm } from './subcomponents';
 
 class Picks extends React.Component {
   constructor(props) {
@@ -13,7 +12,6 @@ class Picks extends React.Component {
       week: 1
     };
     autoBind(this);
-    // console.log(this.props);
   }
 
   submitPick(e) {
@@ -22,10 +20,9 @@ class Picks extends React.Component {
   }
 
   createSelections() {
-    return Object.values(this.props.games).map(game => (
+    return Object.values(this.props.picks).map(game => (
       <PickForm
-        Picks={Object.values(this.props.picks)}
-        Game={game}
+        game={game}
       />
     ));
   }
@@ -44,7 +41,7 @@ class Picks extends React.Component {
 
   pickHomers() {
     let newPicks = {};
-    Object.values(this.props.games).forEach(game => {
+    Object.values(this.props.picks).forEach(game => {
       let newPick = {
         user_id: 1,
         pool_id: 1,
@@ -54,7 +51,6 @@ class Picks extends React.Component {
       newPicks[game.game_id] = newPick;
     });
     this.props.sendPicks(newPicks);
-    // console.log(newPicks);
   }
 
   render() {
