@@ -14,9 +14,9 @@
 class Pick < ApplicationRecord
   validates :user, presence: true
   validates :pool, presence: true
-  validates :game, presence: true
+  validates :game_nfl, presence: true
 
   belongs_to :user
   belongs_to :pool 
-  belongs_to :game
+  belongs_to :game_nfl
 end
