@@ -10,7 +10,7 @@ class Api::MessagesController < ApplicationController
     if @message.save
       render 'api/messages/show'
     else 
-      render json: @message.errors.full_messages
+      render json: @message.errors.full_messages, status: 422
     end
   end
 
@@ -20,7 +20,7 @@ class Api::MessagesController < ApplicationController
     if @message.update(message_params)
       render 'api/messages/show'
     else
-      render json: @message.errors.full_messages
+      render json: @message.errors.full_messages, status: 422
     end
   end
 

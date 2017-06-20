@@ -2,6 +2,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
+import { FormTextInput } from 'common/components';
 import { ChatBoxItem } from './';
 
 class ChatBox extends React.Component {
@@ -43,22 +44,20 @@ class ChatBox extends React.Component {
   render() {
     let { messages, poolId } = this.props;
     let numberMessages = Object.keys(messages).length;
-
-    console.log(numberMessages)
-
     return (
       <div className="chat-box">
         <h2>Message Board</h2>
         <form onSubmit={this.handleSubmit} className="chat-form">
-          <div className='poolform-group' style={{ marginBottom: 0 }}>
-            <input
-              name="message"
-              value={this.state.message}
-              onChange={this.update("message")}
-              className="chat-input"
-            />
-            <span className={`bar`} />
-          </div>
+
+          <FormTextInput
+            update={this.update}
+            type='text'
+            value={this.state.message}
+            label=""
+            field="message"
+            errorMessage="Please enter a message"
+          />
+
           <div className="chat-form-button-row">
             <input type='submit' className="chat-form-button" value="submit" />
           </div>
@@ -69,12 +68,14 @@ class ChatBox extends React.Component {
           </div>
         </div>
 
-        <button
-          className='messages-load-more-button'
-          onClick={() => this.props.fetchMessages(poolId, numberMessages)}
-        >
-          Load more
-        </button>
+        { numberMessages > 0 && numberMessages % 20 === 0 && (
+          <button
+            className='messages-load-more-button'
+            onClick={() => this.props.fetchMessages(poolId, numberMessages)}
+          >
+            Load more
+          </button>
+        )}
 
       </div>
     );

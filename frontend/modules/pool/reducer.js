@@ -21,7 +21,7 @@ let _defaultState = {
 
 const poolReducer = (state = _defaultState, action) => {
   Object.freeze(state);
-  console.log(action)
+  console.log(action);
   switch (action.type) {
     case POOL.RECEIVE_MESSAGES:
       return merge({}, state, {
