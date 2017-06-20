@@ -29,7 +29,7 @@ class App extends React.Component {
 
     if (isLoggedIn && /auth/.test(route)) {
       this.props.router.replace('/home');
-    } else if (!isLoggedIn && !/auth/.test(route)) {
+    } else if (!isLoggedIn && !/auth/.test(route) && route !== '') {
       this.props.router.replace('/auth');
     }
   }
