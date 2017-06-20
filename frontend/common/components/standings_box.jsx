@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
-import StandingsBoxItem from './standings_box_item';
+import { StandingsBoxItem } from './standings_box_item';
 
 class StandingsBox extends React.Component {
   constructor(props) {
@@ -42,4 +42,4 @@ class StandingsBox extends React.Component {
 
 }
 
-export default StandingsBox;
+export { StandingsBox };

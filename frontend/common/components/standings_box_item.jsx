@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
 
 const StandingsBoxItem = props => {
 
@@ -13,4 +12,4 @@ const StandingsBoxItem = props => {
   );
 };
 
-export default StandingsBoxItem;
+export { StandingsBoxItem };
