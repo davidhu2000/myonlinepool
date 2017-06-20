@@ -40,6 +40,7 @@ class ChatBox extends React.Component {
       <ChatBoxItem key={`message-${id}`} message={messages[id]} />
     ));
   }
+  // add time
 
   render() {
     let { messages, poolId } = this.props;
