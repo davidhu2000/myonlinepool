@@ -15,8 +15,12 @@ class Pick < ApplicationRecord
   validates :user, presence: true
   validates :pool, presence: true
   validates :game_nfl, presence: true
+  validates :game_id, uniqueness: {
+    scope: [:pool_id, :user_id],
+    message: "already picked"  
+  }
 
   belongs_to :user
   belongs_to :pool 
-  belongs_to :game_nfl
+  belongs_to :game_nfl, foreign_key: :game_id, class_name: :GameNfl
 end
