@@ -51,8 +51,6 @@ class Picks extends React.Component {
       newPicks[game.game_id] = newPick;
     });
     this.props.sendPicks(newPicks);
-    console.log(newPicks);
-    // console.log(newPicks);
   }
 
   render() {

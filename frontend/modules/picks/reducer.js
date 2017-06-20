@@ -26,6 +26,7 @@ const pickReducer = (state = _defaultState, action) => {
     default:
       return state;
     case RECEIVE_PICKS:
+      console.log(action.picks);
       return merge({}, action.picks);
   }
 };
