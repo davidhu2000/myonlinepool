@@ -49,38 +49,34 @@ class Navbar extends React.Component {
   }
 
   renderDropdown() {
-    if (this.state.showLeftDropdown) {
-      if (this.locationCheck()) {
-        return (
-          <PoolDropdown
-            poolId={this.props.PoolId}
-            toggleLeftDropdown={this.toggleLeftDropdown}
-            user={this.props.user}
-          />
-        );
-      } else if (this.props.loggedIn) {
-        return (
-          <SignedinDropdown
-            toggleLeftDropdown={this.toggleLeftDropdown}
-            user={this.props.user}
-          />
-        );
-      } else {
-        return (
-          <SignedoutDropdown
-            toggleLeftDropdown={this.toggleLeftDropdown}
-            user={this.props.user}
-          />
-        );
-      }
+    if (!this.props.loggedIn) {
+      return (
+        <SignedoutDropdown
+          toggleLeftDropdown={this.toggleLeftDropdown}
+        />
+      );
+    } else if (this.locationCheck()) {
+      return (
+        <PoolDropdown
+          poolId={this.props.PoolId}
+          toggleLeftDropdown={this.toggleLeftDropdown}
+          user={this.props.user}
+        />
+      );
+    } else {
+      return (
+        <SignedinDropdown
+          toggleLeftDropdown={this.toggleLeftDropdown}
+          user={this.props.user}
+        />
+      );
     }
   }
 
   render() {
     return (
       <div className='navbar-container'>
-        { this.renderDropdown() }
-        
+        { this.state.showLeftDropdown && this.renderDropdown() }
         <button
           id='left-dropdown-button'
           className={`${this.state.showLeftDropdown ? 'open' : ''}`}
