@@ -2,7 +2,8 @@ import { merge } from 'lodash';
 import { HOME } from './actions';
 
 let _defaultState = {
-  myPools: {}
+  myPools: {},
+  announcements: []
 };
 
 const homeReducer = (state = _defaultState, action) => {
@@ -12,6 +13,10 @@ const homeReducer = (state = _defaultState, action) => {
     case HOME.RECEIVE_MY_POOLS:
       return merge({}, state, {
         myPools: action.pools
+      });
+    case HOME.RECEIVE_ANNOUNCEMENTS:
+      return merge({}, state, {
+        announcements: action.announcements
       });
     default:
       return state;

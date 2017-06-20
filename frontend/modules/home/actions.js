@@ -4,7 +4,8 @@ import { processMessages } from 'helpers';
 import * as HomeAPI from './utils';
 
 export const HOME = {
-  RECEIVE_MY_POOLS: 'home/RECEIVE_MY_POOLS'
+  RECEIVE_MY_POOLS: 'home/RECEIVE_MY_POOLS',
+  RECEIVE_ANNOUNCEMENTS: 'home/RECEIVE_ANNOUNCEMENTS'
 };
 
 export const receiveMyPools = pools => ({
@@ -25,3 +26,15 @@ export const joinPool = (identifier, password) => dispatch => (
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );
+
+export const receiveAnnouncements = announcements => ({
+  type: HOME.RECEIVE_ANNOUNCEMENTS,
+  announcements
+});
+
+export const fetchAnnouncements = () => dispatch => (
+  HomeAPI.fetchAnnouncements().then(
+    res => dispatch(receiveAnnouncements(res)),
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+  )
+)

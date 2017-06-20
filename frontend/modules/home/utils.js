@@ -13,3 +13,10 @@ export const joinPool = (identifier, password) => (
     data: { membership: { identifier, password } }
   })
 );
+
+export const fetchAnnoucements = () => (
+  $.ajax({
+    method: "GET",
+    url: "api/announcements"
+  })
+);
