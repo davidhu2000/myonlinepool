@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :pools, only: [:show, :create, :destroy, :update, :index]
     resources :memberships, only: [:create, :destroy]
     resources :announcements, only: [:index, :create]
+    resources :picks, only: [:index, :create]
 
     namespace :auth do 
       post 'registrations/confirm', to: 'registrations#update'
