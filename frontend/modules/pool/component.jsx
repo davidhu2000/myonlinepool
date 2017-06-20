@@ -6,10 +6,10 @@ import { ChatBox, ModBoard } from "./subcomponents";
 class Pool extends React.Component {
   constructor(props) {
     super(props);
+  }
 
-    this.state = {
-
-    }
+  componentDidMount() {
+    this.props.fetchMessages(this.props.params.poolId);
   }
 
   render() {
@@ -34,10 +34,10 @@ class Pool extends React.Component {
         <div className="pool-coms">
           <ChatBox
             Dispatch={this.props.sendMessage}
-            Chat={this.props.messages}
+            Chat={this.props.pool.messages}
           />
         </div>
-        </div>
+      </div>
     );
   }
 }

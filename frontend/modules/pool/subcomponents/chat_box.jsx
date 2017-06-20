@@ -10,8 +10,8 @@ class ChatBox extends React.Component {
       post: ""
     }
 
-    this.submitPost = this.submitPost.bind(this);
-    this.sendMessage = this.props.Dispatch.bind(this);
+    // this.submitPost = this.submitPost.bind(this);
+    // this.sendMessage = this.props.Dispatch.bind(this);
   }
 
   submitPost(e) {
@@ -28,13 +28,13 @@ class ChatBox extends React.Component {
   }
 
   genList() {
-    let chat = this.props.Chat;
-    return chat.map( msg => (
-      <ChatBoxItem
-        Name={msg.name}
-        Message={msg.message}
-        />
-    ));
+    // let chat = this.props.Chat;
+    // return chat.map( msg => (
+    //   <ChatBoxItem
+    //     Name={msg.name}
+    //     Message={msg.message}
+    //     />
+    // ));
   }
 
   render() {

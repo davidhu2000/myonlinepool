@@ -1,18 +1,16 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import Pool from './component';
-import { sendMessage } from './actions';
+import { fetchMessages } from './actions';
 
-const mapStateToProps = state => ({
-  pool: state.pool,
-  messages: state.messages
+const mapStateToProps = ({ pool }) => ({
+  pool
 });
 
 const mapDispatchToProps = dispatch => ({
-  sendMessage: (message) => dispatch(sendMessage(message))
+  fetchMessages: poolId => dispatch(fetchMessages(poolId))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(Pool));
+)(Pool);
