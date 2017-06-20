@@ -21,7 +21,7 @@ class Navbar extends React.Component {
   }
 
   locationCheck() {
-    return this.props.Location.includes('pool');
+    return this.props.location.includes('pool');
   }
 
   renderAuthButton() {
@@ -58,7 +58,7 @@ class Navbar extends React.Component {
     } else if (this.locationCheck()) {
       return (
         <PoolDropdown
-          poolId={this.props.PoolId}
+          poolId={this.props.poolId}
           toggleLeftDropdown={this.toggleLeftDropdown}
           user={this.props.user}
         />
@@ -79,7 +79,7 @@ class Navbar extends React.Component {
         { this.state.showLeftDropdown && this.renderDropdown() }
         <button
           id='left-dropdown-button'
-          className={`${this.state.showLeftDropdown ? 'open' : ''}`}
+          className={this.state.showLeftDropdown ? 'open' : ''}
           onClick={this.toggleLeftDropdown}
         >
           <span /><span /><span /><span />
@@ -98,13 +98,13 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
   user: PropTypes.shape(),
   loggedIn: PropTypes.bool.isRequired,
-  PoolId: PropTypes.string,
-  Location: PropTypes.string.isRequired,
+  poolId: PropTypes.string,
+  location: PropTypes.string.isRequired,
   signout: PropTypes.func.isRequired
 };
 
 Navbar.defaultProps = {
-  PoolId: null,
+  poolId: null,
   user: {}
 };
 
