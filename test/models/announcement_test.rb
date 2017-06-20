@@ -1,17 +1,18 @@
 # == Schema Information
 #
-# Table name: bulletins
+# Table name: announcements
 #
 #  id         :integer          not null, primary key
-#  pool_id    :integer          not null
+#  title      :string           not null
 #  body       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Bulletin < ApplicationRecord
-  validates :pool, presence: true
-  validates :body, presence: true
+require 'test_helper'
 
-  belongs_to :pool
+class AnnouncementTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end

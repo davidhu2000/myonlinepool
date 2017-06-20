@@ -1,83 +1,36 @@
 import React from 'react';
-import { Link, withRouter, hashHistory } from 'react-router';
-import autoBind from 'react-autobind';
-import PoolListItem from './pool_list_item';
-import { JoinForm } from './join_form';
 import Modal from 'react-modal';
+import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
+import { Link, hashHistory } from 'react-router';
+import { values } from 'lodash';
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)',
-    padding               : '40px',
-    borderRadius          : '2px',
-    boxShadow             : '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'
-  }
-};
+import { PoolListItem } from './';
+import { JoinForm } from './join_form';
+
+import customStyles from './modal_styles.json';
 
 class PoolList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      joinName: "",
-      joinPass: "",
-      createName: "",
-      createPass: "",
       modalIsOpen: false
     };
 
     autoBind(this);
   }
 
+  // need an unmount action?
   componentWillMount() {
     Modal.setAppElement('body');
   }
 
-  openModal() {
-    this.setState({ modalIsOpen: true });
-  }
-
-  closeModal() {
-    this.setState({ modalIsOpen: false });
-  }
-
-  genList() {
-    let pools = this.props.Pools;
-    return pools.map(pool => (
-      <PoolListItem
-        key={Math.random()}
-        Name={pool.name}
-        Id={pool.id}
-      />
-    ));
-  }
-
-  toggleJoin() {
-    if (this.state.showCreate) {
-      this.setState({ showCreate: false, showJoin: !this.state.showJoin })
-    } else {
-      this.setState({ showJoin: !this.state.showJoin });
-    }
-  }
-
-  toggleCreate() {
-    if (this.state.showJoin) {
-      this.setState({ showJoin: false, showCreate: !this.state.showCreate })
-    } else {
-      this.setState({ showCreate: !this.state.showCreate });
-    }
+  toggleModal() {
+    this.setState({ modalIsOpen: !this.state.modalIsOpen });
   }
 
   submitJoin(e) {
-    e.preventDefault();
-  }
-
-  submitCreate(e) {
     e.preventDefault();
   }
 
@@ -89,12 +42,15 @@ class PoolList extends React.Component {
     };
   }
 
-  clearField(field) {
-    return e => {
-      this.setState({
-        [field]: ""
-      });
-    };
+  renderList() {
+    let pools = values(this.props.pools);
+    return pools.map(pool => (
+      <PoolListItem
+        key={Math.random()}
+        title={pool.title}
+        id={pool.id}
+      />
+    ));
   }
 
   render() {
@@ -109,27 +65,28 @@ class PoolList extends React.Component {
                 Create Pool
               </div>
             </button>
-            <button id="pool-join-button" className="pool-join-button" onClick={this.openModal}>
-              <div>
-              Join Pool
-              </div>
+            <button id="pool-join-button" className="pool-join-button" onClick={this.toggleModal}>
+              <div>Join Pool</div>
             </button>
-          </div>  
+          </div>
         </div>
-        {this.genList()}
+        {this.renderList()}
         <Modal
           isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
-          style={customStyles}
+          onRequestClose={this.toggleModal}
           contentLabel="label"
+          style={customStyles}
         >
-          <JoinForm
-            toggleJoinForm={this.toggleJoin}
-          />
+          <JoinForm toggleJoinForm={this.toggleModal} joinPool={this.props.joinPool} />
         </Modal>
       </div>
     );
   }
 }
 
-export default PoolList;
+PoolList.propTypes = {
+  pools: PropTypes.shape().isRequired,
+  joinPool: PropTypes.func.isRequired
+};
+
+export { PoolList };

@@ -1,17 +1,15 @@
 # == Schema Information
 #
-# Table name: bulletins
+# Table name: announcements
 #
 #  id         :integer          not null, primary key
-#  pool_id    :integer          not null
+#  title      :string           not null
 #  body       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Bulletin < ApplicationRecord
-  validates :pool, presence: true
+class Announcement < ApplicationRecord
   validates :body, presence: true
-
-  belongs_to :pool
+  validates :title, presence: true
 end

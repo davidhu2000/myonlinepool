@@ -1,6 +1,8 @@
+/* global document */
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { hashHistory } from 'react-router';
 
 import { FormTextInput } from 'common/components';
 
@@ -50,13 +52,11 @@ class PoolForm extends React.Component {
     e.preventDefault();
 
     this.props.createPool(this.state).then(
-      () => console.log('success'),
-      err => console.log(err)
+      poolId => hashHistory.push(`pool/${poolId}`)
     );
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="pool-form-container">
         <form className='pool-form' onSubmit={this.createPool} >

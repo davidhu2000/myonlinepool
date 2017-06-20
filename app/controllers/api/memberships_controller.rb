@@ -1,0 +1,30 @@
+class Api::MembershipsController < ApplicationController
+  def create 
+    @pool = Pool.find_by_credentials(
+      params[:membership][:identifier],
+      params[:membership][:password]
+    )
+    
+    unless @pool 
+      render json: ["Invalid identifier and password combination."], status: 404
+      return
+    end
+
+    membership = Membership.new(user_id: current_user.id, pool_id: @pool.id)
+
+    if membership.save
+      render 'api/pools/index'
+    else 
+      render json: membership.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+  end
+
+  private 
+
+  def membership_params 
+    params.require(:membership).permit(:identifier, :password)
+  end
+end

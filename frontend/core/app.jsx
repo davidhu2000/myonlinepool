@@ -29,7 +29,7 @@ class App extends React.Component {
 
     if (isLoggedIn && /auth/.test(route)) {
       this.props.router.replace('/home');
-    } else if (!isLoggedIn && !/auth/.test(route)) {
+    } else if (!isLoggedIn && !/auth/.test(route) && route !== '') {
       this.props.router.replace('/auth');
     }
   }
@@ -39,8 +39,7 @@ class App extends React.Component {
       <div className="base-wrapper">
         <div className="base-container">
           <Navbar
-            Location={this.props.location.pathname}
-            PoolId={this.props.params.poolId}
+            poolId={this.props.params.poolId}
           />
 
           <Alerts />
@@ -56,19 +55,19 @@ class App extends React.Component {
 App.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   params: PropTypes.shape({
-    poolId: PropTypes.poolId
+    poolId: PropTypes.string
   }).isRequired
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  loggedIn: Boolean(state.user)
+const mapStateToProps = ({ user }) => ({
+  loggedIn: Boolean(user)
 });
 
-const mapDispatchToProps = dispatch => ({
+// const mapDispatchToProps = dispatch => ({
 
-});
+// });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(withRouter(App));

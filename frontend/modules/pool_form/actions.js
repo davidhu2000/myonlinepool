@@ -9,7 +9,10 @@ export const receivePool = pool => ({
 
 export const createPool = pool => dispatch => (
   PoolFormAPI.createPool(pool).then(
-    res => dispatch(receivePool(res)),
+    res => {
+      dispatch(receivePool(res));
+      return res.id;
+    },
     err => console.log(err)
   )
 );

@@ -21,7 +21,7 @@ class Navbar extends React.Component {
   }
 
   locationCheck() {
-    return this.props.Location.includes('pool');
+    return this.props.location.pathname.includes('pool');
   }
 
   renderAuthButton() {
@@ -49,47 +49,40 @@ class Navbar extends React.Component {
   }
 
   renderDropdown() {
-    if (this.state.showLeftDropdown) {
-      if (this.locationCheck()) {
-        return (
-          <PoolDropdown
-            PoolId={this.props.PoolId}
-            toggleLeftDropdown={this.toggleLeftDropdown}
-            user={this.props.user}
-          />
-        );
-      } else if (this.props.loggedIn) {
-        return (
-          <SignedinDropdown
-            toggleLeftDropdown={this.toggleLeftDropdown}
-            user={this.props.user}
-          />
-        );
-      } else {
-        return (
-          <SignedoutDropdown
-            toggleLeftDropdown={this.toggleLeftDropdown}
-            user={this.props.user}
-          />
-        );
-      }
+    if (!this.props.loggedIn) {
+      return (
+        <SignedoutDropdown
+          toggleLeftDropdown={this.toggleLeftDropdown}
+        />
+      );
+    } else if (this.locationCheck()) {
+      return (
+        <PoolDropdown
+          poolId={this.props.poolId}
+          toggleLeftDropdown={this.toggleLeftDropdown}
+          user={this.props.user}
+        />
+      );
+    } else {
+      return (
+        <SignedinDropdown
+          toggleLeftDropdown={this.toggleLeftDropdown}
+          user={this.props.user}
+        />
+      );
     }
   }
 
   render() {
     return (
       <div className='navbar-container'>
-        { this.renderDropdown() }
-        
+        { this.state.showLeftDropdown && this.renderDropdown() }
         <button
           id='left-dropdown-button'
-          className={`${this.state.showLeftDropdown ? 'open' : ''}`}
+          className={this.state.showLeftDropdown ? 'open' : ''}
           onClick={this.toggleLeftDropdown}
         >
-          <span />
-          <span />
-          <span />
-          <span />
+          <span /><span /><span /><span />
         </button>
 
         <div className="title" onClick={() => this.props.router.push('/')}>
@@ -105,13 +98,12 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
   user: PropTypes.shape(),
   loggedIn: PropTypes.bool.isRequired,
-  PoolId: PropTypes.string,
-  Location: PropTypes.string.isRequired,
+  poolId: PropTypes.string,
   signout: PropTypes.func.isRequired
 };
 
 Navbar.defaultProps = {
-  PoolId: null,
+  poolId: null,
   user: {}
 };
 

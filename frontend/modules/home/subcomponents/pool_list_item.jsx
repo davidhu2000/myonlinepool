@@ -1,19 +1,22 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 
-const PoolListItem = props => {
+const PoolListItem = ({ title, id }) => {
 
   return (
     <div className="pool-list-item">
-        <div>
-          <Link to={`/pool/${props.Id}`}>
-          <i
-          className="fa fa-angle-right"
-          aria-hidden="true"/> {props.Name}
-          </Link>
-        </div>
+      <Link to={`/pool/${id}`}>
+        <i className="fa fa-angle-right" aria-hidden="true" />
+        {title}
+      </Link>
     </div>
   );
 };
 
-export default PoolListItem;
+PoolListItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired
+};
+
+export { PoolListItem };

@@ -1,8 +1,10 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
-import StandingsBox from 'common/components/standings_box';
-import PoolList from './subcomponents/pool_list';
-import { ModBoard } from 'modules/pool/subcomponents';
+import PropTypes from 'prop-types';
+import { values } from 'lodash';
+
+import { ModBoard, StandingsBox } from 'common/components';
+import { PoolList } from './subcomponents';
 
 class Home extends React.Component {
   constructor(props) {
@@ -20,14 +22,13 @@ class Home extends React.Component {
         {name: "clowney", score: 103, losses: 3, pool: "family pool 3"},
         {name: "watt", score: 77, losses: 5, pool: "random pool 2"},
         {name: "sanders", score: 44, losses: 3, pool: "random pool 1"}
-      ],
-      pools: [
-        {id: 1, name: "office"},
-        {id: 1, name: "friends"},
-        {id: 1, name: "enemies"}
-      ],
-      bulletins: ["Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
+      ]
     };
+  }
+
+  componentDidMount() {
+    this.props.fetchMyPools();
+    this.props.fetchAnnouncements();
   }
 
   render() {
@@ -35,32 +36,36 @@ class Home extends React.Component {
       <div className="home-container">
         <div className="home-bottom">
           <PoolList
-            Title="My Pools"
-            Pools={this.state.pools}
-            key={Math.random()}
+            pools={this.props.home.myPools}
+            joinPool={this.props.joinPool}
           />
         </div>
         <div className="home-bulletin">
           <ModBoard
-            Chat={this.state.bulletins.slice(0, 5)}
-            Mod={this.state.moderator}
+            title='Announcements'
+            announcements={this.props.home.announcements}
           />
         </div>
         <div className="home-top">
           <StandingsBox
             Title="Weekly Leaders"
             Standings={this.state.standings}
-            key={Math.random()}
           />
           <StandingsBox
             Title="Season Leaders"
             Standings={this.state.standings}
-            key={Math.random()}
           />
         </div>
       </div>
     );
   }
 }
+
+Home.propTypes = {
+  fetchMyPools: PropTypes.func.isRequired,
+  joinPool: PropTypes.func.isRequired,
+  fetchAnnouncements: PropTypes.func.isRequired,
+  home: PropTypes.shape().isRequired
+};
 
 export default withRouter(Home);

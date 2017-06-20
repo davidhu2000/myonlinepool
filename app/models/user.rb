@@ -40,9 +40,10 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :session_token, presence: true
+  validates :name, presence: true
 
   has_many :picks
-  has_many :memberships
+  has_many :memberships, inverse_of: :user
   has_many :pools, through: :memberships, source: :pool
   has_many :messages
 

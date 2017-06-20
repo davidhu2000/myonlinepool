@@ -11,6 +11,16 @@ mainAdminUser = User.new(
 )
 mainAdminUser.save!
 
+Pool.create!(
+  title: 'Test pool',
+  description: 'not a real pool',
+  buy_in: 1,
+  moderator_id: 1,
+  league: 'nfl',
+  season: 2017,
+  password: 'password'
+)
+
 # seed the database with NFL team information
 data.sheet('team_nfl').each_with_index do |team, idx|
   next if idx.zero?
