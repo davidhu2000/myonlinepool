@@ -53,7 +53,7 @@ class Navbar extends React.Component {
       if (this.locationCheck()) {
         return (
           <PoolDropdown
-            PoolId={this.props.PoolId}
+            poolId={this.props.PoolId}
             toggleLeftDropdown={this.toggleLeftDropdown}
             user={this.props.user}
           />
@@ -86,10 +86,7 @@ class Navbar extends React.Component {
           className={`${this.state.showLeftDropdown ? 'open' : ''}`}
           onClick={this.toggleLeftDropdown}
         >
-          <span />
-          <span />
-          <span />
-          <span />
+          <span /><span /><span /><span />
         </button>
 
         <div className="title" onClick={() => this.props.router.push('/')}>

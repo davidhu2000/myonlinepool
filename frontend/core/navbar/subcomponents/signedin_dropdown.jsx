@@ -20,9 +20,6 @@ class Dropdown extends React.Component {
           <Link to={`/home`} onClick={this.props.toggleLeftDropdown}>
             Home
           </Link>
-          <Link to={`/pool`} onClick={this.props.toggleLeftDropdown}>
-            My Pools
-          </Link>
         </div>
       </div>
     );
