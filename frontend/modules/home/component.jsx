@@ -42,6 +42,7 @@ class Home extends React.Component {
         </div>
         <div className="home-bulletin">
           <ModBoard
+            title='Announcements'
             announcements={this.props.home.announcements}
           />
         </div>
