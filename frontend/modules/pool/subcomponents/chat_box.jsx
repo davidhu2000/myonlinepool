@@ -1,6 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+
 import { ChatBoxItem } from './';
 
 class ChatBox extends React.Component {
@@ -8,19 +9,21 @@ class ChatBox extends React.Component {
     super(props);
 
     this.state = {
-      post: ""
+      message: ""
     };
 
     autoBind(this);
   }
 
-  submitPost(e) {
+  handleSubmit(e) {
     e.preventDefault();
     let message = {
       pool_id: this.props.poolId,
-      body: this.state.post
+      body: this.state.message
     };
-    this.props.createMessage(message);
+    this.props.createMessage(message).then(
+      () => this.setState({ message: '' })
+    );
   }
 
   update(field) {
@@ -41,14 +44,15 @@ class ChatBox extends React.Component {
     return (
       <div className="chat-box">
         <h2>Message Board</h2>
-        <form onSubmit={this.submitPost} className="chat-form">
-          <div>
+        <form onSubmit={this.handleSubmit} className="chat-form">
+          <div className='poolform-group' style={{ marginBottom: 0 }}>
             <input
-              name="post"
-              value={this.state.post}
-              onChange={this.update("post")}
+              name="message"
+              value={this.state.message}
+              onChange={this.update("message")}
               className="chat-input"
             />
+            <span className={`bar`} />
           </div>
           <div className="chat-form-button-row">
             <input type='submit' className="chat-form-button" value="submit" />
