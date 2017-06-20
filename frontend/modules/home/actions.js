@@ -37,4 +37,4 @@ export const fetchAnnouncements = () => dispatch => (
     res => dispatch(receiveAnnouncements(res)),
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
-)
+);
