@@ -30,17 +30,6 @@ class PoolList extends React.Component {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
   }
 
-  genList() {
-    let pools = values(this.props.pools);
-    return pools.map(pool => (
-      <PoolListItem
-        key={Math.random()}
-        Name={pool.name}
-        Id={pool.id}
-      />
-    ));
-  }
-
   submitJoin(e) {
     e.preventDefault();
   }
@@ -51,6 +40,17 @@ class PoolList extends React.Component {
         [field]: e.target.value
       });
     };
+  }
+
+  renderList() {
+    let pools = values(this.props.pools);
+    return pools.map(pool => (
+      <PoolListItem
+        key={Math.random()}
+        title={pool.title}
+        id={pool.id}
+      />
+    ));
   }
 
   render() {
@@ -70,7 +70,7 @@ class PoolList extends React.Component {
             </button>
           </div>
         </div>
-        {this.genList()}
+        {this.renderList()}
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.toggleModal}
@@ -84,7 +84,7 @@ class PoolList extends React.Component {
   }
 }
 
-PoolList.propsTypes = {
+PoolList.propTypes = {
   pools: PropTypes.shape().isRequired,
   joinPool: PropTypes.func.isRequired
 };

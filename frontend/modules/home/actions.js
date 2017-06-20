@@ -4,7 +4,7 @@ import { processMessages } from 'helpers';
 import * as HomeAPI from './utils';
 
 export const HOME = {
-  RECEIVE_MY_POOLS: 'home/RECEVIE_MY_POOLS'
+  RECEIVE_MY_POOLS: 'home/RECEIVE_MY_POOLS'
 };
 
 export const receiveMyPools = pools => ({
