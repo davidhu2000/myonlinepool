@@ -13,6 +13,7 @@ class Picks extends React.Component {
       week: 1
     };
     autoBind(this);
+    // console.log(this.props);
   }
 
   submitPick(e) {
@@ -42,14 +43,18 @@ class Picks extends React.Component {
   }
 
   pickHomers() {
-    let newPicks = [];
-    this.state.games.forEach(game => {
-      let newPick = game;
-      game.pick = game.home;
-      newPicks.push(newPick);
+    let newPicks = {};
+    Object.values(this.props.games).forEach(game => {
+      let newPick = {
+        user_id: 1,
+        pool_id: 1,
+        game_id: game.game_id,
+        pick: "home"
+      };
+      newPicks[game.game_id] = newPick;
     });
-    this.setState({ picks: newPicks });
-    console.log(this.state);
+    this.props.sendPicks(newPicks);
+    // console.log(newPicks);
   }
 
   render() {
