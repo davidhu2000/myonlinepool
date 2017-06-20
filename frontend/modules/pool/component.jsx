@@ -33,8 +33,7 @@ class Pool extends React.Component {
         </div>
         <div className="pool-coms">
           <ChatBox
-            Dispatch={this.props.sendMessage}
-            Chat={this.props.pool.messages}
+            messages={this.props.pool.messages}
           />
         </div>
       </div>

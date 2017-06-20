@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
-import { ChatBoxItem } from './chat_box_item';
+import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
+import { ChatBoxItem } from './';
 
 class ChatBox extends React.Component {
   constructor(props) {
@@ -8,55 +9,51 @@ class ChatBox extends React.Component {
 
     this.state = {
       post: ""
-    }
+    };
 
-    // this.submitPost = this.submitPost.bind(this);
-    // this.sendMessage = this.props.Dispatch.bind(this);
+    autoBind(this);
   }
 
   submitPost(e) {
     e.preventDefault();
-    this.sendMessage({name:"alex", message:"hi"});
+    this.sendMessage({ name: "alex", message: "hi" });
   }
 
   update(field) {
     return e => {
-      this.setState({
-        [field]: e.target.value
-      });
+      this.setState({ [field]: e.target.value });
     };
   }
 
-  genList() {
-    // let chat = this.props.Chat;
-    // return chat.map( msg => (
-    //   <ChatBoxItem
-    //     Name={msg.name}
-    //     Message={msg.message}
-    //     />
-    // ));
+  renderMessages() {
+    let { messages } = this.props;
+    let messageIds = Object.keys(messages).reverse();
+    return messageIds.map(id => (
+      <ChatBoxItem key={`message-${id}`} message={messages[id]} />
+    ));
   }
 
   render() {
+
     return (
       <div className="chat-box">
         <h2>Messages</h2>
-        <form onSubmit={ this.submitPost } className="chat-form">
+        <form onSubmit={this.submitPost} className="chat-form">
           <div>
-          <input  name="post"
-                  value={ this.state.post }
-                  onChange={ this.update("post") }
-                  className="chat-input"></input>
+            <input
+              name="post"
+              value={this.state.post}
+              onChange={this.update("post")}
+              className="chat-input"
+            />
           </div>
           <div className="chat-form-button-row">
-          <input type='submit'
-                 className="chat-form-button"
-                 value="submit"></input>
+            <input type='submit' className="chat-form-button" value="submit" />
           </div>
         </form>
         <div className="message-container-container">
           <div className="message-container">
-            {this.genList()}
+            {this.renderMessages()}
           </div>
         </div>
 
@@ -64,5 +61,10 @@ class ChatBox extends React.Component {
     );
   }
 }
+
+// update propTypes for messages
+ChatBox.propTypes = {
+  messages: PropTypes.shape().isRequired
+};
 
 export { ChatBox };
