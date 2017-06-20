@@ -39,7 +39,6 @@ class App extends React.Component {
       <div className="base-wrapper">
         <div className="base-container">
           <Navbar
-            location={this.props.location.pathname}
             poolId={this.props.params.poolId}
           />
 

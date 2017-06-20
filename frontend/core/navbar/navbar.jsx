@@ -21,7 +21,7 @@ class Navbar extends React.Component {
   }
 
   locationCheck() {
-    return this.props.location.includes('pool');
+    return this.props.location.pathname.includes('pool');
   }
 
   renderAuthButton() {
@@ -99,7 +99,6 @@ Navbar.propTypes = {
   user: PropTypes.shape(),
   loggedIn: PropTypes.bool.isRequired,
   poolId: PropTypes.string,
-  location: PropTypes.string.isRequired,
   signout: PropTypes.func.isRequired
 };
 
