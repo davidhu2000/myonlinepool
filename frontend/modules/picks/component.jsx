@@ -10,15 +10,9 @@ class Picks extends React.Component {
     super(props);
 
     this.state = {
-      showDropdown: false,
-      week: 1,
-      picks: [
-        { id: 1, home: "Cowboys", away: "Patriots", pick: "Cowboys" },
-        { id: 2, home: "Raiders", away: "Seahawks", pick: "Seahawks" }
-      ]
+      week: 1
     };
     autoBind(this);
-    console.log(this.props);
   }
 
   submitPick(e) {
