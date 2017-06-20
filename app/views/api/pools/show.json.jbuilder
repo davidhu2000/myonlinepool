@@ -1,1 +1,1 @@
-json.partial! 'pool', pool: @pool
+json.partial! 'api/pools/pool', pool: @pool
