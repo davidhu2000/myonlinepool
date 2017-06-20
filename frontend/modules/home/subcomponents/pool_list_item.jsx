@@ -7,7 +7,7 @@ const PoolListItem = ({ title, id }) => {
   return (
     <div className="pool-list-item">
       <Link to={`/pool/${id}`}>
-        <i className="fa fa-angle-right"aria-hidden="true" />
+        <i className="fa fa-angle-right" aria-hidden="true" />
         {title}
       </Link>
     </div>

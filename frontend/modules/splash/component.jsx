@@ -10,7 +10,7 @@ class Splash extends React.Component {
     return (
       <div className="splash-container">
         <div className="splash-top">
-          <h1>Welcome to<span> My Online Pool</span> </h1>
+          <h1>Welcome to My Online Pool</h1>
           <p>
           A simple app to organize your sports pools.
           <br />

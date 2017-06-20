@@ -29,6 +29,7 @@ class Form extends React.Component {
     this.props.joinPool(identifier, password).then(
       res => {
         console.log(res);
+        this.props.toggleJoinForm();
         hasHistory.push(`/pool/${res.id}`);
       }
     );
@@ -57,7 +58,7 @@ class Form extends React.Component {
 
           <button className="join-form-button" type="submit">
             Submit
-          </button>    
+          </button>
         </form>
       </div>
     );
