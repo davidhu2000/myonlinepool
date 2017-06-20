@@ -1,6 +1,6 @@
 class Api::MessagesController < ApplicationController
   def index
-    @messages = Message.find_by(pool_id: params[:pool_id])
+    @messages = Message.where(pool_id: params[:pool_id]).includes(:user)
   end
 
   def create
