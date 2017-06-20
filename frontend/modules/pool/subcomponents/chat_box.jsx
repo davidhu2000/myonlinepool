@@ -16,7 +16,11 @@ class ChatBox extends React.Component {
 
   submitPost(e) {
     e.preventDefault();
-    this.sendMessage({ name: "alex", message: "hi" });
+    let message = {
+      pool_id: this.props.poolId,
+      body: this.state.post
+    };
+    this.props.createMessage(message);
   }
 
   update(field) {
@@ -34,10 +38,9 @@ class ChatBox extends React.Component {
   }
 
   render() {
-
     return (
       <div className="chat-box">
-        <h2>Messages</h2>
+        <h2>Message Board</h2>
         <form onSubmit={this.submitPost} className="chat-form">
           <div>
             <input
@@ -64,7 +67,9 @@ class ChatBox extends React.Component {
 
 // update propTypes for messages
 ChatBox.propTypes = {
-  messages: PropTypes.shape().isRequired
+  messages: PropTypes.shape().isRequired,
+  poolId: PropTypes.string.isRequired,
+  createMessage: PropTypes.func.isRequired
 };
 
 export { ChatBox };

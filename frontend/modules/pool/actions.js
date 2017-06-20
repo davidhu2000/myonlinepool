@@ -4,23 +4,24 @@ import { processMessages } from 'helpers';
 import * as PoolAPI from './utils';
 
 export const POOL = {
-  RECEIVE_ALL_MESSAGES: 'pool/RECEIVE_ALL_MESSAGES',
-  RECEIVE_MESSAGE: 'pool/RECEIVE_MESSAGE'
+  RECEIVE_MESSAGES: 'pool/RECEIVE_MESSAGES',
 };
 
-export const receiveAllMessages = messages => ({
-  type: POOL.RECEIVE_ALL_MESSAGES,
+export const receiveMessages = messages => ({
+  type: POOL.RECEIVE_MESSAGES,
   messages
-});
-
-export const receiveMessage = message => ({
-  type: POOL.RECEIVE_MESSAGE,
-  message
 });
 
 export const fetchMessages = poolId => dispatch => (
   PoolAPI.fetchMessages(poolId).then(
-    res => dispatch(receiveAllMessages(res)),
+    res => dispatch(receiveMessages(res)),
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+  )
+);
+
+export const createMessage = message => dispatch => (
+  PoolAPI.createMessage(message).then(
+    res => dispatch(receiveMessages(res)),
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );

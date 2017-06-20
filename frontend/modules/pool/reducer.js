@@ -1,4 +1,4 @@
-import {merge} from 'lodash';
+import { merge } from 'lodash';
 import { POOL } from './actions';
 
 let _defaultState = {
@@ -21,14 +21,11 @@ let _defaultState = {
 
 const poolReducer = (state = _defaultState, action) => {
   Object.freeze(state);
+  console.log(action)
   switch (action.type) {
-    case POOL.RECEIVE_ALL_MESSAGES:
+    case POOL.RECEIVE_MESSAGES:
       return merge({}, state, {
         messages: action.messages
-      });
-    case POOL.RECEIVE_MESSAGE:
-      return merge({}, state, {
-        message: action.message
       });
     default :
       return state;

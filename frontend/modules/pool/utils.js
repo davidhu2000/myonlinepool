@@ -7,3 +7,11 @@ export const fetchMessages = poolId => (
     data: { pool_id: poolId }
   })
 );
+
+export const createMessage = message => (
+  $.ajax({
+    method: "POST",
+    url: `api/messages`,
+    data: { message }
+  })
+);

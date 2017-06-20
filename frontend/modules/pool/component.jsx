@@ -34,6 +34,8 @@ class Pool extends React.Component {
         <div className="pool-coms">
           <ChatBox
             messages={this.props.pool.messages}
+            createMessage={this.props.createMessage}
+            poolId={this.props.params.poolId}
           />
         </div>
       </div>
