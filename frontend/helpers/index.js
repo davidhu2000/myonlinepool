@@ -12,6 +12,10 @@ export const processMessages = (array, statusCode) => {
 };
 
 export const timeFromNow = date => {
+  if (typeof date !== 'number') {
+    throw new Error("Date needs to be passed in as time in milliseconds.")
+  }
+
   let durationsInSeconds = {
     year: 31536000,
     month: 2592000,

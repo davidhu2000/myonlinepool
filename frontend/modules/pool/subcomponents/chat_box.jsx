@@ -36,6 +36,7 @@ class ChatBox extends React.Component {
   renderMessages() {
     let { messages } = this.props;
     let messageIds = Object.keys(messages).reverse();
+
     return messageIds.map(id => (
       <ChatBoxItem key={`message-${id}`} message={messages[id]} />
     ));
