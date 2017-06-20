@@ -14,7 +14,7 @@ export const joinPool = (identifier, password) => (
   })
 );
 
-export const fetchAnnoucements = () => (
+export const fetchAnnouncements = () => (
   $.ajax({
     method: "GET",
     url: "api/announcements"

@@ -30,6 +30,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.fetchMyPools();
+    this.props.fetchAnnouncements();
   }
 
   render() {
@@ -65,6 +66,7 @@ class Home extends React.Component {
 Home.propTypes = {
   fetchMyPools: PropTypes.func.isRequired,
   joinPool: PropTypes.func.isRequired,
+  fetchAnnouncements: PropTypes.func.isRequired,
   home: PropTypes.shape().isRequired
 };
 
