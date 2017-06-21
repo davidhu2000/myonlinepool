@@ -14,7 +14,7 @@ class ModBoard extends React.Component {
 
   render() {
     return (
-      <div className="modboard">
+      <div className="modboard-box">
         <h2>{ this.props.title }</h2>
         <div className="modboard-container-container">
           <div className="modboard-container">
