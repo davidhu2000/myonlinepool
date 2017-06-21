@@ -1,6 +1,6 @@
 class Api::BulletinsController < ApplicationController
   def index
-    @bulletins = Bulletin.where(pool_id: params[:pool_id]).order(id: :desc).limit(20).offset(params[:offset] || 0)
+    @bulletins = Bulletin.where(pool_id: params[:pool_id]).order(id: :desc).limit(5).offset(params[:offset] || 0)
   end
 
   def create
