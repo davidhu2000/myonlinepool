@@ -15,3 +15,11 @@ export const createMessage = message => (
     data: { message }
   })
 );
+
+export const fetcBulletins = (poolId, offset) => (
+  $.ajax({
+    method: "GET",
+    url: `api/bulletins/`,
+    data: { pool_id: poolId, offset }
+  })
+);
