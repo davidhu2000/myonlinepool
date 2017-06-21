@@ -8,8 +8,7 @@ class MessageForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "",
-      focused: false
+      message: ""
     };
 
     autoBind(this);
@@ -46,7 +45,7 @@ class MessageForm extends React.Component {
         />
 
         <div className="chat-form-button-row">
-          <input type='submit' className="chat-form-button" value="submit" />
+          <input type='submit' className="chat-form-button" value="Write Something" />
         </div>
       </form>
     );
