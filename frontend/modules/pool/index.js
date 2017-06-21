@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import Pool from './component';
-import { fetchMessages, createMessage, fetchBulletins } from './actions';
+import * as Actions from './actions';
 
 const mapStateToProps = ({ pool }) => ({
   pool
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchMessages: (poolId, offset) => dispatch(fetchMessages(poolId, offset)),
-  fetchBulletins: (poolId, offset) => dispatch(fetchBulletins(poolId, offset)),
-  createMessage: message => dispatch(createMessage(message))
+  fetchPoolInformation: poolId => dispatch(Actions.fetchPoolInformation(poolId)),
+  fetchMessages: (poolId, offset) => dispatch(Actions.fetchMessages(poolId, offset)),
+  fetchBulletins: (poolId, offset) => dispatch(Actions.fetchBulletins(poolId, offset)),
+  createMessage: message => dispatch(Actions.createMessage(message))
 });
 
 export default connect(

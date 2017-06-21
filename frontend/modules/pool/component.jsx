@@ -13,6 +13,7 @@ class Pool extends React.Component {
   componentDidMount() {
     this.props.fetchMessages(this.props.params.poolId);
     this.props.fetchBulletins(this.props.params.poolId);
+    this.props.fetchPoolInformation(this.props.params.poolId);
   }
 
   render() {
@@ -57,7 +58,8 @@ Pool.propTypes = {
   }).isRequired,
   createMessage: PropTypes.func.isRequired,
   fetchMessages: PropTypes.func.isRequired,
-  fetchBulletins: PropTypes.func.isRequired
+  fetchBulletins: PropTypes.func.isRequired,
+  fetchPoolInformation: PropTypes.func.isRequired
 };
 
 export default withRouter(Pool);
