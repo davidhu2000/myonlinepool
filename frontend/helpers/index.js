@@ -43,3 +43,15 @@ export const timeFromNow = date => {
     }
   }
 };
+
+export const hashString = string => {
+  let hash = 0;
+  let i = 0;
+  let len = string.length;
+
+  while (i < len) {
+    hash = ((hash << 5) - hash + string.charCodeAt(i++)) << 0;
+  }
+
+  return hash;
+};
