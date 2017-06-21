@@ -12,8 +12,9 @@ export const processMessages = (array, statusCode) => {
 };
 
 export const timeFromNow = date => {
+
   if (typeof date !== 'number') {
-    throw new Error("Date needs to be passed in as time in milliseconds.")
+    throw new Error("Date needs to be passed in as time in milliseconds.");
   }
 
   let durationsInSeconds = {
@@ -25,11 +26,16 @@ export const timeFromNow = date => {
     second: 1
   };
 
-  let ms = Math.floor((new Date() - new Date(date)) / 1000);
+  let seconds = Math.floor((new Date() - new Date(date)) / 1000);
+
+  if (seconds < 60) {
+    return 'just now';
+  }
+
   let types = ['year', 'month', 'day', 'hour', 'minute', 'second'];
 
   for (let idx = 0; idx < types.length; idx++) {
-    let num = Math.floor(ms / durationsInSeconds[types[idx]]);
+    let num = Math.floor(seconds / durationsInSeconds[types[idx]]);
     if (num >= 1) {
       let type = types[idx];
       if (num > 1) type += 's';
