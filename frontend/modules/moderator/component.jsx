@@ -25,6 +25,10 @@ class Moderator extends React.Component {
     }
   }
 
+  renderMembers() {
+    
+  }
+
   render() {
     return (
       <div className="moderator-container">
