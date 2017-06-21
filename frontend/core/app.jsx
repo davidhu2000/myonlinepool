@@ -15,21 +15,22 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this._redirect(this.props.loggedIn);
+    this._redirect(this.props.loggedIn, this.props.location.pathname);
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.loggedIn !== newProps.loggedIn) {
-      this._redirect(newProps.loggedIn);
+    let differentLocation = this.props.location.pathname !== newProps.location.pathname;
+    let signinChanged = this.props.loggedIn !== newProps.loggedIn;
+    
+    if (differentLocation || signinChanged) {
+      this._redirect(newProps.loggedIn, newProps.location.pathname);
     }
   }
 
-  _redirect(isLoggedIn) {
-    let route = this.props.location.pathname.slice(1);
-
-    if (isLoggedIn && /auth/.test(route)) {
+  _redirect(isLoggedIn, currentLocation) {
+    if (isLoggedIn && /auth/.test(currentLocation)) {
       this.props.router.replace('/home');
-    } else if (!isLoggedIn && !/auth/.test(route) && route !== '') {
+    } else if (!isLoggedIn && !/auth/.test(currentLocation) && currentLocation !== '/') {
       this.props.router.replace('/auth');
     }
   }

@@ -10,9 +10,9 @@
 #
 
 class Membership < ApplicationRecord
+  validates :user_id, uniqueness: { scope: :pool_id }
   validates :pool, presence: true
   validates :user, presence: true
-  # TODO: add unique pair validation
 
   belongs_to :user, inverse_of: :memberships
   belongs_to :pool, inverse_of: :memberships

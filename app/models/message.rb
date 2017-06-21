@@ -13,6 +13,7 @@
 class Message < ApplicationRecord
   validates :user, presence: true
   validates :pool, presence: true
+  validates :body, presence: true
 
   belongs_to :user
   belongs_to :pool

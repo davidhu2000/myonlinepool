@@ -1,0 +1,1 @@
+json.partial! 'api/bulletins/bulletin', bulletin: @bulletin

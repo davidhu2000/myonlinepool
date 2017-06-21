@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :announcements, only: [:index, :create]
     resources :picks, only: [:index, :create]
 
+    resources :messages, only: [:index, :create, :update, :destroy]
+    resources :bulletins, only: [:index, :create]
+
     namespace :auth do 
       post 'registrations/confirm', to: 'registrations#update'
       resources :registrations, only: [:create]

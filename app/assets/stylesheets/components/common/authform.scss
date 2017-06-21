@@ -48,7 +48,7 @@
     }
     .auth-form-button {
       height: 30px;
-      width: 90px;
+      // width: 90px;
       font-size: 15px;
       display: flex;
       justify-content: center;
@@ -89,10 +89,9 @@
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
-    width: 300px;
+    width: 100%;
     border: none;
     border-bottom: 1px solid #757575;
-
 
     &:focus {
       outline: none;

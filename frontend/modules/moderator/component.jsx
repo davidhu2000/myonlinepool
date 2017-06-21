@@ -10,6 +10,9 @@ class Moderator extends React.Component {
     return (
       <div className="moderator-container">
         Moderator
+
+        - create bulletins
+        - remove users
       </div>
     );
   }
