@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { timeFromNow, hashString } from 'helpers';
 
-const ChatBoxItem = ({ message }) => {
+const MessageBoxItem = ({ message }) => {
   let messageTime = timeFromNow(Date.parse(message.createdAt));
   let nameHash = hashString(message.author);
 
@@ -28,7 +28,7 @@ const ChatBoxItem = ({ message }) => {
   );
 };
 
-ChatBoxItem.propTypes = {
+MessageBoxItem.propTypes = {
   message: PropTypes.shape({
     id: PropTypes.number.isRequired,
     author: PropTypes.string.isRequired,
@@ -37,4 +37,4 @@ ChatBoxItem.propTypes = {
   }).isRequired
 };
 
-export { ChatBoxItem };
+export { MessageBoxItem };

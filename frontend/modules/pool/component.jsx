@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
 import { StandingsBox } from "common/components";
-import { ChatBox, ModBoard } from "./subcomponents";
+import { MessageBox, ModBoard } from "./subcomponents";
 
 class Pool extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class Pool extends React.Component {
         />
         </div>
         <div className="pool-coms">
-          <ChatBox
+          <MessageBox
             messages={this.props.pool.messages}
             createMessage={this.props.createMessage}
             poolId={this.props.params.poolId}

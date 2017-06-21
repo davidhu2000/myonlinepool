@@ -2,10 +2,9 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
-import { FormTextInput } from 'common/components';
-import { ChatBoxItem, MessageForm } from './';
+import { MessageBoxItem, MessageForm } from './';
 
-class ChatBox extends React.Component {
+class MessageBox extends React.Component {
   constructor(props) {
     super(props);
 
@@ -21,17 +20,18 @@ class ChatBox extends React.Component {
     let messageIds = Object.keys(messages).reverse();
 
     return messageIds.map(id => (
-      <ChatBoxItem key={`message-${id}`} message={messages[id]} />
+      <MessageBoxItem key={`message-${id}`} message={messages[id]} />
     ));
   }
 
   render() {
+
     let { messages, poolId, createMessage } = this.props;
     let numberMessages = Object.keys(messages).length;
     return (
       <div className="chat-box">
         <h2>Message Board</h2>
-        
+
         <MessageForm poolId={poolId} createMessage={createMessage} />
 
         <div className="message-container-container">
@@ -55,11 +55,11 @@ class ChatBox extends React.Component {
 }
 
 // update propTypes for messages
-ChatBox.propTypes = {
+MessageBox.propTypes = {
   messages: PropTypes.shape().isRequired,
   poolId: PropTypes.string.isRequired,
   createMessage: PropTypes.func.isRequired,
   fetchMessages: PropTypes.func.isRequired
 };
 
-export { ChatBox };
+export { MessageBox };

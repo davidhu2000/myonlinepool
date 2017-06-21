@@ -8,7 +8,8 @@ class MessageForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: ""
+      message: "",
+      focused: false
     };
 
     autoBind(this);
