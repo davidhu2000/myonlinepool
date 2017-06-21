@@ -11,14 +11,16 @@ class Pool extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMessages(this.props.params.poolId);
-    this.props.fetchBulletins(this.props.params.poolId);
-    this.props.fetchPoolInformation(this.props.params.poolId);
+    let { poolId } = this.props.params;
+    this.props.fetchMessages(poolId);
+    this.props.fetchBulletins(poolId);
+    this.props.fetchPoolInformation(poolId);
   }
 
   render() {
     return (
       <div className="pool-container">
+
         <div className="pool-standings">
           <StandingsBox
             Title="Weekly Leaders"

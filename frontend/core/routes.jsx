@@ -1,4 +1,3 @@
-/* global window */
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
@@ -25,10 +24,10 @@ const routes = (
     <Route path="/pool/create" component={PoolForm} />
     <Route path="/pool/:poolId" >
       <IndexRoute component={Pool} />
-      <Route path="picks" component={Picks}></Route>
-      <Route path="leaderboard" component={Leaderboard}></Route>
-      <Route path="metrics" component={Metrics}></Route>
-      <Route path="moderator" component={Moderator}></Route>
+      <Route path="picks" component={Picks} />
+      <Route path="leaderboard" component={Leaderboard} />
+      <Route path="metrics" component={Metrics} />
+      <Route path="moderator" component={Moderator} />
     </Route>
 
   </Route>
