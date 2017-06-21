@@ -39,7 +39,7 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
-  poolId: PropTypes.string.isRequired,
+  poolId: PropTypes.number.isRequired,
   isModerator: PropTypes.bool.isRequired,
   toggleLeftDropdown: PropTypes.func.isRequired
 };

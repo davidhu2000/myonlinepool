@@ -38,11 +38,7 @@ class App extends React.Component {
     return (
       <div className="base-wrapper">
         <div className="base-container">
-          <Navbar
-            poolId={this.props.params.poolId}
-            isModerator={this.props.moderatorId === this.props.userId}
-          />
-
+          <Navbar />
           <Alerts />
           <div className="app-container">
             { this.props.children }
@@ -63,7 +59,7 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-  poolModeratorId: null,
+  moderatorId: null,
   userId: null
 };
 
