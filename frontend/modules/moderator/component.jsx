@@ -27,10 +27,10 @@ class Moderator extends React.Component {
 
   renderMembers() {
     return Object.values(this.props.pool.members).map(member => (
-      <div className="pool-member">
+      <div className="pool-member" key={`member-${member.id}`}>
         <span>{ member.name }</span>
 
-        <button onClick={() => console.log('removing member')}>
+        <button onClick={() => this.props.removeMember(member.id, this.props.pool.id)}>
           Kick out
         </button>
       </div>
@@ -48,6 +48,7 @@ class Moderator extends React.Component {
           />
         </div>
 
+        <h3>Pool Members</h3>
         <div className="moderator-pool-members">
           { this.renderMembers() }
         </div>
@@ -58,6 +59,7 @@ class Moderator extends React.Component {
 
 Moderator.propTypes = {
   createBulletin: PropTypes.func.isRequired,
+  removeMember: PropTypes.func.isRequired,
   pool: PropTypes.shape().isRequired,
   user: PropTypes.shape().isRequired
 };

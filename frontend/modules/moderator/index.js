@@ -9,7 +9,8 @@ const mapStateToProps = ({ pool, user }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createBulletin: bulletin => dispatch(Actions.createBulletin(bulletin))
+  createBulletin: bulletin => dispatch(Actions.createBulletin(bulletin)),
+  removeMember: (userId, poolId) => dispatch(Actions.removeMember(userId, poolId))
 });
 
 export default connect(

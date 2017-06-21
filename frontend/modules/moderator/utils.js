@@ -12,6 +12,9 @@ export const removeMember = (userId, poolId) => (
   $.ajax({
     method: "DELETE",
     url: `api/memberships`,
-    data: { userId, poolId }
+    data: {
+      user_id: userId,
+      pool_id: poolId
+    }
   })
 );
