@@ -34,6 +34,7 @@ module.exports = {
         "class-methods-use-this": "off",
         "jsx-a11y/no-static-element-interactions": "off",
         "react/no-danger": "off",
-        "arrow-body-style": "off"
+        "arrow-body-style": "off",
+        "no-mixed-operators": "off"
     }
 };
