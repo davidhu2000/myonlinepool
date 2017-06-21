@@ -12,6 +12,7 @@ class Pool extends React.Component {
 
   componentDidMount() {
     this.props.fetchMessages(this.props.params.poolId);
+    this.props.fetchBulletins(this.props.params.poolId);
   }
 
   render() {
@@ -29,8 +30,7 @@ class Pool extends React.Component {
         </div>
         <div className="pool-bulletin">
           <ModBoard
-            Chat={this.props.pool.bulletins}
-            Mod={this.props.pool.admin}
+            bulletins={this.props.pool.bulletins}
           />
         </div>
         <div className="pool-coms">
@@ -48,12 +48,16 @@ class Pool extends React.Component {
 }
 
 Pool.propTypes = {
-  pool: PropTypes.shape().isRequired,
+  pool: PropTypes.shape({
+    messages: PropTypes.shape(),
+    bulletins: PropTypes.shape()
+  }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired
   }).isRequired,
   createMessage: PropTypes.func.isRequired,
-  fetchMessages: PropTypes.func.isRequired
+  fetchMessages: PropTypes.func.isRequired,
+  fetchBulletins: PropTypes.func.isRequired
 };
 
 export default withRouter(Pool);

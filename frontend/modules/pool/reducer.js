@@ -15,7 +15,7 @@ let _defaultState = {
     {name: "watt", score: 77, losses: 5, pool: "random pool 2"},
     {name: "sanders", score: 44, losses: 3, pool: "random pool 1"}
   ],
-  bulletins: ["Lorem ipsum dolor sit amet, consect."],
+  bulletins: {},
   messages: {}
 };
 
@@ -26,6 +26,10 @@ const poolReducer = (state = _defaultState, action) => {
     case POOL.RECEIVE_MESSAGES:
       return merge({}, state, {
         messages: action.messages
+      });
+    case POOL.RECEIVE_BULLETINS:
+      return merge({}, state, {
+        bulletins: action.bulletins
       });
     default :
       return state;

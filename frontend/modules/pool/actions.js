@@ -28,7 +28,7 @@ export const createMessage = message => dispatch => (
 );
 
 export const receiveBulletins = bulletins => ({
-  type: POOL.RECEIVE_BULLETINSS,
+  type: POOL.RECEIVE_BULLETINS,
   bulletins
 });
 

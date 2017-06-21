@@ -1,20 +1,15 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
-import { ModBoardItem } from './mod_board_item';
+import PropTypes from 'prop-types';
+
+import { ModBoardItem } from './';
 
 class ModBoard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.genList = this.genList.bind(this);
-  }
+  renderBulletins() {
+    let { bulletins } = this.props;
+    let bulletinIds = Object.keys(bulletins).reverse();
 
-  genList() {
-    let chat = this.props.Chat;
-    return chat.map( message => (
-      <ModBoardItem
-        Message={message}
-        key={Math.random()}
-        />
+    return bulletinIds.map(id => (
+      <ModBoardItem key={`bulletin-${id}`} bulletin={bulletins[id]} />
     ));
   }
 
@@ -22,15 +17,20 @@ class ModBoard extends React.Component {
     return (
       <div className="modboard-box">
         <h2>Bulletins</h2>
-          <div className="modboard-container-container">
-            <div className="modboard-container">
-              {this.genList()}
-            </div>
+
+        <div className="modboard-container-container">
+          <div className="modboard-container">
+            {this.renderBulletins()}
           </div>
+        </div>
 
       </div>
     );
   }
 }
+
+ModBoard.propTypes = {
+  bulletins: PropTypes.shape().isRequired
+};
 
 export { ModBoard };

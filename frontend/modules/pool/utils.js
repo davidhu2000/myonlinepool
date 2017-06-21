@@ -16,7 +16,7 @@ export const createMessage = message => (
   })
 );
 
-export const fetcBulletins = (poolId, offset) => (
+export const fetchBulletins = (poolId, offset) => (
   $.ajax({
     method: "GET",
     url: `api/bulletins/`,

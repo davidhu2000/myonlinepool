@@ -1,14 +1,17 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 
-const ModBoardItem = props => {
-
+const ModBoardItem = ({ bulletin }) => {
   return (
     <div className="modboard-item">
       <div className="author">Admin</div>
-      <div className="message">{props.Message}</div>
+      <div className="message">{bulletin.body}</div>
     </div>
   );
+};
+
+ModBoardItem.propTypes = {
+  bulletin: PropTypes.shape().isRequired
 };
 
 export { ModBoardItem };

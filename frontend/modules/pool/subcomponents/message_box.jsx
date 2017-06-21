@@ -1,20 +1,9 @@
 import React from 'react';
-import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
 import { MessageBoxItem, MessageForm } from './';
 
 class MessageBox extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      message: ""
-    };
-
-    autoBind(this);
-  }
-
   renderMessages() {
     let { messages, type } = this.props;
     let messageIds = Object.keys(messages).reverse();
