@@ -27,6 +27,8 @@ class Picks extends React.Component {
     return Object.values(this.props.picks).map(game => (
       <PickForm
         game={game}
+        sendPick={this.props.sendPick}
+        poolId={this.props.poolId}
       />
     ));
   }
@@ -44,17 +46,17 @@ class Picks extends React.Component {
   }
 
   pickHomers() {
-    let newPicks = {};
-    Object.values(this.props.picks).forEach(game => {
-      let newPick = {
-        user_id: this.props.userId,
-        pool_id: this.props.poolId,
-        game_id: game.game_id,
-        pick: "home"
-      };
-      newPicks[game.game_id] = newPick;
-    });
-    this.props.sendPicks(this.state.week, this.props.poolId);
+    // let newPicks = {};
+    // Object.values(this.props.picks).forEach(game => {
+    //   let newPick = {
+    //     user_id: this.props.userId,
+    //     pool_id: this.props.poolId,
+    //     game_id: game.game_id,
+    //     pick: "home"
+    //   };
+    //   newPicks[game.game_id] = newPick;
+    // });
+    this.props.sendPicks(this.state.week, this.props.poolId, "all");
   }
 
   render() {

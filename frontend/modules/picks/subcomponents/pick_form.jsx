@@ -14,26 +14,35 @@ class PickForm extends React.Component {
       over_under: "11"
     };
     autoBind(this);
+    console.log(this.props);
   }
 
   componentDidMount() {
-    if (this.props.game.pick !== "") {
-      let chosen = document.getElementById(this.props.game[this.props.game.pick]);
-      chosen.classList.remove('pick-button');
-      chosen.classList.add('selected-button');
-    }
+    // if (this.props.game.pick !== "") {
+    //   let chosen = document.getElementById(this.props.game[this.props.game.pick]);
+    //   chosen.classList.remove('pick-button');
+    //   chosen.classList.add('selected-button');
+    // }
   }
 
   submitPick(pick) {
-    let away = document.getElementById(this.props.game.away);
-    let home = document.getElementById(this.props.game.home);
-    if (pick === "away") {
-      away.classList.add('selected-button');
-      home.classList.remove('selected-button');
-    } else {
-      home.classList.add('selected-button');
-      away.classList.remove('selected-button');
+    // let away = document.getElementById(this.props.game.away);
+    // let home = document.getElementById(this.props.game.home);
+    // if (pick === "away") {
+    //   away.classList.add('selected-button');
+    //   home.classList.remove('selected-button');
+    // } else {
+    //   home.classList.add('selected-button');
+    //   away.classList.remove('selected-button');
+    // }
+    let submission = {
+      poolId: this.props.poolId,
+      games: [{
+        game_id: this.props.game.id, 
+        pick
+      }]
     }
+    this.props.sendPick(submission)
   }
 
   render() {

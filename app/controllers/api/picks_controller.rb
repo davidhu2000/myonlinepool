@@ -19,36 +19,47 @@ class Api::PicksController < ApplicationController
   end
   
   def create
-    # raw_picks = params[:picks]
-    # @picks = []
-    # error_messages = []
-    # raw_picks.each do |k, v| 
-    #   pick = Pick.new({user_id: raw_picks[k][:user_id], game_id: raw_picks[k][:game_id], pool_id: raw_picks[k][:pool_id], pick: raw_picks[k][:pick]})
-    #   if pick.save 
-    #     @picks << pick
-    #   else
-    #     error_messages += pick.errors.full_messages
+
+    # loop through picks 
+    #   a = pick.find_by(all three things) 
+
+    #   if a
+    #     update 
+    #   else 
+    #     create 
+    #     save  
     #   end 
     # end 
-    # if error_messages.empty?
-    #   render 'api/picks/index'
-    # else 
-    #   render json: error_messages, status: 422
-    # end 
 
-    all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
-    @picks = {}
-    all_games.each do |game|
-      pick = Pick.new({user_id: current_user.id, game_id: game.id, pool_id: params[:poolId], pick: "home"})
+
+    if params[:type] == "all"
+      all_games = GameNfl.where(season: 2016, week: params[:week])
+      @picks = {}
+      all_games.each do |game|
+        pick = Pick.new({user_id: current_user.id, game_id: game.id, pool_id: params[:poolId], pick: "home"})
+        pick.save!
+        @picks[game.id] = game.attributes
+        @picks[game.id][:game_id] = game.id
+        @picks[game.id][:home] = game.home.name.capitalize
+        @picks[game.id][:away] = game.away.name.capitalize
+        @picks[game.id][:pick] = "home"
+      end 
+      @picks
+      render 'api/picks/index'
+    else
+      game = GameNfl.find_by(id: params[:pick][:game_id])
+      puts game
+      pick = Pick.new({user_id: current_user.id, game_id: game.id, pool_id: params[:pick][:pool_id], pick: params[:pick][:pick]})
       pick.save!
-      @picks[game.id] = game.attributes
+      @picks = {}
+      @picks[game.id] = game.attributes 
       @picks[game.id][:game_id] = game.id
       @picks[game.id][:home] = game.home.name.capitalize
       @picks[game.id][:away] = game.away.name.capitalize
-      @picks[game.id][:pick] = "home"
-    end 
-    @picks
-    render 'api/picks/index' 
+      @picks[game.id][:pick] = params[:pick]
+      @picks
+      render 'api/picks/index'
+    end    
   end
 
   private
