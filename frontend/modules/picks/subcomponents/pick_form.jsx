@@ -46,9 +46,10 @@ class PickForm extends React.Component {
   }
 
   render() {
+    let pick = this.props.game.pick;
     return (
       <div className="selection-item">
-        <label className="selection-form-away" id={this.props.game.away}>
+        <label className={`selection-form-away ${pick === 'away' ? 'selected-button' : ''}`} id={this.props.game.away}>
           <button onClick={() => this.submitPick("away")} />
           <img
             className="pick-button pick-away-button"
@@ -62,7 +63,7 @@ class PickForm extends React.Component {
         <div className="selection-form-time">{this.state.time}</div>
         <div className="selection-form-line">{this.state.line}</div>
         <div className="selection-form-over">{this.state.over_under}</div>
-        <label className="selection-form-home" id={this.props.game.home}>
+        <label className={`selection-form-home ${pick === 'home' ? 'selected-button' : ''}`} id={this.props.game.home}>
           <div className="selection-form-home-name">{this.props.game.home}</div>
           <button onClick={() => this.submitPick("home")} />
           <img
