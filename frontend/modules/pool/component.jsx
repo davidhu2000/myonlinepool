@@ -32,8 +32,6 @@ class Pool extends React.Component {
             Chat={this.props.pool.bulletins}
             Mod={this.props.pool.admin}
           />
-
-          
         </div>
         <div className="pool-coms">
           <MessageBox

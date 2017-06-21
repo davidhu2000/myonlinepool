@@ -16,32 +16,32 @@ class MessageBox extends React.Component {
   }
 
   renderMessages() {
-    let { messages } = this.props;
+    let { messages, type } = this.props;
     let messageIds = Object.keys(messages).reverse();
 
     return messageIds.map(id => (
-      <MessageBoxItem key={`chat-${id}`} message={messages[id]} />
+      <MessageBoxItem key={`${type}-${id}`} message={messages[id]} />
     ));
   }
 
   render() {
-    let { messages, poolId, createMessage } = this.props;
+    let { messages, poolId, createMessage, type } = this.props;
     let numberMessages = Object.keys(messages).length;
     return (
-      <div className="chat-box">
+      <div className={`${type}-box`}>
         <h2>Message Board</h2>
 
         <MessageForm poolId={poolId} createMessage={createMessage} />
 
-        <div className="chat-container-container">
-          <div className="chat-container">
+        <div className={`${type}-container-container`}>
+          <div className={`${type}-container`}>
             {this.renderMessages()}
           </div>
         </div>
 
         { numberMessages > 0 && numberMessages % 20 === 0 && (
           <button
-            className='chat-load-more-button'
+            className={`${type}-load-more-button`}
             onClick={() => this.props.fetchMessages(poolId, numberMessages)}
           >
             Load more
