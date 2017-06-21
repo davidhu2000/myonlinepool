@@ -16,3 +16,11 @@ export const sendPicks = picks => dispatch => (
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );
+
+export const fetchPicks = week => dispatch => (
+  APIUtil.fetchPicks(week).then(
+    res => dispatch(receivePicks(res))
+  ).fail(
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+  )
+);

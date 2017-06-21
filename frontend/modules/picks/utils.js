@@ -15,3 +15,11 @@ export const sendPick = pick => {
     data: { pick }
   });
 };
+
+export const fetchPicks = (week) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/picks',
+    data: { week }
+  });
+};

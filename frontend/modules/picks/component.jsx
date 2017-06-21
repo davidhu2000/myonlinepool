@@ -14,6 +14,10 @@ class Picks extends React.Component {
     autoBind(this);
   }
 
+  componentWillMount() {
+    this.props.fetchPicks(this.state.week);
+  }
+
   submitPick(e) {
     e.preventDefault();
     console.log("submitted");
