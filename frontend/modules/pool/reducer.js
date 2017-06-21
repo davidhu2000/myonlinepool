@@ -2,6 +2,7 @@ import { merge } from 'lodash';
 import { POOL } from './actions';
 
 let _defaultState = {
+  id: 1,
   admin: "Dave",
   leaders: [
     {name: "alex", score: 100, losses: 1, pool: "office pool 1"},

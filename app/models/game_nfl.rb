@@ -27,5 +27,5 @@ class GameNfl < ApplicationRecord
   belongs_to :home, class_name: :Team, foreign_key: :home_id
   belongs_to :away, class_name: :Team, foreign_key: :away_id
 
-  has_many :picks
+  has_many :picks, foreign_key: :game_id, class_name: :Pick
 end
