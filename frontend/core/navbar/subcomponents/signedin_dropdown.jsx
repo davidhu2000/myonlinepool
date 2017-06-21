@@ -14,9 +14,6 @@ class Dropdown extends React.Component {
     return (
       <div className="navbar-dropdown" id="settings-dropdown">
         <div className="navbar-dropdown-list">
-          <Link to={`/`} onClick={this.props.toggleLeftDropdown}>
-            Splash
-          </Link>
           <Link to={`/home`} onClick={this.props.toggleLeftDropdown}>
             Home
           </Link>
