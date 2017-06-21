@@ -14,11 +14,11 @@
     font-weight: bold;
   }
 
-  .message-container-container {
+  .chat-container-container {
     padding: 5px;
   }
 
-  .message-container {
+  .chat-container {
     // height: 300px;
     // overflow-y: auto;
 
@@ -28,24 +28,24 @@
       flex-direction: row;
       align-items: flex-start;
 
-      .message-info {
+      .chat-info {
         display: flex;
 
         font-size: 13px;
         margin-bottom: 5px;
         line-height: 18px;
 
-        .message-author {
+        .chat-author {
           font-weight: 500;
           margin-right: 8px;
         }
 
-        .message-time {
+        .chat-time {
           color: rgb(136, 136, 136);
         }
       }
 
-      .message-picture {
+      .chat-picture {
         margin-right: 10px;
 
         span {
@@ -61,7 +61,7 @@
         }
       }
 
-      .message-body {
+      .chat-body {
         font-size: 14px;
       }
     }

@@ -14,15 +14,15 @@ const MessageBoxItem = ({ message }) => {
 
   return (
     <div className="chat-box-item">
-      <div className="message-picture">
+      <div className="chat-picture">
         <span style={{ backgroundColor: color }}>{message.author[0]}</span>
       </div>
-      <div className="message-data">
-        <div className="message-info">
-          <div className="message-author">{message.author}</div>
-          <div className="message-time">{messageTime}</div>
+      <div className="chat-data">
+        <div className="chat-info">
+          <div className="chat-author">{message.author}</div>
+          <div className="chat-time">{messageTime}</div>
         </div>
-        <div className="message-body">{message.body}</div>
+        <div className="chat-body">{message.body}</div>
       </div>
     </div>
   );

@@ -20,12 +20,11 @@ class MessageBox extends React.Component {
     let messageIds = Object.keys(messages).reverse();
 
     return messageIds.map(id => (
-      <MessageBoxItem key={`message-${id}`} message={messages[id]} />
+      <MessageBoxItem key={`chat-${id}`} message={messages[id]} />
     ));
   }
 
   render() {
-
     let { messages, poolId, createMessage } = this.props;
     let numberMessages = Object.keys(messages).length;
     return (
@@ -34,15 +33,15 @@ class MessageBox extends React.Component {
 
         <MessageForm poolId={poolId} createMessage={createMessage} />
 
-        <div className="message-container-container">
-          <div className="message-container">
+        <div className="chat-container-container">
+          <div className="chat-container">
             {this.renderMessages()}
           </div>
         </div>
 
         { numberMessages > 0 && numberMessages % 20 === 0 && (
           <button
-            className='messages-load-more-button'
+            className='chat-load-more-button'
             onClick={() => this.props.fetchMessages(poolId, numberMessages)}
           >
             Load more
@@ -56,10 +55,16 @@ class MessageBox extends React.Component {
 
 // update propTypes for messages
 MessageBox.propTypes = {
+  type: PropTypes.string.isRequired,
   messages: PropTypes.shape().isRequired,
   poolId: PropTypes.string.isRequired,
-  createMessage: PropTypes.func.isRequired,
-  fetchMessages: PropTypes.func.isRequired
+  createMessage: PropTypes.func,
+  fetchMessages: PropTypes.func
+};
+
+MessageBox.defaultProps = {
+  createMessage: null,
+  fetchMessages: null
 };
 
 export { MessageBox };
