@@ -26,21 +26,31 @@ class Moderator extends React.Component {
   }
 
   renderMembers() {
-    
+    return Object.values(this.props.pool.members).map(member => (
+      <div className="pool-member">
+        <span>{ member.name }</span>
+
+        <button onClick={() => console.log('removing member')}>
+          Kick out
+        </button>
+      </div>
+    ));
   }
 
   render() {
     return (
       <div className="moderator-container">
-        <BulletinForm
-          createBulletin={this.props.createBulletin}
-          poolId={this.props.pool.id}
-        />
+        <div className="moderator-bulletin-form">
+          <h3>Bulletin Form</h3>
+          <BulletinForm
+            createBulletin={this.props.createBulletin}
+            poolId={this.props.pool.id}
+          />
+        </div>
 
-        Moderator
-
-        - create bulletins
-        - remove users
+        <div className="moderator-pool-members">
+          { this.renderMembers() }
+        </div>
       </div>
     );
   }

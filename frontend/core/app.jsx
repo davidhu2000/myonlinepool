@@ -63,10 +63,8 @@ App.defaultProps = {
   userId: null
 };
 
-const mapStateToProps = ({ user, pool }) => ({
-  loggedIn: Boolean(user),
-  userId: user.id,
-  moderatorId: pool.moderatorId
+const mapStateToProps = ({ user }) => ({
+  loggedIn: Boolean(user)
 });
 
 export default connect(
