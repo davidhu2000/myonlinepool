@@ -6,7 +6,7 @@ import * as PoolAPI from './utils';
 export const POOL = {
   RECEIVE_INFORMATION: 'pool/RECEIVE_INFORMATION',
   RECEIVE_MESSAGES: 'pool/RECEIVE_MESSAGES',
-  RECEIVE_BULLETINS: 'poo/RECEIVE_BULLETINS'
+  RECEIVE_BULLETINS: 'pool/RECEIVE_BULLETINS'
 };
 
 export const receivePoolInformation = pool => ({

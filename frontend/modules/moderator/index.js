@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import Moderator from './component';
 
+import * as Actions from './actions';
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = ({ pool, user }) => ({
+  pool,
+  user
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  createBulletin: bulletin => dispatch(Actions.createBulletin(bulletin))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(Moderator));
+)(Moderator);
