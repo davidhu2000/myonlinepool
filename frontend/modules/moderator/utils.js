@@ -7,3 +7,11 @@ export const createBulletin = bulletin => (
     data: { bulletin }
   })
 );
+
+export const removeMember = (userId, poolId) => (
+  $.ajax({
+    method: "DELETE",
+    url: `api/memberships`,
+    data: { userId, poolId }
+  })
+);
