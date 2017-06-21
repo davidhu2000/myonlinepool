@@ -46,3 +46,13 @@ data.sheet('test_schedule').each_with_index do |game, idx|
     start_time: game[7]
   )
 end
+
+# seed picks 
+# [1..16].each do |num|
+#   Pick.create!(
+#     user_id: 1,
+#     pool_id: 1,
+#     game_id: num,
+#     pick: "home"
+#   )
+# end

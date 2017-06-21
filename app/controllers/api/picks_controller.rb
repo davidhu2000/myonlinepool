@@ -1,6 +1,21 @@
 class Api::PicksController < ApplicationController
   def index 
-    @picks = current_user.picks
+    all_games = GameNfl.where(season: 2016, week: 1).includes(:home, :away)
+    raw_picks = User.first.picks.where(pool_id: 1, game_id: all_games)
+    pre_picks = {}
+    # @picks = []
+    all_games.each do |game|
+      pre_picks[game.id] = game.attributes
+      pre_picks[game.id][:game_id] = game.id
+      pre_picks[game.id][:home] = game.home.name.capitalize
+      pre_picks[game.id][:away] = game.away.name.capitalize
+      pre_picks[game.id][:pick] = ""
+    end 
+    raw_picks.each do |pick| 
+      pre_picks[pick[:game_id]][:pick] = pick.pick 
+    end
+    @picks = pre_picks
+    render 'api/picks/index'    
   end
   
   def create
