@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ModBoardItem } from './';
+import { BulletinBoxItem } from './';
 
-class ModBoard extends React.Component {
+class BulletinBox extends React.Component {
   renderBulletins() {
     let { bulletins } = this.props;
     let bulletinIds = Object.keys(bulletins).reverse();
 
     return bulletinIds.map(id => (
-      <ModBoardItem key={`bulletin-${id}`} bulletin={bulletins[id]} />
+      <BulletinBoxItem key={`bulletin-${id}`} bulletin={bulletins[id]} />
     ));
   }
 
@@ -29,8 +29,8 @@ class ModBoard extends React.Component {
   }
 }
 
-ModBoard.propTypes = {
+BulletinBox.propTypes = {
   bulletins: PropTypes.shape().isRequired
 };
 
-export { ModBoard };
+export { BulletinBox };

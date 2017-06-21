@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router';
 import PropTypes from 'prop-types';
 
 import { StandingsBox } from "common/components";
-import { MessageBox, ModBoard } from "./subcomponents";
+import { MessageBox, BulletinBox } from "./subcomponents";
 
 class Pool extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class Pool extends React.Component {
           />
         </div>
         <div className="pool-bulletin">
-          <ModBoard
+          <BulletinBox
             bulletins={this.props.pool.bulletins}
           />
         </div>

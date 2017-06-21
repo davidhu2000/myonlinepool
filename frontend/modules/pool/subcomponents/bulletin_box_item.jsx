@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ModBoardItem = ({ bulletin }) => {
+const BulletinBoxItem = ({ bulletin }) => {
   return (
     <div className="modboard-item">
       <div className="author">Admin</div>
@@ -10,8 +10,8 @@ const ModBoardItem = ({ bulletin }) => {
   );
 };
 
-ModBoardItem.propTypes = {
+BulletinBoxItem.propTypes = {
   bulletin: PropTypes.shape().isRequired
 };
 
-export { ModBoardItem };
+export { BulletinBoxItem };
