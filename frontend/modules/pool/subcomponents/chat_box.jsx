@@ -3,7 +3,7 @@ import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
 import { FormTextInput } from 'common/components';
-import { ChatBoxItem } from './';
+import { ChatBoxItem, MessageForm } from './';
 
 class ChatBox extends React.Component {
   constructor(props) {
@@ -16,23 +16,6 @@ class ChatBox extends React.Component {
     autoBind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    let message = {
-      pool_id: this.props.poolId,
-      body: this.state.message
-    };
-    this.props.createMessage(message).then(
-      () => this.setState({ message: '' })
-    );
-  }
-
-  update(field) {
-    return e => {
-      this.setState({ [field]: e.target.value });
-    };
-  }
-
   renderMessages() {
     let { messages } = this.props;
     let messageIds = Object.keys(messages).reverse();
@@ -41,29 +24,16 @@ class ChatBox extends React.Component {
       <ChatBoxItem key={`message-${id}`} message={messages[id]} />
     ));
   }
-  // add time
 
   render() {
-    let { messages, poolId } = this.props;
+    let { messages, poolId, createMessage } = this.props;
     let numberMessages = Object.keys(messages).length;
     return (
       <div className="chat-box">
         <h2>Message Board</h2>
-        <form onSubmit={this.handleSubmit} className="chat-form">
+        
+        <MessageForm poolId={poolId} createMessage={createMessage} />
 
-          <FormTextInput
-            update={this.update}
-            type='text'
-            value={this.state.message}
-            label=""
-            field="message"
-            errorMessage="Please enter a message"
-          />
-
-          <div className="chat-form-button-row">
-            <input type='submit' className="chat-form-button" value="submit" />
-          </div>
-        </form>
         <div className="message-container-container">
           <div className="message-container">
             {this.renderMessages()}
