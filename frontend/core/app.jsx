@@ -40,7 +40,7 @@ class App extends React.Component {
         <div className="base-container">
           <Navbar
             poolId={this.props.params.poolId}
-            isModerator={this.props.poolModeratorId === this.props.userId}
+            isModerator={this.props.moderatorId === this.props.userId}
           />
 
           <Alerts />
@@ -55,7 +55,7 @@ class App extends React.Component {
 
 App.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
-  poolModeratorId: PropTypes.number,
+  moderatorId: PropTypes.number,
   userId: PropTypes.number,
   params: PropTypes.shape({
     poolId: PropTypes.string
@@ -70,7 +70,7 @@ App.defaultProps = {
 const mapStateToProps = ({ user, pool }) => ({
   loggedIn: Boolean(user),
   userId: user.id,
-  poolModeratorId: pool.moderator_id
+  moderatorId: pool.moderatorId
 });
 
 export default connect(
