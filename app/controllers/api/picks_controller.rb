@@ -1,7 +1,7 @@
 class Api::PicksController < ApplicationController
   def index 
-    all_games = GameNfl.where(season: 2016, week: 1).includes(:home, :away)
-    raw_picks = User.first.picks.where(pool_id: 1, game_id: all_games)
+    all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
+    raw_picks = current_user.picks.where(pool_id: params[:poolId], game_id: all_games)
     pre_picks = {}
     # @picks = []
     all_games.each do |game|
@@ -19,22 +19,36 @@ class Api::PicksController < ApplicationController
   end
   
   def create
-    raw_picks = params[:picks]
-    @picks = []
-    error_messages = []
-    raw_picks.each do |k, v| 
-      pick = Pick.new({user_id: raw_picks[k][:user_id], game_id: raw_picks[k][:game_id], pool_id: raw_picks[k][:pool_id], pick: raw_picks[k][:pick]})
-      if pick.save 
-        @picks << pick
-      else
-        error_messages += pick.errors.full_messages
-      end 
+    # raw_picks = params[:picks]
+    # @picks = []
+    # error_messages = []
+    # raw_picks.each do |k, v| 
+    #   pick = Pick.new({user_id: raw_picks[k][:user_id], game_id: raw_picks[k][:game_id], pool_id: raw_picks[k][:pool_id], pick: raw_picks[k][:pick]})
+    #   if pick.save 
+    #     @picks << pick
+    #   else
+    #     error_messages += pick.errors.full_messages
+    #   end 
+    # end 
+    # if error_messages.empty?
+    #   render 'api/picks/index'
+    # else 
+    #   render json: error_messages, status: 422
+    # end 
+
+    all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
+    @picks = {}
+    all_games.each do |game|
+      pick = Pick.new({user_id: current_user.id, game_id: game.id, pool_id: params[:poolId], pick: "home"})
+      pick.save!
+      @picks[game.id] = game.attributes
+      @picks[game.id][:game_id] = game.id
+      @picks[game.id][:home] = game.home.name.capitalize
+      @picks[game.id][:away] = game.away.name.capitalize
+      @picks[game.id][:pick] = "home"
     end 
-    if error_messages.empty?
-      render 'api/picks/index'
-    else 
-      render json: error_messages, status: 422
-    end 
+    @picks
+    render 'api/picks/index' 
   end
 
   private

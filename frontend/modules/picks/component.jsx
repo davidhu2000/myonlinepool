@@ -15,7 +15,7 @@ class Picks extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPicks(this.state.week);
+    this.props.fetchPicks(this.state.week, this.props.poolId);
   }
 
   submitPick(e) {
@@ -47,14 +47,14 @@ class Picks extends React.Component {
     let newPicks = {};
     Object.values(this.props.picks).forEach(game => {
       let newPick = {
-        user_id: 1,
-        pool_id: 1,
+        user_id: this.props.userId,
+        pool_id: this.props.poolId,
         game_id: game.game_id,
         pick: "home"
       };
       newPicks[game.game_id] = newPick;
     });
-    this.props.sendPicks(newPicks);
+    this.props.sendPicks(this.state.week, this.props.poolId);
   }
 
   render() {

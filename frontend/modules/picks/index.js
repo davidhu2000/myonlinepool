@@ -4,12 +4,14 @@ import Picks from './component';
 
 const mapStateToProps = state => ({
   games: state.games,
-  picks: state.picks
+  picks: state.picks,
+  poolId: state.pool.id,
+  userId: state.user.id
 });
 
 const mapDispatchToProps = dispatch => ({
-  sendPicks: picks => dispatch(sendPicks(picks)),
-  fetchPicks: week => dispatch(fetchPicks(week))
+  sendPicks: (week, poolId) => dispatch(sendPicks(week, poolId)),
+  fetchPicks: (week, poolId) => dispatch(fetchPicks(week, poolId))
 });
 
 export default connect(
