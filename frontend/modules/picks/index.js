@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { sendPicks, fetchPicks } from './actions';
+import { sendPicks, fetchPicks, sendPick } from './actions';
 import Picks from './component';
 
 const mapStateToProps = state => ({
@@ -10,8 +10,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  sendPicks: (week, poolId) => dispatch(sendPicks(week, poolId)),
-  fetchPicks: (week, poolId) => dispatch(fetchPicks(week, poolId))
+  sendPicks: (week, poolId, type) => dispatch(sendPicks(week, poolId, type)),
+  fetchPicks: (week, poolId) => dispatch(fetchPicks(week, poolId)),
+  sendPick: (pick, type) => dispatch(sendPick(pick, type))
 });
 
 export default connect(
