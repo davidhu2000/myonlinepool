@@ -60,7 +60,7 @@ class Navbar extends React.Component {
         <PoolDropdown
           poolId={this.props.poolId}
           toggleLeftDropdown={this.toggleLeftDropdown}
-          user={this.props.user}
+          isModerator={this.props.isModerator}
         />
       );
     } else {
@@ -98,6 +98,7 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
   user: PropTypes.shape(),
   loggedIn: PropTypes.bool.isRequired,
+  isModerator: PropTypes.bool.isRequired,
   poolId: PropTypes.string,
   signout: PropTypes.func.isRequired
 };
