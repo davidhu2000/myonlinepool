@@ -23,23 +23,17 @@ class Api::PicksController < ApplicationController
 
     params[:picks].each do |key, game|
 
-      prev_pick = Pick.find_by(user_id: current_user.id, game_id: game[:game_id], pool_id: game[:pool_id])
-      if prev_pick 
-        prev_pick.update(pick: game[:pick])
-        @picks[game[:game_id]] = prev_pick
+      pick = Pick.find_by(user_id: current_user.id, game_id: game[:game_id], pool_id: game[:pool_id])
+      if pick 
+        pick.update(pick: game[:pick])
       else 
-        new_pick = Pick.new({user_id: current_user.id, game_id: game[:game_id], pool_id: game[:pool_id], pick: game[:pick]})
-        new_pick.save
-        @picks[game[:game_id]] = new_pick
+        pick = Pick.new({user_id: current_user.id, game_id: game[:game_id], pool_id: game[:pool_id], pick: game[:pick]})
+        pick.save
       end 
+
+      @picks[game[:game_id]] = { game_id: pick.game_id, pool_id: pick.pool_id, pick: pick.pick }
     end   
 
     render 'api/picks/index'
   end
-
-  private
-
-  # def pick_params
-  #   params.require(:pick).permit(:game_id, :pool_id, :pick)
-  # end
 end
