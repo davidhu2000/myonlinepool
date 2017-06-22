@@ -34,7 +34,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
-        <div className="home-bottom">
+        <div className="home-top">
           <PoolList
             pools={this.props.home.myPools}
             joinPool={this.props.joinPool}
@@ -46,7 +46,7 @@ class Home extends React.Component {
             announcements={this.props.home.announcements}
           />
         </div>
-        <div className="home-top">
+        <div className="home-bottom">
           <StandingsBox
             Title="Weekly Leaders"
             Standings={this.state.standings}

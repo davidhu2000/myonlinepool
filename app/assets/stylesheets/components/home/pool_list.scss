@@ -4,28 +4,7 @@ $drk-text: #CDCDCD;
 $off-white: #e9ebee;
 $white: #F6F7F9;
 
-@keyframes poolJoinIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes poolCreateIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 .pool-list {
-  // margin: auto 0;
   width: 870px;
   padding: 0px 5px;
   position: relative;
@@ -46,7 +25,6 @@ $white: #F6F7F9;
     font-size: 20px;
 
     .pool-list-top-title {
-      // width: 300px;
       font-weight: bold;
       opacity: .5;
     }
@@ -103,79 +81,4 @@ $white: #F6F7F9;
       margin-right: 5px;
     }
   }
-
-  .pool-join-form {
-    width: 300px;
-    position: absolute;
-    top: 0px;
-    right: -325px;
-
-    opacity: 0;
-    animation-name: poolJoinIn;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-
-
-    .poolform-group {
-      margin-bottom: 20px;
-    }
-
-    .poolform-group input {
-      width: 100%;
-    }
-
-    button {
-      height: 30px;
-      margin-top: 5px;
-      width: 100px;
-      margin-bottom: 1px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-      line-height: 12px;
-      border-radius: 2px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      background: $lt-primary;
-      transition: .2s;
-      color: white;
-        i {
-        padding-right: 10px;
-        }
-    }
-
-    button:hover {
-      background: white;
-      color: $lt-primary;
-      border: 1px black solid;
-    }
-  }
-}
-
-.join-form-button {
-  height: 30px;
-  margin-top: 5px;
-  width: 100px;
-  margin-bottom: 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  line-height: 12px;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  background: $lt-primary;
-  transition: .2s;
-  color: white;
-    i {
-    padding-right: 10px;
-    }
-}
-
-.join-form-button:hover {
-  background: white;
-  color: $lt-primary;
-  border: 1px black solid;
 }
