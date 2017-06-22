@@ -16,7 +16,16 @@ class PoolHome extends React.Component {
     this.props.fetchBulletins(poolId);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.params.poolId !== newProps.params.poolId) {
+      let { poolId } = newProps.params;
+      newProps.fetchMessages(poolId);
+      newProps.fetchBulletins(poolId);
+    }
+  }
+
   render() {
+    console.log('pool home')
     return (
       <div className="pool-container">
 

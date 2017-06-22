@@ -27,8 +27,10 @@ class Api::MembershipsController < ApplicationController
     end
 
     membership = Membership.find_by(pool_id: params[:pool_id], user_id: params[:user_id])
-
     membership.destroy if membership
+
+    Pick.where(pool_id: params[:pool_id], user_id: params[:user_id]).destroy_all
+
     render json: ['Member successfully removed']
   end
 
