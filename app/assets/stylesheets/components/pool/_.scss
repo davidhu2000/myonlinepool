@@ -6,15 +6,17 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .pool-standings {
-  width: 100%;
-  min-height: 374px;
+  width: 870px;
+  // min-height: 374px;
+  padding: 20px 0px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   .standings-box {
@@ -27,10 +29,6 @@
 
   div:first-child {
     margin-right: 15px;
-  }
-
-  div:last-child {
-    margin-left: 15px;
   }
 
   .standings-box {

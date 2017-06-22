@@ -29,13 +29,14 @@ class Moderator extends React.Component {
 
   renderMembers() {
     return Object.values(this.props.pool.members || []).map(member => (
-      <div className="pool-member" key={`member-${member.id}`}>
-        <span>{ member.name }</span>
-
-        <button onClick={() => this.props.removeMember(member.id, this.props.pool.id)}>
-          Kick out
-        </button>
-      </div>
+        <div className="pool-member" key={`member-${member.id}`}>
+          <i className="fa fa-angle-right" aria-hidden="true" />          
+          <span>{ member.name }</span>
+          <i className="fa fa-usd" aria-hidden="true"></i>
+          <button onClick={() => this.props.removeMember(member.id, this.props.pool.id)}>
+            <i className="fa fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
     ));
   }
 
@@ -44,17 +45,19 @@ class Moderator extends React.Component {
     return (
       <div className="moderator-container">
         <div className="moderator-bulletin-form">
-          <h3>Bulletin Form</h3>
+          <div className="header">Moderator Settings</div>
           <BulletinForm
             createBulletin={this.props.createBulletin}
             poolId={Number(this.props.params.poolId)}
           />
         </div>
 
-        <h3>Pool Members</h3>
-        <div className="moderator-pool-members">
-          { this.renderMembers() }
-        </div>
+        <div className="pool-roster">
+          <div className="roster-header">Pool Members</div>
+          <div className="moderator-pool-members">
+            { this.renderMembers() }
+          </div>
+        </div>  
       </div>
     );
   }
