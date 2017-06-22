@@ -70,7 +70,9 @@ class PoolList extends React.Component {
             </button>
           </div>
         </div>
-        {this.renderList()}
+        <div className="pool-list-bottom">
+          {this.renderList()}
+        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.toggleModal}

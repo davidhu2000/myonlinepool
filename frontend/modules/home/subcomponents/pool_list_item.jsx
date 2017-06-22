@@ -6,10 +6,16 @@ const PoolListItem = ({ title, id }) => {
 
   return (
     <div className="pool-list-item">
-      <Link to={`/pool/${id}`}>
-        <i className="fa fa-angle-right" aria-hidden="true" />
-        {title}
-      </Link>
+      <button>
+        <i className="fa fa-times" aria-hidden="true" />
+      </button>  
+    
+        <Link to={`/pool/${id}`}>
+          <div>
+          {title}
+          </div>
+        </Link>
+    
     </div>
   );
 };

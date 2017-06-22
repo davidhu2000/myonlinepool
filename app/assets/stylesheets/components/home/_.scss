@@ -12,6 +12,15 @@
   justify-content: flex-start;
 }
 
+.home-top {
+  min-height: 200px;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .home-bottom {
   width: 100%;
   min-height: 374px;
@@ -56,11 +65,4 @@
   background: $lt-primary;
 }
 
-.home-top {
-  min-height: 200px;
-  padding: 20px 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-}
+
