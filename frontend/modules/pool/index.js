@@ -9,6 +9,7 @@ const mapStateToProps = ({ pool, user }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchPoolInformation: poolId => dispatch(Actions.fetchPoolInformation(poolId)),
+  clearPoolInformation: () => dispatch(Actions.clearPoolInformation())
 });
 
 export default connect(

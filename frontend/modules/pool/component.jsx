@@ -13,6 +13,8 @@ class Pool extends React.Component {
   componentDidMount() {
     let { poolId } = this.props.params;
 
+    this.props.clearPoolInformation();
+
     this.props.fetchPoolInformation(poolId).then(
       () => {
         let { pool, user } = this.props;
@@ -23,6 +25,13 @@ class Pool extends React.Component {
         }
       }
     );
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.params.poolId !== newProps.params.poolId) {
+      newProps.clearPoolInformation();
+      newProps.fetchPoolInformation(newProps.params.poolId);
+    }
   }
 
   render() {
@@ -45,6 +54,7 @@ Pool.propTypes = {
     poolId: PropTypes.string.isRequired
   }).isRequired,
   fetchPoolInformation: PropTypes.func.isRequired,
+  clearPoolInformation: PropTypes.func.isRequired,
   pool: PropTypes.shape().isRequired,
   user: PropTypes.shape().isRequired
 };

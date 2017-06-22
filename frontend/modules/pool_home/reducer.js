@@ -27,6 +27,8 @@ const poolReducer = (state = _defaultState, action) => {
       return merge({}, state, {
         bulletins: action.bulletins
       });
+    case POOL.CLEAR:
+      return merge({}, _defaultState);
     default :
       return state;
   }
