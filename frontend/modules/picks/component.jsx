@@ -36,12 +36,14 @@ class Picks extends React.Component {
   prevWeek() {
     if (this.state.week > 1) {
       this.setState({ week: this.state.week - 1 });
+      this.props.fetchPicks(this.state.week, this.props.poolId);
     }
   }
 
   nextWeek() {
     if (this.state.week < 17) {
       this.setState({ week: this.state.week + 1 });
+      this.props.fetchPicks(this.state.week, this.props.poolId);
     }
   }
 
