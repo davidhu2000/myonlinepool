@@ -1,21 +1,27 @@
 require 'roo'
 require 'tty-progressbar'
+require 'pastel'
+
+pastel = Pastel.new
+green = pastel.on_green(" ")
+red = pastel.inverse(" ")
 
 bar_total = 50
 user_total = 100
 pool_total = 21
 announcement_total = 10
-membership_total = 300
+membership_total = 400
 bulletin_total = 100
 message_total = 1000
-pick_total = 16 * 400
+pick_total = 200
 
 data = Roo::Spreadsheet.open('db/seed/seed.xlsx')
 
-puts '----------------------------------------------------------'
+puts 
+puts
 puts 'SEEDING NFL TEAMS'
-puts '----------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('seeding [:bar] :elapsed :percent', total: bar_total)
+puts '-------------------------------------------------------------------------'
+progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 team_data = data.sheet('team_nfl')
 total = team_data.to_a.length - 1
@@ -30,13 +36,12 @@ team_data.each_with_index do |team, idx|
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
-
+progress_bar.current = 50
 puts 
 puts
-puts '----------------------------------------------------------'
 puts 'SEEDING SCHEDULE'
-puts '----------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('seeding [:bar] :elapsed :percent', total: bar_total)
+puts '-------------------------------------------------------------------------'
+progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 schedule = data.sheet('test_schedule')
 total = schedule.to_a.length - 1
@@ -55,13 +60,12 @@ schedule.each_with_index do |game, idx|
 
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
-
+progress_bar.current = 50
 puts 
 puts
-puts '----------------------------------------------------------'
 puts 'SEEDING USERS'
-puts '----------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('seeding [:bar] :elapsed :percent', total: bar_total)
+puts '-------------------------------------------------------------------------'
+progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = user_total
 
@@ -83,13 +87,12 @@ mainAdminUser.save!
 
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
-
+progress_bar.current = 50
 puts 
 puts
-puts '----------------------------------------------------------'
 puts 'SEEDING POOLS'
-puts '----------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('seeding [:bar] :elapsed :percent', total: bar_total)
+puts '-------------------------------------------------------------------------'
+progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = pool_total
 
@@ -115,13 +118,12 @@ Pool.create!(
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
-
+progress_bar.current = 50
 puts 
 puts
-puts '----------------------------------------------------------'
 puts 'SEEDING ANOUNCEMENTS'
-puts '----------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('seeding [:bar] :elapsed :percent', total: bar_total)
+puts '-------------------------------------------------------------------------'
+progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 total = announcement_total
 
 total.times do 
@@ -134,10 +136,9 @@ end
 
 puts 
 puts
-puts '----------------------------------------------------------'
 puts 'SEEDING MEMBERSHIPS'
-puts '----------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('seeding [:bar] :elapsed :percent', total: bar_total)
+puts '-------------------------------------------------------------------------'
+progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = membership_total
 total.times do
@@ -147,13 +148,12 @@ total.times do
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
-
+progress_bar.current = 50
 puts 
 puts
-puts '----------------------------------------------------------'
 puts 'SEEDING BULLETINS'
-puts '----------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('seeding [:bar] :elapsed :percent', total: bar_total)
+puts '-------------------------------------------------------------------------'
+progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = bulletin_total
 total.times do 
@@ -163,13 +163,12 @@ total.times do
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
-
+progress_bar.current = 50
 puts 
 puts
-puts '----------------------------------------------------------'
 puts 'SEEDING MESSAGES'
-puts '----------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('seeding [:bar] :elapsed :percent', total: bar_total)
+puts '-------------------------------------------------------------------------'
+progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = message_total
 
@@ -183,16 +182,15 @@ total.times do
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
-
+progress_bar.current = 50
 puts 
 puts
-puts '----------------------------------------------------------'
 puts 'SEEDING PICKS'
-puts '----------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('seeding [:bar] :elapsed :percent', total: bar_total)
+puts '-------------------------------------------------------------------------'
+progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = pick_total
-(total / 16).times do |i|
+(total).times do |i|
   pool = Pool.find(i % 21 + 1)
   user = pool.members.sample
 
@@ -206,9 +204,9 @@ total = pick_total
   end
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
-
+progress_bar.current = 50
 puts 
 puts
-puts '----------------------------------------------------------'
+puts '-------------------------------------------------------------------------'
 puts 'SEEDING COMPLETED'
-puts '----------------------------------------------------------'
+puts '-------------------------------------------------------------------------'
