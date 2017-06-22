@@ -1,13 +1,13 @@
 import { merge } from 'lodash';
-import { POOL } from './actions';
+import { POOL } from 'common/actions';
 
 let _defaultState = {
   leaders: [
-    {name: "alex", score: 100, losses: 1, pool: "office pool 1"},
-    {name: "david", score: 1, losses: 100, pool: "family pool 2"},
-    {name: "raymond", score: 101, losses: 0, pool: "random pool 1"},
-    {name: "ditka", score: 23, losses: 2, pool: "office pool 2"},
-    {name: "brady", score: 54, losses: 28, pool: "random pool 1"},
+    { name: "alex", score: 100, losses: 1, pool: "office pool 1" },
+    { name: "david", score: 1, losses: 100, pool: "family pool 2" },
+    { name: "raymond", score: 101, losses: 0, pool: "random pool 1" },
+    { name: "ditka", score: 23, losses: 2, pool: "office pool 2" },
+    { name: "brady", score: 54, losses: 28, pool: "random pool 1" },
   ],
   bulletins: {},
   messages: {}
