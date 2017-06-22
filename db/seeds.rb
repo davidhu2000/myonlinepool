@@ -139,7 +139,12 @@ puts 'SEEDING MEMBERSHIPS'
 puts '-------------------------------------------------------------------------'
 progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
-total = membership_total
+Membership.create(
+  user_id: 1,
+  pool_id: 1
+)
+
+total = membership_total - 1
 total.times do
   Membership.create(
     user_id: rand(100) + 1,
