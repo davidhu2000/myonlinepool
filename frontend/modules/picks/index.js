@@ -3,9 +3,7 @@ import { sendPicks, fetchPicks, sendPick } from './actions';
 import Picks from './component';
 
 const mapStateToProps = state => ({
-  games: state.games,
   picks: state.picks,
-  poolId: state.pool.id,
   userId: state.user.id
 });
 
