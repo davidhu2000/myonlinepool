@@ -1,4 +1,7 @@
 class Api::PoolsController < ApplicationController
+  before_action :require_membership_to_access, only: [:show]
+  before_action :require_moderator, only: [:update, :destroy]
+
   def index 
     @pools = current_user.pools
   end
@@ -16,8 +19,7 @@ class Api::PoolsController < ApplicationController
     end
   end
 
-  def show 
-    @pool = Pool.where(id: params[:id]).includes(:members).first
+  def show
   end
 
   def update
@@ -29,11 +31,11 @@ class Api::PoolsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @pool = Pool.where(id: params[:id]).first
     if @pool 
       @pool.destroy
-      render root_url
+      head :ok
     else 
       render json: ['Pool does not exist'], status: 404
     end
@@ -43,5 +45,21 @@ class Api::PoolsController < ApplicationController
 
   def pool_params
     params.require(:pool).permit(:title, :description, :buy_in, :league, :season, :password)
+  end
+
+  def require_membership_to_access
+    @pool = Pool.where(id: params[:id]).includes(:members).first
+
+    unless @pool.members.include?(current_user)
+      return render json: ['You need to be a member of this pool.'], status: 401
+    end
+  end
+
+  def require_moderator
+    @pool = Pool.where(id: params[:id]).first
+
+    unless @pool.moderator_id == current_user.id
+      return render json: ['You need to be the moderator for access.'], status: 401
+    end
   end
 end
