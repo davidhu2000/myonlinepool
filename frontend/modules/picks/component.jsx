@@ -15,54 +15,48 @@ class Picks extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPicks(this.state.week, this.props.poolId);
-  }
-
-  submitPick(e) {
-    e.preventDefault();
-    console.log("submitted");
-  }
-
-  createSelections() {
-    return Object.values(this.props.picks).map(game => (
-      <PickForm
-        game={game}
-        sendPick={this.props.sendPick}
-        poolId={this.props.poolId}
-      />
-    ));
+    this.props.fetchPicks(this.state.week, this.props.params.poolId);
   }
 
   prevWeek() {
     if (this.state.week > 1) {
       this.setState({ week: this.state.week - 1 });
-      this.props.fetchPicks(this.state.week, this.props.poolId);
+      this.props.fetchPicks(this.state.week, this.props.params.poolId);
     }
   }
 
   nextWeek() {
     if (this.state.week < 17) {
       this.setState({ week: this.state.week + 1 });
-      this.props.fetchPicks(this.state.week, this.props.poolId);
+      this.props.fetchPicks(this.state.week, this.props.params.poolId);
     }
   }
 
   pickHomers() {
-    let newPicks = [];
+    let picks = [];
     Object.values(this.props.picks).forEach(game => {
       if (game.pick === '') {
         let newPick = {
           game_id: game.game_id,
+          pool_id: this.props.params.poolId,
           pick: "home"
         };
-        newPicks.push(newPick);
+        picks.push(newPick);
       }
     });
-    let submission = {
-      poolId: this.props.poolId,
-      games: newPicks
-    };
-    this.props.sendPicks(submission);
+
+    this.props.sendPicks(picks);
+  }
+
+  renderSelections() {
+    return Object.values(this.props.picks).map(game => (
+      <PickForm
+        key={`pick-${game.game_id}`}
+        game={game}
+        sendPicks={this.props.sendPicks}
+        poolId={this.props.params.poolId}
+      />
+    ));
   }
 
   render() {
@@ -75,7 +69,9 @@ class Picks extends React.Component {
               className="fa fa-caret-left"
               aria-hidden="true"
             />
+
             Week {this.state.week}
+
             <i
               onClick={this.nextWeek}
               className="fa fa-caret-right"
@@ -84,9 +80,9 @@ class Picks extends React.Component {
           </div>
           <div>
             <button onClick={this.pickHomers}>
-            Auto-Pick
-            </button>  
-          </div>  
+              Auto-Pick
+            </button>
+          </div>
         </div>
         <div className="picks-selections">
           <div className="picks-labels">
@@ -97,7 +93,7 @@ class Picks extends React.Component {
             <div>Spread</div>
             <div>Home</div>
           </div>
-          { this.createSelections() }
+          { this.renderSelections() }
         </div>
       </div>
     );
@@ -105,8 +101,12 @@ class Picks extends React.Component {
 }
 
 Picks.propTypes = {
-  picks: PropTypes.object.isRequired,
-  games: PropTypes.object.isRequired
+  picks: PropTypes.shape().isRequired,
+  sendPicks: PropTypes.func.isRequired,
+  fetchPicks: PropTypes.func.isRequired,
+  params: PropTypes.shape({
+    poolId: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default withRouter(Picks);

@@ -2,30 +2,24 @@ import { receiveAlerts } from 'common/actions';
 import { processMessages } from 'helpers';
 import * as APIUtil from './utils';
 
-export const RECEIVE_PICKS = "RECEIVE_PICKS";
-export const RECEIVE_PICK = "RECEIVE_PICK";
+export const PICK = {
+  RECEIVE: 'pick/RECEIVE',
+  UPDATE: 'pick/UPDATE'
+};
 
 export const receivePicks = picks => ({
-  type: RECEIVE_PICKS,
+  type: PICK.RECEIVE,
   picks
 });
 
-export const receivePick = pick => ({
-  type: RECEIVE_PICK,
-  pick
+export const updatePicks = picks => ({
+  type: PICK.UPDATE,
+  picks
 });
-
-export const sendPick = pick => dispatch => (
-  APIUtil.sendPick(pick).then(
-    res => dispatch(receivePick(res))
-  ).fail(
-    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
-  )
-);
 
 export const sendPicks = pick => dispatch => (
   APIUtil.sendPicks(pick).then(
-    res => dispatch(receivePicks(res))
+    res => dispatch(updatePicks(res))
   ).fail(
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )

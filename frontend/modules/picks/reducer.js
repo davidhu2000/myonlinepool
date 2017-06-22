@@ -1,17 +1,21 @@
 import { merge } from 'lodash';
-import { RECEIVE_PICKS, RECEIVE_PICK } from './actions';
+import { PICK } from './actions';
 
 let _defaultState = {
 };
 
 const pickReducer = (state = _defaultState, action) => {
   Object.freeze(state);
+  console.log(action);
   switch (action.type) {
-    case RECEIVE_PICKS:
+    case PICK.RECEIVE:
       return merge({}, action.picks);
-    case RECEIVE_PICK:
+    case PICK.UPDATE:
       let newState = merge({}, state);
-      newState[action.pick.game_id] = action.pick;
+      Object.values(action.picks).forEach(pick => {
+        newState[pick.game_id].pick = pick.pick;
+      });
+
       return newState;
     default:
       return state;

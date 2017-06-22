@@ -25,40 +25,40 @@ class PickForm extends React.Component {
   }
 
   submitPick(pick) {
-    let submission = {
-      poolId: this.props.poolId,
-      games: [{
-        game_id: this.props.game.id,
-        pick
-      }]
-    };
-    this.props.sendPick(submission);
+    let submission = [{
+      game_id: this.props.game.id,
+      pool_id: this.props.poolId,
+      pick
+    }];
+    this.props.sendPicks(submission);
   }
 
   render() {
-    let pick = this.props.game.pick;
+    let { game } = this.props;
     return (
       <div className="selection-item">
-        <label className={`selection-form-away ${pick === 'away' ? 'selected-button' : ''}`} id={this.props.game.away}>
+        <label className={`selection-form-away ${game.pick === 'away' ? 'selected-button' : ''}`}>
           <button onClick={() => this.submitPick("away")} />
           <img
             className="pick-button pick-away-button"
-            src={`assets/logos/${this.props.game.away}.gif`} 
+            src={`assets/logos/${game.away}.gif`}
+            alt={`${game.away} logo`}
           />
           <div className="selection-form-away-name">
-            {this.props.game.away}
+            {game.away}
           </div>
         </label>
         <div className="selection-form-date">{this.state.date}</div>
         <div className="selection-form-time">{this.state.time}</div>
         <div className="selection-form-line">{this.state.line}</div>
         <div className="selection-form-over">{this.state.over_under}</div>
-        <label className={`selection-form-home ${pick === 'home' ? 'selected-button' : ''}`} id={this.props.game.home}>
-          <div className="selection-form-home-name">{this.props.game.home}</div>
+
+        <label className={`selection-form-home ${game.pick === 'home' ? 'selected-button' : ''}`}>
+          <div className="selection-form-home-name">{game.home}</div>
           <button onClick={() => this.submitPick("home")} />
           <img
             className='pick-button pick-home-button'
-            src={`assets/logos/${this.props.game.home}.gif`}
+            src={`assets/logos/${game.home}.gif`}
           />
         </label>
       </div>
@@ -67,8 +67,9 @@ class PickForm extends React.Component {
 }
 
 PickForm.propTypes = {
-  picks: PropTypes.array.isRequired,
-  game: PropTypes.object.isRequired
+  game: PropTypes.shape().isRequired,
+  poolId: PropTypes.string.isRequired,
+  sendPicks: PropTypes.func.isRequired
 };
 
 export { PickForm };

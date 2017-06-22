@@ -1,20 +1,21 @@
 /* global $ */
 
-export const sendPicks = pick => {
+export const sendPicks = picks => {
+
   return $.ajax({
     method: 'POST',
     url: '/api/picks',
-    data: { pick }
+    data: { picks }
   });
 };
 
-export const sendPick = pick => {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/picks',
-    data: { pick }
-  });
-};
+// export const sendPick = pick => {
+//   return $.ajax({
+//     method: 'POST',
+//     url: '/api/picks',
+//     data: { pick }
+//   });
+// };
 
 export const fetchPicks = (week, poolId) => {
   return $.ajax({
