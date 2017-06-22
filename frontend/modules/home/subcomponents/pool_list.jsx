@@ -17,7 +17,6 @@ class PoolList extends React.Component {
     this.state = {
       modalIsOpen: false
     };
-
     autoBind(this);
   }
 
