@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { PickForm } from './subcomponents';
@@ -44,8 +44,11 @@ class Picks extends React.Component {
         picks.push(newPick);
       }
     });
-
-    this.props.sendPicks(picks);
+    if (picks.length > 0) {
+      this.props.sendPicks(picks);
+    } else {
+      this.props.receiveAlerts(['Every game is already picked.'], 422);
+    }
   }
 
   renderSelections() {
