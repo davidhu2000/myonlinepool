@@ -9,18 +9,6 @@ export const POOL = {
   RECEIVE_BULLETINS: 'pool/RECEIVE_BULLETINS'
 };
 
-export const receivePoolInformation = pool => ({
-  type: POOL.RECEIVE_INFORMATION,
-  pool
-});
-
-export const fetchPoolInformation = poolId => dispatch => (
-  PoolAPI.fetchPoolInformation(poolId).then(
-    res => dispatch(receivePoolInformation(res)),
-    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
-  )
-);
-
 export const receiveMessages = messages => ({
   type: POOL.RECEIVE_MESSAGES,
   messages

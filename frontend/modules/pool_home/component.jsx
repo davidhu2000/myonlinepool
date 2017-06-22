@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { StandingsBox } from "common/components";
 import { MessageBox, BulletinBox } from "./subcomponents";
 
-class Pool extends React.Component {
+class PoolHome extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -14,7 +14,6 @@ class Pool extends React.Component {
     let { poolId } = this.props.params;
     this.props.fetchMessages(poolId);
     this.props.fetchBulletins(poolId);
-    this.props.fetchPoolInformation(poolId);
   }
 
   render() {
@@ -50,7 +49,7 @@ class Pool extends React.Component {
   }
 }
 
-Pool.propTypes = {
+PoolHome.propTypes = {
   pool: PropTypes.shape({
     messages: PropTypes.shape(),
     bulletins: PropTypes.shape()
@@ -60,8 +59,7 @@ Pool.propTypes = {
   }).isRequired,
   createMessage: PropTypes.func.isRequired,
   fetchMessages: PropTypes.func.isRequired,
-  fetchBulletins: PropTypes.func.isRequired,
-  fetchPoolInformation: PropTypes.func.isRequired
+  fetchBulletins: PropTypes.func.isRequired
 };
 
-export default withRouter(Pool);
+export default withRouter(PoolHome);
