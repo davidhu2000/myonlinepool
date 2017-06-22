@@ -10,23 +10,25 @@ class Moderator extends React.Component {
   }
 
   componentDidMount() {
+    let { poolId } = this.props.params;
     let { pool, user } = this.props;
-    this._redirectUnlessModerator(user.id, pool.moderatorId, pool.id);
+    this._redirectUnlessModerator(user.id, pool.moderatorId, poolId);
   }
 
   componentWillReceiveProps(newProps) {
+    let { poolId } = this.props.params;
     let { pool, user } = newProps;
-    this._redirectUnlessModerator(user.id, pool.moderatorId, pool.id);
+    this._redirectUnlessModerator(user.id, pool.moderatorId, poolId);
   }
 
   _redirectUnlessModerator(userId, moderatorId, poolId) {
-    if (userId !== moderatorId) {
+    if (!moderatorId || !userId || userId !== moderatorId) {
       this.props.router.push(`pool/${poolId}`);
     }
   }
 
   renderMembers() {
-    return Object.values(this.props.pool.members).map(member => (
+    return Object.values(this.props.pool.members || []).map(member => (
       <div className="pool-member" key={`member-${member.id}`}>
         <span>{ member.name }</span>
 
@@ -38,13 +40,14 @@ class Moderator extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="moderator-container">
         <div className="moderator-bulletin-form">
           <h3>Bulletin Form</h3>
           <BulletinForm
             createBulletin={this.props.createBulletin}
-            poolId={this.props.pool.id}
+            poolId={Number(this.props.params.poolId)}
           />
         </div>
 
@@ -61,7 +64,10 @@ Moderator.propTypes = {
   createBulletin: PropTypes.func.isRequired,
   removeMember: PropTypes.func.isRequired,
   pool: PropTypes.shape().isRequired,
-  user: PropTypes.shape().isRequired
+  user: PropTypes.shape().isRequired,
+  params: PropTypes.shape({
+    poolId: PropTypes.string
+  }).isRequired
 };
 
 export default withRouter(Moderator);

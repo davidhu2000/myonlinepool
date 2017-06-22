@@ -1,66 +1,42 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
-
-import { StandingsBox } from "common/components";
-import { MessageBox, BulletinBox } from "./subcomponents";
 
 class Pool extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loading: true
+    };
   }
 
   componentDidMount() {
     let { poolId } = this.props.params;
-    this.props.fetchMessages(poolId);
-    this.props.fetchBulletins(poolId);
-    this.props.fetchPoolInformation(poolId);
+
+    this.props.fetchPoolInformation(poolId).then(
+      () => this.setState({ loading: false })
+    );
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <div></div>
+      );
+    }
+
     return (
       <div className="pool-container">
-
-        <div className="pool-standings">
-          <StandingsBox
-            Title="Weekly Leaders"
-            Standings={this.props.pool.leaders}
-          />
-          <StandingsBox
-            Title="Season Leaders"
-            Standings={this.props.pool.leaders}
-          />
-        </div>
-        <div className="pool-bulletin">
-          <BulletinBox
-            bulletins={this.props.pool.bulletins}
-          />
-        </div>
-        <div className="pool-coms">
-          <MessageBox
-            type='chat'
-            messages={this.props.pool.messages}
-            createMessage={this.props.createMessage}
-            poolId={this.props.params.poolId}
-            fetchMessages={this.props.fetchMessages}
-          />
-        </div>
+        { this.props.children }
       </div>
     );
   }
 }
 
 Pool.propTypes = {
-  pool: PropTypes.shape({
-    messages: PropTypes.shape(),
-    bulletins: PropTypes.shape()
-  }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired
   }).isRequired,
-  createMessage: PropTypes.func.isRequired,
-  fetchMessages: PropTypes.func.isRequired,
-  fetchBulletins: PropTypes.func.isRequired,
   fetchPoolInformation: PropTypes.func.isRequired
 };
 
