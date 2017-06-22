@@ -1,18 +1,18 @@
 /* global $ */
 
-export const sendPicks = (week, poolId, type) => {
+export const sendPicks = pick => {
   return $.ajax({
     method: 'POST',
     url: '/api/picks',
-    data: { week, poolId, type }
+    data: { pick }
   });
 };
 
-export const sendPick = (pick, type) => {
+export const sendPick = pick => {
   return $.ajax({
     method: 'POST',
     url: '/api/picks',
-    data: { pick, type }
+    data: { pick }
   });
 };
 

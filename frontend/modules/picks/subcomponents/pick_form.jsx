@@ -14,7 +14,6 @@ class PickForm extends React.Component {
       over_under: "11"
     };
     autoBind(this);
-    console.log(this.props);
   }
 
   componentDidMount() {
@@ -26,23 +25,14 @@ class PickForm extends React.Component {
   }
 
   submitPick(pick) {
-    // let away = document.getElementById(this.props.game.away);
-    // let home = document.getElementById(this.props.game.home);
-    // if (pick === "away") {
-    //   away.classList.add('selected-button');
-    //   home.classList.remove('selected-button');
-    // } else {
-    //   home.classList.add('selected-button');
-    //   away.classList.remove('selected-button');
-    // }
     let submission = {
       poolId: this.props.poolId,
       games: [{
-        game_id: this.props.game.id, 
+        game_id: this.props.game.id,
         pick
       }]
-    }
-    this.props.sendPick(submission)
+    };
+    this.props.sendPick(submission);
   }
 
   render() {
