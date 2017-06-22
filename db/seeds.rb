@@ -47,6 +47,9 @@ schedule = data.sheet('test_schedule')
 total = schedule.to_a.length - 1
 schedule.each_with_index do |game, idx|
   next if idx.zero?
+
+  start_time = Time.parse(game[7]).utc
+
   GameNfl.create!(
     season: game[0],
     week: game[1],
@@ -55,11 +58,12 @@ schedule.each_with_index do |game, idx|
     home_score: game[4],
     away_score: game[5],
     completed: game[6],
-    start_time: game[7]
+    start_time: start_time
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
 progress_bar.current = 50
+
 puts 
 puts
 puts 'SEEDING USERS'

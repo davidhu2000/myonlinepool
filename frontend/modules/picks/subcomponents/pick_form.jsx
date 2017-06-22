@@ -53,6 +53,7 @@ class PickForm extends React.Component {
           <img
             className='pick-button pick-home-button'
             src={`assets/logos/${game.home}.gif`}
+            alt={`${game.home} logo`}
           />
         </label>
       </div>
