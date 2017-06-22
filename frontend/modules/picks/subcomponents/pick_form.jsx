@@ -2,17 +2,12 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { parseTime } from 'helpers';
 
 class PickForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      date: "1/2/3",
-      time: "2:00 PM",
-      line: "-200",
-      over_under: "11"
-    };
     autoBind(this);
   }
 
@@ -29,6 +24,7 @@ class PickForm extends React.Component {
 
   render() {
     let { game } = this.props;
+    let timeInfo = parseTime(game.start_time)
     return (
       <div className="selection-item">
         <label className={`selection-form-away ${game.pick === 'away' ? 'selected-button' : ''}`}>
@@ -42,10 +38,10 @@ class PickForm extends React.Component {
             {game.away}
           </div>
         </label>
-        <div className="selection-form-date">{this.state.date}</div>
-        <div className="selection-form-time">{this.state.time}</div>
-        <div className="selection-form-line">{this.state.line}</div>
-        <div className="selection-form-over">{this.state.over_under}</div>
+        <div className="selection-form-date">{timeInfo.date}</div>
+        <div className="selection-form-time">{timeInfo.time}</div>
+        <div className="selection-form-line">{game.line}</div>
+        <div className="selection-form-over">{game.spread}</div>
 
         <label className={`selection-form-home ${game.pick === 'home' ? 'selected-button' : ''}`}>
           <div className="selection-form-home-name">{game.home}</div>

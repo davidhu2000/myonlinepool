@@ -55,3 +55,27 @@ export const hashString = string => {
 
   return hash;
 };
+
+export const parseTime = string => {
+  let date = new Date(string);
+  date = new Date(date.toString());
+
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+  let year = date.getFullYear();
+
+  let hour = date.getHours();
+  let minute = date.getMinutes();
+
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+
+  let ampm = hour / 12 > 1 ? 'PM' : 'AM';
+  hour %= 12;
+
+  return {
+    date: `${month}/${day}/${year % 100}`,
+    time: `${hour}:${minute} ${ampm}`
+  };
+};
