@@ -26,9 +26,12 @@ class Dropdown extends React.Component {
           <Link to={`/pool/${this.props.poolId}/leaderboard`} onClick={this.props.toggleLeftDropdown}>
             Leaderboard
           </Link>
-          <Link to={`/pool/${this.props.poolId}/moderator`} onClick={this.props.toggleLeftDropdown}>
-            Moderator
-          </Link>
+
+          { this.props.isModerator && (
+            <Link to={`/pool/${this.props.poolId}/moderator`} onClick={this.props.toggleLeftDropdown}>
+              Moderator
+            </Link>
+          )}
         </div>
       </div>
     );
@@ -36,7 +39,8 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
-  poolId: PropTypes.string.isRequired,
+  poolId: PropTypes.number.isRequired,
+  isModerator: PropTypes.bool.isRequired,
   toggleLeftDropdown: PropTypes.func.isRequired
 };
 

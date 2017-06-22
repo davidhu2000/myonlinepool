@@ -4,7 +4,6 @@ import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-// import Footer from './footer';
 import Navbar from './navbar';
 import Alerts from './alerts';
 
@@ -21,7 +20,7 @@ class App extends React.Component {
   componentWillReceiveProps(newProps) {
     let differentLocation = this.props.location.pathname !== newProps.location.pathname;
     let signinChanged = this.props.loggedIn !== newProps.loggedIn;
-    
+
     if (differentLocation || signinChanged) {
       this._redirect(newProps.loggedIn, newProps.location.pathname);
     }
@@ -39,10 +38,7 @@ class App extends React.Component {
     return (
       <div className="base-wrapper">
         <div className="base-container">
-          <Navbar
-            poolId={this.props.params.poolId}
-          />
-
+          <Navbar />
           <Alerts />
           <div className="app-container">
             { this.props.children }
@@ -55,18 +51,21 @@ class App extends React.Component {
 
 App.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
+  moderatorId: PropTypes.number,
+  userId: PropTypes.number,
   params: PropTypes.shape({
     poolId: PropTypes.string
   }).isRequired
 };
 
+App.defaultProps = {
+  moderatorId: null,
+  userId: null
+};
+
 const mapStateToProps = ({ user }) => ({
   loggedIn: Boolean(user)
 });
-
-// const mapDispatchToProps = dispatch => ({
-
-// });
 
 export default connect(
   mapStateToProps,

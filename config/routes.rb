@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   namespace :api, default: { format: :json } do 
     resources :pools, only: [:show, :create, :destroy, :update, :index]
-    resources :memberships, only: [:create, :destroy]
+    resources :memberships, only: [:create]
+    delete 'memberships', to: 'memberships#destroy'
     resources :announcements, only: [:index, :create]
     resources :picks, only: [:index, :create]
 

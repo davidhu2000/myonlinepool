@@ -4,8 +4,14 @@ class Api::BulletinsController < ApplicationController
   end
 
   def create
+
+    pool = Pool.find_by(id: params[:bulletin][:pool_id])
+
+    unless pool.moderator_id == current_user.id
+      return render json: ['Only moderators are allowed to create bulletins.'], status: 401
+    end
+
     @bulletin = Bulletin.new(bulletin_params)
-    @bulletin.user_id = current_user.id 
 
     if @bulletin.save
       render 'api/bulletins/show'

@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import { signout } from 'modules/auth/actions';
 import Navbar from './navbar';
 
-const mapStateToProps = ({ user }) => ({
+const mapStateToProps = ({ user, pool }) => ({
   user,
+  pool,
   loggedIn: Boolean(user)
 });
 

@@ -1,7 +1,7 @@
 export * from './dropdown';
 export * from './validation_hoc';
 
-export const processMessages = (array, statusCode) => {
+export const processMessages = (array, statusCode = 200) => {
   let type = 'error';
 
   if (statusCode >= 200 && statusCode < 300) {

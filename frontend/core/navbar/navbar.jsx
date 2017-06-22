@@ -58,9 +58,9 @@ class Navbar extends React.Component {
     } else if (this.locationCheck()) {
       return (
         <PoolDropdown
-          poolId={this.props.poolId}
+          poolId={this.props.pool.id}
           toggleLeftDropdown={this.toggleLeftDropdown}
-          user={this.props.user}
+          isModerator={this.props.pool.moderatorId === this.props.user.id}
         />
       );
     } else {
@@ -97,13 +97,13 @@ class Navbar extends React.Component {
 
 Navbar.propTypes = {
   user: PropTypes.shape(),
+  pool: PropTypes.shape(),
   loggedIn: PropTypes.bool.isRequired,
-  poolId: PropTypes.string,
   signout: PropTypes.func.isRequired
 };
 
 Navbar.defaultProps = {
-  poolId: null,
+  pool: {},
   user: {}
 };
 

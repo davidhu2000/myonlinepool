@@ -1,7 +1,7 @@
 class Api::AnnouncementsController < ApplicationController
   def index
     # TODO: only get announcements within a certain time
-    @announcements = Announcement.all
+    @announcements = Announcement.all.order(id: :desc).limit(5)
   end
 
   def create
