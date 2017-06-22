@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import Pool from './component';
 import * as Actions from './actions';
 
-const mapStateToProps = () => ({
+const mapStateToProps = ({ pool, user }) => ({
+  pool,
+  user
 });
 
 const mapDispatchToProps = dispatch => ({

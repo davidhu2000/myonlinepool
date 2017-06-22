@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
 class Pool extends React.Component {
@@ -14,7 +14,14 @@ class Pool extends React.Component {
     let { poolId } = this.props.params;
 
     this.props.fetchPoolInformation(poolId).then(
-      () => this.setState({ loading: false })
+      () => {
+        let { pool, user } = this.props;
+        if (Object.keys(pool.members).includes(`${user.id}`)) {
+          this.setState({ loading: false });
+        } else {
+          hashHistory.replace('/home');
+        }
+      }
     );
   }
 
@@ -37,7 +44,9 @@ Pool.propTypes = {
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired
   }).isRequired,
-  fetchPoolInformation: PropTypes.func.isRequired
+  fetchPoolInformation: PropTypes.func.isRequired,
+  pool: PropTypes.shape().isRequired,
+  user: PropTypes.shape().isRequired
 };
 
 export default withRouter(Pool);
