@@ -21,14 +21,16 @@ class ConfirmForm extends React.Component {
     return (
       <div className="confirm-form">
         <div className="confirm-header">
-          Are you sure you want to remove this pool?
+          Confirm pool removal?
         </div>
-        <button className="confirm-form-button">
-          Confirm
-        </button>
-        <button className="confirm-form-button">
-          Cancel
-        </button>
+        <div className="confirm-buttons">
+          <button className="confirm-form-button confirm-button">
+            Confirm
+          </button>
+          <button className="confirm-form-button">
+            Cancel
+          </button>
+        </div>
       </div>
     );
   }

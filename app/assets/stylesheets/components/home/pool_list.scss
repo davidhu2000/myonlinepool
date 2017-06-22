@@ -63,10 +63,11 @@ $white: #F6F7F9;
   }
 
   .pool-list-bottom {
-    min-height: 130px;
+    height: 130px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    overflow-y: overlay;
 
     .pool-list-item {
       display: inline-flex;
@@ -79,6 +80,10 @@ $white: #F6F7F9;
       .fa-times {
         margin-right: 5px;
         color: red;
+        transition: .2s;
+      }
+      .fa-times:hover {
+        color: black;
       }
     }
   }
