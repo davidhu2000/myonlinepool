@@ -57,7 +57,6 @@ schedule.each_with_index do |game, idx|
     completed: game[6],
     start_time: game[7]
   )
-
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
 progress_bar.current = 50

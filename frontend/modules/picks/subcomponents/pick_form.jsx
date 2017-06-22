@@ -14,32 +14,42 @@ class PickForm extends React.Component {
       over_under: "11"
     };
     autoBind(this);
+    console.log(this.props);
   }
 
   componentDidMount() {
-    if (this.props.game.pick !== "") {
-      let chosen = document.getElementById(this.props.game[this.props.game.pick]);
-      chosen.classList.remove('pick-button');
-      chosen.classList.add('selected-button');
-    }
+    // if (this.props.game.pick !== "") {
+    //   let chosen = document.getElementById(this.props.game[this.props.game.pick]);
+    //   chosen.classList.remove('pick-button');
+    //   chosen.classList.add('selected-button');
+    // }
   }
 
   submitPick(pick) {
-    let away = document.getElementById(this.props.game.away);
-    let home = document.getElementById(this.props.game.home);
-    if (pick === "away") {
-      away.classList.add('selected-button');
-      home.classList.remove('selected-button');
-    } else {
-      home.classList.add('selected-button');
-      away.classList.remove('selected-button');
+    // let away = document.getElementById(this.props.game.away);
+    // let home = document.getElementById(this.props.game.home);
+    // if (pick === "away") {
+    //   away.classList.add('selected-button');
+    //   home.classList.remove('selected-button');
+    // } else {
+    //   home.classList.add('selected-button');
+    //   away.classList.remove('selected-button');
+    // }
+    let submission = {
+      poolId: this.props.poolId,
+      games: [{
+        game_id: this.props.game.id, 
+        pick
+      }]
     }
+    this.props.sendPick(submission)
   }
 
   render() {
+    let pick = this.props.game.pick;
     return (
       <div className="selection-item">
-        <label className="selection-form-away" id={this.props.game.away}>
+        <label className={`selection-form-away ${pick === 'away' ? 'selected-button' : ''}`} id={this.props.game.away}>
           <button onClick={() => this.submitPick("away")} />
           <img
             className="pick-button pick-away-button"
@@ -53,7 +63,7 @@ class PickForm extends React.Component {
         <div className="selection-form-time">{this.state.time}</div>
         <div className="selection-form-line">{this.state.line}</div>
         <div className="selection-form-over">{this.state.over_under}</div>
-        <label className="selection-form-home" id={this.props.game.home}>
+        <label className={`selection-form-home ${pick === 'home' ? 'selected-button' : ''}`} id={this.props.game.home}>
           <div className="selection-form-home-name">{this.props.game.home}</div>
           <button onClick={() => this.submitPick("home")} />
           <img
