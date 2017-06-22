@@ -10,9 +10,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  sendPicks: (week, poolId, type) => dispatch(sendPicks(week, poolId, type)),
+  sendPicks: pick => dispatch(sendPicks(pick)),
   fetchPicks: (week, poolId) => dispatch(fetchPicks(week, poolId)),
-  sendPick: (pick, type) => dispatch(sendPick(pick, type))
+  sendPick: pick => dispatch(sendPick(pick))
 });
 
 export default connect(

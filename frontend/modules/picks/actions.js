@@ -15,16 +15,16 @@ export const receivePick = pick => ({
   pick
 });
 
-export const sendPick = (pick, type) => dispatch => (
-  APIUtil.sendPick(pick, type).then(
+export const sendPick = pick => dispatch => (
+  APIUtil.sendPick(pick).then(
     res => dispatch(receivePick(res))
   ).fail(
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );
 
-export const sendPicks = (week, poolId, type) => dispatch => (
-  APIUtil.sendPicks(week, poolId, type).then(
+export const sendPicks = pick => dispatch => (
+  APIUtil.sendPicks(pick).then(
     res => dispatch(receivePicks(res))
   ).fail(
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
