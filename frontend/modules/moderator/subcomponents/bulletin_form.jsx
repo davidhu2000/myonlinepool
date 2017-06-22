@@ -33,19 +33,20 @@ class BulletinForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="chat-form">
+      <form onSubmit={this.handleSubmit} className="bulletin-form">
 
         <FormTextInput
           update={this.update}
           type='text'
           value={this.state.bulletin}
-          label=""
+          label="New Bulletin"
           field="bulletin"
           errorMessage="Please enter a message"
         />
 
-        <div className="chat-form-button-row">
-          <input type='submit' className="chat-form-button" value="Create bulletin" />
+        <div className="bulletin-form-button-row">
+          <button className="bulletin-form-button">Delete Last</button>
+          <input type='submit' className="bulletin-form-button" value="Post" />
         </div>
       </form>
     );
