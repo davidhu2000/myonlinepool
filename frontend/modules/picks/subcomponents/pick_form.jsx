@@ -25,14 +25,12 @@ class PickForm extends React.Component {
   }
 
   submitPick(pick) {
-    let submission = {
-      poolId: this.props.poolId,
-      games: [{
-        game_id: this.props.game.id,
-        pick
-      }]
-    };
-    this.props.sendPick(submission);
+    let submission = [{
+      game_id: this.props.game.id,
+      pool_id: this.props.poolId,
+      pick
+    }];
+    this.props.sendPicks(submission);
   }
 
   render() {
@@ -71,7 +69,7 @@ class PickForm extends React.Component {
 PickForm.propTypes = {
   game: PropTypes.shape().isRequired,
   poolId: PropTypes.string.isRequired,
-  sendPick: PropTypes.func.isRequired
+  sendPicks: PropTypes.func.isRequired
 };
 
 export { PickForm };

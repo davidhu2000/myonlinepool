@@ -33,21 +33,19 @@ class Picks extends React.Component {
   }
 
   pickHomers() {
-    let newPicks = [];
+    let picks = [];
     Object.values(this.props.picks).forEach(game => {
       if (game.pick === '') {
         let newPick = {
           game_id: game.game_id,
+          pool_id: this.props.params.poolId,
           pick: "home"
         };
-        newPicks.push(newPick);
+        picks.push(newPick);
       }
     });
-    let submission = {
-      poolId: this.props.params.poolId,
-      games: newPicks
-    };
-    this.props.sendPicks(submission);
+
+    this.props.sendPicks(picks);
   }
 
   renderSelections() {
@@ -55,7 +53,7 @@ class Picks extends React.Component {
       <PickForm
         key={`pick-${game.game_id}`}
         game={game}
-        sendPick={this.props.sendPick}
+        sendPicks={this.props.sendPicks}
         poolId={this.props.params.poolId}
       />
     ));
@@ -73,7 +71,7 @@ class Picks extends React.Component {
             />
 
             Week {this.state.week}
-            
+
             <i
               onClick={this.nextWeek}
               className="fa fa-caret-right"
@@ -104,8 +102,6 @@ class Picks extends React.Component {
 
 Picks.propTypes = {
   picks: PropTypes.shape().isRequired,
-  userId: PropTypes.number.isRequired,
-  sendPick: PropTypes.func.isRequired,
   sendPicks: PropTypes.func.isRequired,
   fetchPicks: PropTypes.func.isRequired,
   params: PropTypes.shape({
