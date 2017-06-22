@@ -1,3 +1,4 @@
+import { hashHistory } from 'react-router';
 import { receiveAlerts, POOL } from 'common/actions';
 import { processMessages } from 'helpers';
 
@@ -15,6 +16,10 @@ export const clearPoolInformation = () => ({
 export const fetchPoolInformation = poolId => dispatch => (
   PoolAPI.fetchPoolInformation(poolId).then(
     res => dispatch(receivePoolInformation(res)),
-    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+    err => {
+      hashHistory.replace('/home');
+      dispatch(clearPoolInformation());
+      return dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)));
+    }
   )
 );

@@ -10,27 +10,23 @@ class Pool extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let { poolId } = this.props.params;
 
     this.props.clearPoolInformation();
 
     this.props.fetchPoolInformation(poolId).then(
-      () => {
-        let { pool, user } = this.props;
-        if (Object.keys(pool.members).includes(`${user.id}`)) {
-          this.setState({ loading: false });
-        } else {
-          hashHistory.replace('/home');
-        }
-      }
+      () => this.setState({ loading: false })
     );
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.params.poolId !== newProps.params.poolId) {
+      this.setState({ loading: true });
       newProps.clearPoolInformation();
-      newProps.fetchPoolInformation(newProps.params.poolId);
+      newProps.fetchPoolInformation(newProps.params.poolId).then(
+        () => this.setState({ loading: false })
+      );
     }
   }
 

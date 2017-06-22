@@ -25,6 +25,7 @@ class PoolHome extends React.Component {
   }
 
   render() {
+    console.log('pool home')
     return (
       <div className="pool-container">
 
