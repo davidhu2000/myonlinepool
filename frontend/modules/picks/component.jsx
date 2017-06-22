@@ -107,6 +107,7 @@ Picks.propTypes = {
   picks: PropTypes.shape().isRequired,
   sendPicks: PropTypes.func.isRequired,
   fetchPicks: PropTypes.func.isRequired,
+  receiveAlerts: PropTypes.func.isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired
   }).isRequired

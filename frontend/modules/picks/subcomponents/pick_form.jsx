@@ -16,21 +16,15 @@ class PickForm extends React.Component {
     autoBind(this);
   }
 
-  componentDidMount() {
-    // if (this.props.game.pick !== "") {
-    //   let chosen = document.getElementById(this.props.game[this.props.game.pick]);
-    //   chosen.classList.remove('pick-button');
-    //   chosen.classList.add('selected-button');
-    // }
-  }
-
   submitPick(pick) {
-    let submission = [{
-      game_id: this.props.game.id,
-      pool_id: this.props.poolId,
-      pick
-    }];
-    this.props.sendPicks(submission);
+    if (pick !== this.props.game.pick) {
+      let submission = [{
+        game_id: this.props.game.id,
+        pool_id: this.props.poolId,
+        pick
+      }];
+      this.props.sendPicks(submission);
+    }
   }
 
   render() {
