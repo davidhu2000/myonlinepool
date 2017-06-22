@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router';
 import PropTypes from 'prop-types';
 
-import { StandingsBox } from "common/components";
+import { PoolStandingsBox } from "common/components";
 import { MessageBox, BulletinBox } from "./subcomponents";
 
 class PoolHome extends React.Component {
@@ -30,11 +30,11 @@ class PoolHome extends React.Component {
       <div className="pool-container">
 
         <div className="pool-standings">
-          <StandingsBox
+          <PoolStandingsBox
             Title="Weekly Leaders"
             Standings={this.props.pool.leaders}
           />
-          <StandingsBox
+          <PoolStandingsBox
             Title="Season Leaders"
             Standings={this.props.pool.leaders}
           />
