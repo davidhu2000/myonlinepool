@@ -194,11 +194,11 @@ total = pick_total
   pool = Pool.find(i % 21 + 1)
   user = pool.members.sample
 
-  16.times do 
+  16.times do |j|
     Pick.create(
       pool_id: pool.id,
       user_id: user.id,
-      game_id: rand(16) + 1,
+      game_id: j + 1,
       pick: ['home', 'away'].sample
     )
   end
