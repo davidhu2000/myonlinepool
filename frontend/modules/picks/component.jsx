@@ -20,8 +20,8 @@ class Picks extends React.Component {
 
   updateWeek(dir) {
     let week = this.state.week + dir;
-    if (week < 0) {
-      week = 0;
+    if (week < 1) {
+      week = 1;
     }
 
     if (week > 17) {
