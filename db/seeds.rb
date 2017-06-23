@@ -21,7 +21,7 @@ puts
 puts
 puts 'SEEDING NFL TEAMS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 team_data = data.sheet('team_nfl')
 total = team_data.to_a.length - 1
@@ -41,12 +41,15 @@ puts
 puts
 puts 'SEEDING SCHEDULE'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 schedule = data.sheet('test_schedule')
 total = schedule.to_a.length - 1
+
 schedule.each_with_index do |game, idx|
   next if idx.zero?
+  next unless game[0]
+
   GameNfl.create!(
     season: game[0],
     week: game[1],
@@ -55,16 +58,19 @@ schedule.each_with_index do |game, idx|
     home_score: game[4],
     away_score: game[5],
     completed: game[6],
-    start_time: game[7]
+    start_time: Time.parse(game[7]).utc,
+    line: game[8],
+    spread: game[9]
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
 progress_bar.current = 50
+
 puts 
 puts
 puts 'SEEDING USERS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = user_total
 
@@ -91,7 +97,7 @@ puts
 puts
 puts 'SEEDING POOLS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = pool_total
 
@@ -122,7 +128,7 @@ puts
 puts
 puts 'SEEDING ANOUNCEMENTS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 total = announcement_total
 
 total.times do 
@@ -137,7 +143,7 @@ puts
 puts
 puts 'SEEDING MEMBERSHIPS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 Membership.create(
   user_id: 1,
@@ -157,7 +163,7 @@ puts
 puts
 puts 'SEEDING BULLETINS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = bulletin_total
 total.times do 
@@ -172,7 +178,7 @@ puts
 puts
 puts 'SEEDING MESSAGES'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = message_total
 
@@ -191,7 +197,7 @@ puts
 puts
 puts 'SEEDING PICKS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress [:bar] :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
 total = pick_total
 (total).times do |i|

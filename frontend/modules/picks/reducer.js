@@ -6,14 +6,16 @@ let _defaultState = {
 
 const pickReducer = (state = _defaultState, action) => {
   Object.freeze(state);
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case PICK.RECEIVE:
-      return merge({}, action.picks);
+      return merge({}, state, action.picks);
     case PICK.UPDATE:
       let newState = merge({}, state);
-      Object.values(action.picks).forEach(pick => {
-        newState[pick.game_id].pick = pick.pick;
+      Object.keys(action.picks).forEach(week => {
+        Object.values(action.picks[week]).forEach(pick => {
+          newState[week][pick.game_id].pick = pick.pick;
+        });
       });
 
       return newState;

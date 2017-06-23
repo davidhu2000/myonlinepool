@@ -12,7 +12,6 @@ export const processMessages = (array, statusCode = 200) => {
 };
 
 export const timeFromNow = date => {
-
   if (typeof date !== 'number') {
     throw new Error("Date needs to be passed in as time in milliseconds.");
   }
@@ -54,4 +53,39 @@ export const hashString = string => {
   }
 
   return hash;
+};
+
+export const parseTime = string => {
+  let date = new Date(string);
+  date = new Date(date.toString());
+
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+  let year = date.getFullYear();
+
+  let hour = date.getHours();
+  let minute = date.getMinutes();
+
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+
+  let ampm = hour / 12 >= 1 ? 'PM' : 'AM';
+  if (hour !== 12) {
+    hour %= 12;
+  }
+
+  let timezones = {
+    420: 'PT',
+    360: 'MT',
+    300: 'CT',
+    240: 'ET'
+  };
+
+  let currentTimezone = timezones[date.getTimezoneOffset()];
+
+  return {
+    date: `${month}/${day}/${year % 100}`,
+    time: `${hour}:${minute} ${ampm} ${currentTimezone}`
+  };
 };
