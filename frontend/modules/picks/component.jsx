@@ -72,19 +72,23 @@ class Picks extends React.Component {
       <div className="picks-container">
         <div className="picks-header">
           <div>
-            <i
-              onClick={() => this.updateWeek(-1)}
-              className="fa fa-caret-left"
-              aria-hidden="true"
-            />
+            { this.state.week > 1 && (
+              <i
+                onClick={() => this.updateWeek(-1)}
+                className="fa fa-caret-left"
+                aria-hidden="true"
+              />
+            )}
 
             Week {this.state.week}
 
-            <i
-              onClick={() => this.updateWeek(1)}
-              className="fa fa-caret-right"
-              aria-hidden="true"
-            />
+            { this.state.week < 17 && (
+              <i
+                onClick={() => this.updateWeek(1)}
+                className="fa fa-caret-right"
+                aria-hidden="true"
+              />
+            )}
           </div>
           <div>
             <button onClick={this.pickHomers}>
