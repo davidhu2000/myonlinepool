@@ -18,18 +18,18 @@ class Picks extends React.Component {
     this.props.fetchPicks(this.state.week, this.props.params.poolId);
   }
 
-  prevWeek() {
-    if (this.state.week > 1) {
-      let week = this.state.week - 1;
-      this.setState({ week });
-      this.props.fetchPicks(week, this.props.params.poolId);
+  updateWeek(dir) {
+    let week = this.state.week + dir;
+    if (week < 0) {
+      week = 0;
     }
-  }
 
-  nextWeek() {
-    if (this.state.week < 17) {
-      let week = this.state.week + 1;
-      this.setState({ week });
+    if (week > 17) {
+      week = 17;
+    }
+
+    this.setState({ week });
+    if (!this.props.picks[week]) {
       this.props.fetchPicks(week, this.props.params.poolId);
     }
   }
@@ -68,13 +68,12 @@ class Picks extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="picks-container">
         <div className="picks-header">
           <div>
             <i
-              onClick={this.prevWeek}
+              onClick={() => this.updateWeek(-1)}
               className="fa fa-caret-left"
               aria-hidden="true"
             />
@@ -82,7 +81,7 @@ class Picks extends React.Component {
             Week {this.state.week}
 
             <i
-              onClick={this.nextWeek}
+              onClick={() => this.updateWeek(1)}
               className="fa fa-caret-right"
               aria-hidden="true"
             />
