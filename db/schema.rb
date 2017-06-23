@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623210543) do
+ActiveRecord::Schema.define(version: 20170623215428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170623210543) do
     t.datetime "start_time",                 null: false
     t.integer  "spread"
     t.integer  "line"
+    t.boolean  "evaluated",  default: false, null: false
     t.index ["week", "season"], name: "index_game_nfls_on_week_and_season", using: :btree
   end
 

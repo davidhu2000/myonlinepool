@@ -6,22 +6,31 @@ class CalculateWeeklyResultsJob < ApplicationJob
     puts '=========CALCULATE WEEKLY RESULTS JOB========='
     puts '=============================================='
     results = {}
-    games = GameNfl.where(season: season, week: week, completed: true)
+    games = GameNfl.where(season: season, week: week, completed: true, evaluated: false)
     picks = Pick.where(game_id: games)
 
-    picks.each do |pick|
-      results[pick.user_id] ||= { 
-        user_id: pick.user_id,
-        pool_id: pick.pool_id,
-        week: week,
-        season: season,
-        correct_picks: 0
-      }
+    WeeklyResultNfl.transaction do 
 
-      results[pick.user_id][:correct_picks] += 1 if pick.is_correct == 'correct'
+      picks.each do |pick|
+        id = "#{pick.pool_id}-#{pick.user_id}"
+        results[id] ||= WeeklyResultNfl.find_or_initialize_by(
+          pool_id: pick.pool_id, 
+          user_id: pick.user_id, 
+          season: season, 
+          week: week
+        )
+
+        results[id][:correct_picks] ||= 0
+
+        if pick.is_correct == 'correct'
+          results[id][:correct_picks] += 1 
+        end
+      end
+
+      results.values.each(&:save)
+      games.update_all(evaluated: true)
+
     end
-    
-    WeeklyResultNfl.create(results.values)
 
     puts '=============================================='
     puts '=============================================='

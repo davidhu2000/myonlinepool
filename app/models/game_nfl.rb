@@ -15,6 +15,7 @@
 #  start_time :datetime         not null
 #  spread     :integer
 #  line       :integer
+#  evaluated  :boolean          default("false"), not null
 #
 
 class GameNfl < ApplicationRecord
@@ -24,7 +25,8 @@ class GameNfl < ApplicationRecord
   validates :away, presence: true
   validates :home_score, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :away_score, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :completed, presence: true, inclusion: { in: [true, false] }
+  validates :completed, inclusion: { in: [true, false] }
+  validates :evaluated, inclusion: { in: [true, false] }
 
   belongs_to :home, class_name: :Team, foreign_key: :home_id
   belongs_to :away, class_name: :Team, foreign_key: :away_id

@@ -15,6 +15,7 @@
 #  start_time :datetime         not null
 #  spread     :integer
 #  line       :integer
+#  evaluated  :boolean          default("false"), not null
 #
 
 require 'test_helper'
