@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: weekly_result_nfls
+#
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  pool_id       :integer
+#  week          :integer
+#  season        :integer
+#  correct_picks :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  pool: one
+  week: 1
+  season: 1
+  correct_picks: 1
+
+two:
+  user: two
+  pool: two
+  week: 1
+  season: 1
+  correct_picks: 1
