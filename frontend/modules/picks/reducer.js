@@ -6,7 +6,7 @@ let _defaultState = {
 
 const pickReducer = (state = _defaultState, action) => {
   Object.freeze(state);
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case PICK.RECEIVE:
       return merge({}, state, action.picks);
