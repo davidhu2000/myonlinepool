@@ -14,7 +14,7 @@ class Api::PicksController < ApplicationController
     raw_picks.each do |pick| 
       @picks[pick[:game_id]][:pick] = pick.pick 
     end
-
+    @week = params[:week]
     render 'api/picks/index'    
   end
   
@@ -33,7 +33,7 @@ class Api::PicksController < ApplicationController
 
       @picks[game[:game_id]] = { game_id: pick.game_id, pool_id: pick.pool_id, pick: pick.pick }
     end   
-
+    @week = params[:week]
     render 'api/picks/index'
   end
 end

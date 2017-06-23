@@ -12,13 +12,16 @@ class PickForm extends React.Component {
   }
 
   submitPick(pick) {
-    if (pick !== this.props.game.pick) {
+    let { game, poolId, sendPicks } = this.props;
+
+    if (pick !== game.pick) {
       let submission = [{
-        game_id: this.props.game.id,
-        pool_id: this.props.poolId,
-        pick
+        game_id: game.id,
+        pool_id: poolId,
+        pick,
+        week: game.week
       }];
-      this.props.sendPicks(submission);
+      sendPicks(submission);
     }
   }
 

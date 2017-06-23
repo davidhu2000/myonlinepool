@@ -20,15 +20,17 @@ class Picks extends React.Component {
 
   prevWeek() {
     if (this.state.week > 1) {
-      this.setState({ week: this.state.week - 1 });
-      this.props.fetchPicks(this.state.week, this.props.params.poolId);
+      let week = this.state.week - 1;
+      this.setState({ week });
+      this.props.fetchPicks(week, this.props.params.poolId);
     }
   }
 
   nextWeek() {
     if (this.state.week < 17) {
-      this.setState({ week: this.state.week + 1 });
-      this.props.fetchPicks(this.state.week, this.props.params.poolId);
+      let week = this.state.week + 1;
+      this.setState({ week });
+      this.props.fetchPicks(week, this.props.params.poolId);
     }
   }
 
@@ -39,7 +41,8 @@ class Picks extends React.Component {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
-          pick: "home"
+          pick: "home",
+          week: game.week
         };
         picks.push(newPick);
       }
@@ -52,17 +55,20 @@ class Picks extends React.Component {
   }
 
   renderSelections() {
-    return Object.values(this.props.picks).map(game => (
-      <PickForm
-        key={`pick-${game.game_id}`}
-        game={game}
-        sendPicks={this.props.sendPicks}
-        poolId={this.props.params.poolId}
-      />
-    ));
+    if (this.props.picks[this.state.week]) {
+      return Object.values(this.props.picks[this.state.week]).map(game => (
+        <PickForm
+          key={`pick-${game.game_id}`}
+          game={game}
+          sendPicks={this.props.sendPicks}
+          poolId={this.props.params.poolId}
+        />
+      ));
+    }
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="picks-container">
         <div className="picks-header">

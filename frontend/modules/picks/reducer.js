@@ -9,7 +9,7 @@ const pickReducer = (state = _defaultState, action) => {
   console.log(action);
   switch (action.type) {
     case PICK.RECEIVE:
-      return merge({}, action.picks);
+      return merge({}, state, action.picks);
     case PICK.UPDATE:
       let newState = merge({}, state);
       Object.values(action.picks).forEach(pick => {
