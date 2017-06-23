@@ -9,6 +9,7 @@
 #  pick       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  is_correct :string           default("pending")
 #
 
 class Pick < ApplicationRecord
@@ -19,6 +20,8 @@ class Pick < ApplicationRecord
     scope: [:pool_id, :user_id],
     message: "already picked"  
   }
+
+  validates :is_correct, presence: true, inclusion: { in: ['pending', 'correct', 'wrong'] }
 
   belongs_to :user
   belongs_to :pool 
