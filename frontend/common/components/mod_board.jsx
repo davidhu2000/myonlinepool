@@ -6,7 +6,7 @@ class ModBoard extends React.Component {
     let { announcements } = this.props;
     return announcements.map(announcement => (
       <div className="modboard-item" key={announcement.id}>
-        <div className="title">{announcement.title}</div>
+        <div className="author">{announcement.title}</div>
         <div className="message">{announcement.body}</div>
       </div>
     ));

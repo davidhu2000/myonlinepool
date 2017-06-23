@@ -1,10 +1,10 @@
 $off-white: #e9ebee;
 
-.standings-box {
+.pool-standings-box {
   padding-top: 20px;
   position: relative;
 
-  .standings-box-title {
+  .pool-standings-box-title {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -19,10 +19,11 @@ $off-white: #e9ebee;
   }
 }
 
-.standings-box-item {
+.pool-standings-box-item {
   display: flex;
   border-top: .2px rgba(51, 51, 51,.2) solid;
-  padding: 5px;
+  padding: 5px 0px;
+  font-size: 15px;
 
   div:nth-child(3) {
     color: inherit;
@@ -30,40 +31,23 @@ $off-white: #e9ebee;
 
   div {
     text-align: left;
-  }
-
-  .title {
     width: 125px;
-  }
-
-  .score {
-    width: 75px;
-    border-left: none;
-  }
-
-  .losses {
-    width: 75px;
-    border-left: none;
-  }
-
-  .pool {
-    width: 125px;
-    border-left: none;
   }
 }
 
-.standings-box-top-item {
+.pool-standings-box-top-item {
   display: flex;
   margin-top: 10px;
-  padding: 5px;
+  padding: 5px 0px;
   font-weight: bold;
+  font-size: 15px;
 
   .title, .pool {
     width: 125px;
   }
 
   .score, .losses {
-    width: 75px;
+    width: 125px;
   }
 
   div:nth-child(3) {

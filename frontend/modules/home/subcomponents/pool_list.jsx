@@ -17,7 +17,6 @@ class PoolList extends React.Component {
     this.state = {
       modalIsOpen: false
     };
-
     autoBind(this);
   }
 
@@ -70,7 +69,9 @@ class PoolList extends React.Component {
             </button>
           </div>
         </div>
-        {this.renderList()}
+        <div className="pool-list-bottom">
+          {this.renderList()}
+        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.toggleModal}
