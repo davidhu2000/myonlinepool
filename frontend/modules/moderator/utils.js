@@ -1,5 +1,13 @@
 /* global $ */
 
+export const deleteBulletin = poolId => (
+  $.ajax({
+    method: "DELETE",
+    url: 'api/bulletins',
+    data: { poolId }
+  })
+);
+
 export const createBulletin = bulletin => (
   $.ajax({
     method: "POST",

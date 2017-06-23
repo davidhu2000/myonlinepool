@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { hasHistory } from 'react-router';
 
-import { FormTextInput } from 'common/components';
-
 class ConfirmForm extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      identifier: 'bIxWviappRc',
-      password: 'password'
-    };
-
+    console.log(this.props);
     autoBind(this);
+  }
+
+  handleClick() {
+    // e.preventDefault();
+    console.log("test");
+    this.props.removeMember(this.props.userId, this.props.poolId);
   }
 
   render() {
@@ -24,7 +23,7 @@ class ConfirmForm extends React.Component {
           Confirm pool removal?
         </div>
         <div className="confirm-buttons">
-          <button className="confirm-form-button confirm-button">
+          <button onClick={this.handleClick} type="submit" className="confirm-form-button confirm-button">
             Confirm
           </button>
           <button className="confirm-form-button">
@@ -37,8 +36,9 @@ class ConfirmForm extends React.Component {
 }
 
 ConfirmForm.propTypes = {
-  toggleJoinForm: PropTypes.func.isRequired,
-  joinPool: PropTypes.func.isRequired
+  removeMember: PropTypes.func.isRequired,
+  userId: PropTypes.number.isRequired,
+  poolId: PropTypes.number.isRequired
 };
 
 export { ConfirmForm };

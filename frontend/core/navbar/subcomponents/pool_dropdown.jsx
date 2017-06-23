@@ -30,6 +30,7 @@ class Dropdown extends React.Component {
 
   toggleModal() {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
+    // this.props.toggleLeftDropdown();
   }
 
   render() {
@@ -63,7 +64,11 @@ class Dropdown extends React.Component {
           contentLabel="label"
           style={customStyles}
         >
-          <ConfirmForm />
+          <ConfirmForm
+            userId={this.props.userId}
+            poolId={this.props.poolId}
+            removeMember={this.props.removeMember}
+          />
         </Modal>
       </div>
     );
@@ -71,9 +76,11 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
+  userId: PropTypes.number.isRequired,
   poolId: PropTypes.number.isRequired,
   isModerator: PropTypes.bool.isRequired,
-  toggleLeftDropdown: PropTypes.func.isRequired
+  toggleLeftDropdown: PropTypes.func.isRequired,
+  removeMember: PropTypes.func.isRequired
 };
 
 export const PoolDropdown = enhanceWithClickOutside(Dropdown);

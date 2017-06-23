@@ -86,6 +86,8 @@ export const parseTime = string => {
 
   return {
     date: `${month}/${day}/${year % 100}`,
-    time: `${hour}:${minute} ${ampm} ${currentTimezone}`
+    time: `${hour}:${minute}`,
+    ampm: `${ampm}`,
+    timezone: `${currentTimezone}`
   };
 };

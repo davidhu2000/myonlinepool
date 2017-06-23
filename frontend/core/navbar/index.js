@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { signout } from 'modules/auth/actions';
+import { removeMember } from './subcomponents/actions';
 import Navbar from './navbar';
 
 const mapStateToProps = ({ user, pool }) => ({
@@ -9,7 +10,8 @@ const mapStateToProps = ({ user, pool }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  signout: () => dispatch(signout())
+  signout: () => dispatch(signout()),
+  removeMember: (userId, poolId) => dispatch(removeMember(userId, poolId))
 });
 
 export default connect(

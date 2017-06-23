@@ -45,7 +45,7 @@ class BulletinForm extends React.Component {
         />
 
         <div className="bulletin-form-button-row">
-          <button className="bulletin-form-button">Delete Last</button>
+          <button onClick={() => this.props.deleteBulletin(this.props.poolId)} className="bulletin-form-button">Delete Last</button>
           <input type='submit' className="bulletin-form-button" value="Post" />
         </div>
       </form>
@@ -55,7 +55,8 @@ class BulletinForm extends React.Component {
 
 BulletinForm.propTypes = {
   poolId: PropTypes.number.isRequired,
-  createBulletin: PropTypes.func.isRequired
+  createBulletin: PropTypes.func.isRequired,
+  deleteBulletin: PropTypes.func.isRequired
 };
 
 export { BulletinForm };

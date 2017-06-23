@@ -6,7 +6,7 @@ import { Link, hashHistory } from 'react-router';
 import { values } from 'lodash';
 
 import { PoolListItem } from './';
-import { JoinForm } from './join_form';
+import JoinForm from './join_form';
 
 import customStyles from './modal_styles.json';
 

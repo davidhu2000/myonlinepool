@@ -38,16 +38,35 @@ class PickForm extends React.Component {
             alt={`${game.away} logo`}
           />
           <div className="selection-form-away-name">
-            {game.away}
+            <div>
+              {game.away.toUpperCase()}
+            </div>
+            <div>
+              (0-0-0)
+            </div>
           </div>
         </label>
         <div className="selection-form-date">{timeInfo.date}</div>
-        <div className="selection-form-time">{timeInfo.time}</div>
+        <div className="selection-form-time">
+          <div>
+            {timeInfo.time}
+          </div>
+          <div className='time-props'>
+            <div>{timeInfo.ampm}</div>
+            <div>{timeInfo.timezone}</div>
+          </div>  
+        </div>
         <div className="selection-form-line">{game.line}</div>
         <div className="selection-form-over">{game.spread}</div>
-
         <label className={`selection-form-home ${game.pick === 'home' ? 'selected-button' : ''}`}>
-          <div className="selection-form-home-name">{game.home}</div>
+          <div className="selection-form-home-name">
+            <div>
+              {game.home.toUpperCase()}
+            </div>
+            <div>
+              (0-0-0)
+            </div>
+          </div>
           <button onClick={() => this.submitPick("home")} />
           <img
             className='pick-button pick-home-button'

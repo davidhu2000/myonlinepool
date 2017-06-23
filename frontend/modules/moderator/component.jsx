@@ -48,6 +48,7 @@ class Moderator extends React.Component {
           <div className="header">Moderator Settings</div>
           <BulletinForm
             createBulletin={this.props.createBulletin}
+            deleteBulletin={this.props.deleteBulletin}
             poolId={Number(this.props.params.poolId)}
           />
         </div>
@@ -65,6 +66,7 @@ class Moderator extends React.Component {
 
 Moderator.propTypes = {
   createBulletin: PropTypes.func.isRequired,
+  deleteBulletin: PropTypes.func.isRequired,
   removeMember: PropTypes.func.isRequired,
   pool: PropTypes.shape().isRequired,
   user: PropTypes.shape().isRequired,

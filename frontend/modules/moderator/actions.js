@@ -3,6 +3,13 @@ import { processMessages } from 'helpers';
 
 import * as ModeratorAPI from './utils';
 
+export const deleteBulletin = poolId => dispatch => (
+  ModeratorAPI.deleteBulletin(poolId).then(
+    () => dispatch(receiveAlerts(processMessages(['Bulletin successfully removed.']))),
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+  )
+);
+
 export const createBulletin = bulletin => dispatch => (
   ModeratorAPI.createBulletin(bulletin).then(
     () => dispatch(receiveAlerts(processMessages(['Bulletin successfully created.']))),
