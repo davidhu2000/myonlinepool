@@ -119,7 +119,7 @@ $transition-time: 0.1s;
   font-weight: bold;
   // background-color: $lt-primary;
 
-  a {
+  a, .remove-button {
     // background-color: $lt-primary;
     padding: 10px 40px;
     text-align: left;
@@ -129,7 +129,7 @@ $transition-time: 0.1s;
     width: 100%;
   }
 
-  a:hover {
+  a:hover, .remove-button:hover {
     background-color: #ddd;
     color: red;
   }
