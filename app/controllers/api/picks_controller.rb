@@ -20,7 +20,7 @@ class Api::PicksController < ApplicationController
   
   def create
     @picks = {}
-    @week
+    @week = nil
     params[:picks].each do |key, game|
       @week ||= game[:week]
       pick = Pick.find_by(user_id: current_user.id, game_id: game[:game_id], pool_id: game[:pool_id])

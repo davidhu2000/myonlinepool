@@ -75,8 +75,17 @@ export const parseTime = string => {
     hour %= 12;
   }
 
+  let timezones = {
+    420: 'PT',
+    360: 'MT',
+    300: 'CT',
+    240: 'ET'
+  };
+
+  let currentTimezone = timezones[date.getTimezoneOffset()];
+
   return {
     date: `${month}/${day}/${year % 100}`,
-    time: `${hour}:${minute} ${ampm}`
+    time: `${hour}:${minute} ${ampm} ${currentTimezone}`
   };
 };
