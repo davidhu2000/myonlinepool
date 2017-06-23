@@ -20,9 +20,9 @@ class Api::PicksController < ApplicationController
   
   def create
     @picks = {}
-
+    @week
     params[:picks].each do |key, game|
-
+      @week ||= game[:week]
       pick = Pick.find_by(user_id: current_user.id, game_id: game[:game_id], pool_id: game[:pool_id])
       if pick 
         pick.update(pick: game[:pick])
@@ -32,8 +32,7 @@ class Api::PicksController < ApplicationController
       end 
 
       @picks[game[:game_id]] = { game_id: pick.game_id, pool_id: pick.pool_id, pick: pick.pick }
-    end   
-    @week = params[:week]
+    end
     render 'api/picks/index'
   end
 end
