@@ -20,6 +20,7 @@ class Api::PoolsController < ApplicationController
   end
 
   def show
+    @pool =  Pool.where(id: params[:id]).includes(:members, :weekly_result_nfls).first
   end
 
   def update
