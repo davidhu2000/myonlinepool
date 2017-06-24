@@ -15,7 +15,7 @@ class Api::PicksController < ApplicationController
       @picks[pick[:game_id]][:pick] = pick.pick 
     end
     @week = params[:week]
-    render 'api/picks/index'    
+    render 'api/picks/index'
   end
   
   def create
