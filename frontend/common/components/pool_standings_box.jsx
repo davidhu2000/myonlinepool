@@ -10,15 +10,15 @@ class PoolStandingsBox extends React.Component {
     this.genList = this.genList.bind(this);
   }
 
-  genList() {
+  renderItems() {
     let { standings, members } = this.props;
 
     return values(standings).map(standing => (
       <PoolStandingsBoxItem
         key={Math.random()}
         name={members[standing.userId].name}
-        correct={standing.correctPicks}
-        wrong={5}
+        correctPicks={standing.correctPicks}
+        wrongPicks={standing.wrongPicks}
       />
     ));
   }
@@ -32,11 +32,11 @@ class PoolStandingsBox extends React.Component {
           </h1>
         </div>
         <div className="pool-standings-box-top-item">
-            <div className="title">Player</div>
-            <div className="score">Wins</div>
-            <div className="losses">Losses</div>
+          <div className="title">Player</div>
+          <div className="score">Wins</div>
+          <div className="losses">Losses</div>
         </div>
-        {this.genList()}
+        {this.renderItems()}
       </div>
     );
   }
