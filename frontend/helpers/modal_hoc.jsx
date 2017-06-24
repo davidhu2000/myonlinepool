@@ -1,3 +1,5 @@
+/* global document */
+
 import React from 'react';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
@@ -26,16 +28,11 @@ export function withModal(Component) {
       Modal.setAppElement(document.getElementById('root'));
     }
 
-    closeModal() {
-      
-    }
-
     render() {
-      console.log(this.props)
       return (
         <Modal
           isOpen={this.props.modalIsOpen}
-          onRequestClose={this.closeModal}
+          onRequestClose={this.props.toggleModal}
           contentLabel="label"
           style={customStyles}
         >
@@ -44,6 +41,11 @@ export function withModal(Component) {
       );
     }
   }
+
+  WithModal.propTypes = {
+    modalIsOpen: PropTypes.bool.isRequired,
+    toggleModal: PropTypes.func.isRequired
+  };
 
   return WithModal;
 }

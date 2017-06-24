@@ -52,6 +52,7 @@ class App extends React.Component {
           poolId={this.props.params.poolId}
           removeMember={this.props.removeMember}
           modalIsOpen={this.props.modals.showConfirmForm}
+          toggleModal={this.props.toggleConfirmFormModal}
         />
       </div>
     );
@@ -69,7 +70,9 @@ App.propTypes = {
   modals: PropTypes.shape({
     showConfirmForm: PropTypes.bool.isRequired,
     showJoinForm: PropTypes.bool.isRequired
-  }).isRequired
+  }).isRequired,
+  toggleConfirmFormModal: PropTypes.func.isRequired,
+  toggleJoinFormModal: PropTypes.func.isRequired
 };
 
 App.defaultProps = {
