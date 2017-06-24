@@ -5,7 +5,8 @@ import * as HomeAPI from './utils';
 
 export const HOME = {
   RECEIVE_MY_POOLS: 'home/RECEIVE_MY_POOLS',
-  RECEIVE_ANNOUNCEMENTS: 'home/RECEIVE_ANNOUNCEMENTS'
+  RECEIVE_ANNOUNCEMENTS: 'home/RECEIVE_ANNOUNCEMENTS',
+  REMOVE_MY_POOL: 'home/REMOVE_MY_POOL'
 };
 
 export const receiveMyPools = pools => ({
