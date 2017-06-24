@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import { hashHistory } from 'react-router';
 import { withModal } from 'helpers';
 
 import { FormTextInput } from 'common/components';
@@ -28,11 +27,7 @@ class Form extends React.Component {
     e.preventDefault();
     let { identifier, password } = this.state;
     this.props.joinPool(identifier, password).then(
-      res => {
-        console.log(res);
-        this.props.toggleModal();
-        hashHistory.push(`/pool/${res.id}`);
-      }
+      () => this.props.toggleModal()
     );
   }
   render() {

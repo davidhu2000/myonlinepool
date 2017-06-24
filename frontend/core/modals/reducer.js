@@ -8,7 +8,7 @@ let _defaultState = {
 
 const modalReducer = (state = _defaultState, action) => {
   Object.freeze(state);
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case MODAL.TOGGLE_JOIN_FORM:
       return merge({}, state, { showJoinForm: !state.showJoinForm });
