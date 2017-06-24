@@ -62,8 +62,7 @@ class Navbar extends React.Component {
           poolId={this.props.pool.id}
           toggleLeftDropdown={this.toggleLeftDropdown}
           isModerator={this.props.pool.moderatorId === this.props.user.id}
-          removeMember={this.props.removeMember}
-          showConfirmFormModal={this.props.showConfirmFormModal}
+          showConfirmFormModal={this.props.toggleConfirmFormModal}
         />
       );
     } else {
@@ -103,7 +102,7 @@ Navbar.propTypes = {
   pool: PropTypes.shape(),
   loggedIn: PropTypes.bool.isRequired,
   signout: PropTypes.func.isRequired,
-  removeMember: PropTypes.func.isRequired
+  toggleConfirmFormModal: PropTypes.func.isRequired
 };
 
 Navbar.defaultProps = {

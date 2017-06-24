@@ -3,13 +3,16 @@ import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import Navbar from '../navbar';
-import Alerts from '../alerts';
+import Navbar from 'core/navbar';
+import Alerts from 'core/alerts';
+
+import { ConfirmForm } from './subcomponents';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
+    console.log(props);
   }
 
   componentDidMount() {
@@ -48,7 +51,7 @@ class App extends React.Component {
           userId={this.props.userId}
           poolId={this.props.params.poolId}
           removeMember={this.props.removeMember}
-          modalIsOpen={this.props.modal.showConfirmForm}
+          modalIsOpen={this.props.modals.showConfirmForm}
         />
       </div>
     );
@@ -63,9 +66,9 @@ App.propTypes = {
     poolId: PropTypes.string
   }).isRequired,
   removeMember: PropTypes.func.isRequired,
-  modal: PropTypes.shape({
+  modals: PropTypes.shape({
     showConfirmForm: PropTypes.bool.isRequired,
-    showJoinForm: propTypes.bool.isRequired
+    showJoinForm: PropTypes.bool.isRequired
   }).isRequired
 };
 

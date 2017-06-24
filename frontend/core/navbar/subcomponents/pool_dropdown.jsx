@@ -26,7 +26,6 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="navbar-dropdown" id="pool-dropdown">
         <div className="navbar-dropdown-list">
@@ -51,20 +50,6 @@ class Dropdown extends React.Component {
           </Link>
           )}
         </div>
-        {/*<Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.toggleModal}
-          contentLabel="label"
-          style={customStyles}
-        >*/}
-
-          <ConfirmForm
-            userId={this.props.userId}
-            poolId={this.props.poolId}
-            removeMember={this.props.removeMember}
-          />
-
-        {/*</Modal>*/}
       </div>
     );
   }
@@ -74,8 +59,7 @@ Dropdown.propTypes = {
   userId: PropTypes.number.isRequired,
   poolId: PropTypes.number.isRequired,
   isModerator: PropTypes.bool.isRequired,
-  toggleLeftDropdown: PropTypes.func.isRequired,
-  removeMember: PropTypes.func.isRequired
+  toggleLeftDropdown: PropTypes.func.isRequired
 };
 
 export const PoolDropdown = enhanceWithClickOutside(Dropdown);

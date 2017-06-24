@@ -5,9 +5,9 @@ import { toggleConfirmFormModal, toggleJoinFormModal } from 'common/actions';
 import App from './app';
 import { removeMember } from './actions';
 
-const mapStateToProps = ({ user, modal }) => ({
+const mapStateToProps = ({ user, modals }) => ({
   loggedIn: Boolean(user),
-  modal
+  modals
 });
 
 const mapDispatchToProps = dispatch => ({

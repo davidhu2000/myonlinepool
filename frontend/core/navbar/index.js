@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { showConfirmFormModal } from 'common/actions';
+import { toggleConfirmFormModal } from 'common/actions';
 
 import { signout } from 'modules/auth/actions';
 
@@ -13,7 +13,7 @@ const mapStateToProps = ({ user, pool }) => ({
 
 const mapDispatchToProps = dispatch => ({
   signout: () => dispatch(signout()),
-  showConfirmFormModal: () => dispatch(showConfirmFormModal())
+  toggleConfirmFormModal: () => dispatch(toggleConfirmFormModal())
 });
 
 export default connect(
