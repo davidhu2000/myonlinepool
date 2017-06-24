@@ -4,7 +4,7 @@ require 'json'
 class FetchScheduleJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform(season)
     puts '=============================================='
     puts '=======FETCHING NFL SCHEDULE JOB=============='
     puts '=============================================='
@@ -20,9 +20,6 @@ class FetchScheduleJob < ApplicationJob
     Team.where(league: 'nfl').each do |team|
       teams[team.abbreviation] = team.id
     end
-    
-    p teams
-    gets
 
     schedule = JSON.parse(response)["Schedule"]
 
@@ -38,16 +35,22 @@ class FetchScheduleJob < ApplicationJob
     #   "winner"=>""
     # }
 
-    season = 2017
-
     schedule.each do |game|
-      p home = teams.find_by(abbreviation: game["homeTeam"].downcase).name
-      p away = teams.find_by(abbreviation: game["awayTeam"].downcase).name
-      p home_id = teams.find_by(abbreviation: game["homeTeam"].downcase).id
-      p away_id = teams.find_by(abbreviation: game["awayTeam"].downcase).id
+      home_id = teams[game["homeTeam"].downcase]
+      away_id = teams[game["awayTeam"].downcase]
 
       start_time = Time.parse("#{game["gameDate"]} #{game["gameTimeET"]} EDT").utc
-      gets
+
+      g = GameNfl.find_or_initialize_by(
+        home_id: home_id,
+        away_id: away_id,
+        season: season,
+        week: game["gameWeek"]
+      )
+
+      g.start_time = start_time
+
+      g.save!
     end
 
     puts '=============================================='
