@@ -120,6 +120,5 @@ export const calculateSeasonStandings = standings => {
     });
   });
 
-  console.log(seasonStandings)
   return seasonStandings;
 };

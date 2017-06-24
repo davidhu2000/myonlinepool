@@ -28,32 +28,32 @@ class PoolHome extends React.Component {
   }
 
   render() {
-    // console.log(this.props.pool.standings)
-    calculateSeasonStandings(this.props.pool.standings)
+    let { pool } = this.props;
+
     return (
       <div className="pool-container">
 
         <div className="pool-standings">
           <PoolStandingsBox
             title="Weekly Leaders"
-            standings={this.props.pool.standings[this.state.week]}
-            members={this.props.pool.members}
+            standings={pool.standings[this.state.week]}
+            members={pool.members}
           />
-          {/*<PoolStandingsBox
+          <PoolStandingsBox
             title="Season Leaders"
-            standings={this.props.pool.standings}
-            members={this.props.pool.members}
-          />*/}
-        </div>
-        <div className="pool-bulletin">
-          <BulletinBox
-            bulletins={this.props.pool.bulletins}
+            standings={calculateSeasonStandings(pool.standings)}
+            members={pool.members}
           />
         </div>
+
+        <div className="pool-bulletin">
+          <BulletinBox bulletins={pool.bulletins} />
+        </div>
+
         <div className="pool-coms">
           <MessageBox
             type='chat'
-            messages={this.props.pool.messages}
+            messages={pool.messages}
             createMessage={this.props.createMessage}
             poolId={this.props.params.poolId}
             fetchMessages={this.props.fetchMessages}
