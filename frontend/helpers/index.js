@@ -1,5 +1,6 @@
 export * from './dropdown';
 export * from './validation_hoc';
+export * from './modal_hoc';
 
 export const processMessages = (array, statusCode = 200) => {
   let type = 'error';

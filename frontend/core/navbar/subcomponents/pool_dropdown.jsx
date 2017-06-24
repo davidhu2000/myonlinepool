@@ -13,13 +13,9 @@ class Dropdown extends React.Component {
     super(props);
 
     this.state = {
-      modalIsOpen: false
+      showConfirm: false
     };
     autoBind(this);
-  }
-
-  componentWillMount() {
-    Modal.setAppElement('body');
   }
 
   handleClickOutside(e) {
@@ -28,18 +24,13 @@ class Dropdown extends React.Component {
     }
   }
 
-  toggleModal() {
-    this.setState({ modalIsOpen: !this.state.modalIsOpen });
-    // this.props.toggleLeftDropdown();
-  }
-
   leavePoolButton() {
-    console.log()
-    this.toggleModal();
+    this.setState({ showConfirm: true });
     this.props.toggleLeftDropdown();
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="navbar-dropdown" id="pool-dropdown">
         <div className="navbar-dropdown-list">
@@ -64,18 +55,20 @@ class Dropdown extends React.Component {
           </Link>
           )}
         </div>
-        <Modal
+        {/*<Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.toggleModal}
           contentLabel="label"
           style={customStyles}
-        >
+        >*/}
+        { this.state.showConfirm && (
           <ConfirmForm
             userId={this.props.userId}
             poolId={this.props.poolId}
             removeMember={this.props.removeMember}
           />
-        </Modal>
+        )}
+        {/*</Modal>*/}
       </div>
     );
   }

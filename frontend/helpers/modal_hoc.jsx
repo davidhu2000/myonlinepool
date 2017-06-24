@@ -23,10 +23,11 @@ export function withModal(Component) {
     constructor(props) {
       super(props);
       this.state = {
-        modalIsOpen: false
+        modalIsOpen: true
       };
 
       autoBind(this);
+      Modal.setAppElement(document.getElementById('root'));
     }
 
     openModal() {
@@ -34,13 +35,13 @@ export function withModal(Component) {
     }
 
     closeModal() {
-      this.setState({ modalIsOpen: false });    
+      this.setState({ modalIsOpen: false });
     }
 
     render() {
+      console.log(this.props)
       return (
         <Modal
-          parentSelector={document.querySelector('#root')}
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="label"

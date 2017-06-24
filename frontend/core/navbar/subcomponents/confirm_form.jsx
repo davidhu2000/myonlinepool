@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
+import { withModal } from 'helpers';
 
-class ConfirmForm extends React.Component {
+class ConfirmForm2 extends React.Component {
   constructor(props) {
     super(props);
     console.log(this.props);
@@ -34,10 +35,10 @@ class ConfirmForm extends React.Component {
   }
 }
 
-ConfirmForm.propTypes = {
+ConfirmForm2.propTypes = {
   removeMember: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
   poolId: PropTypes.number.isRequired
 };
 
-export { ConfirmForm };
+export const ConfirmForm = withModal(ConfirmForm2);
