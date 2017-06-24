@@ -8,12 +8,12 @@ red = pastel.inverse(" ")
 
 bar_total = 50
 user_total = 100
-pool_total = 21
+pool_total = 10
 announcement_total = 10
-membership_total = 400
+membership_total = 100
 bulletin_total = 100
-message_total = 1000
-pick_total = 200
+message_total = 200
+pick_total = pool_total
 
 data = Roo::Spreadsheet.open('db/seed/seed.xlsx')
 
@@ -116,7 +116,7 @@ Pool.create!(
     title: Faker::Superhero.name,
     description: Faker::ChuckNorris.fact,
     buy_in: rand(100),
-    moderator_id: rand(100) + 1,
+    moderator_id: rand(user_total) + 1,
     league: 'nfl',
     season: 2017,
     password: 'password'
@@ -153,8 +153,8 @@ Membership.create(
 total = membership_total - 1
 total.times do
   Membership.create(
-    user_id: rand(100) + 1,
-    pool_id: rand(21) + 1
+    user_id: rand(user_total) + 1,
+    pool_id: rand(pool_total) + 1
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
@@ -168,7 +168,7 @@ progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: ba
 total = bulletin_total
 total.times do 
   Bulletin.create!(
-    pool_id: rand(21) + 1,
+    pool_id: rand(pool_total) + 1,
     body: Faker::ChuckNorris.fact
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
@@ -183,7 +183,7 @@ progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: ba
 total = message_total
 
 total.times do 
-  pool_id = rand(21) + 1
+  pool_id = rand(pool_total) + 1
   user_id = Pool.find(pool_id).members.sample.id
   Message.create!(
     pool_id: pool_id,
@@ -201,18 +201,21 @@ progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: ba
 
 total = pick_total
 (total).times do |i|
-  pool = Pool.find(i % 21 + 1)
-  user = pool.members.sample
+  pool = Pool.find(i + 1)
+  users = pool.members
 
-  16.times do |j|
-    Pick.create(
-      pool_id: pool.id,
-      user_id: user.id,
-      game_id: j + 1,
-      pick: ['home', 'away'].sample
-    )
+  users.each do |user|
+    32.times do |j|
+      Pick.create(
+        pool_id: pool.id,
+        user_id: user.id,
+        game_id: j + 1,
+        pick: ['home', 'away'].sample
+      )
+    end
+    progress_bar.advance((1 / total.to_f / users.count) * bar_total)
   end
-  progress_bar.advance((1 / total.to_f) * bar_total)
+
 end
 progress_bar.current = 50
 puts 

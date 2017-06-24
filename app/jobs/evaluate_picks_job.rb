@@ -3,7 +3,7 @@ class EvaluatePicksJob < ApplicationJob
 
   def perform(season, week)
     puts '=============================================='
-    puts '=========EVALUTING PICKS JOB=================='
+    puts '=========EVALUATING PICKS JOB================='
     puts '=============================================='
     games = GameNfl.where(season: season, week: week, completed: true)
     picks = Pick.where(game_id: games, is_correct: 'pending')

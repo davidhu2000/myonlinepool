@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { values } from 'lodash';
+import { values, sortBy } from 'lodash';
 
 import { PoolStandingsBoxItem } from './';
 
 class PoolStandingsBox extends React.Component {
   constructor(props) {
     super(props);
-    this.genList = this.genList.bind(this);
   }
 
   renderItems() {
     let { standings, members } = this.props;
 
-    return values(standings).map(standing => (
+    return sortBy(values(standings), 'correctPicks').reverse().map(standing => (
       <PoolStandingsBoxItem
         key={Math.random()}
         name={members[standing.userId].name}
