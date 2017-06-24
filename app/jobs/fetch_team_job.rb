@@ -23,7 +23,7 @@ class FetchTeamJob < ApplicationJob
     #   "fullName"=>"Arizona Cardinals", 
     #   "shortName"=>"Arizona"
     # }
-    
+
     teams.each do |team|
       abbreviation = team["code"].downcase
       full_name = team["fullName"]
@@ -38,7 +38,7 @@ class FetchTeamJob < ApplicationJob
     end
 
     puts '=============================================='
-    puts '=============================================='
+    puts '================JOB COMPLETED================='
     puts '=============================================='
   end
 end

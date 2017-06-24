@@ -5,6 +5,10 @@ class FetchScheduleJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
+    puts '=============================================='
+    puts '=======FETCHING NFL SCHEDULE JOB=============='
+    puts '=============================================='
+
     url = "https://www.fantasyfootballnerd.com/service/schedule/json/#{ENV['FB_NERD_API_KEY']}/"
 
     uri = URI(url)
@@ -45,5 +49,9 @@ class FetchScheduleJob < ApplicationJob
       start_time = Time.parse("#{game["gameDate"]} #{game["gameTimeET"]} EDT").utc
       gets
     end
+
+    puts '=============================================='
+    puts '================JOB COMPLETED================='
+    puts '=============================================='
   end
 end
