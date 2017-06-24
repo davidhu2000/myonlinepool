@@ -83,7 +83,16 @@ export const parseTime = string => {
     240: 'ET'
   };
 
-  let currentTimezone = timezones[date.getTimezoneOffset()];
+  const checkIfDaylightSavings = () => {
+    let jan = new Date(new Date().getFullYear(), 0, 1);
+    let jul = new Date(new Date().getFullYear(), 6, 1);
+    let offset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+    return offset >= date.getTimezoneOffset() ? 1 : 0;
+  };
+
+  let standardOffset = date.getTimezoneOffset() - checkIfDaylightSavings() * 60;
+
+  let currentTimezone = timezones[standardOffset];
 
   return {
     date: `${month}/${day}/${year % 100}`,
