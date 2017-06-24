@@ -12,7 +12,10 @@
 #  completed  :boolean          default("false"), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  start_time :date             not null
+#  start_time :datetime         not null
+#  spread     :integer
+#  line       :integer
+#  evaluated  :boolean          default("false"), not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

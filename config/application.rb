@@ -12,5 +12,6 @@ module MyOnlinePool
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.generators.assets = false
+    # config.active_job.queue_adapter = :sidekiq
   end
 end

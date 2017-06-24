@@ -1,23 +1,24 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
-import { PoolStandingsBoxItem } from './pool_standings_box_item';
+import PropTypes from 'prop-types';
+import { values, sortBy } from 'lodash';
+
+import { PoolStandingsBoxItem } from './';
 
 class PoolStandingsBox extends React.Component {
   constructor(props) {
     super(props);
-    this.genList = this.genList.bind(this);
   }
 
-  genList() {
-    let stands = this.props.Standings;
-    return stands.map( standing => (
+  renderItems() {
+    let { standings, members } = this.props;
+
+    return sortBy(values(standings), 'correctPicks').reverse().slice(0, 10).map(standing => (
       <PoolStandingsBoxItem
         key={Math.random()}
-        Name={standing.name}
-        Score={standing.score}
-        Losses={standing.losses}
-        Pool={standing.pool}
-        />
+        name={members[standing.userId].name}
+        correctPicks={standing.correctPicks}
+        wrongPicks={standing.wrongPicks}
+      />
     ));
   }
 
@@ -26,19 +27,24 @@ class PoolStandingsBox extends React.Component {
       <div className="pool-standings-box">
         <div className="pool-standings-box-title">
           <h1>
-            {this.props.Title}
+            {this.props.title}
           </h1>
         </div>
         <div className="pool-standings-box-top-item">
-            <div className="title">Player</div>
-            <div className="score">Wins</div>
-            <div className="losses">Losses</div>
+          <div className="title">Player</div>
+          <div className="score">Wins</div>
+          <div className="losses">Losses</div>
         </div>
-        {this.genList()}
+        {this.renderItems()}
       </div>
     );
   }
-
 }
+
+PoolStandingsBox.propTypes = {
+  standings: PropTypes.shape().isRequired,
+  members: PropTypes.shape().isRequired,
+  title: PropTypes.string.isRequired
+};
 
 export { PoolStandingsBox };

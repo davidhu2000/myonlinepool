@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622233451) do
+ActiveRecord::Schema.define(version: 20170624000446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170622233451) do
     t.datetime "start_time",                 null: false
     t.integer  "spread"
     t.integer  "line"
+    t.boolean  "evaluated",  default: false, null: false
     t.index ["week", "season"], name: "index_game_nfls_on_week_and_season", using: :btree
   end
 
@@ -64,12 +65,13 @@ ActiveRecord::Schema.define(version: 20170622233451) do
   end
 
   create_table "picks", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "pool_id",    null: false
-    t.integer  "game_id",    null: false
-    t.string   "pick",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",                        null: false
+    t.integer  "pool_id",                        null: false
+    t.integer  "game_id",                        null: false
+    t.string   "pick",                           null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "is_correct", default: "pending"
     t.index ["user_id", "pool_id", "game_id"], name: "index_picks_on_user_id_and_pool_id_and_game_id", unique: true, using: :btree
   end
 
@@ -128,4 +130,19 @@ ActiveRecord::Schema.define(version: 20170622233451) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  create_table "weekly_result_nfls", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "pool_id"
+    t.integer  "week"
+    t.integer  "season"
+    t.integer  "correct_picks"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "wrong_picks"
+    t.index ["pool_id"], name: "index_weekly_result_nfls_on_pool_id", using: :btree
+    t.index ["user_id"], name: "index_weekly_result_nfls_on_user_id", using: :btree
+  end
+
+  add_foreign_key "weekly_result_nfls", "pools"
+  add_foreign_key "weekly_result_nfls", "users"
 end

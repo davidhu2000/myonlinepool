@@ -1,13 +1,16 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
-
+import { calculateSeasonStandings } from 'helpers';
 import { PoolStandingsBox } from "common/components";
 import { MessageBox, BulletinBox } from "./subcomponents";
 
 class PoolHome extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      week: 1
+    };
   }
 
   componentDidMount() {
@@ -25,28 +28,32 @@ class PoolHome extends React.Component {
   }
 
   render() {
+    let { pool } = this.props;
+
     return (
       <div className="pool-container">
 
         <div className="pool-standings">
           <PoolStandingsBox
-            Title="Weekly Leaders"
-            Standings={this.props.pool.leaders}
+            title="Weekly Leaders"
+            standings={pool.standings[this.state.week]}
+            members={pool.members}
           />
           <PoolStandingsBox
-            Title="Season Leaders"
-            Standings={this.props.pool.leaders}
+            title="Season Leaders"
+            standings={calculateSeasonStandings(pool.standings)}
+            members={pool.members}
           />
         </div>
+
         <div className="pool-bulletin">
-          <BulletinBox
-            bulletins={this.props.pool.bulletins}
-          />
+          <BulletinBox bulletins={pool.bulletins} />
         </div>
+
         <div className="pool-coms">
           <MessageBox
             type='chat'
-            messages={this.props.pool.messages}
+            messages={pool.messages}
             createMessage={this.props.createMessage}
             poolId={this.props.params.poolId}
             fetchMessages={this.props.fetchMessages}
@@ -60,7 +67,9 @@ class PoolHome extends React.Component {
 PoolHome.propTypes = {
   pool: PropTypes.shape({
     messages: PropTypes.shape(),
-    bulletins: PropTypes.shape()
+    bulletins: PropTypes.shape(),
+    standings: PropTypes.shape(),
+    members: PropTypes.shape()
   }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired
