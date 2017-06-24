@@ -12,7 +12,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
-    console.log(props);
   }
 
   componentDidMount() {
@@ -36,6 +35,28 @@ class App extends React.Component {
     }
   }
 
+  renderModals() {
+    if (this.props.loggedIn) {
+      return (
+        <div>
+          <ConfirmForm
+            userId={this.props.user.id}
+            poolId={Number(this.props.params.poolId)}
+            removeMember={this.props.removeMember}
+            modalIsOpen={this.props.modals.showConfirmForm}
+            toggleModal={this.props.toggleConfirmFormModal}
+          />
+
+          <JoinForm
+            joinPool={this.props.joinPool}
+            modalIsOpen={this.props.modals.showJoinForm}
+            toggleModal={this.props.toggleJoinFormModal}
+          />
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="base-wrapper">
@@ -47,19 +68,7 @@ class App extends React.Component {
           </div>
         </div>
 
-        <ConfirmForm
-          userId={this.props.user.id}
-          poolId={Number(this.props.params.poolId)}
-          removeMember={this.props.removeMember}
-          modalIsOpen={this.props.modals.showConfirmForm}
-          toggleModal={this.props.toggleConfirmFormModal}
-        />
-
-        <JoinForm
-          joinPool={this.props.joinPool}
-          modalIsOpen={this.props.modals.showJoinForm}
-          toggleModal={this.props.toggleJoinFormModal}
-        />
+        { this.renderModals() }
       </div>
     );
   }
@@ -68,7 +77,7 @@ class App extends React.Component {
 App.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   moderatorId: PropTypes.number,
-  user: PropTypes.shape().isRequired,
+  user: PropTypes.shape(),
   modals: PropTypes.shape({
     showConfirmForm: PropTypes.bool.isRequired,
     showJoinForm: PropTypes.bool.isRequired
@@ -84,7 +93,7 @@ App.propTypes = {
 
 App.defaultProps = {
   moderatorId: null,
-  userId: null
+  user: null
 };
 
 export default withRouter(App);
