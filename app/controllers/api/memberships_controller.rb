@@ -13,6 +13,7 @@ class Api::MembershipsController < ApplicationController
     membership = Membership.new(user_id: current_user.id, pool_id: @pool.id)
 
     if membership.save
+      @pools = current_user.pools
       render 'api/pools/index'
     else 
       render json: membership.errors.full_messages, status: 422

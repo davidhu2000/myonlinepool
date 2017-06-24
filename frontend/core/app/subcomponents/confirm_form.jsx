@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
+import { hashHistory } from 'react-router';
 import { withModal } from 'helpers';
 
 class Form extends React.Component {
@@ -10,8 +11,12 @@ class Form extends React.Component {
   }
 
   handleClick() {
-    this.props.toggleModal();
-    this.props.removeMember(this.props.userId, this.props.poolId);
+    this.props.removeMember(this.props.userId, this.props.poolId).then(
+      () => {
+        this.props.toggleModal();
+        hashHistory.push('/home');
+      }
+    );
   }
 
   render() {
