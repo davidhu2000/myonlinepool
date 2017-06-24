@@ -17,6 +17,7 @@ json.standings do
         json.week res.week
         json.season res.season
         json.correctPicks res.correct_picks
+        json.wrongPicks res.wrong_picks
         json.userId res.user_id
       end
     end
