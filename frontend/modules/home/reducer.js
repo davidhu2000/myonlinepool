@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { HOME } from './actions';
+import { HOME } from 'common/actions';
 
 let _defaultState = {
   myPools: {},
