@@ -8,6 +8,9 @@ import { MessageBox, BulletinBox } from "./subcomponents";
 class PoolHome extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      week: 1
+    };
   }
 
   componentDidMount() {
@@ -30,13 +33,15 @@ class PoolHome extends React.Component {
 
         <div className="pool-standings">
           <PoolStandingsBox
-            Title="Weekly Leaders"
-            Standings={this.props.pool.leaders}
+            title="Weekly Leaders"
+            standings={this.props.pool.standings[this.state.week]}
+            members={this.props.pool.members}
           />
-          <PoolStandingsBox
-            Title="Season Leaders"
-            Standings={this.props.pool.leaders}
-          />
+          {/*<PoolStandingsBox
+            title="Season Leaders"
+            standings={this.props.pool.standings}
+            members={this.props.pool.members}
+          />*/}
         </div>
         <div className="pool-bulletin">
           <BulletinBox
@@ -60,7 +65,9 @@ class PoolHome extends React.Component {
 PoolHome.propTypes = {
   pool: PropTypes.shape({
     messages: PropTypes.shape(),
-    bulletins: PropTypes.shape()
+    bulletins: PropTypes.shape(),
+    standings: PropTypes.shape(),
+    members: PropTypes.shape()
   }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired

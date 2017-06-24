@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
-import { PoolStandingsBoxItem } from './pool_standings_box_item';
+import PropTypes from 'prop-types';
+import { values } from 'lodash';
+
+import { PoolStandingsBoxItem } from './';
 
 class PoolStandingsBox extends React.Component {
   constructor(props) {
@@ -9,15 +11,15 @@ class PoolStandingsBox extends React.Component {
   }
 
   genList() {
-    let stands = this.props.Standings;
-    return stands.map( standing => (
+    let { standings, members } = this.props;
+
+    return values(standings).map(standing => (
       <PoolStandingsBoxItem
         key={Math.random()}
-        Name={standing.name}
-        Score={standing.score}
-        Losses={standing.losses}
-        Pool={standing.pool}
-        />
+        name={members[standing.userId].name}
+        correct={standing.correctPicks}
+        wrong={5}
+      />
     ));
   }
 
@@ -26,7 +28,7 @@ class PoolStandingsBox extends React.Component {
       <div className="pool-standings-box">
         <div className="pool-standings-box-title">
           <h1>
-            {this.props.Title}
+            {this.props.title}
           </h1>
         </div>
         <div className="pool-standings-box-top-item">
@@ -38,7 +40,12 @@ class PoolStandingsBox extends React.Component {
       </div>
     );
   }
-
 }
+
+PoolStandingsBox.propTypes = {
+  standings: PropTypes.shape().isRequired,
+  members: PropTypes.shape().isRequired,
+  title: PropTypes.string.isRequired
+};
 
 export { PoolStandingsBox };
