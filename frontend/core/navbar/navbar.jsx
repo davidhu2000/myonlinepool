@@ -10,9 +10,7 @@ class Navbar extends React.Component {
     super(props);
 
     this.state = {
-      showLeftDropdown: false,
-      showJoinForm: false,
-      showConfirmForm: false
+      showLeftDropdown: false
     };
 
     autoBind(this);
@@ -20,10 +18,6 @@ class Navbar extends React.Component {
 
   toggleLeftDropdown() {
     this.setState({ showLeftDropdown: !this.state.showLeftDropdown });
-  }
-
-  toggle(type) {
-    this.setState({ [type]: !this.state[type] });
   }
 
   locationCheck() {
@@ -58,7 +52,6 @@ class Navbar extends React.Component {
     if (!this.props.loggedIn) {
       return (
         <SignedoutDropdown
-          toggle={this.toggle}
           toggleLeftDropdown={this.toggleLeftDropdown}
         />
       );
@@ -67,10 +60,10 @@ class Navbar extends React.Component {
         <PoolDropdown
           userId={this.props.user.id}
           poolId={this.props.pool.id}
-          toggle={this.toggle}
           toggleLeftDropdown={this.toggleLeftDropdown}
           isModerator={this.props.pool.moderatorId === this.props.user.id}
           removeMember={this.props.removeMember}
+          showConfirmFormModal={this.props.showConfirmFormModal}
         />
       );
     } else {
@@ -78,7 +71,6 @@ class Navbar extends React.Component {
         <SignedinDropdown
           toggleLeftDropdown={this.toggleLeftDropdown}
           user={this.props.user}
-          toggle={this.toggle}
         />
       );
     }

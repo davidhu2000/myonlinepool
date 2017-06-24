@@ -11,10 +11,6 @@ import customStyles from './modal_styles.json';
 class Dropdown extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      showConfirm: false
-    };
     autoBind(this);
   }
 
@@ -25,7 +21,7 @@ class Dropdown extends React.Component {
   }
 
   leavePoolButton() {
-    this.setState({ showConfirm: true });
+    this.props.showConfirmFormModal();
     this.props.toggleLeftDropdown();
   }
 
@@ -61,13 +57,13 @@ class Dropdown extends React.Component {
           contentLabel="label"
           style={customStyles}
         >*/}
-        { this.state.showConfirm && (
+
           <ConfirmForm
             userId={this.props.userId}
             poolId={this.props.poolId}
             removeMember={this.props.removeMember}
           />
-        )}
+
         {/*</Modal>*/}
       </div>
     );

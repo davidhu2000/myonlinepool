@@ -1,11 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import Navbar from './navbar';
-import Alerts from './alerts';
+import Navbar from '../navbar';
+import Alerts from '../alerts';
 
 class App extends React.Component {
   constructor(props) {
@@ -44,6 +43,13 @@ class App extends React.Component {
             { this.props.children }
           </div>
         </div>
+
+        <ConfirmForm
+          userId={this.props.userId}
+          poolId={this.props.params.poolId}
+          removeMember={this.props.removeMember}
+          modalIsOpen={this.props.modal.showConfirmForm}
+        />
       </div>
     );
   }
@@ -55,6 +61,11 @@ App.propTypes = {
   userId: PropTypes.number,
   params: PropTypes.shape({
     poolId: PropTypes.string
+  }).isRequired,
+  removeMember: PropTypes.func.isRequired,
+  modal: PropTypes.shape({
+    showConfirmForm: PropTypes.bool.isRequired,
+    showJoinForm: propTypes.bool.isRequired
   }).isRequired
 };
 
@@ -63,11 +74,4 @@ App.defaultProps = {
   userId: null
 };
 
-const mapStateToProps = ({ user }) => ({
-  loggedIn: Boolean(user)
-});
-
-export default connect(
-  mapStateToProps,
-  null
-)(withRouter(App));
+export default withRouter(App);

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
+import { showConfirmFormModal } from 'common/actions';
+
 import { signout } from 'modules/auth/actions';
-import { removeMember } from './actions';
+
 import Navbar from './navbar';
 
 const mapStateToProps = ({ user, pool }) => ({
@@ -11,7 +13,7 @@ const mapStateToProps = ({ user, pool }) => ({
 
 const mapDispatchToProps = dispatch => ({
   signout: () => dispatch(signout()),
-  removeMember: (userId, poolId) => dispatch(removeMember(userId, poolId))
+  showConfirmFormModal: () => dispatch(showConfirmFormModal())
 });
 
 export default connect(

@@ -1,3 +1,5 @@
+/* global $ */
+
 export const deleteMember = (userId, poolId) => (
   $.ajax({
     method: "DELETE",

@@ -22,27 +22,19 @@ export function withModal(Component) {
   class WithModal extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
-        modalIsOpen: true
-      };
-
       autoBind(this);
       Modal.setAppElement(document.getElementById('root'));
     }
 
-    openModal() {
-      this.setState({ modalIsOpen: true });
-    }
-
     closeModal() {
-      this.setState({ modalIsOpen: false });
+      
     }
 
     render() {
       console.log(this.props)
       return (
         <Modal
-          isOpen={this.state.modalIsOpen}
+          isOpen={this.props.modalIsOpen}
           onRequestClose={this.closeModal}
           contentLabel="label"
           style={customStyles}
