@@ -23,6 +23,18 @@ class Api::PoolsController < ApplicationController
     @pool =  Pool.where(id: params[:id]).includes(:members, :weekly_result_nfls).first
     @standings = {}
 
+    # initialize standings for before season starts
+    @pool.members.each do |member|
+      @standings[0] ||= {}
+      @standings[0][member.id] = WeeklyResultNfl.new(
+        season: 2016,
+        week: 0,
+        correct_picks: 0,
+        wrong_picks: 0,
+        user_id: member.id
+      )
+    end
+
     @pool.weekly_result_nfls.each do |res|
       @standings[res.week] ||= {}
       @standings[res.week][res.user_id] = res
