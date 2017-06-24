@@ -48,8 +48,8 @@ class App extends React.Component {
         </div>
 
         <ConfirmForm
-          userId={this.props.userId}
-          poolId={this.props.params.poolId}
+          userId={this.props.user.id}
+          poolId={Number(this.props.params.poolId)}
           removeMember={this.props.removeMember}
           modalIsOpen={this.props.modals.showConfirmForm}
           toggleModal={this.props.toggleConfirmFormModal}
@@ -62,7 +62,7 @@ class App extends React.Component {
 App.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   moderatorId: PropTypes.number,
-  userId: PropTypes.number,
+  user: PropTypes.shape().isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string
   }).isRequired,

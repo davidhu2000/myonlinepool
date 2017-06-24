@@ -7,6 +7,7 @@ import { removeMember } from './actions';
 
 const mapStateToProps = ({ user, modals }) => ({
   loggedIn: Boolean(user),
+  user,
   modals
 });
 

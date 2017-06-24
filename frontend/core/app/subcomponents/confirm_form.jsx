@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { withModal } from 'helpers';
 
-class ConfirmForm2 extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
     console.log(this.props);
@@ -11,8 +11,7 @@ class ConfirmForm2 extends React.Component {
   }
 
   handleClick() {
-    // e.preventDefault();
-    console.log("test");
+    this.props.toggleModal();
     this.props.removeMember(this.props.userId, this.props.poolId);
   }
 
@@ -23,10 +22,15 @@ class ConfirmForm2 extends React.Component {
           Confirm pool removal?
         </div>
         <div className="confirm-buttons">
-          <button onClick={this.handleClick} type="submit" className="confirm-form-button confirm-button">
+          <button
+            onClick={this.handleClick}
+            type="submit"
+            className="confirm-form-button confirm-button"
+          >
             Confirm
           </button>
-          <button className="confirm-form-button">
+          
+          <button className="confirm-form-button" onClick={this.props.toggleModal}>
             Cancel
           </button>
         </div>
@@ -35,10 +39,11 @@ class ConfirmForm2 extends React.Component {
   }
 }
 
-ConfirmForm2.propTypes = {
+Form.propTypes = {
   removeMember: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
   poolId: PropTypes.number.isRequired
 };
 
-export const ConfirmForm = withModal(ConfirmForm2);
+export const ConfirmForm = withModal(Form);
