@@ -20,6 +20,14 @@ class Api::BulletinsController < ApplicationController
     end
   end
 
+  def destroy 
+    @bulletin = Bulletin.where(pool_id: params[:poolId]).last
+    puts "==================="
+    puts @bulletin
+    puts "==================="
+    @bulletin.destroy
+  end 
+
   def bulletin_params 
     params.require(:bulletin).permit(:pool_id, :body)
   end

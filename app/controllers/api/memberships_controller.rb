@@ -13,6 +13,7 @@ class Api::MembershipsController < ApplicationController
     membership = Membership.new(user_id: current_user.id, pool_id: @pool.id)
 
     if membership.save
+      @pools = current_user.pools
       render 'api/pools/index'
     else 
       render json: membership.errors.full_messages, status: 422
@@ -22,8 +23,8 @@ class Api::MembershipsController < ApplicationController
   def destroy
     pool = Pool.find_by(id: params[:pool_id])
 
-    unless pool.moderator_id == current_user.id
-      return render json: ['Only moderators are allowed to remove members.'], status: 401
+    unless pool.moderator_id == current_user.id || current_user.id == params[:user_id]
+      return render json: ['Only moderators are allowed to remove other members.'], status: 401
     end
 
     membership = Membership.find_by(pool_id: params[:pool_id], user_id: params[:user_id])

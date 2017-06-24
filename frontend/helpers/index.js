@@ -1,5 +1,6 @@
 export * from './dropdown';
 export * from './validation_hoc';
+export * from './modal_hoc';
 
 export const processMessages = (array, statusCode = 200) => {
   let type = 'error';
@@ -86,6 +87,8 @@ export const parseTime = string => {
 
   return {
     date: `${month}/${day}/${year % 100}`,
-    time: `${hour}:${minute} ${ampm} ${currentTimezone}`
+    time: `${hour}:${minute}`,
+    ampm: `${ampm}`,
+    timezone: `${currentTimezone}`
   };
 };

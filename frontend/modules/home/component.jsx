@@ -37,7 +37,7 @@ class Home extends React.Component {
         <div className="home-top">
           <PoolList
             pools={this.props.home.myPools}
-            joinPool={this.props.joinPool}
+            toggleJoinFormModal={this.props.toggleJoinFormModal}
           />
         </div>
         <div className="home-bulletin">
@@ -63,9 +63,9 @@ class Home extends React.Component {
 
 Home.propTypes = {
   fetchMyPools: PropTypes.func.isRequired,
-  joinPool: PropTypes.func.isRequired,
   fetchAnnouncements: PropTypes.func.isRequired,
-  home: PropTypes.shape().isRequired
+  home: PropTypes.shape().isRequired,
+  toggleJoinFormModal: PropTypes.func.isRequired
 };
 
 export default withRouter(Home);

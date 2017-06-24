@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import { hasHistory } from 'react-router';
+import { withModal } from 'helpers';
 
 import { FormTextInput } from 'common/components';
 
@@ -27,11 +27,7 @@ class Form extends React.Component {
     e.preventDefault();
     let { identifier, password } = this.state;
     this.props.joinPool(identifier, password).then(
-      res => {
-        console.log(res);
-        this.props.toggleJoinForm();
-        hasHistory.push(`/pool/${res.id}`);
-      }
+      () => this.props.toggleModal()
     );
   }
   render() {
@@ -66,8 +62,8 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-  toggleJoinForm: PropTypes.func.isRequired,
-  joinPool: PropTypes.func.isRequired
+  joinPool: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired
 };
 
-export const JoinForm = Form;
+export const JoinForm = withModal(Form);

@@ -1,16 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import Navbar from './navbar';
-import Alerts from './alerts';
+import Navbar from 'core/navbar';
+import Alerts from 'core/alerts';
+
+import { ConfirmForm, JoinForm } from './subcomponents';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
+    console.log(props);
   }
 
   componentDidMount() {
@@ -44,6 +46,20 @@ class App extends React.Component {
             { this.props.children }
           </div>
         </div>
+
+        <ConfirmForm
+          userId={this.props.user.id}
+          poolId={Number(this.props.params.poolId)}
+          removeMember={this.props.removeMember}
+          modalIsOpen={this.props.modals.showConfirmForm}
+          toggleModal={this.props.toggleConfirmFormModal}
+        />
+
+        <JoinForm
+          joinPool={this.props.joinPool}
+          modalIsOpen={this.props.modals.showJoinForm}
+          toggleModal={this.props.toggleJoinFormModal}
+        />
       </div>
     );
   }
@@ -52,10 +68,18 @@ class App extends React.Component {
 App.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   moderatorId: PropTypes.number,
-  userId: PropTypes.number,
+  user: PropTypes.shape().isRequired,
+  modals: PropTypes.shape({
+    showConfirmForm: PropTypes.bool.isRequired,
+    showJoinForm: PropTypes.bool.isRequired
+  }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  removeMember: PropTypes.func.isRequired,
+  joinPool: PropTypes.func.isRequired,
+  toggleConfirmFormModal: PropTypes.func.isRequired,
+  toggleJoinFormModal: PropTypes.func.isRequired
 };
 
 App.defaultProps = {
@@ -63,11 +87,4 @@ App.defaultProps = {
   userId: null
 };
 
-const mapStateToProps = ({ user }) => ({
-  loggedIn: Boolean(user)
-});
-
-export default connect(
-  mapStateToProps,
-  null
-)(withRouter(App));
+export default withRouter(App);
