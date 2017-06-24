@@ -7,21 +7,3 @@ json.members do
     end
   end
 end
-
-# results = pool.weekly_result_nfls
-
-# json.standings do
-#   weeks.each do |week|
-#     json.set! week do 
-#       results.each do |res|
-#         json.set! res.user_id do 
-#           json.week res.week
-#           json.season res.season
-#           json.correctPicks res.correct_picks
-#           json.wrongPicks res.wrong_picks
-#           json.userId res.user_id
-#         end
-#       end
-#     end
-#   end
-# end
