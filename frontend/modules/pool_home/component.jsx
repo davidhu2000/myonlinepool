@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
 import PropTypes from 'prop-types';
-
+import { calculateSeasonStandings } from 'helpers';
 import { PoolStandingsBox } from "common/components";
 import { MessageBox, BulletinBox } from "./subcomponents";
 
@@ -28,6 +28,8 @@ class PoolHome extends React.Component {
   }
 
   render() {
+    // console.log(this.props.pool.standings)
+    calculateSeasonStandings(this.props.pool.standings)
     return (
       <div className="pool-container">
 
