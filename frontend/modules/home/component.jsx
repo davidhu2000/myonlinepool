@@ -63,7 +63,6 @@ class Home extends React.Component {
 
 Home.propTypes = {
   fetchMyPools: PropTypes.func.isRequired,
-  joinPool: PropTypes.func.isRequired,
   fetchAnnouncements: PropTypes.func.isRequired,
   home: PropTypes.shape().isRequired,
   toggleJoinFormModal: PropTypes.func.isRequired

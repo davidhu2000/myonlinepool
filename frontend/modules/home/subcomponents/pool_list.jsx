@@ -1,51 +1,22 @@
 import React from 'react';
-import Modal from 'react-modal';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { Link, hashHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import { values } from 'lodash';
 
 import { PoolListItem } from './';
-import { JoinForm } from './join_form';
-
-import customStyles from './modal_styles.json';
 
 class PoolList extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      modalIsOpen: false
-    };
     autoBind(this);
-  }
-
-  // need an unmount action?
-  componentWillMount() {
-    Modal.setAppElement('body');
-  }
-
-  toggleModal() {
-    this.setState({ modalIsOpen: !this.state.modalIsOpen });
-  }
-
-  submitJoin(e) {
-    e.preventDefault();
-  }
-
-  update(field) {
-    return e => {
-      this.setState({
-        [field]: e.target.value
-      });
-    };
   }
 
   renderList() {
     let pools = values(this.props.pools);
     return pools.map(pool => (
       <PoolListItem
-        key={Math.random()}
+        key={`pool-${pool.id}`}
         title={pool.title}
         id={pool.id}
       />
@@ -64,7 +35,11 @@ class PoolList extends React.Component {
                 Create Pool
               </div>
             </button>
-            <button id="pool-join-button" className="pool-join-button" onClick={this.props.toggleJoinFormModal}>
+            <button
+              id="pool-join-button"
+              className="pool-join-button"
+              onClick={this.props.toggleJoinFormModal}
+            >
               <div>Join Pool</div>
             </button>
           </div>
