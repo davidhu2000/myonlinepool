@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { signout } from 'modules/auth/actions';
-import { removeMember } from './subcomponents/actions';
+import { removeMember } from './actions';
 import Navbar from './navbar';
 
 const mapStateToProps = ({ user, pool }) => ({

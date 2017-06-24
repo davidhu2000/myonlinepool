@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import { hasHistory } from 'react-router';
 
 class ConfirmForm extends React.Component {
   constructor(props) {

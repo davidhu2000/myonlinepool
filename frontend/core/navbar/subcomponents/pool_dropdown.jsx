@@ -4,7 +4,7 @@ import enhanceWithClickOutside from 'react-click-outside';
 import autoBind from 'react-autobind';
 import Modal from 'react-modal';
 import { Link } from 'react-router';
-import { ConfirmForm } from './confirm_form';
+import { ConfirmForm } from './';
 
 import customStyles from './modal_styles.json';
 
@@ -33,6 +33,12 @@ class Dropdown extends React.Component {
     // this.props.toggleLeftDropdown();
   }
 
+  leavePoolButton() {
+    console.log()
+    this.toggleModal();
+    this.props.toggleLeftDropdown();
+  }
+
   render() {
     return (
       <div className="navbar-dropdown" id="pool-dropdown">
@@ -49,9 +55,9 @@ class Dropdown extends React.Component {
           <Link to={`/pool/${this.props.poolId}/leaderboard`} onClick={this.props.toggleLeftDropdown}>
             Leaderboard
           </Link>
-          <div className='remove-button' onClick={this.toggleModal}>
+          <div className='remove-button' onClick={this.leavePoolButton}>
             Leave Pool
-          </div>  
+          </div>
           { this.props.isModerator && (
             <Link to={`/pool/${this.props.poolId}/moderator`} onClick={this.props.toggleLeftDropdown}>
               Moderator
