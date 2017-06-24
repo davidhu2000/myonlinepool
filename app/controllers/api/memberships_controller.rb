@@ -23,7 +23,7 @@ class Api::MembershipsController < ApplicationController
   def destroy
     pool = Pool.find_by(id: params[:pool_id])
 
-    unless pool.moderator_id == current_user.id || current_user.id == params[:user_id]
+    unless pool.moderator_id == current_user.id || current_user.id == params[:user_id].to_i
       return render json: ['Only moderators are allowed to remove other members.'], status: 401
     end
 
@@ -32,7 +32,11 @@ class Api::MembershipsController < ApplicationController
 
     Pick.where(pool_id: params[:pool_id], user_id: params[:user_id]).destroy_all
 
-    render json: ['Member successfully removed']
+    if current_user.id == params[:user_id].to_i
+      render json: ["You successfully left the pool."]
+    else
+      render json: ['Member successfully removed.']
+    end
   end
 
   private 
