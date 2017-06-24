@@ -46,6 +46,7 @@ class User < ApplicationRecord
   has_many :memberships, inverse_of: :user
   has_many :pools, through: :memberships, source: :pool
   has_many :messages
+  has_many :weekly_result_nfls, dependent: :destroy
 
   attr_accessor :password_confirmation
 

@@ -31,6 +31,7 @@ class Api::MembershipsController < ApplicationController
     membership.destroy if membership
 
     Pick.where(pool_id: params[:pool_id], user_id: params[:user_id]).destroy_all
+    WeeklyResultNfl.where(pool_id: params[:pool_id], user_id: params[:user_id]).destroy_all
 
     if current_user.id == params[:user_id].to_i
       render json: ["You successfully left the pool."]
