@@ -12,7 +12,7 @@ class PoolStandingsBox extends React.Component {
   renderItems() {
     let { standings, members } = this.props;
 
-    return sortBy(values(standings), 'correctPicks').reverse().map(standing => (
+    return sortBy(values(standings), 'correctPicks').reverse().slice(0, 10).map(standing => (
       <PoolStandingsBoxItem
         key={Math.random()}
         name={members[standing.userId].name}

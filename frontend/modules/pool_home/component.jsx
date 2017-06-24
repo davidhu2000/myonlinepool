@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { calculateSeasonStandings } from 'helpers';
 import { PoolStandingsBox } from "common/components";
