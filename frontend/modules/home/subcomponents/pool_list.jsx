@@ -64,7 +64,7 @@ class PoolList extends React.Component {
                 Create Pool
               </div>
             </button>
-            <button id="pool-join-button" className="pool-join-button" onClick={this.toggleModal}>
+            <button id="pool-join-button" className="pool-join-button" onClick={this.props.toggleJoinFormModal}>
               <div>Join Pool</div>
             </button>
           </div>
@@ -72,14 +72,6 @@ class PoolList extends React.Component {
         <div className="pool-list-bottom">
           {this.renderList()}
         </div>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.toggleModal}
-          contentLabel="label"
-          style={customStyles}
-        >
-          <JoinForm toggleJoinForm={this.toggleModal} joinPool={this.props.joinPool} />
-        </Modal>
       </div>
     );
   }
@@ -87,7 +79,7 @@ class PoolList extends React.Component {
 
 PoolList.propTypes = {
   pools: PropTypes.shape().isRequired,
-  joinPool: PropTypes.func.isRequired
+  toggleJoinFormModal: PropTypes.func.isRequired
 };
 
 export { PoolList };

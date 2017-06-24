@@ -6,7 +6,6 @@ import { withModal } from 'helpers';
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     autoBind(this);
   }
 
@@ -29,7 +28,7 @@ class Form extends React.Component {
           >
             Confirm
           </button>
-          
+
           <button className="confirm-form-button" onClick={this.props.toggleModal}>
             Cancel
           </button>

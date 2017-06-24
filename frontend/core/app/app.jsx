@@ -6,7 +6,7 @@ import autoBind from 'react-autobind';
 import Navbar from 'core/navbar';
 import Alerts from 'core/alerts';
 
-import { ConfirmForm } from './subcomponents';
+import { ConfirmForm, JoinForm } from './subcomponents';
 
 class App extends React.Component {
   constructor(props) {
@@ -54,6 +54,12 @@ class App extends React.Component {
           modalIsOpen={this.props.modals.showConfirmForm}
           toggleModal={this.props.toggleConfirmFormModal}
         />
+
+        <JoinForm
+          joinPool={this.props.joinPool}
+          modalIsOpen={this.props.modals.showJoinForm}
+          toggleModal={this.props.toggleJoinFormModal}
+        />
       </div>
     );
   }
@@ -63,14 +69,15 @@ App.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   moderatorId: PropTypes.number,
   user: PropTypes.shape().isRequired,
-  params: PropTypes.shape({
-    poolId: PropTypes.string
-  }).isRequired,
-  removeMember: PropTypes.func.isRequired,
   modals: PropTypes.shape({
     showConfirmForm: PropTypes.bool.isRequired,
     showJoinForm: PropTypes.bool.isRequired
   }).isRequired,
+  params: PropTypes.shape({
+    poolId: PropTypes.string
+  }).isRequired,
+  removeMember: PropTypes.func.isRequired,
+  joinPool: PropTypes.func.isRequired,
   toggleConfirmFormModal: PropTypes.func.isRequired,
   toggleJoinFormModal: PropTypes.func.isRequired
 };

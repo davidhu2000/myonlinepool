@@ -10,3 +10,11 @@ export const deleteMember = (userId, poolId) => (
     }
   })
 );
+
+export const joinPool = (identifier, password) => (
+  $.ajax({
+    method: "POST",
+    url: "api/memberships",
+    data: { membership: { identifier, password } }
+  })
+);
