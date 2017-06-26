@@ -1,6 +1,6 @@
 class Api::PicksController < ApplicationController
   def index 
-    all_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
+    all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
     raw_picks = current_user.picks.where(pool_id: params[:poolId], game_id: all_games)
     @picks = {}
 
@@ -30,7 +30,6 @@ class Api::PicksController < ApplicationController
         pick = Pick.new({user_id: current_user.id, game_id: game[:game_id], pool_id: game[:pool_id], pick: game[:pick]})
         pick.save
       end 
-
       @picks[game[:game_id]] = { game_id: pick.game_id, pool_id: pick.pool_id, pick: pick.pick }
     end
     render 'api/picks/index'

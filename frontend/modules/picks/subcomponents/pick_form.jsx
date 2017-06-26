@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { parseTime } from 'helpers';
+import { parseTime, pickable } from 'helpers';
 
 class PickForm extends React.Component {
   constructor(props) {
@@ -13,8 +13,12 @@ class PickForm extends React.Component {
 
   submitPick(pick) {
     let { game, poolId, sendPicks } = this.props;
-
-    if (pick !== game.pick) {
+    let gameTime = new Date(game.start_time);
+    let pickness = pickable(gameTime);
+    console.log(pickness);
+    if (!pickness) {
+      this.props.receiveAlerts(['Game pick locked.'], 422);
+    } else if (pick !== game.pick) {
       let submission = [{
         game_id: game.id,
         pool_id: poolId,
@@ -55,6 +59,15 @@ class PickForm extends React.Component {
     return className;
   }
 
+  renderScore() {
+    let { game } = this.props;
+    if (game.home_score) {
+      return `${game.away_score} - ${game.home_score}`;
+    } else {
+      return 'Pending';
+    }
+  }
+
   render() {
     let { game } = this.props;
     let timeInfo = parseTime(game.start_time);
@@ -91,7 +104,7 @@ class PickForm extends React.Component {
           </div>  
         </div>
         <div className="selection-form-score">
-          {game.away_score} - {game.home_score}
+          {this.renderScore()}
         </div>
         <div className="selection-form-line">
           {game.line}

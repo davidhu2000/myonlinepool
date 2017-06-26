@@ -100,11 +100,25 @@ export const parseTime = string => {
   }
 
   return {
+    year: `${year}`,
+    day: `${day}`,
+    month: `${month}`,
+    hour: `${hour}`,
+    minute: `${minute}`,
     date: `${month}/${day}/${year % 100}`,
     time: `${hour}:${minute}`,
     ampm: `${ampm}`,
     timezone: `${currentTimezone}`
   };
+};
+
+export const pickable = gameTime => {
+  let currentTime = new Date();
+  if (gameTime > currentTime) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 export const calculateSeasonStandings = standings => {

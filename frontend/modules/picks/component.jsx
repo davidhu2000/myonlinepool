@@ -47,6 +47,7 @@ class Picks extends React.Component {
         picks.push(newPick);
       }
     });
+
     if (picks.length > 0) {
       this.props.sendPicks(picks);
     }
@@ -56,6 +57,7 @@ class Picks extends React.Component {
     if (this.props.picks[this.state.week]) {
       return Object.values(this.props.picks[this.state.week]).map(game => (
         <PickForm
+          receiveAlerts={this.props.receiveAlerts}
           key={`pick-${game.game_id}`}
           game={game}
           sendPicks={this.props.sendPicks}
