@@ -29,6 +29,7 @@ class Home extends React.Component {
   componentDidMount() {
     this.props.fetchMyPools();
     this.props.fetchAnnouncements();
+    this.props.fetchSiteStandings();
   }
 
   render() {
@@ -65,7 +66,8 @@ Home.propTypes = {
   fetchMyPools: PropTypes.func.isRequired,
   fetchAnnouncements: PropTypes.func.isRequired,
   home: PropTypes.shape().isRequired,
-  toggleJoinFormModal: PropTypes.func.isRequired
+  toggleJoinFormModal: PropTypes.func.isRequired,
+  fetchSiteStandings: PropTypes.func.isRequired
 };
 
 export default withRouter(Home);

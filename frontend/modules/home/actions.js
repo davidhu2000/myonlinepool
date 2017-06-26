@@ -33,3 +33,15 @@ export const fetchAnnouncements = () => dispatch => (
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );
+
+export const receiveSiteStandings = standings => ({
+  type: HOME.RECEIVE_SITE_STANDINGS,
+  standings
+});
+
+export const fetchSiteStandings = () => dispatch => (
+  HomeAPI.fetchSiteStandings().then(
+    res => dispatch(receiveSiteStandings(res)),
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+  )
+)

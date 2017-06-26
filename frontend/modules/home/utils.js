@@ -20,3 +20,10 @@ export const fetchAnnouncements = () => (
     url: "api/announcements"
   })
 );
+
+export const fetchSiteStandings = () => (
+  $.ajax({
+    method: "GET",
+    url: "api/standings"
+  })
+);
