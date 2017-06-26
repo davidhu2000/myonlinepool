@@ -14,9 +14,10 @@ class Api::PicksController < ApplicationController
       @picks[game.id][:pick] = ""
       @picks[game.id][:home_wins] = records[game.home_id][:wins]
       @picks[game.id][:home_losses] = records[game.home_id][:losses]
-      @picks[game.id][:home_tiess] = records[game.home_id][:losses]
+      @picks[game.id][:home_ties] = records[game.home_id][:ties]
       @picks[game.id][:away_wins] = records[game.away_id][:wins]
       @picks[game.id][:away_losses] = records[game.away_id][:losses]
+      @picks[game.id][:away_ties] = records[game.away_id][:ties]
     end 
     raw_picks.each do |pick| 
       @picks[pick[:game_id]][:pick] = pick.pick 
