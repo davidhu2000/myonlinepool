@@ -17,4 +17,29 @@ class Team < ApplicationRecord
   validates :league, presence: true, inclusion: { in: %w( nfl ) }
 
   has_many :game_nfls
+
+  def self.calculate_team_records(season)
+    games = GameNfl.where(season: season, completed: true)
+    
+    records = Hash.new { |h, k| h[k] = { wins: 0, loses: 0, ties: 0 } }
+
+    games.each do |game|
+      winner = game.home_score <=> game.away_score
+
+      case winner
+        when 1
+          records[game.home_id][:wins] += 1
+          records[game.away_id][:loses] += 1
+        when 0
+          records[game.home_id][:ties] += 1
+          records[game.away_id][:ties] += 1
+        when -1
+          records[game.away_id][:wins] += 1
+          records[game.home_id][:loses] += 1
+      end
+    end
+
+    records
+  end
+
 end
