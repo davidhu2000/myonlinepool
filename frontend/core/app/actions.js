@@ -10,8 +10,8 @@ export const removeMyPool = poolId => ({
 
 export const removeMember = (userId, poolId) => dispatch => (
   AppAPI.deleteMember(userId, poolId).then(
-    () => {
-      dispatch(receiveAlerts(processMessages(['Member successfully removed from pool.'])));
+    res => {
+      dispatch(receiveAlerts(processMessages(res)));
       return dispatch(removeMyPool(poolId));
     },
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))

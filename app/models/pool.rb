@@ -51,6 +51,6 @@ class Pool < ApplicationRecord
   has_many :picks, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :bulletins, dependent: :destroy
-  has_many :weekly_result_nfls
+  has_many :weekly_result_nfls, dependent: :destroy
 
 end
