@@ -9,7 +9,7 @@
 
 .picks-container {
   margin: 20px auto;
-  width: 820px;
+  width: 715px;
   padding: 10px 20px;
   padding-top: 20px;
   display: flex;
@@ -23,7 +23,7 @@
   border-radius: 2px;
 
   .picks-header {
-    width: 780px;
+    width: 675px;
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 10px;
@@ -128,7 +128,7 @@
         flex-direction: column;
       }
 
-      .selection-form-date, .selection-form-time, .selection-form-line, .selection-form-over {
+      .selection-form-date, .selection-form-time, .selection-form-line, .selection-form-score {
         height: 88px;
         width: 95px;
         border-right: .2px rgba(51, 51, 51,.2) solid;
@@ -138,19 +138,32 @@
       }
 
       .selection-form-time {
-        font-size: 20px;
-      }
-
-      .time-props {
-        padding-left: 3px;  
-        font-size: 8px;
+        font-size: 17px;
         display: flex;
         flex-direction: column;
+
+        .time-row {
+        display: flex;
         justify-content: center;
         align-items: center;
-        div {
-          line-height: 8px;
+        flex-direction: row;
         }
+
+        .time-props {
+          padding-left: 3px;  
+          font-size: 8px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          div {
+            line-height: 8px;
+          }
+        }
+      }
+
+      .selection-form-line {
+        flex-direction: column;
       }
 
       .pick-button {

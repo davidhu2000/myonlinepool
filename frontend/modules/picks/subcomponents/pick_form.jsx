@@ -76,18 +76,27 @@ class PickForm extends React.Component {
             </div>
           </div>
         </label>
-        <div className="selection-form-date">{timeInfo.date}</div>
         <div className="selection-form-time">
-          <div>
-            {timeInfo.time}
+          <div className="time-row">
+            <div>
+              {timeInfo.time}
+            </div>
+            <div className='time-props'>
+              <div>{timeInfo.ampm}</div>
+              <div>{timeInfo.timezone}</div>
+            </div>  
           </div>
-          <div className='time-props'>
-            <div>{timeInfo.ampm}</div>
-            <div>{timeInfo.timezone}</div>
+          <div className="date-row"> 
+            {timeInfo.date}
           </div>  
         </div>
-        <div className="selection-form-line">{game.line}</div>
-        <div className="selection-form-over">{game.spread}</div>
+        <div className="selection-form-score">
+          {game.away_score} - {game.home_score}
+        </div>
+        <div className="selection-form-line">
+          {game.line}
+          {game.spread}
+        </div>
         <label className={this.renderHomeClassName()}>
           <div className="selection-form-home-name">
             <div>

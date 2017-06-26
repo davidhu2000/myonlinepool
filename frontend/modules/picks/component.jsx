@@ -36,7 +36,7 @@ class Picks extends React.Component {
 
   pickHomers() {
     let picks = [];
-    Object.values(this.props.picks).forEach(game => {
+    Object.values(this.props.picks[this.state.week]).forEach(game => {
       if (game.pick === '') {
         let newPick = {
           game_id: game.game_id,
@@ -49,8 +49,6 @@ class Picks extends React.Component {
     });
     if (picks.length > 0) {
       this.props.sendPicks(picks);
-    } else {
-      this.props.receiveAlerts(['Every game is already picked.'], 422);
     }
   }
 
@@ -99,10 +97,9 @@ class Picks extends React.Component {
         <div className="picks-selections">
           <div className="picks-labels">
             <div>Away</div>
-            <div>Date</div>
             <div>Time</div>
+            <div>Score</div>
             <div>Line</div>
-            <div>Spread</div>
             <div>Home</div>
           </div>
           { this.renderSelections() }
