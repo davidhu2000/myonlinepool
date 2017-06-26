@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :bulletins, only: [:index, :create]
     delete 'bulletins', to: 'bulletins#destroy'
 
+    get 'standings', to: 'standings#index'
+
     namespace :auth do 
       post 'registrations/confirm', to: 'registrations#update'
       resources :registrations, only: [:create]
