@@ -29,9 +29,15 @@ $off-white: #e9ebee;
     color: inherit;
   }
 
+  .title {
+    height: 20px;
+    width: 175px;
+    text-overflow: ellipsis !important;
+  }
+
   div {
     text-align: left;
-    width: 125px;
+    width: 100px;
   }
 }
 
@@ -42,12 +48,12 @@ $off-white: #e9ebee;
   font-weight: bold;
   font-size: 15px;
 
-  .title, .pool {
-    width: 125px;
+  .title{
+    width: 175px;
   }
 
   .score, .losses {
-    width: 125px;
+    width: 100px;
   }
 
   div:nth-child(3) {
