@@ -23,7 +23,8 @@
   border-radius: 2px;
 
   .picks-header {
-    width: 675px;
+    width: 685px;
+    padding-left: 19px;
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 10px;
@@ -31,12 +32,17 @@
     display: flex;
     justify-content: space-between;
     box-sizing: border-box !important;
+    position: relative;
 
-    i:first-child {
-      padding-right: 10px;
+    .fa-caret-left {
+      position: absolute;
+      bottom: 16px;
+      left: 0px;
+      // padding-right: 10px;
     }
 
-    i:last-child {
+    .fa-caret-right {
+      // right: 10px;
       padding-left: 10px;
     }
 
