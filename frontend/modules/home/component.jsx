@@ -8,9 +8,17 @@ import { PoolList } from './subcomponents';
 class Home extends React.Component {
 
   componentDidMount() {
-    this.props.fetchMyPools();
-    this.props.fetchAnnouncements();
-    this.props.fetchSiteStandings();
+    let { home } = this.props;
+    if (Object.keys(home.myPools).length === 0) {
+      this.props.fetchMyPools();
+    }
+    if (home.announcements.length === 0) {
+      this.props.fetchAnnouncements();
+    }
+
+    if (home.weeklyStandings.length === 0 || home.seasonStandings.length === 0) {
+      this.props.fetchSiteStandings();
+    }
   }
 
   render() {
