@@ -25,12 +25,42 @@ class PickForm extends React.Component {
     }
   }
 
+  renderAwayClassName() {
+    let className = 'selection-form-away';
+    let { game } = this.props;
+      if (game.pick === 'away' && game.away_score > game.home_score) {
+        className += ' correct-pick-button';
+      } else if (game.pick === 'away' && game.away_score < game.home_score) {
+        className += ' incorrect-pick-button';
+      } else {
+        if (game.pick === 'away') {
+          className += ' selected-button';
+        }
+      }
+    return className;
+  }
+
+  renderHomeClassName() {
+    let className = 'selection-form-home';
+    let { game } = this.props;
+      if (game.pick === 'home' && game.away_score > game.home_score) {
+        className += ' correct-pick-button';
+      } else if (game.pick === 'home' && game.away_score < game.home_score) {
+        className += ' incorrect-pick-button';
+      } else {
+        if (game.pick === 'home') {
+          className += ' selected-button';
+        }
+      }
+    return className;
+  }
+
   render() {
     let { game } = this.props;
     let timeInfo = parseTime(game.start_time);
     return (
       <div className="selection-item">
-        <label className={`selection-form-away ${game.pick === 'away' ? 'selected-button' : ''}`}>
+        <label className={this.renderAwayClassName()}>
           <button onClick={() => this.submitPick("away")} />
           <img
             className="pick-button pick-away-button"
@@ -58,7 +88,7 @@ class PickForm extends React.Component {
         </div>
         <div className="selection-form-line">{game.line}</div>
         <div className="selection-form-over">{game.spread}</div>
-        <label className={`selection-form-home ${game.pick === 'home' ? 'selected-button' : ''}`}>
+        <label className={this.renderHomeClassName()}>
           <div className="selection-form-home-name">
             <div>
               {game.home.toUpperCase()}
