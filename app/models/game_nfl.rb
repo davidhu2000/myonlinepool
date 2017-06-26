@@ -23,8 +23,8 @@ class GameNfl < ApplicationRecord
   validates :season, presence: true, numericality: { only_integer: true, greater_than: 2000 }
   validates :home, presence: true
   validates :away, presence: true
-  validates :home_score, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :away_score, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :home_score, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
+  validates :away_score, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
   validates :completed, inclusion: { in: [true, false] }
   validates :evaluated, inclusion: { in: [true, false] }
 

@@ -27,7 +27,7 @@ class PickForm extends React.Component {
 
   render() {
     let { game } = this.props;
-    let timeInfo = parseTime(game.start_time)
+    let timeInfo = parseTime(game.start_time);
     return (
       <div className="selection-item">
         <label className={`selection-form-away ${game.pick === 'away' ? 'selected-button' : ''}`}>

@@ -71,11 +71,6 @@ export const parseTime = string => {
     minute = `0${minute}`;
   }
 
-  let ampm = hour / 12 >= 1 ? 'PM' : 'AM';
-  if (hour !== 12) {
-    hour %= 12;
-  }
-
   let timezones = {
     420: 'PT',
     360: 'MT',
@@ -83,7 +78,26 @@ export const parseTime = string => {
     240: 'ET'
   };
 
-  let currentTimezone = timezones[date.getTimezoneOffset()];
+  const checkIfDaylightSavings = () => {
+    let jan = new Date(new Date().getFullYear(), 0, 1);
+    let jul = new Date(new Date().getFullYear(), 6, 1);
+    let offset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+    if (offset <= date.getTimezoneOffset()){
+      hour += 1;
+      return 1;
+    }
+
+    return 0;
+  };
+
+  let standardOffset = date.getTimezoneOffset() - checkIfDaylightSavings() * 60;
+
+  let currentTimezone = timezones[standardOffset];
+
+  let ampm = hour / 12 >= 1 ? 'PM' : 'AM';
+  if (hour !== 12) {
+    hour %= 12;
+  }
 
   return {
     date: `${month}/${day}/${year % 100}`,
