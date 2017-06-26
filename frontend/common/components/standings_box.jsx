@@ -3,11 +3,6 @@ import PropTypes from 'prop-types';
 import { StandingsBoxItem } from './standings_box_item';
 
 class StandingsBox extends React.Component {
-  constructor(props) {
-    super(props);
-    this.genList = this.genList.bind(this);
-  }
-
   renderList() {
     return this.props.standings.map(standing => (
       <StandingsBoxItem
