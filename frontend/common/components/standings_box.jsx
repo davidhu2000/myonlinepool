@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 import { StandingsBoxItem } from './standings_box_item';
 
 class StandingsBox extends React.Component {
@@ -8,16 +8,12 @@ class StandingsBox extends React.Component {
     this.genList = this.genList.bind(this);
   }
 
-  genList() {
-    let stands = this.props.Standings;
-    return stands.map( standing => (
+  renderList() {
+    return this.props.standings.map(standing => (
       <StandingsBoxItem
         key={Math.random()}
-        Name={standing.name}
-        Score={standing.score}
-        Losses={standing.losses}
-        Pool={standing.pool}
-        />
+        standing={standing}
+      />
     ));
   }
 
@@ -26,20 +22,24 @@ class StandingsBox extends React.Component {
       <div className="standings-box">
         <div className="standings-box-title">
           <h1>
-            {this.props.Title}
+            {this.props.title}
           </h1>
         </div>
         <div className="standings-box-top-item">
-            <div className="title">Player</div>
-            <div className="score">Wins</div>
-            <div className="losses">Losses</div>
-            <div className="pool">Pool</div>
+          <div className="title">Player</div>
+          <div className="score">Wins</div>
+          <div className="losses">Losses</div>
+          <div className="pool">Pool</div>
         </div>
-        {this.genList()}
+        {this.renderList()}
       </div>
     );
   }
-
 }
+
+StandingsBox.propTypes = {
+  title: PropTypes.string.isRequired,
+  standings: PropTypes.arrayOf(PropTypes.shape()).isRequired
+};
 
 export { StandingsBox };

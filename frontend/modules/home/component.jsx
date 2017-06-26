@@ -49,12 +49,12 @@ class Home extends React.Component {
         </div>
         <div className="home-bottom">
           <StandingsBox
-            Title="Weekly Leaders"
-            Standings={this.state.standings}
+            title="Weekly Leaders"
+            standings={this.props.home.weeklyStandings}
           />
           <StandingsBox
-            Title="Season Leaders"
-            Standings={this.state.standings}
+            title="Season Leaders"
+            standings={this.props.home.seasonStandings}
           />
         </div>
       </div>
@@ -65,9 +65,9 @@ class Home extends React.Component {
 Home.propTypes = {
   fetchMyPools: PropTypes.func.isRequired,
   fetchAnnouncements: PropTypes.func.isRequired,
-  home: PropTypes.shape().isRequired,
   toggleJoinFormModal: PropTypes.func.isRequired,
-  fetchSiteStandings: PropTypes.func.isRequired
+  fetchSiteStandings: PropTypes.func.isRequired,
+  home: PropTypes.shape().isRequired,
 };
 
 export default withRouter(Home);
