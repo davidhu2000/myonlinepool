@@ -1,7 +1,7 @@
 @import 'pick_form.scss';
 
 .picks-container {
-  // width: 870px;
+  min-width: 870px;
   width: 95%;
   // padding: 20px 0px;
   padding-bottom: 20px;
@@ -16,6 +16,7 @@
   overflow: hidden;
 
   .picks-top {
+    min-width: 870px;      
     position: fixed;
     top: 60px;
     z-index: 50;
@@ -56,9 +57,9 @@
     }
 
     button {
-      height: 37px;
+      height: 40px;
       width: 135px;
-      font-size: 17px;
+      font-size: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -90,7 +91,6 @@
     div {
       width: 95px;
       text-align: center;
-      // font-weight: bold;
     }
 
     div:first-child {
