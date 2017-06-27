@@ -93,8 +93,10 @@ class PickForm extends React.Component {
           {this.renderScore()}
         </div>
         <div className="selection-form-line">
-          {game.line}
-          {game.spread}
+            {game.line}
+        </div>
+        <div className="selection-form-spread">   
+            {game.spread}
         </div>
         <label className={this.renderClassName('home')}>
           <div className="selection-form-home-name">

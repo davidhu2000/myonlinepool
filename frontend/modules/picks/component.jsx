@@ -102,6 +102,7 @@ class Picks extends React.Component {
             <div>Time</div>
             <div>Score</div>
             <div>Line</div>
+            <div>Spread</div>
             <div>Home</div>
           </div>
           { this.renderSelections() }

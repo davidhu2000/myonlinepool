@@ -140,9 +140,9 @@
         flex-direction: column;
       }
 
-      .selection-form-date, .selection-form-time, .selection-form-line, .selection-form-score {
+      .selection-form-spread, .selection-form-date, .selection-form-time, .selection-form-line, .selection-form-score {
         height: 88px;
-        width: 95px;
+        width: 92.5px;
         border-right: .2px rgba(51, 51, 51,.2) solid;
         display: flex;
         justify-content: center;
@@ -232,7 +232,7 @@
     .incorrect-pick-button {
       background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
       border: .5px $drk-primary solid;
-      color: #FF3366;
+      color: #A71D31;
       border-right: none;
       border-left: none;
     }
