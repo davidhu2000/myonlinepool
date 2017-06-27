@@ -47,9 +47,9 @@ class PickForm extends React.Component {
   renderHomeClassName() {
     let className = 'selection-form-home';
     let { game } = this.props;
-    if (game.pick === 'home' && game.away_score > game.home_score) {
+    if (game.pick === 'home' && game.home_score > game.away_score) {
       className += ' correct-pick-button';
-    } else if (game.pick === 'home' && game.away_score < game.home_score) {
+    } else if (game.pick === 'home' && game.home_score < game.away_score) {
       className += ' incorrect-pick-button';
     } else {
       if (game.pick === 'home') {
