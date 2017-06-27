@@ -70,40 +70,45 @@ class Picks extends React.Component {
   render() {
     return (
       <div className="picks-container">
-        <div className="picks-header">
-          <div>
-            { this.state.week > 1 && (
-              <i
-                onClick={() => this.updateWeek(-1)}
-                className="fa fa-caret-left"
-                aria-hidden="true"
-              />
-            )}
+        <div className="picks-top">
+          <div className="picks-header">
+            <div>
+              { this.state.week > 1 && (
+                <i
+                  onClick={() => this.updateWeek(-1)}
+                  className="fa fa-caret-left"
+                  aria-hidden="true"
+                />
+              )}
 
-            Week {this.state.week}
+              Week {this.state.week}
 
-            { this.state.week < 17 && (
-              <i
-                onClick={() => this.updateWeek(1)}
-                className="fa fa-caret-right"
-                aria-hidden="true"
-              />
-            )}
-          </div>
-          <div>
-            <button onClick={this.pickHomers}>
-              Auto-Pick
-            </button>
-          </div>
-        </div>
-        <div className="picks-selections">
+              { this.state.week < 17 && (
+                <i
+                  onClick={() => this.updateWeek(1)}
+                  className="fa fa-caret-right"
+                  aria-hidden="true"
+                />
+              )}
+            </div>
+            <div>
+              <button onClick={this.pickHomers}>
+                Auto-Pick
+              </button>
+            </div>
+          </div>  
           <div className="picks-labels">
             <div>Away</div>
             <div>Time</div>
-            <div>Score</div>
             <div>Line</div>
+            <div>Spread</div>
+            <div>Score</div>
             <div>Home</div>
           </div>
+        
+        </div>
+        <div className="picks-selections">
+          
           { this.renderSelections() }
         </div>
       </div>
