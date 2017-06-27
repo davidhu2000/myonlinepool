@@ -34,16 +34,26 @@ class Api::PicksController < ApplicationController
   def create
     @picks = {}
     @week = nil
+    current_time = DateTime.parse(get_current_time["currentDateTime"])
+
     params[:picks].each do |key, game|
       @week ||= game[:week]
-      pick = Pick.find_by(user_id: current_user.id, game_id: game[:game_id], pool_id: game[:pool_id])
-      if pick 
-        pick.update(pick: game[:pick])
-      else 
-        pick = Pick.new({user_id: current_user.id, game_id: game[:game_id], pool_id: game[:pool_id], pick: game[:pick]})
+      p games[game[:game_id].to_i].start_time
+      p current_time < games[game[:game_id].to_i].start_time
+      if current_time < games[game[:game_id].to_i].start_time
+        pick = Pick.find_or_initialize_by(
+          user_id: current_user.id, 
+          game_id: game[:game_id], 
+          pool_id: game[:pool_id]
+        )
+
+        pick.pick = game[:pick]
         pick.save
-      end 
-      @picks[game[:game_id]] = { game_id: pick.game_id, pool_id: pick.pool_id, pick: pick.pick }
+
+        @picks[game[:game_id]] = { game_id: pick.game_id, pool_id: pick.pool_id, pick: pick.pick }
+      else 
+        return render json: ['Pick locked'], status: 422
+      end
     end
     render 'api/picks/index'
   end
