@@ -1,8 +1,10 @@
 .picks-container {
-  margin: 20px auto;
-  width: 715px;
-  padding: 10px 20px;
-  padding-top: 20px;
+  // margin: 20px auto;
+  // width: 715px;
+  width: 870px;
+  padding: 20px 0px;
+  // padding: 10px 20px;
+  // padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,12 +14,13 @@
   border-radius: 2px;
 
   .picks-header {
-    width: 685px;
-    padding-left: 19px;
+    // width: 685px;
+    // padding-left: 19px;
+    width: 100%;
     font-size: 25px;
     font-weight: bold;
     padding-bottom: 10px;
-    transition: .5s;
+    
     display: flex;
     justify-content: space-between;
     box-sizing: border-box !important;
@@ -35,6 +38,10 @@
       padding-left: 10px;
     }
 
+    i {
+      transition: .3s;
+    }
+
     i:hover {
       opacity: .5;
       cursor: pointer;
@@ -50,7 +57,7 @@
       border-radius: 3px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       background: $drk-primary;
-      transition: .2s;
+      transition: .3s;
       color: white;
     }
     button:hover {
@@ -61,6 +68,7 @@
   }
 
   .picks-selections {
+    width: 100%;
     
     .picks-labels {
       padding-bottom: 10px;
@@ -94,7 +102,9 @@
       flex-direction: row;
       flex: 0 0 auto;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-      background: white;
+      // background: white;
+      background: $lt-primary;
+      color: white;
 
       label {
         width: 200px;
