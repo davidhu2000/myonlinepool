@@ -15,7 +15,7 @@
 
   .picks-header {
     // width: 685px;
-    // padding-left: 19px;
+    padding-left: 19px;
     width: 100%;
     font-size: 25px;
     font-weight: bold;
@@ -108,13 +108,14 @@
       color: white;
 
       label {
+        height: 90px;
         width: 250px;
         display: flex;
         cursor: pointer;
       }
 
       label:first-child {
-        border-right: .2px rgba(51, 51, 51,.2) solid;
+        // border-right: .2px rgba(51, 51, 51,.2) solid;
       }
 
       label:hover {
@@ -122,8 +123,9 @@
           transform: scale(1.05,1.05);
         }
         // background: rgba(17, 96, 162, .2);
-        background: white;
-        color: black;
+        background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
+        color: $drk-primary;
+        border: .5px $drk-primary solid;
       }
     }
 
@@ -213,15 +215,25 @@
     }
 
     .selected-button {
-      background: rgba(17, 96, 162, .2);
+      // background: rgba(17, 96, 162, .2);
+      background: white;
+      color: black;
     }
 
     .correct-pick-button {
-      background: #90C695;
+      background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
+      color: black;
+      border: .5px $drk-primary solid;
+      border-right: none;
+      border-left: none;
     }
 
     .incorrect-pick-button {
-      background: #EC644B;
+      background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
+      border: .5px $drk-primary solid;
+      color: #FF3366;
+      border-right: none;
+      border-left: none;
     }
   }
 
