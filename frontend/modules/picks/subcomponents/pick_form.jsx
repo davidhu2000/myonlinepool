@@ -32,30 +32,30 @@ class PickForm extends React.Component {
   renderAwayClassName() {
     let className = 'selection-form-away';
     let { game } = this.props;
-      if (game.pick === 'away' && game.away_score > game.home_score) {
-        className += ' correct-pick-button';
-      } else if (game.pick === 'away' && game.away_score < game.home_score) {
-        className += ' incorrect-pick-button';
-      } else {
-        if (game.pick === 'away') {
-          className += ' selected-button';
-        }
+    if (game.pick === 'away' && game.away_score > game.home_score) {
+      className += ' correct-pick-button';
+    } else if (game.pick === 'away' && game.away_score < game.home_score) {
+      className += ' incorrect-pick-button';
+    } else {
+      if (game.pick === 'away') {
+        className += ' selected-button';
       }
+    }
     return className;
   }
 
   renderHomeClassName() {
     let className = 'selection-form-home';
     let { game } = this.props;
-      if (game.pick === 'home' && game.away_score > game.home_score) {
-        className += ' correct-pick-button';
-      } else if (game.pick === 'home' && game.away_score < game.home_score) {
-        className += ' incorrect-pick-button';
-      } else {
-        if (game.pick === 'home') {
-          className += ' selected-button';
-        }
+    if (game.pick === 'home' && game.away_score > game.home_score) {
+      className += ' correct-pick-button';
+    } else if (game.pick === 'home' && game.away_score < game.home_score) {
+      className += ' incorrect-pick-button';
+    } else {
+      if (game.pick === 'home') {
+        className += ' selected-button';
       }
+    }
     return className;
   }
 
@@ -85,7 +85,7 @@ class PickForm extends React.Component {
               {game.away.toUpperCase()}
             </div>
             <div>
-              {game.away_wins} - {game.away_losses}
+              {game.away_wins} - {game.away_losses} - {game.away_ties}
             </div>
           </div>
         </label>
@@ -97,11 +97,11 @@ class PickForm extends React.Component {
             <div className='time-props'>
               <div>{timeInfo.ampm}</div>
               <div>{timeInfo.timezone}</div>
-            </div>  
+            </div>
           </div>
-          <div className="date-row"> 
+          <div className="date-row">
             {timeInfo.date}
-          </div>  
+          </div>
         </div>
         <div className="selection-form-score">
           {this.renderScore()}
@@ -116,7 +116,7 @@ class PickForm extends React.Component {
               {game.home.toUpperCase()}
             </div>
             <div>
-              {game.home_wins} - {game.home_losses}
+              {game.home_wins} - {game.home_losses} - {game.home_ties }
             </div>
           </div>
           <button onClick={() => this.submitPick("home")} />
