@@ -1,8 +1,8 @@
 import React from 'react';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 import { GameItem } from './subcomponents/game_item';
 import { withRouter } from 'react-router';
-// import PropTypes from 'prop-types';
 
 class Console extends React.Component {
   constructor(props) {
@@ -82,7 +82,7 @@ class Console extends React.Component {
             </div>
             <div>
               <button>
-                Fetch Games
+                Run Update
               </button>
             </div>
           </div>
@@ -101,7 +101,11 @@ class Console extends React.Component {
       </div>
     );
   }
-
 }
+
+Console.propTypes = {
+  games: PropTypes.shape().isRequired,
+  userId: PropTypes.string.isRequired
+};
 
 export default withRouter(Console);
