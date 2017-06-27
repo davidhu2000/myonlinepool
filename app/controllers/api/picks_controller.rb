@@ -8,7 +8,7 @@ class Api::PicksController < ApplicationController
     
     current_time = DateTime.parse(get_current_time["currentDateTime"])
 
-    all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
+    all_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
     raw_picks = current_user.picks.where(pool_id: params[:poolId], game_id: all_games)
     @picks = {}
 
@@ -41,7 +41,7 @@ class Api::PicksController < ApplicationController
     params[:picks].each do |key, game|
       @week ||= game[:week]
 
-      if current_time < games[game[:game_id].to_i].start_time
+      if current_time < GameNfl.find_by(id: game[:game_id]).start_time
         pick = Pick.find_or_initialize_by(
           user_id: current_user.id, 
           game_id: game[:game_id], 
