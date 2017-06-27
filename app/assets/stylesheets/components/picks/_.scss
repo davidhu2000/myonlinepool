@@ -3,25 +3,38 @@
 .picks-container {
   // width: 870px;
   width: 95%;
-  padding: 20px 0px;
+  // padding: 20px 0px;
+  padding-bottom: 20px;
+  padding-top: 125px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   // font-weight: bold;
   border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+
+  .picks-top {
+    position: fixed;
+    top: 60px;
+    z-index: 50;
+    width: 90.25%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+  }
 
   .picks-header {
     padding-left: 19px;
-    width: 100%;
     font-size: 25px;
     padding-bottom: 10px;
     font-weight: bold;
-    
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     box-sizing: border-box !important;
-    position: relative;
 
     .fa-caret-left {
       position: absolute;
