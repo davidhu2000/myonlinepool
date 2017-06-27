@@ -11,8 +11,17 @@ class Api::PoolsController < ApplicationController
     @pool.moderator_id = current_user.id
 
     @pool.memberships.new(user_id: current_user.id)
-
+    @standings = {}
     if @pool.save
+      @standings[0] = {
+        current_user.id => WeeklyResultNfl.new(
+          season: 2016,
+          week: 0,
+          correct_picks: 0,
+          wrong_picks: 0,
+          user_id: current_user.id
+        )
+      }
       render 'api/pools/show'
     else
       render json: @pool.errors.full_messages, status: 422

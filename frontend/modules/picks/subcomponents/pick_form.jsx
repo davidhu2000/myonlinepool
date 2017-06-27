@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { parseTime, pickable } from 'helpers';
+import { parseTime } from 'helpers';
 
 class PickForm extends React.Component {
   constructor(props) {
@@ -13,10 +12,8 @@ class PickForm extends React.Component {
 
   submitPick(pick) {
     let { game, poolId, sendPicks } = this.props;
-    let gameTime = new Date(game.start_time);
-    let pickness = pickable(gameTime);
-    console.log(pickness);
-    if (!pickness) {
+
+    if (game.pick_locked) {
       this.props.receiveAlerts(['Game pick locked.'], 422);
     } else if (pick !== game.pick) {
       let submission = [{
@@ -29,33 +26,22 @@ class PickForm extends React.Component {
     }
   }
 
-  renderAwayClassName() {
-    let className = 'selection-form-away';
+  renderClassName(type) {
+    let className = `selection-form-${type}`;
     let { game } = this.props;
-      if (game.pick === 'away' && game.away_score > game.home_score) {
-        className += ' correct-pick-button';
-      } else if (game.pick === 'away' && game.away_score < game.home_score) {
-        className += ' incorrect-pick-button';
-      } else {
-        if (game.pick === 'away') {
-          className += ' selected-button';
-        }
-      }
-    return className;
-  }
+    let other = type === 'home' ? 'away' : 'home';
 
-  renderHomeClassName() {
-    let className = 'selection-form-home';
-    let { game } = this.props;
-      if (game.pick === 'home' && game.away_score > game.home_score) {
-        className += ' correct-pick-button';
-      } else if (game.pick === 'home' && game.away_score < game.home_score) {
-        className += ' incorrect-pick-button';
-      } else {
-        if (game.pick === 'home') {
-          className += ' selected-button';
+    if (game.completed) {
+      if (game.pick === type) {
+        if (game[`${type}_score`] > game[`${other}_score`]) {
+          className += ' correct-pick-button';
+        } else {
+          className += ' incorrect-pick-button';
         }
       }
+    } else if (game.pick === type) {
+      className += ' selected-button';
+    }
     return className;
   }
 
@@ -73,7 +59,7 @@ class PickForm extends React.Component {
     let timeInfo = parseTime(game.start_time);
     return (
       <div className="selection-item">
-        <label className={this.renderAwayClassName()}>
+        <label className={this.renderClassName('away')}>
           <button onClick={() => this.submitPick("away")} />
           <img
             className="pick-button pick-away-button"
@@ -85,7 +71,7 @@ class PickForm extends React.Component {
               {game.away.toUpperCase()}
             </div>
             <div>
-              {game.away_wins} - {game.away_losses}
+              {game.away_wins} - {game.away_losses} - {game.away_ties}
             </div>
           </div>
         </label>
@@ -97,11 +83,11 @@ class PickForm extends React.Component {
             <div className='time-props'>
               <div>{timeInfo.ampm}</div>
               <div>{timeInfo.timezone}</div>
-            </div>  
+            </div>
           </div>
-          <div className="date-row"> 
+          <div className="date-row">
             {timeInfo.date}
-          </div>  
+          </div>
         </div>
         <div className="selection-form-score">
           {this.renderScore()}
@@ -110,13 +96,13 @@ class PickForm extends React.Component {
           {game.line}
           {game.spread}
         </div>
-        <label className={this.renderHomeClassName()}>
+        <label className={this.renderClassName('home')}>
           <div className="selection-form-home-name">
             <div>
               {game.home.toUpperCase()}
             </div>
             <div>
-              {game.home_wins} - {game.home_losses}
+              {game.home_wins} - {game.home_losses} - {game.home_ties }
             </div>
           </div>
           <button onClick={() => this.submitPick("home")} />
@@ -134,7 +120,8 @@ class PickForm extends React.Component {
 PickForm.propTypes = {
   game: PropTypes.shape().isRequired,
   poolId: PropTypes.string.isRequired,
-  sendPicks: PropTypes.func.isRequired
+  sendPicks: PropTypes.func.isRequired,
+  receiveAlerts: PropTypes.func.isRequired
 };
 
 export { PickForm };
