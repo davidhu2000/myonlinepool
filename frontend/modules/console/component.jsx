@@ -59,8 +59,8 @@ class Console extends React.Component {
   render() {
     return (
       <div className="console-container">
-        <div className="games-top">
-          <div className="games-header">
+        <div className="console-top">
+          <div className="console-header">
             <div>
               { this.state.week > 1 && (
                 <i
@@ -80,8 +80,13 @@ class Console extends React.Component {
                 />
               )}
             </div>
+            <div>
+              <button>
+                Create Game
+              </button>
+            </div>
           </div>
-          <div className="Games-labels">
+          <div className="console-labels">
             <div>Away</div>
             <div>Away Score</div>
             <div>Home</div>
@@ -90,7 +95,9 @@ class Console extends React.Component {
             <div>Spread</div>
           </div>
         </div>
-        {this.renderGames()}
+        <div className="game-list">
+          {this.renderGames()}
+        </div>
       </div>
     );
   }

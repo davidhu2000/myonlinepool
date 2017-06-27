@@ -14,19 +14,19 @@ class GameItem extends React.Component {
           {game.away_team}
         </div>
         <div>
-          {game.home_team}
+          {game.away_score}
         </div>
         <div>
-          {game.away_score}
+          {game.home_team}
         </div>
         <div>
           {game.home_score}
         </div>
         <div>
-          {game.spread}
+          {game.line}
         </div>
         <div>
-          {game.line}
+          {game.spread}
         </div>
       </div>
     );
