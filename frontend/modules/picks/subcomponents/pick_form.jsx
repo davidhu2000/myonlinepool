@@ -29,32 +29,21 @@ class PickForm extends React.Component {
     }
   }
 
-  renderAwayClassName() {
-    let className = 'selection-form-away';
+  renderClassName(type) {
+    let className = `selection-form-${type}`;
     let { game } = this.props;
-    if (game.pick === 'away' && game.away_score > game.home_score) {
-      className += ' correct-pick-button';
-    } else if (game.pick === 'away' && game.away_score < game.home_score) {
-      className += ' incorrect-pick-button';
-    } else {
-      if (game.pick === 'away') {
-        className += ' selected-button';
-      }
-    }
-    return className;
-  }
+    let other = type === 'home' ? 'away' : 'home';
 
-  renderHomeClassName() {
-    let className = 'selection-form-home';
-    let { game } = this.props;
-    if (game.pick === 'home' && game.home_score > game.away_score) {
-      className += ' correct-pick-button';
-    } else if (game.pick === 'home' && game.home_score < game.away_score) {
-      className += ' incorrect-pick-button';
-    } else {
-      if (game.pick === 'home') {
-        className += ' selected-button';
+    if (game.completed) {
+      if (game.pick === type) {
+        if (game[`${type}_score`] > game[`${other}_score`]) {
+          className += ' correct-pick-button';
+        } else {
+          className += ' incorrect-pick-button';
+        }
       }
+    } else if (game.pick === type) {
+      className += ' selected-button';
     }
     return className;
   }
@@ -73,7 +62,7 @@ class PickForm extends React.Component {
     let timeInfo = parseTime(game.start_time);
     return (
       <div className="selection-item">
-        <label className={this.renderAwayClassName()}>
+        <label className={this.renderClassName('away')}>
           <button onClick={() => this.submitPick("away")} />
           <img
             className="pick-button pick-away-button"
@@ -110,7 +99,7 @@ class PickForm extends React.Component {
           {game.line}
           {game.spread}
         </div>
-        <label className={this.renderHomeClassName()}>
+        <label className={this.renderClassName('home')}>
           <div className="selection-form-home-name">
             <div>
               {game.home.toUpperCase()}
