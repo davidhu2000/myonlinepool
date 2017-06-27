@@ -2,8 +2,10 @@ require 'net/http'
 require 'json'
 
 class Api::PicksController < ApplicationController
-  def index 
+  def index
+    # TODO: only do this the first time picks are rendered.
     records = Team.calculate_team_records(2016)
+    
     current_time = DateTime.parse(get_current_time["currentDateTime"])
 
     all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
