@@ -88,11 +88,11 @@
       }
 
       div:first-child {
-        width: 200px;
+        width: 250px;
       }
 
       div:last-child {
-        width: 200px;
+        width: 250px;
       }
     }
    
@@ -108,7 +108,7 @@
       color: white;
 
       label {
-        width: 200px;
+        width: 250px;
         display: flex;
         cursor: pointer;
       }
@@ -129,7 +129,8 @@
 
       .selection-form-home-name, .selection-form-away-name {
         height: 88px;
-        width: 121.78px;
+        margin: 0 auto;
+        // width: 121.78px;
         display: flex;
         justify-content: center;
         align-items: center;
