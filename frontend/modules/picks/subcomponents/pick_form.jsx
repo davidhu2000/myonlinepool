@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { parseTime, pickable } from 'helpers';
+import { parseTime } from 'helpers';
 
 class PickForm extends React.Component {
   constructor(props) {
@@ -13,10 +12,8 @@ class PickForm extends React.Component {
 
   submitPick(pick) {
     let { game, poolId, sendPicks } = this.props;
-    let gameTime = new Date(game.start_time);
-    let pickness = pickable(gameTime);
-    console.log(pickness);
-    if (!pickness) {
+
+    if (game.pick_locked) {
       this.props.receiveAlerts(['Game pick locked.'], 422);
     } else if (pick !== game.pick) {
       let submission = [{
@@ -123,7 +120,8 @@ class PickForm extends React.Component {
 PickForm.propTypes = {
   game: PropTypes.shape().isRequired,
   poolId: PropTypes.string.isRequired,
-  sendPicks: PropTypes.func.isRequired
+  sendPicks: PropTypes.func.isRequired,
+  receiveAlerts: PropTypes.func.isRequired
 };
 
 export { PickForm };
