@@ -89,14 +89,14 @@ class PickForm extends React.Component {
             {timeInfo.date}
           </div>
         </div>
-        <div className="selection-form-score">
-          {this.renderScore()}
-        </div>
         <div className="selection-form-line">
             {game.line}
         </div>
         <div className="selection-form-spread">   
             {game.spread}
+        </div>
+        <div className="selection-form-score">
+          {this.renderScore()}
         </div>
         <label className={this.renderClassName('home')}>
           <div className="selection-form-home-name">

@@ -223,7 +223,7 @@
 
     .correct-pick-button {
       background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
-      color: black;
+      color: #476C9B;
       border: .5px $drk-primary solid;
       border-right: none;
       border-left: none;
@@ -233,6 +233,7 @@
       background: -webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
       border: .5px $drk-primary solid;
       color: #A71D31;
+      // color: #984447;
       border-right: none;
       border-left: none;
     }

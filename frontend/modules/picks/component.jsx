@@ -100,9 +100,9 @@ class Picks extends React.Component {
           <div className="picks-labels">
             <div>Away</div>
             <div>Time</div>
-            <div>Score</div>
             <div>Line</div>
             <div>Spread</div>
+            <div>Score</div>
             <div>Home</div>
           </div>
           { this.renderSelections() }
