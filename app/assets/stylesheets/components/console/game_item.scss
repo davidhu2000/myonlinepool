@@ -1,0 +1,9 @@
+.game-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  .game-item-data {
+    // flex-direction: row !important;
+  }
+}

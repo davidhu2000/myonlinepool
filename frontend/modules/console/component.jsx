@@ -58,7 +58,9 @@ class Console extends React.Component {
 
   render() {
     return (
-      <div>{this.renderGames()}</div>
+      <div className="console">
+        {this.renderGames()}
+      </div>
     );
   }
 

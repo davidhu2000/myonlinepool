@@ -10,8 +10,22 @@ class GameItem extends React.Component {
     console.log(game);
     return (
       <div className="game-item">
-        {game.away_team}
-        {game.home_team}
+        <div>
+          {game.away_team}
+          
+        </div>
+        <div>
+          {game.home_team}
+
+        </div> 
+        <div>
+          {game.spread}
+
+        </div>
+        <div>
+          {game.line}
+
+        </div>       
       </div>
     );
   }
