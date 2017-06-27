@@ -1,5 +1,6 @@
 import React from 'react';
 import autoBind from 'react-autobind';
+import { GameItem } from './subcomponents/game_item';
 import { withRouter } from 'react-router';
 // import PropTypes from 'prop-types';
 
@@ -46,13 +47,18 @@ class Console extends React.Component {
 
   renderGames() {
     if (this.props.games[this.state.week]) {
-      
+      return Object.values(this.props.games[this.state.week]).map(game => (
+        <GameItem
+          key={game.id}
+          game={game}
+        />
+      ));
     }
   }
 
   render() {
     return (
-      <div>Admin Console</div>
+      <div>{this.renderGames()}</div>
     );
   }
 
