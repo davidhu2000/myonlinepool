@@ -82,7 +82,7 @@ class Console extends React.Component {
             </div>
             <div>
               <button>
-                Create Game
+                Fetch Games
               </button>
             </div>
           </div>
