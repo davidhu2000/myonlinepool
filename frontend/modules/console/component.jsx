@@ -1,7 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { GameItem } from './subcomponents/game_item';
+import { GameItem } from './subcomponents';
 import { withRouter } from 'react-router';
 
 class Console extends React.Component {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { parseTime } from 'helpers';
-// import PropTypes from 'prop-types';
 
 class GameItem extends React.Component {
 

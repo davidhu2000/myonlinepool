@@ -5,9 +5,16 @@ import { parseTime } from 'helpers';
 class GameForm extends React.Component {
 
   render() {
+    let routeInfo = this.props.params;
+    let game = this.props.games[routeInfo.weekId][routeInfo.gameId];
     return (
       <div className="game-form">
-        Test
+        {game.home_team}
+        {game.away_team}
+        {game.home_score}
+        {game.away_score}
+        {game.line}
+        {game.spread}
       </div>
     );
   }
