@@ -12,20 +12,22 @@ class GameItem extends React.Component {
       <div className="game-item">
         <div>
           {game.away_team}
-          
         </div>
         <div>
           {game.home_team}
-
-        </div> 
+        </div>
+        <div>
+          {game.away_score}
+        </div>
+        <div>
+          {game.home_score}
+        </div>
         <div>
           {game.spread}
-
         </div>
         <div>
           {game.line}
-
-        </div>       
+        </div>
       </div>
     );
   }

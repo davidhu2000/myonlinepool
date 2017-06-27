@@ -58,7 +58,38 @@ class Console extends React.Component {
 
   render() {
     return (
-      <div className="console">
+      <div className="console-container">
+        <div className="games-top">
+          <div className="games-header">
+            <div>
+              { this.state.week > 1 && (
+                <i
+                  onClick={() => this.updateWeek(-1)}
+                  className="fa fa-caret-left"
+                  aria-hidden="true"
+                />
+              )}
+
+              Week {this.state.week}
+
+              { this.state.week < 17 && (
+                <i
+                  onClick={() => this.updateWeek(1)}
+                  className="fa fa-caret-right"
+                  aria-hidden="true"
+                />
+              )}
+            </div>
+          </div>
+          <div className="Games-labels">
+            <div>Away</div>
+            <div>Away Score</div>
+            <div>Home</div>
+            <div>Home Score</div>
+            <div>Line</div>
+            <div>Spread</div>
+          </div>
+        </div>
         {this.renderGames()}
       </div>
     );
