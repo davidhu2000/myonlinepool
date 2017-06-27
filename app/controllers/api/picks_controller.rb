@@ -38,8 +38,7 @@ class Api::PicksController < ApplicationController
 
     params[:picks].each do |key, game|
       @week ||= game[:week]
-      p games[game[:game_id].to_i].start_time
-      p current_time < games[game[:game_id].to_i].start_time
+
       if current_time < games[game[:game_id].to_i].start_time
         pick = Pick.find_or_initialize_by(
           user_id: current_user.id, 
