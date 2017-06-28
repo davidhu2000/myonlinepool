@@ -93,7 +93,7 @@ class PickForm extends React.Component {
         <div className="selection-form-line">
           {game.line}
         </div>
-        <div className="selection-form-spread">   
+        <div className="selection-form-spread">
           {game.spread}
         </div>
         <div className="selection-form-score">
