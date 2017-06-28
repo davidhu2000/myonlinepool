@@ -1,0 +1,22 @@
+.game-item {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0px;
+  cursor: pointer;
+
+  div {
+    width: 125px;
+    text-align: center;
+  }
+  div:first-child {
+    font-weight: bold;
+  }
+  div:nth-child(3) {
+    font-weight: bold;
+  }
+}
+
+.game-item:hover {
+  background: $drk-primary;
+  color: white;
+}

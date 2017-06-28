@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
-import Console from './component';
-import { fetchGames } from './actions';
+import { updateGame } from './actions';
+import GameForm from './component';
 
 const mapStateToProps = state => ({
-  userId: state.user.id,
   games: state.games
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchGames: week => dispatch(fetchGames(week))
+  updateGame: game => dispatch(updateGame(game))
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Console);
+)(GameForm);

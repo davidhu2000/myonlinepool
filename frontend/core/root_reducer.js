@@ -9,6 +9,7 @@ import user from 'modules/auth/reducer';
 import pool from 'modules/pool_home/reducer';
 import home from 'modules/home/reducer';
 import picks from 'modules/picks/reducer';
+import games from 'modules/console/reducer';
 
 const rootReducer = combineReducers({
   user,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   alerts,
   home,
   picks,
-  modals
+  modals,
+  games
 });
 
 export default rootReducer;
