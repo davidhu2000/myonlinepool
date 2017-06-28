@@ -59,14 +59,17 @@
 
     img {
       margin: 0px 10px;
-      width: 90px;
-      height: 90px;
-      border-radius: 25%;
+      height: 88px;
+      width: 80px;
+      border: none;
+      // width: 90px;
+      // height: 90px;
+      // border-radius: 25%;
     }
 
     .shield {
-      background: white;
-      border: 5px $off-white solid;
+      // background: white;
+      // border: 5px $off-white solid;
     }
   }
 }

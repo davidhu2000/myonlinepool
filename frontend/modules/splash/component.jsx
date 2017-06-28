@@ -20,11 +20,17 @@ class Splash extends React.Component {
         <div className="splash-mid">
           <h1>Play with your favorite teams</h1>
           <div className="splash-mid-carousel">
-            <img src="assets/logos/Raiders.gif" />
+            <img className='logo-Raiders' />
+            <img className='logo-Cardinals' />
+            <img className='logo-Bears' />
+            <img className='logo-Bills' />
+            <img className='logo-Panthers' />
+
+            {/*<img src="assets/logos/Raiders.gif" />
             <img src="assets/logos/Cardinals.gif" />
             <img src="assets/logos/Bears.gif" />
             <img src="assets/logos/Bills.gif" />
-            <img src="assets/logos/Panthers.gif" />
+            <img src="assets/logos/Panthers.gif" />*/}
           </div>
         </div>
         <div className="splash-bottom">

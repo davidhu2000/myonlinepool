@@ -61,11 +61,7 @@ class PickForm extends React.Component {
       <div className="selection-item">
         <label className={this.renderClassName('away')} htmlFor='away-pick'>
           <button onClick={() => this.submitPick("away")} />
-          <img
-            className="pick-button pick-away-button"
-            src={`assets/logos/${game.away}.gif`}
-            alt={`${game.away} logo`}
-          />
+          <div className={`logo-${game.away} pick-button pick-away-button`} />
           <div className="selection-form-away-name">
             <div>
               {game.away.toUpperCase()}
@@ -110,11 +106,7 @@ class PickForm extends React.Component {
             </div>
           </div>
           <button onClick={() => this.submitPick("home")} />
-          <img
-            className='pick-button pick-home-button'
-            src={`assets/logos/${game.home}.gif`}
-            alt={`${game.home} logo`}
-          />
+          <div className={`logo-${game.home} pick-button pick-home-button`} />
         </label>
       </div>
     );
