@@ -11,10 +11,10 @@ class GameForm extends React.Component {
     super(props);
 
     this.state = {
-      home_score: '',
-      away_score: '',
-      line: '',
-      spread: '',
+      home_score: this.props.games[this.props.params.weekId][this.props.params.gameId].home_score,
+      away_score: this.props.games[this.props.params.weekId][this.props.params.gameId].away_score,
+      line: this.props.games[this.props.params.weekId][this.props.params.gameId].line,
+      spread: this.props.games[this.props.params.weekId][this.props.params.gameId].spread,
       game_id: this.props.params.gameId
     };
 
