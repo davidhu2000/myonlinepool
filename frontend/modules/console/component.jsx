@@ -51,6 +51,7 @@ class Console extends React.Component {
         <GameItem
           key={game.id}
           game={game}
+          week={this.state.week}
         />
       ));
     }
@@ -87,6 +88,7 @@ class Console extends React.Component {
             </div>
           </div>
           <div className="console-labels">
+            <div>Time</div>
             <div>Away</div>
             <div>Away Score</div>
             <div>Home</div>
