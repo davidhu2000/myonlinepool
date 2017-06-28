@@ -1,6 +1,5 @@
 const path = require("path");
 const webpack = require('webpack');
-const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -31,9 +30,8 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vender',
-      minChunks: Infinity,
-      filename: '[name].js'
+      name: 'vendor',
+      filename: 'vendor.js'
     }),
     new webpack.DefinePlugin({
       'process.env': {
@@ -42,22 +40,13 @@ module.exports = {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        screw_ie8: false,
-        warnings: false,
-        unused: true,
-        dead_code: true
+        warnings: false
       },
       output: {
         comments: false
       },
-      sourceMap: true
-    }),
-    new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
-      test: /\.(js|html|css|scss|jsx)$/,
-      threshold: 10240,
-      minRatio: 0.8
+      sourceMap: false,
+      mangle: true
     })
   ]
 };
