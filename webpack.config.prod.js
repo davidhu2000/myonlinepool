@@ -1,0 +1,63 @@
+const path = require("path");
+const webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
+
+module.exports = {
+  context: __dirname,
+  entry: "./frontend/myonlinepool.jsx",
+  output: {
+    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
+    filename: "bundle.js"
+  },
+  module: {
+    rules: [
+      {
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
+    ]
+  },
+  devtool: 'source-maps',
+  resolve: {
+    extensions: ["*", ".js", ".jsx"],
+    modules: [
+      path.resolve(__dirname, 'frontend'),
+      path.resolve(__dirname, 'node_modules')
+    ]
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vender',
+      minChunks: Infinity,
+      filename: '[name].js'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        screw_ie8: false,
+        warnings: false,
+        unused: true,
+        dead_code: true
+      },
+      output: {
+        comments: false
+      },
+      sourceMap: true
+    }),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.(js|html)$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
+  ]
+};
