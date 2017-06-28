@@ -1,8 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { PickForm } from './subcomponents';
+import { PickForm, LoadingForm } from './subcomponents';
 
 class Picks extends React.Component {
   constructor(props) {
@@ -33,8 +32,11 @@ class Picks extends React.Component {
 
     this.setState({ week });
     if (!this.props.picks[week]) {
+      this.setState({ loading: true });
       this.props.fetchPicks(week, this.props.params.poolId).then(
-        () => this.setState({ loading: false })
+        () => {
+          setTimeout(() => this.setState({ loading: false }), 5000);
+        }
       );
     }
   }
@@ -59,6 +61,13 @@ class Picks extends React.Component {
   }
 
   renderSelections() {
+    if (this.state.loading) {
+      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(id => (
+        <LoadingForm key={`loading-${id}`} />
+      ));
+    }
+
+
     if (this.props.picks[this.state.week]) {
       return Object.values(this.props.picks[this.state.week]).map(game => (
         <PickForm
