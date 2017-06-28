@@ -129,4 +129,4 @@ Picks.propTypes = {
   }).isRequired
 };
 
-export default withRouter(Picks);
+export default Picks;
