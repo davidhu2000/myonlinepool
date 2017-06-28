@@ -36,7 +36,7 @@ class Picks extends React.Component {
       this.props.fetchPicks(week, this.props.params.poolId).then(
         () => {
           // TODO: remove setTimeout after finishing loading animation
-          setTimeout(() => this.setState({ loading: false }), 1000);
+          setTimeout(() => this.setState({ loading: false }), 2000);
         }
       );
     }

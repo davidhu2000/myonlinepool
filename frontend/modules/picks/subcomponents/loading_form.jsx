@@ -4,14 +4,14 @@ class LoadingForm extends React.Component {
   render() {
     return (
       <div className="selection-item">
-        <label className={'selection-form-away'} htmlFor='away-pick'>
+        <label className={'selection-form-away no-hover'} htmlFor='away-pick'>
           <img
             className="pick-button pick-away-button pending"
             alt='TTT'
           />
           <div className="selection-form-away-name">
             <div className='pending'>
-              {'TTTT'}
+              {'TTTTTTTT'}
             </div>
             <div className='pending'>
               {'TT'}-{'TT'}-{'TT'}
@@ -49,10 +49,10 @@ class LoadingForm extends React.Component {
           </div>
         </div>
 
-        <label className={'selection-form-home'} htmlFor='home-pick'>
+        <label className={'selection-form-home no-hover'} htmlFor='home-pick'>
           <div className="selection-form-home-name">
             <div className='pending'>
-              {'TTTT'}
+              {'TTTTTTTT'}
             </div>
             <div className='pending'>
               {'TT'}-{'TT'}-{'TT'}

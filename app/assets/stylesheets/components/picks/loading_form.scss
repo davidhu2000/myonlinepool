@@ -1,33 +1,68 @@
 .pending {
-  color: rgba(0,0,0,0);
-  background: linear-gradient(270deg, #e2e2e2, #c1c1c1, #e2e2e2);
-  background-size: 600% 600%;
-  height: 15px;
-  margin: 5px;
+	color: rgba(0, 0, 0, 0);
+	background: linear-gradient(270deg, #e2e2e2, #c1c1c1, #e2e2e2);
+	background-size: 600% 600%;
+	height: 15px;
+	margin: 5px;
+	-webkit-animation: GradientSlide 1s ease infinite;
+	-moz-animation: GradientSlide 1s ease infinite;
+	animation: OpacityShift 1s ease infinite;
+	
+	@-webkit-keyframes GradientSlide {
+		0% {
+			background-position: 0% 50%
+		}
+		50% {
+			background-position: 100% 50%
+		}
+		100% {
+			background-position: 0% 50%
+		}
+	}
 
-  -webkit-animation: AnimationName 1s ease infinite;
-  -moz-animation: AnimationName 1s ease infinite;
-  animation: AnimationName 1s ease infinite;
+	@-moz-keyframes GradientSlide {
+		0% {
+			background-position: 0% 50%
+		}
+		50% {
+			background-position: 100% 50%
+		}
+		100% {
+			background-position: 0% 50%
+		}
+	}
 
-  @-webkit-keyframes AnimationName {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-  }
-  @-moz-keyframes AnimationName {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-  }
-  @keyframes AnimationName { 
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-  }
+	@keyframes GradientSlide {
+		0% {
+			background-position: 0% 50%
+		}
+		50% {
+			background-position: 100% 50%
+		}
+		100% {
+			background-position: 0% 50%
+		}
+	}
+
+	@keyframes OpacityShift {
+		0% {
+			opacity: 0.5;
+		}
+		50% {
+			opacity: 0.8;
+		}
+		100% {
+			opacity: 0.5;
+		}
+	}
 }
 
 img.pending {
-  width: 79px;
-  height: 88px;
-  margin: 0px;
+	width: 79px;
+	height: 88px;
+	margin: 0px;
+}
+
+.no-hover {
+	pointer-events: none;
 }
