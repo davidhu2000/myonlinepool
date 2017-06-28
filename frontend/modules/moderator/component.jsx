@@ -41,7 +41,6 @@ class Moderator extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="moderator-container">
         <div className="moderator-bulletin-form">

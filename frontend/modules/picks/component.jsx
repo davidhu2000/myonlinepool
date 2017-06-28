@@ -1,7 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import { PickForm } from './subcomponents';
 
 class Picks extends React.Component {

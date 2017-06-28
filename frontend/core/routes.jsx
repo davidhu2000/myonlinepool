@@ -12,7 +12,8 @@ import Pool from 'modules/pool';
 import PoolHome from 'modules/pool_home';
 import Auth from 'modules/auth';
 import PoolForm from 'modules/pool_form';
-// import Console from 'modules/console';
+import Console from 'modules/console';
+import GameForm from 'modules/game_form';
 
 const routes = (
   <Route path="/" component={App}>
@@ -24,7 +25,9 @@ const routes = (
 
     <Route path="/pool/create" component={PoolForm} />
 
-    {/*<Route path="/console" component={Console} />*/}
+    <Route path="/console" component={Console} />
+
+    <Route path="/console/create/:weekId/:gameId" component={GameForm} />
 
     <Route path="/pool/:poolId" component={Pool}>
       <IndexRoute component={PoolHome} />
