@@ -1,7 +1,6 @@
 /* global $ */
 
 export const sendPicks = picks => {
-
   return $.ajax({
     method: 'POST',
     url: '/api/picks',

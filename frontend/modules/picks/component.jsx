@@ -1,21 +1,23 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
-import { PickForm } from './subcomponents';
+import { PickForm, LoadingForm } from './subcomponents';
 
 class Picks extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      week: 1
+      week: 1,
+      loading: true
     };
     autoBind(this);
   }
 
   componentWillMount() {
-    this.props.fetchPicks(this.state.week, this.props.params.poolId);
+    this.props.fetchPicks(this.state.week, this.props.params.poolId).then(
+      () => this.setState({ loading: false })
+    );
   }
 
   updateWeek(dir) {
@@ -30,7 +32,13 @@ class Picks extends React.Component {
 
     this.setState({ week });
     if (!this.props.picks[week]) {
-      this.props.fetchPicks(week, this.props.params.poolId);
+      this.setState({ loading: true });
+      this.props.fetchPicks(week, this.props.params.poolId).then(
+        () => {
+          // TODO: remove setTimeout after finishing loading animation
+          setTimeout(() => this.setState({ loading: false }), 2000);
+        }
+      );
     }
   }
 
@@ -54,6 +62,13 @@ class Picks extends React.Component {
   }
 
   renderSelections() {
+    if (this.state.loading) {
+      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(id => (
+        <LoadingForm key={`loading-${id}`} />
+      ));
+    }
+
+
     if (this.props.picks[this.state.week]) {
       return Object.values(this.props.picks[this.state.week]).map(game => (
         <PickForm
@@ -96,7 +111,7 @@ class Picks extends React.Component {
                 Auto-Pick
               </button>
             </div>
-          </div>  
+          </div>
           <div className="picks-labels">
             <div>Away</div>
             <div>Time</div>
@@ -105,10 +120,8 @@ class Picks extends React.Component {
             <div>Score</div>
             <div>Home</div>
           </div>
-        
         </div>
         <div className="picks-selections">
-          
           { this.renderSelections() }
         </div>
       </div>
@@ -126,4 +139,4 @@ Picks.propTypes = {
   }).isRequired
 };
 
-export default withRouter(Picks);
+export default Picks;
