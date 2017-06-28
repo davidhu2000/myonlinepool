@@ -96,7 +96,7 @@ class Picks extends React.Component {
                 Auto-Pick
               </button>
             </div>
-          </div>  
+          </div>
           <div className="picks-labels">
             <div>Away</div>
             <div>Time</div>
