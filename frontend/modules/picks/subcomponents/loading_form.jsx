@@ -6,14 +6,14 @@ class LoadingForm extends React.Component {
       <div className="selection-item">
         <label className={'selection-form-away'} htmlFor='away-pick'>
           <img
-            className="pick-button pick-away-button"
+            className="pick-button pick-away-button pending"
             alt='TTT'
           />
           <div className="selection-form-away-name">
-            <div>
+            <div className='pending'>
               {'TTTT'}
             </div>
-            <div>
+            <div className='pending'>
               {'TT'}-{'TT'}-{'TT'}
             </div>
           </div>
@@ -21,40 +21,45 @@ class LoadingForm extends React.Component {
 
         <div className="selection-form-time">
           <div className="time-row">
-            <div>
+            <div className='pending'>
               {'TTTT'}
             </div>
-            <div className='time-props'>
+            <div className='time-props pending'>
               <div>{'TT'}</div>
               <div>{'TT'}</div>
             </div>
           </div>
-          <div className="date-row">
+          <div className="date-row pending">
             {'TTTTTT'}
           </div>
         </div>
         <div className="selection-form-line">
-          {'TTTTT'}
+          <div className='pending'>
+            {'TTTT'}
+          </div>
         </div>
         <div className="selection-form-spread">
-          {'TTTT'}
+          <div className='pending'>
+            {'TTTT'}
+          </div>
         </div>
         <div className="selection-form-score">
-          {'TTTT'}
+          <div className='pending'>
+            {'TT-TT'}
+          </div>
         </div>
 
         <label className={'selection-form-home'} htmlFor='home-pick'>
           <div className="selection-form-home-name">
-            <div>
+            <div className='pending'>
               {'TTTT'}
             </div>
-            <div>
+            <div className='pending'>
               {'TT'}-{'TT'}-{'TT'}
             </div>
           </div>
-          <button onClick={() => this.submitPick("home")} />
           <img
-            className='pick-button pick-home-button'
+            className='pick-button pick-home-button pending'
             alt={`TTTT`}
           />
         </label>
