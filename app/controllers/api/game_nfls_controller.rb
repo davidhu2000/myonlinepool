@@ -13,6 +13,16 @@ class Api::GameNflsController < ApplicationController
   end
 
   def update 
+    game = GameNfl.find_by(id: params[:game][:game_id])
+    game[:home_score] = params[:game][:home_score]
+    game[:away_score] = params[:game][:away_score]
+    game[:line] = params[:game][:line]
+    game[:spread] = params[:game][:spread]
 
+    if game.save 
+
+    else 
+      return render json: ['unable to update game'], status: 422
+    end
   end
 end
