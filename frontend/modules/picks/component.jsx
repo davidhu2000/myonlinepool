@@ -9,13 +9,16 @@ class Picks extends React.Component {
     super(props);
 
     this.state = {
-      week: 1
+      week: 1,
+      loading: true
     };
     autoBind(this);
   }
 
   componentWillMount() {
-    this.props.fetchPicks(this.state.week, this.props.params.poolId);
+    this.props.fetchPicks(this.state.week, this.props.params.poolId).then(
+      () => this.setState({ loading: false })
+    );
   }
 
   updateWeek(dir) {
@@ -30,7 +33,9 @@ class Picks extends React.Component {
 
     this.setState({ week });
     if (!this.props.picks[week]) {
-      this.props.fetchPicks(week, this.props.params.poolId);
+      this.props.fetchPicks(week, this.props.params.poolId).then(
+        () => this.setState({ loading: false })
+      );
     }
   }
 
@@ -105,10 +110,8 @@ class Picks extends React.Component {
             <div>Score</div>
             <div>Home</div>
           </div>
-        
         </div>
         <div className="picks-selections">
-          
           { this.renderSelections() }
         </div>
       </div>
