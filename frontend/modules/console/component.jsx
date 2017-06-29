@@ -17,7 +17,10 @@ class AdminConsole extends React.Component {
 
   componentDidMount() {
     this._redirectUnlessAdmin(this.props.userId);
-    this.props.fetchGames(this.state.week);
+
+    if (this.props.userId === 1) {
+      this.props.fetchGames(this.state.week);
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -47,13 +50,12 @@ class AdminConsole extends React.Component {
   }
 
   renderGames() {
-    if (this.props.games[this.state.week]) {
-      return Object.values(this.props.games[this.state.week]).map(game => (
-        <GameItem
-          key={game.id}
-          game={game}
-          week={this.state.week}
-        />
+    let { games } = this.props;
+    let { week } = this.state;
+
+    if (games[week]) {
+      return Object.values(games[week]).map(game => (
+        <GameItem key={game.id} game={game} week={week} />
       ));
     }
   }
