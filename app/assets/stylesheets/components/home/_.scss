@@ -10,7 +10,7 @@
   background: white;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 .home-top {
@@ -23,11 +23,11 @@
 }
 
 .home-bottom {
-  width: 100%;
+  width: 870px;
   min-height: 374px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
   .standings-box {
@@ -35,23 +35,6 @@
     .standings-box-top-item{
       font-size: 14px;
       font-weight: bold;
-    }
-  }
-
-  div:first-child {
-    margin-right: 15px;
-  }
-
-  div:last-child {
-    margin-left: 15px;
-  }
-
-  .standings-box {
-    div:first-child {
-      margin-right: 0px;
-    }
-    div:last-child {
-      margin-left: 0px;
     }
   }
 }
