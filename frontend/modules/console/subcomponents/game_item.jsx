@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { parseTime } from 'helpers';
 import { Link } from 'react-router';
 
@@ -6,6 +7,7 @@ class GameItem extends React.Component {
 
   render() {
     let game = this.props.game;
+    // TODO: add gametime info
     let timeInfo = parseTime(game.start_time);
     return (
       <div>
@@ -38,5 +40,10 @@ class GameItem extends React.Component {
     );
   }
 }
+
+GameItem.propTypes = {
+  week: PropTypes.number.isRequired,
+  game: PropTypes.shape().isRequired
+};
 
 export { GameItem };
