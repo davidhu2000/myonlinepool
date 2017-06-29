@@ -8,7 +8,7 @@ class GameItem extends React.Component {
     let game = this.props.game;
     let timeInfo = parseTime(game.start_time);
     return (
-     <div>
+      <div>
         <Link to={`/console/create/${this.props.week}/${game.id}`}>
           <div className="game-item">
             <div>
@@ -29,7 +29,10 @@ class GameItem extends React.Component {
             <div>
               {game.spread}
             </div>
-          </div>  
+            <div>
+              {game.completed ? "Completed" : "Pending"}
+            </div>
+          </div>
         </Link>
       </div>
     );

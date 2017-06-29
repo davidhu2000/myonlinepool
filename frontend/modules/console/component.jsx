@@ -94,6 +94,7 @@ class Console extends React.Component {
             <div>Home Score</div>
             <div>Line</div>
             <div>Spread</div>
+            <div>Completed</div>
           </div>
         </div>
         <div className="game-list">
