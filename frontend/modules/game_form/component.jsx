@@ -73,7 +73,7 @@ class GameForm extends React.Component {
     // TODO: add function to update start time
     // TODO: do not use FormTextInput, do need validation.
     // TODO: prop-type validations
-    // TODO: allow for mass update
+    // TODO: allow for mass update so do have to wait for individual processing
     let routeInfo = this.props.params;
     let game = this.props.games[routeInfo.weekId][routeInfo.gameId];
     let timeInfo = parseTime(game.start_time);

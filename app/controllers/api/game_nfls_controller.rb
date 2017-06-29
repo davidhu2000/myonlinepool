@@ -3,9 +3,9 @@ require 'json'
 
 class Api::GameNflsController < ApplicationController
   def index
-    # TODO: dynamic season value
+    # TODO: make season, week dynamic
     @week = params[:week]
-    @games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
+    @games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
   end
 
   def create 
@@ -22,8 +22,9 @@ class Api::GameNflsController < ApplicationController
 
     if game.save 
       if game[:completed]
-        EvaluatePicksJob.perform_now(2017, params[:game][:week])
-        CalculateWeeklyResultsJob.perform_now(2017, params[:game][:week])
+        # TODO: make season, week dynamic
+        EvaluatePicksJob.perform_now(2016, params[:game][:week])
+        CalculateWeeklyResultsJob.perform_now(2016, params[:game][:week])
         render json: ['Picks Evaluated', 'Weekly Result Calculated']
       else
         render json: ['Game successfully updated.']
