@@ -5,6 +5,7 @@ import { parseTime } from 'helpers';
 import { hashHistory } from 'react-router';
 
 import { FormTextInput } from 'common/components';
+import { WaitingPage } from './subcomponents';
 
 class GameForm extends React.Component {
   constructor(props) {
@@ -22,7 +23,8 @@ class GameForm extends React.Component {
       line: game.line,
       spread: game.spread,
       game_id: gameId,
-      week: weekId
+      week: weekId,
+      isProcessing: false
     };
 
     autoBind(this);
@@ -50,7 +52,7 @@ class GameForm extends React.Component {
 
   updateGame(e) {
     e.preventDefault();
-
+    this.setState({ isProcessing: true })
     this.props.updateGame(this.state).then(
       () => hashHistory.push(`console`)
     );
@@ -61,7 +63,13 @@ class GameForm extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    if (this.state.isProcessing) {
+      return (
+        <div className="game-form-container">
+          <WaitingPage />
+        </div>
+      );
+    }
     // TODO: add function to update start time
     // TODO: do not use FormTextInput, do need validation.
     // TODO: prop-type validations
