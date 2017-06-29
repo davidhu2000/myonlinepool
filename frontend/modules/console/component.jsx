@@ -81,11 +81,6 @@ class AdminConsole extends React.Component {
                 />
               )}
             </div>
-            <div>
-              <button>
-                Run Update
-              </button>
-            </div>
           </div>
           <div className="console-labels">
             <div>Away</div>

@@ -6,7 +6,7 @@ export const fetchGames = week => (
     url: 'api/game_nfls',
     data: { week }
   })
-); 
+);
 
 export const addGame = game => (
   $.ajax({
@@ -16,11 +16,11 @@ export const addGame = game => (
   })
 );
 
-export const deleteGame = game_id => (
+export const deleteGame = gameId => (
   $.ajax({
     method: 'POST',
     url: 'api/game_nfls',
-    data: { game_id }
+    data: { game_id: gameId }
   })
 );
 
