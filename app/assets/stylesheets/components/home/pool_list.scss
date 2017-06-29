@@ -18,8 +18,8 @@ $white: #F6F7F9;
     width: 100%;
     position: absolute;
     top: 0px;
-    left: 10px;
-    padding-right: 10px;
+    left: 5px;
+    // padding-right: 10px;
     display: flex;
     justify-content: space-between;
     font-size: 20px;
@@ -37,9 +37,7 @@ $white: #F6F7F9;
 
       button {
       height: 30px;
-      margin-top: 5px;
       width: 100px;
-      margin-bottom: 1px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -63,7 +61,7 @@ $white: #F6F7F9;
   }
 
   .pool-list-bottom {
-    height: 130px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -71,18 +69,32 @@ $white: #F6F7F9;
     padding-left: 5px;
 
     .pool-list-item {
-      display: inline-flex;
-      padding: 5px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 125px;
       transition: .25s;
-      padding-left: 5px;
-      div:hover {
-        cursor: pointer;
-        color: $drk-text;
+      margin: 5px 0px;
+      font-size: 12px;
+      line-height: 12px;
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      background: $lt-primary;
+      transition: .2s;
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      i {
+        padding-right: 5px;
+        }
       }
-      .fa-caret-right {
-        margin-right: 5px;
-        padding-top: 3px;
-      }
-    }
+    .pool-list-item:hover {
+      background: white;
+      color: $lt-primary; 
+      border: 1px black solid;
+    }  
   }
 }
