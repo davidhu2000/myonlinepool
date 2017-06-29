@@ -13,6 +13,7 @@ class GameForm extends React.Component {
     this.state = {
       home_score: this.props.games[this.props.params.weekId][this.props.params.gameId].home_score,
       away_score: this.props.games[this.props.params.weekId][this.props.params.gameId].away_score,
+      completed: this.props.games[this.props.params.weekId][this.props.params.gameId].completed,
       line: this.props.games[this.props.params.weekId][this.props.params.gameId].line,
       spread: this.props.games[this.props.params.weekId][this.props.params.gameId].spread,
       game_id: this.props.params.gameId
@@ -24,16 +25,20 @@ class GameForm extends React.Component {
   update(type) {
     return e => {
       this.setState({ [type]: e.target.value });
+      console.log(this.state);
     };
   }
 
   updateGame(e) {
     e.preventDefault();
-    // hashHistory.push(`console`);
 
     this.props.updateGame(this.state).then(
       () => hashHistory.push(`console`)
     );
+  }
+
+  handleChange(value) {
+    this.setState({ completed: value });
   }
 
   render() {
@@ -82,6 +87,11 @@ class GameForm extends React.Component {
             field='spread'
             errorMessage="Please enter betting spread"
           />
+
+          <select value={this.state.completed} onChange={e => this.handleChange(e.target.value)}>
+            <option value="true">Completed</option>
+            <option value="false">Pending</option>
+          </select>
           
           <input
             type="submit"

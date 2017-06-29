@@ -18,9 +18,13 @@ class Api::GameNflsController < ApplicationController
     game[:away_score] = params[:game][:away_score]
     game[:line] = params[:game][:line]
     game[:spread] = params[:game][:spread]
-
+    game[:completed] = params[:game][:completed]
+    
+    # if game[:home_score] && game[:away_score]    
     if game.save 
-
+      if game[:completed]
+       
+      end  
     else 
       return render json: ['unable to update game'], status: 422
     end

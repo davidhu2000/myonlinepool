@@ -46,7 +46,7 @@ $transition-time: 0.1s;
     transition: $transition-time;
 
     &:hover {
-      color: red;
+      color: #A71D31;
     }
   }
 
@@ -62,7 +62,7 @@ $transition-time: 0.1s;
     right: 25px;
 
     &:hover {
-      color: red;
+      color: #A71D31;
     }
 
     i {
@@ -131,7 +131,7 @@ $transition-time: 0.1s;
 
   a:hover, .remove-button:hover {
     background-color: #ddd;
-    color: red;
+    color: #A71D31;
   }
 
 }

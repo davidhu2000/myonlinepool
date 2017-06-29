@@ -20,6 +20,7 @@
     height: 30px;
     font-size: 15px;
     margin-left: auto;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,15 +36,5 @@
     border: 1px black solid;
     background: white;
   }
-
-  // .game-update-button:disabled {
-  //   cursor: not-allowed;
-
-  //   &:hover {
-  //     color: $lt-primary;
-  //     border: 1px black solid;
-  //     background: white;
-  //   }
-  // }
 }
 
