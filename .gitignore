@@ -11,3 +11,8 @@ node_modules/
 
 # Ignore application configuration
 /config/application.yml
+
+app/assets/javascripts/*
+!app/assets/javascripts/application.js
+!app/assets/javascripts/cable.js
+!app/assets/javascripts/config/.keep

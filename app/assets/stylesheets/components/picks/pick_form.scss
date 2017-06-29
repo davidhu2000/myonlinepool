@@ -11,6 +11,11 @@
     background: $lt-primary;
     color: white;
 
+    div[class^='logo-'] {
+      height: 90px !important;
+      width: 80px;
+    }
+
     label {
       height: 90px;
       width: 250px;
@@ -22,7 +27,6 @@
       overflow: hidden;
 
       .pick-button {
-        height: 88px;
         position: relative;
         display: inline-block;
         transition: all 0.3s ease-in-out;
