@@ -1,10 +1,10 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { GameItem } from './subcomponents';
 import { withRouter } from 'react-router';
+import { GameItem } from './subcomponents';
 
-class Console extends React.Component {
+class AdminConsole extends React.Component {
   constructor(props) {
     super(props);
 
@@ -20,12 +20,12 @@ class Console extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this._redirectUnlessAdmin(this.props.userId);
+    this._redirectUnlessAdmin(newProps.userId);
   }
 
   _redirectUnlessAdmin(userId) {
     if (userId !== 1) {
-      this.props.router.push(`home`);
+      this.props.router.replace(`home`);
     }
   }
 
@@ -105,9 +105,10 @@ class Console extends React.Component {
   }
 }
 
-Console.propTypes = {
+AdminConsole.propTypes = {
   games: PropTypes.shape().isRequired,
-  userId: PropTypes.string.isRequired
+  userId: PropTypes.number.isRequired,
+  fetchGames: PropTypes.func.isRequired
 };
 
-export default withRouter(Console);
+export default withRouter(AdminConsole);
