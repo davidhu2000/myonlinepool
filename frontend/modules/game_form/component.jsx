@@ -10,13 +10,18 @@ class GameForm extends React.Component {
   constructor(props) {
     super(props);
 
+    let { games, params } = props;
+    let { weekId, gameId } = params;
+
+    let game = games[weekId][gameId];
+
     this.state = {
-      home_score: this.props.games[this.props.params.weekId][this.props.params.gameId].home_score,
-      away_score: this.props.games[this.props.params.weekId][this.props.params.gameId].away_score,
-      completed: this.props.games[this.props.params.weekId][this.props.params.gameId].completed,
-      line: this.props.games[this.props.params.weekId][this.props.params.gameId].line,
-      spread: this.props.games[this.props.params.weekId][this.props.params.gameId].spread,
-      game_id: this.props.params.gameId
+      home_score: game.home_score,
+      away_score: game.away_score,
+      completed: game.completed,
+      line: game.line,
+      spread: game.spread,
+      game_id: gameId
     };
 
     autoBind(this);
@@ -42,6 +47,9 @@ class GameForm extends React.Component {
   }
 
   render() {
+    // TODO: add function to update start time
+    // TODO: do not use FormTextInput, do need validation.
+    
     let routeInfo = this.props.params;
     let game = this.props.games[routeInfo.weekId][routeInfo.gameId];
     let timeInfo = parseTime(game.start_time);
@@ -54,7 +62,7 @@ class GameForm extends React.Component {
 
           <FormTextInput
             update={this.update}
-            type='text'
+            type='number'
             value={this.state.home_score}
             label="Home Score"
             field='home_score'
