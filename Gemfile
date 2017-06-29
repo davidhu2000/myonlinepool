@@ -33,7 +33,7 @@ gem 'font-awesome-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'pry-rails'
-gem 'devise'
+# gem 'devise'
 gem 'rb-readline'
 gem 'pry-coolline'
 # gem 'sidekiq'
