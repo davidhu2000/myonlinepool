@@ -8,11 +8,10 @@ $white: #F6F7F9;
   width: 870px;
   padding: 0px 5px;
   position: relative;
-  border-radius: 5px;
-  padding-top: 30px;
+  padding-top: 35px;
   display: flex;
   flex-direction: column;
-  align-content: flex-start;
+  align-content: space-between;
 
   .pool-list-top {
     width: 100%;
@@ -30,10 +29,10 @@ $white: #F6F7F9;
     }
 
     .pool-list-top-buttons {
-      display: flex;
       width: 220px;
       display: flex;
       justify-content: space-between;
+      margin-top: 5px;
 
       button {
       height: 30px;
@@ -61,10 +60,10 @@ $white: #F6F7F9;
   }
 
   .pool-list-bottom {
-    height: 150px;
+    height: 145px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     overflow-y: overlay;
     padding-left: 5px;
 
