@@ -19,12 +19,12 @@ class Api::GameNflsController < ApplicationController
     game[:line] = params[:game][:line]
     game[:spread] = params[:game][:spread]
     game[:completed] = params[:game][:completed]
-    
-    # if game[:home_score] && game[:away_score]    
+
     if game.save 
       if game[:completed]
-        EvaluatePicksJob.perform_now(201)
-        render json: ['should be running jobs']
+        EvaluatePicksJob.perform_now(2017, params[:game][:week])
+        CalculateWeeklyResultsJob.perform_now(2017, params[:game][:week])
+        render json: ['Picks Evaluated', 'Weekly Result Calculated']
       else
         render json: ['Game successfully updated.']
       end

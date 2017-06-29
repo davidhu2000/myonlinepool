@@ -21,7 +21,8 @@ class GameForm extends React.Component {
       completed: game.completed,
       line: game.line,
       spread: game.spread,
-      game_id: gameId
+      game_id: gameId,
+      week: weekId
     };
 
     autoBind(this);
