@@ -13,28 +13,37 @@ class GameForm extends React.Component {
     let { games, params } = props;
     let { weekId, gameId } = params;
 
-    if (!games[weekId] || !games[weekId][gameId]) {
-      hashHistory.replace('console');
-    } else {
-      let game = games[weekId][gameId];
+    let game = games[weekId][gameId];
 
-      this.state = {
-        home_score: game.home_score,
-        away_score: game.away_score,
-        completed: game.completed,
-        line: game.line,
-        spread: game.spread,
-        game_id: gameId
-      };
-    }
-    
+    this.state = {
+      home_score: game.home_score,
+      away_score: game.away_score,
+      completed: game.completed,
+      line: game.line,
+      spread: game.spread,
+      game_id: gameId
+    };
+
     autoBind(this);
+  }
+
+  componentDidMount() {
+    this._redirectUnlessAdmin(this.props.userId);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this._redirectUnlessAdmin(newProps.userId);
+  }
+
+  _redirectUnlessAdmin(userId) {
+    if (userId !== 1) {
+      this.props.router.replace(`home`);
+    }
   }
 
   update(type) {
     return e => {
       this.setState({ [type]: e.target.value });
-      console.log(this.state);
     };
   }
 
@@ -51,9 +60,10 @@ class GameForm extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     // TODO: add function to update start time
     // TODO: do not use FormTextInput, do need validation.
-    
+    // TODO: prop-type validations
     let routeInfo = this.props.params;
     let game = this.props.games[routeInfo.weekId][routeInfo.gameId];
     let timeInfo = parseTime(game.start_time);
@@ -75,7 +85,7 @@ class GameForm extends React.Component {
 
           <FormTextInput
             update={this.update}
-            type='text'
+            type='number'
             value={this.state.away_score}
             label="Away Score"
             field="away_score"
@@ -84,7 +94,7 @@ class GameForm extends React.Component {
 
           <FormTextInput
             update={this.update}
-            type='text'
+            type='number'
             value={this.state.line}
             label="Line"
             field='line'
@@ -93,7 +103,7 @@ class GameForm extends React.Component {
 
           <FormTextInput
             update={this.update}
-            type='text'
+            type='number'
             value={this.state.spread}
             label="Spread"
             field='spread'

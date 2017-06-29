@@ -3,7 +3,8 @@ import { updateGame } from './actions';
 import GameForm from './component';
 
 const mapStateToProps = state => ({
-  games: state.games
+  games: state.games,
+  userId: state.user.id
 });
 
 const mapDispatchToProps = dispatch => ({
