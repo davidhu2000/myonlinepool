@@ -12,7 +12,6 @@ class PickForm extends React.Component {
 
   submitPick(pick) {
     let { game, poolId, sendPicks } = this.props;
-    console.log("click worked");
 
     if (game.pick_locked) {
       this.props.receiveAlerts(['Game pick locked.'], 422);
