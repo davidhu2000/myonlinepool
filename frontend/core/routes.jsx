@@ -25,9 +25,11 @@ const routes = (
 
     <Route path="/pool/create" component={PoolForm} />
 
-    <Route path="/console" component={AdminConsole} />
+    <Route path="/console">
+      <IndexRoute component={AdminConsole} />
+      <Route path="create/:weekId/:gameId" component={GameForm} />
+    </Route>
 
-    <Route path="/console/create/:weekId/:gameId" component={GameForm} />
 
     <Route path="/pool/:poolId" component={Pool}>
       <IndexRoute component={PoolHome} />

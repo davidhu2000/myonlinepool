@@ -13,17 +13,21 @@ class GameForm extends React.Component {
     let { games, params } = props;
     let { weekId, gameId } = params;
 
-    let game = games[weekId][gameId];
+    if (!games[weekId] || !games[weekId][gameId]) {
+      hashHistory.replace('console');
+    } else {
+      let game = games[weekId][gameId];
 
-    this.state = {
-      home_score: game.home_score,
-      away_score: game.away_score,
-      completed: game.completed,
-      line: game.line,
-      spread: game.spread,
-      game_id: gameId
-    };
-
+      this.state = {
+        home_score: game.home_score,
+        away_score: game.away_score,
+        completed: game.completed,
+        line: game.line,
+        spread: game.spread,
+        game_id: gameId
+      };
+    }
+    
     autoBind(this);
   }
 
