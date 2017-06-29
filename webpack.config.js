@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require('webpack');
 
 module.exports = {
   context: __dirname,
@@ -26,5 +27,11 @@ module.exports = {
       path.resolve(__dirname, 'frontend'),
       path.resolve(__dirname, 'node_modules')
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.js'
+    })
+  ]
 };
