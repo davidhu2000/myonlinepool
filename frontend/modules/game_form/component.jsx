@@ -52,10 +52,8 @@ class GameForm extends React.Component {
 
   updateGame(e) {
     e.preventDefault();
-    this.setState({ isProcessing: true })
-    this.props.updateGame(this.state).then(
-      () => hashHistory.push(`console`)
-    );
+    this.setState({ isProcessing: true });
+    this.props.updateGame(this.state);
   }
 
   handleChange(value) {
