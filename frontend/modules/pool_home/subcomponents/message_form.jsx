@@ -45,7 +45,7 @@ class MessageForm extends React.Component {
         />
 
         <div className="chat-form-button-row">
-          <input type='submit' className="chat-form-button" value="Write Something" />
+          <input type='submit' className="chat-form-button" value="New Post" />
         </div>
       </form>
     );
