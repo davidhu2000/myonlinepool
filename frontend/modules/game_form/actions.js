@@ -4,7 +4,7 @@ import * as APIUtil from './utils';
 
 export const updateGame = game => dispatch => (
   APIUtil.updateGame(game).then(
-    () => dispatch(receiveAlerts(processMessages(['Game successfully updated.']))),
+    res => dispatch(receiveAlerts(processMessages(res))),
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );

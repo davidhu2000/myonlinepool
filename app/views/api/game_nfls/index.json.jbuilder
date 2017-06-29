@@ -9,8 +9,8 @@ json.set! @week do
       json.spread game[:spread]
       json.line game[:line]
       json.completed game[:completed]
-      json.home_team Team.find_by(id: game[:home_id]).name
-      json.away_team Team.find_by(id: game[:away_id]).name
+      json.home_team game.home.name
+      json.away_team game.away.name
     end
   end 
 end
