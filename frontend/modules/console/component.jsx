@@ -2,6 +2,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
+import { WeekSwitcher } from 'common/components';
 import { GameItem } from './subcomponents';
 
 class AdminConsole extends React.Component {
@@ -62,25 +63,7 @@ class AdminConsole extends React.Component {
       <div className="console-container">
         <div className="console-top">
           <div className="console-header">
-            <div>
-              { this.state.week > 1 && (
-                <i
-                  onClick={() => this.updateWeek(-1)}
-                  className="fa fa-caret-left"
-                  aria-hidden="true"
-                />
-              )}
-
-              Week {this.state.week}
-
-              { this.state.week < 17 && (
-                <i
-                  onClick={() => this.updateWeek(1)}
-                  className="fa fa-caret-right"
-                  aria-hidden="true"
-                />
-              )}
-            </div>
+            <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
           </div>
           <div className="console-labels">
             <div>Away</div>

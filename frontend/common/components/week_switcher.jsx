@@ -12,7 +12,7 @@ const WeekSwitcher = ({ week, updateWeek }) => {
         />
       )}
 
-      Week {week}
+      Week { week }
 
       { week < 17 && (
         <i
