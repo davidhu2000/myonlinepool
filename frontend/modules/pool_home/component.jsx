@@ -33,7 +33,7 @@ class PoolHome extends React.Component {
         <div className="pool-alert">
           Please click here to make your payment.
           <br />
-          <Link to={`payments`}>
+          <Link to={`payment`}>
             Click Here
           </Link>
         </div>

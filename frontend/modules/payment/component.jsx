@@ -41,7 +41,8 @@ class Payment extends React.Component {
   }
 
   render() {
-
+    let { pool, user } = this.props;
+    console.log(this.state);
     return (
       <div>
         <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -67,7 +68,7 @@ class Payment extends React.Component {
             </tbody>
           </table>
           <input type="hidden" name="currency_code" value="USD" />
-          <input type="hidden" name="return" value={`http://localhost:3000/payments?email=${email}&identifier=${identifier}`} />
+          <input type="hidden" name="return" value={`http://localhost:3000/payments?email=${user.email}&identifier=${pool.identifier}`} />
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
           <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
         </form>
@@ -81,4 +82,4 @@ Payment.propTypes = {
   user: PropTypes.shape().isRequired
 };
 
-export { Payment };
+export default Payment;
