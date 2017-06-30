@@ -1,5 +1,3 @@
-@teams.each do |team|
-  json.set! team[:id] do
-    team
-  end
+@teams.each do |team_id, team|
+  json.set! team_id, team
 end 
