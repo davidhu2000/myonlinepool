@@ -41,10 +41,11 @@ class Moderator extends React.Component {
   }
 
   render() {
+    let { identifier } = this.props.pool;
     return (
       <div className="moderator-container">
         <div className="moderator-bulletin-form">
-          <div className="header">Moderator Settings</div>
+          <div className="header">{`Moderator Settings (pool id: ${identifier})`}</div>
           <BulletinForm
             createBulletin={this.props.createBulletin}
             deleteBulletin={this.props.deleteBulletin}
