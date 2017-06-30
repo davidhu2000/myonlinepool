@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 import PropTypes from 'prop-types';
 import { calculateSeasonStandings } from 'helpers';
 import { PoolStandingsBox } from "common/components";
@@ -9,7 +9,7 @@ class PoolHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      week: 1
+      week: 0
     };
   }
 
@@ -27,12 +27,26 @@ class PoolHome extends React.Component {
     }
   }
 
+  checkForPayment() {
+    if (!this.props.pool.paymentMade) {
+      return (
+        <div className="pool-alert">
+          Please click here to make your payment.
+          <br />
+          <Link to={`payments`}>
+            Click Here
+          </Link>
+        </div>
+      );
+    }
+  }
+
   render() {
     let { pool } = this.props;
 
     return (
       <div className="pool-container">
-
+        { this.checkForPayment() }
         <div className="pool-standings">
           <PoolStandingsBox
             title="Weekly Leaders"
@@ -69,7 +83,8 @@ PoolHome.propTypes = {
     messages: PropTypes.shape(),
     bulletins: PropTypes.shape(),
     standings: PropTypes.shape(),
-    members: PropTypes.shape()
+    members: PropTypes.shape(),
+    paymentMade: PropTypes.bool.isRequired
   }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired
