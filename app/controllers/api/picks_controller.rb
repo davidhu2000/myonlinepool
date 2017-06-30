@@ -9,7 +9,7 @@ class Api::PicksController < ApplicationController
     
     current_time = DateTime.parse(get_current_time["currentDateTime"])
     # TODO: make season, week dynamic
-    all_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
+    all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
     raw_picks = current_user.picks.where(pool_id: params[:poolId], game_id: all_games)
     @picks = {}
 

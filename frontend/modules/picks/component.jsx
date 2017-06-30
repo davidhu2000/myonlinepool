@@ -99,7 +99,7 @@ class Picks extends React.Component {
             <div>Away</div>
             <div>Time</div>
             <div>Line</div>
-            <div>Spread</div>
+            <div>O/U</div>
             <div>Score</div>
             <div>Home</div>
           </div>

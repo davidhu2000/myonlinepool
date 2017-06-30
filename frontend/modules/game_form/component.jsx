@@ -69,7 +69,7 @@ class GameForm extends React.Component {
       );
     }
     // TODO: add function to update start time
-    // TODO: do not use FormTextInput, do need validation.
+    // TODO: do not use FormTextInput, don't need validation.
     // TODO: prop-type validations
     // TODO: allow for mass update so do have to wait for individual processing
     // TODO: do not center form, while loading, the form header pop to center.
@@ -83,41 +83,49 @@ class GameForm extends React.Component {
             {timeInfo.date}: { game.away_team } @ { game.home_team }
           </div>
 
-          <FormTextInput
-            update={this.update}
-            type='number'
-            value={this.state.home_score}
-            label="Home Score"
-            field='home_score'
-            errorMessage="Please enter home score"
-          />
+          <div className='poolform-group'>
+            <input
+              onChange={this.update('home_score')}
+              value={this.state.home_score}
+              type='number'
+              className='auth-form-password'
+            />
+            <span className='bar' />
+            <label htmlFor='number'>Home Score</label>
+          </div>
 
-          <FormTextInput
-            update={this.update}
-            type='number'
-            value={this.state.away_score}
-            label="Away Score"
-            field="away_score"
-            errorMessage="Please enter away score"
-          />
+          <div className='poolform-group'>
+            <input
+              onChange={this.update('away_score')}
+              value={this.state.away_score}
+              type='number'
+              className='auth-form-password'
+            />
+            <span className='bar' />
+            <label htmlFor='number'>Home Score</label>
+          </div>
 
-          <FormTextInput
-            update={this.update}
-            type='number'
-            value={this.state.line}
-            label="Line"
-            field='line'
-            errorMessage="Please enter betting line"
-          />
+          <div className='poolform-group'>
+            <input
+              onChange={this.update('line')}
+              value={this.state.line}
+              type='number'
+              className='auth-form-password'
+            />
+            <span className='bar' />
+            <label htmlFor='number'>Home Score</label>
+          </div>
 
-          <FormTextInput
-            update={this.update}
-            type='number'
-            value={this.state.spread}
-            label="Spread"
-            field='spread'
-            errorMessage="Please enter betting spread"
-          />
+          <div className='poolform-group'>
+            <input
+              onChange={this.update('spread')}
+              value={this.state.spread}
+              type='number'
+              className='auth-form-password'
+            />
+            <span className='bar' />
+            <label htmlFor='number'>Home Score</label>
+          </div>
 
           <select value={this.state.completed} onChange={e => this.handleChange(e.target.value)}>
             <option value="true">Completed</option>
