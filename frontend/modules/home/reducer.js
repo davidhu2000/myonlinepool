@@ -10,7 +10,7 @@ let _defaultState = {
 
 const homeReducer = (state = _defaultState, action) => {
   Object.freeze(state);
-  console.log(action)
+  // console.log(action)
   switch (action.type) {
     case HOME.RECEIVE_MY_POOLS:
       return merge({}, state, {
