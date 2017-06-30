@@ -24,6 +24,6 @@ module MyOnlinePool
     # -- all .rb files in that directory are automatically loaded.
     config.generators.assets = false
     config.active_job.queue_adapter = :inline
-    # config.active_job.queue_adapter = :sidekiq
+    config.public_file_server.enabled = true
   end
 end
