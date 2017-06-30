@@ -21,7 +21,14 @@ class Team < ApplicationRecord
   def self.calculate_team_records(season)
     games = GameNfl.where(season: season, completed: true)
     
-    records = Hash.new { |h, k| h[k] = { wins: 0, losses: 0, ties: 0 } }
+    records = Hash.new { |h, k| h[k] = {  wins: 0,
+                                          losses: 0,
+                                          ties: 0, 
+                                          home_wins: 0,
+                                          home_losses: 0,
+                                          away_wins: 0,
+                                          away_losses: 0 } 
+                                        }
 
     games.each do |game|
       winner = game.home_score <=> game.away_score
@@ -29,14 +36,21 @@ class Team < ApplicationRecord
       case winner
         when 1
           records[game.home_id][:wins] += 1
+          records[game.home_id][:home_wins] += 1
           records[game.away_id][:losses] += 1
+          records[game.away_id][:away_losses] += 1
         when 0
           records[game.home_id][:ties] += 1
           records[game.away_id][:ties] += 1
         when -1
           records[game.away_id][:wins] += 1
+          records[game.away_id][:away_wins] += 1
           records[game.home_id][:losses] += 1
+          records[game.home_id][:home_losses] += 1
       end
+      
+      records[game.home_id][:name] = Team.find_by(id: game.home_id).name
+      records[game.away_id][:name] = Team.find_by(id: game.away_id).name
     end
 
     records

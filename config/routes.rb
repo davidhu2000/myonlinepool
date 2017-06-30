@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :picks, only: [:index, :create]
     resources :game_nfls, only: [:index, :update]
     delete 'game_nfls', to: 'game_nfls#destroy'
-
+    resources :teams, only: [:index]
     resources :messages, only: [:index, :create, :update, :destroy]
     resources :bulletins, only: [:index, :create]
     delete 'bulletins', to: 'bulletins#destroy'
