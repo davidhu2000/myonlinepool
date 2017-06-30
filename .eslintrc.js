@@ -36,6 +36,7 @@ module.exports = {
         "react/no-danger": "off",
         "arrow-body-style": "off",
         "no-mixed-operators": "off",
-        "no-bitwise": "off"
+        "no-bitwise": "off",
+        "react/prefer-stateless-function": "off"
     }
 };

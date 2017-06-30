@@ -1,8 +1,9 @@
 $off-white: #e9ebee;
 
 .pool-standings-box {
-  padding-top: 20px;
   position: relative;
+  padding: 0px 5px;
+  padding-top: 20px;
 
   .pool-standings-box-title {
     position: absolute;
@@ -30,8 +31,8 @@ $off-white: #e9ebee;
   }
 
   .title {
-    height: 20px;
-    width: 175px;
+    // height: 20px;
+    width: 200px;
     text-overflow: ellipsis !important;
   }
 
@@ -49,7 +50,7 @@ $off-white: #e9ebee;
   font-size: 15px;
 
   .title{
-    width: 175px;
+    width: 200px;
   }
 
   .score, .losses {

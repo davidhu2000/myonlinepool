@@ -1,6 +1,7 @@
 class Api::StandingsController < ApplicationController
   def index
-    @weekly_standings = get_weekly_leaders(2016, 2)
+    # TODO: make season, week dynamic
+    @weekly_standings = get_weekly_leaders(2016, 1)
     @season_standings = get_season_leaders(2016)
     render :index
   end

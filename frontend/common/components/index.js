@@ -7,3 +7,4 @@ export * from './email_input';
 export * from './password_input';
 export * from './password_confirmation';
 export * from './mod_board';
+export * from './week_switcher';

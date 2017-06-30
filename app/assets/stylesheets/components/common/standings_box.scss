@@ -33,21 +33,21 @@ $off-white: #e9ebee;
   }
 
   .title {
-    width: 125px;
+    width: 150px;
   }
 
   .score {
-    width: 75px;
+    width: 50px;
     border-left: none;
   }
 
   .losses {
-    width: 75px;
+    width: 50px;
     border-left: none;
   }
 
   .pool {
-    width: 125px;
+    width: 150px;
     border-left: none;
   }
 }
@@ -59,11 +59,11 @@ $off-white: #e9ebee;
   font-weight: bold;
 
   .title, .pool {
-    width: 125px;
+    width: 150px;
   }
 
   .score, .losses {
-    width: 75px;
+    width: 50px;
   }
 
   div:nth-child(3) {

@@ -1,10 +1,11 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { GameItem } from './subcomponents';
 import { withRouter } from 'react-router';
+import { WeekSwitcher } from 'common/components';
+import { GameItem } from './subcomponents';
 
-class Console extends React.Component {
+class AdminConsole extends React.Component {
   constructor(props) {
     super(props);
 
@@ -16,16 +17,19 @@ class Console extends React.Component {
 
   componentDidMount() {
     this._redirectUnlessAdmin(this.props.userId);
-    this.props.fetchGames(this.state.week);
+
+    if (this.props.userId === 1) {
+      this.props.fetchGames(this.state.week);
+    }
   }
 
   componentWillReceiveProps(newProps) {
-    this._redirectUnlessAdmin(this.props.userId);
+    this._redirectUnlessAdmin(newProps.userId);
   }
 
   _redirectUnlessAdmin(userId) {
     if (userId !== 1) {
-      this.props.router.push(`home`);
+      this.props.router.replace(`home`);
     }
   }
 
@@ -46,13 +50,12 @@ class Console extends React.Component {
   }
 
   renderGames() {
-    if (this.props.games[this.state.week]) {
-      return Object.values(this.props.games[this.state.week]).map(game => (
-        <GameItem
-          key={game.id}
-          game={game}
-          week={this.state.week}
-        />
+    let { games } = this.props;
+    let { week } = this.state;
+
+    if (games[week]) {
+      return Object.values(games[week]).map(game => (
+        <GameItem key={game.id} game={game} week={week} />
       ));
     }
   }
@@ -62,30 +65,10 @@ class Console extends React.Component {
       <div className="console-container">
         <div className="console-top">
           <div className="console-header">
-            <div>
-              { this.state.week > 1 && (
-                <i
-                  onClick={() => this.updateWeek(-1)}
-                  className="fa fa-caret-left"
-                  aria-hidden="true"
-                />
-              )}
-
-              Week {this.state.week}
-
-              { this.state.week < 17 && (
-                <i
-                  onClick={() => this.updateWeek(1)}
-                  className="fa fa-caret-right"
-                  aria-hidden="true"
-                />
-              )}
-            </div>
-            <div>
-              <button>
-                Run Update
-              </button>
-            </div>
+            <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
+            <button>
+              Update All
+            </button>
           </div>
           <div className="console-labels">
             <div>Away</div>
@@ -94,8 +77,10 @@ class Console extends React.Component {
             <div>Home Score</div>
             <div>Line</div>
             <div>Spread</div>
+            <div>Completed</div>
           </div>
         </div>
+
         <div className="game-list">
           {this.renderGames()}
         </div>
@@ -104,9 +89,10 @@ class Console extends React.Component {
   }
 }
 
-Console.propTypes = {
+AdminConsole.propTypes = {
   games: PropTypes.shape().isRequired,
-  userId: PropTypes.string.isRequired
+  userId: PropTypes.number.isRequired,
+  fetchGames: PropTypes.func.isRequired
 };
 
-export default withRouter(Console);
+export default withRouter(AdminConsole);

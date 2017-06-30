@@ -4,7 +4,6 @@ import NflTeams from './nfl-teams.json';
 
 class Splash extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <div className="splash-container">
         <div className="splash-top">

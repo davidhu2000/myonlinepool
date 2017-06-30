@@ -1,6 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { WeekSwitcher } from 'common/components';
 import { PickForm, LoadingForm } from './subcomponents';
 
 class Picks extends React.Component {
@@ -87,25 +88,7 @@ class Picks extends React.Component {
       <div className="picks-container">
         <div className="picks-top">
           <div className="picks-header">
-            <div>
-              { this.state.week > 1 && (
-                <i
-                  onClick={() => this.updateWeek(-1)}
-                  className="fa fa-caret-left"
-                  aria-hidden="true"
-                />
-              )}
-
-              Week {this.state.week}
-
-              { this.state.week < 17 && (
-                <i
-                  onClick={() => this.updateWeek(1)}
-                  className="fa fa-caret-right"
-                  aria-hidden="true"
-                />
-              )}
-            </div>
+            <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
             <div>
               <button onClick={this.pickHomers}>
                 Auto-Pick

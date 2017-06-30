@@ -29,9 +29,10 @@ class Api::PoolsController < ApplicationController
   end
 
   def show
-    @pool =  Pool.where(id: params[:id]).includes(:members, :weekly_result_nfls).first
+    @pool = Pool.where(id: params[:id]).includes(:members, :weekly_result_nfls).first
     @standings = {}
 
+    # TODO: make season, week dynamic
     # initialize standings for before season starts
     @pool.members.each do |member|
       @standings[0] ||= {}
