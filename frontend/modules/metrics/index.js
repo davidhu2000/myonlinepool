@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { fetchTeams } from './actions';
 import Metrics from './component';
 
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = state => ({
+  teams: state.teams
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchTeams: () => dispatch(fetchTeams())
 });
 
 export default connect(

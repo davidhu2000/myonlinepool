@@ -48,6 +48,7 @@ class Team < ApplicationRecord
           records[game.home_id][:losses] += 1
           records[game.home_id][:home_losses] += 1
       end
+      
       records[game.home_id][:name] = Team.find_by(id: game.home_id).name
       records[game.away_id][:name] = Team.find_by(id: game.away_id).name
     end

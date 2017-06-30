@@ -9,7 +9,6 @@ class Api::TeamsController < ApplicationController
     
     end
 
-
     @teams
   end 
 end
