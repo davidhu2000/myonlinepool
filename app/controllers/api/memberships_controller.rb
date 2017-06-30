@@ -33,7 +33,7 @@ class Api::MembershipsController < ApplicationController
     Pick.where(pool_id: params[:pool_id], user_id: params[:user_id]).destroy_all
     WeeklyResultNfl.where(pool_id: params[:pool_id], user_id: params[:user_id]).destroy_all
 
-    # TODO: ask if this is desired effect?
+    # TODO: ask if this is desired effect? Or set up job to purge at certain times?
     if pool.members.count.zero?
       pool.destroy
     end
