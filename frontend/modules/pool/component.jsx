@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 
+// TODO: render buy_in
+// TODO: render unique pool identifier
 class Pool extends React.Component {
   constructor(props) {
     super(props);
