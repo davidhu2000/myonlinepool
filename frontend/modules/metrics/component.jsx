@@ -8,7 +8,7 @@ class Metrics extends React.Component {
 
   render() {
     return (
-      <div className="pool-container">
+      <div className="metrics-container">
       </div>
     );
   }
