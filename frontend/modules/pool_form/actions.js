@@ -1,10 +1,12 @@
+import { HOME } from 'common/actions';
+
 import * as PoolFormAPI from './utils';
 
-export const RECEIVE_POOL = 'RECEIVE_POOL';
-
 export const receivePool = pool => ({
-  type: RECEIVE_POOL,
-  pool
+  type: HOME.RECEIVE_MY_POOLS,
+  pools: {
+    [pool.id]: pool
+  }
 });
 
 export const createPool = pool => dispatch => (
