@@ -24,8 +24,6 @@ const routes = (
 
     <Route path="/home" component={Home} />
 
-    <Route path='/payment' component={Payment} />
-
     <Route path="/pool/create" component={PoolForm} />
 
     <Route path="/console">
@@ -40,6 +38,7 @@ const routes = (
       <Route path="leaderboard" component={Leaderboard} />
       <Route path="metrics" component={Metrics} />
       <Route path="moderator" component={Moderator} />
+      <Route path='payment' component={Payment} />
     </Route>
 
   </Route>

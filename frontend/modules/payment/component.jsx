@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
+import { hashHistory } from 'react-router';
+import { updatePool } from './utils';
 
 class Payment extends React.Component {
   constructor(props) {
@@ -8,9 +10,16 @@ class Payment extends React.Component {
     autoBind(this);
 
     this.state = {
-      amountPaid: null,
-      maxSize: null
+      amountPaid: 995,
+      maxSize: 5,
+      id: props.pool.id
     };
+  }
+
+  componentWillMount() {
+    if (!this.props.pool.identifier || !this.props.user.email) {
+      hashHistory.replace('/');
+    }
   }
 
   update(e) {
@@ -40,12 +49,16 @@ class Payment extends React.Component {
     });
   }
 
+  updatePool() {
+    updatePool(this.state);
+  }
+
   render() {
     let { pool, user } = this.props;
     console.log(this.state);
     return (
       <div>
-        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" onSubmit={this.updatePool}>
           <input type="hidden" name="cmd" value="_s-xclick" />
           <input type="hidden" name="hosted_button_id" value="Q9PZ2TVVXM9QC" />
           <table>
