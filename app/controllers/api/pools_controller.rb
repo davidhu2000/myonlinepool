@@ -11,6 +11,7 @@ class Api::PoolsController < ApplicationController
     @pool.moderator_id = current_user.id
     @pool.created_at = get_current_time
     @pool.updated_at = get_current_time
+    @pool.password_digest = 'not-secure'
     @pool.memberships.new(user_id: current_user.id)
     @standings = {}
 

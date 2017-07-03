@@ -21,22 +21,25 @@ puts
 puts
 puts 'SEEDING NFL TEAMS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+# progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
-team_data = data.sheet('team_nfl')
-total = team_data.to_a.length - 1
+# team_data = data.sheet('team_nfl')
+# total = team_data.to_a.length - 1
 
-team_data.each_with_index do |team, idx|
-  next if idx.zero?
-  Team.create!(
-    city: team[0].downcase, 
-    name: team[1].downcase,
-    abbreviation: team[2].downcase, 
-    league: team[3].downcase
-  )
-  progress_bar.advance((1 / total.to_f) * bar_total)
-end
-progress_bar.current = 50
+# team_data.each_with_index do |team, idx|
+#   next if idx.zero?
+#   Team.create!(
+#     city: team[0].downcase, 
+#     name: team[1].downcase,
+#     abbreviation: team[2].downcase, 
+#     league: team[3].downcase
+#   )
+#   progress_bar.advance((1 / total.to_f) * bar_total)
+# end
+# progress_bar.current = 50
+
+FetchTeamJob.perform_now
+
 puts 
 puts
 puts 'SEEDING SCHEDULE'
@@ -65,6 +68,8 @@ schedule.each_with_index do |game, idx|
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
 progress_bar.current = 50
+
+FetchScheduleJob.perform_now(2017)
 
 puts 
 puts
@@ -108,7 +113,8 @@ Pool.create!(
   moderator_id: 1,
   league: 'nfl',
   season: 2017,
-  password: 'password'
+  password: 'password',
+  password_digest: 'not-secure'
 )
 
 (total - 1).times do 
@@ -119,7 +125,8 @@ Pool.create!(
     moderator_id: rand(user_total) + 1,
     league: 'nfl',
     season: 2017,
-    password: 'password'
+    password: 'password',
+    password_digest: 'not-secure'
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
