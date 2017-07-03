@@ -62,6 +62,34 @@ class Picks extends React.Component {
     }
   }
 
+  pickFavorites() {
+    let picks = [];
+    Object.values(this.props.picks[this.state.week]).forEach(game => {
+      if (game.pick === '') {
+        if (game.line > 0) {
+          let newPick = {
+            game_id: game.game_id,
+            pool_id: this.props.params.poolId,
+            pick: "away",
+            week: game.week
+          };
+          picks.push(newPick);
+        } else {
+          let newPick = {
+            game_id: game.game_id,
+            pool_id: this.props.params.poolId,
+            pick: "home",
+            week: game.week
+          };
+          picks.push(newPick);
+        }
+      }
+    });
+    if (picks.length > 0) {
+      this.props.sendPicks(picks);
+    }
+  }
+
   renderSelections() {
     if (this.state.loading) {
       return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(id => (
@@ -109,7 +137,7 @@ class Picks extends React.Component {
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
             {this.renderWeekRecord()}
             <div>
-              <button onClick={this.pickHomers}>
+              <button onClick={this.pickFavorites}>
                 Auto-Pick
               </button>
             </div>
