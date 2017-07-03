@@ -21,7 +21,7 @@ class Metrics extends React.Component {
     return teams.map(team => (
       <div className="team-item">
         <div>
-          {team.name}
+          {(team.name).toUpperCase()}
         </div>
         <div>
           {team.games_played}
@@ -47,12 +47,15 @@ class Metrics extends React.Component {
     return (
       <div className="metrics-container">
         <div className="metrics-header">
-          <div>Team</div>
-          <div>Games Played</div>
-          <div>Record</div>
-          <div>Home Record</div>
-          <div>Away Record</div>
-          <div>Beat Over</div>
+          <div className="blocker" />
+          <div className="labels">
+            <div>Team</div>
+            <div>Games Played</div>
+            <div>Record</div>
+            <div>Home</div>
+            <div>Away</div>
+            <div>Beat Over</div>
+          </div>
         </div>
         <div className="metrics-teams">
           {this.renderTeams()}
