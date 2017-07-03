@@ -1,11 +1,14 @@
 .metrics-container {
-  width: 870px;
+  min-width: 870px;
+  width: 95%;
   padding-bottom: 20px;
   padding-top: 57px;
   display: flex;
   flex-direction: column;
+  position: relative;
   .metrics-header {
-    width: 870px;
+    min-width: 870px;
+    width: 95%;
     position: fixed;
     top: 60px;
     z-index: 50;
@@ -16,9 +19,12 @@
       background: white;
       overflow: hidden;
       height: 20px;
-      width: 100%;
+      min-width: 870px;
+      width: 95%;
     }
     .labels {
+      min-width: 870px;
+      width: 95%;
       display: flex;
       justify-content: space-around;
       padding: 5px 0px;
@@ -34,11 +40,12 @@
     }
   }
   .team-item {
-    width: 870px;
+    width: 100%;
     padding: 5px 0px;
     display: flex;
     justify-content: space-around;
     border-top: .2px rgba(51, 51, 51,.2) solid;
+    margin: 0px;
     div {
       width: 140px;
       font-size: 15px;
