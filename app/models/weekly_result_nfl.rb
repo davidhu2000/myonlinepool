@@ -10,6 +10,7 @@
 #  correct_picks :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  wrong_picks   :integer
 #
 
 class WeeklyResultNfl < ApplicationRecord

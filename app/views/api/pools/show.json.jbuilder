@@ -1,4 +1,5 @@
 json.partial! 'api/pools/pool', pool: @pool
+json.locked @locked
 json.standings do
   @standings.each do |week, pool_standings|
     
