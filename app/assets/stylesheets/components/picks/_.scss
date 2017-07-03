@@ -34,11 +34,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    box-sizing: border-box !important;
 
     .fa-caret-left {
       position: absolute;
-      bottom: 73px;
+      bottom: 76px;
       left: 0px;
     }
 
@@ -62,8 +61,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 3px;
-      // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      border-radius: 2px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
       background: $drk-primary;
       transition: .3s;

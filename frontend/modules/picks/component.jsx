@@ -62,13 +62,40 @@ class Picks extends React.Component {
     }
   }
 
+  pickFavorites() {
+    let picks = [];
+    Object.values(this.props.picks[this.state.week]).forEach(game => {
+      if (game.pick === '') {
+        if (game.line > 0) {
+          let newPick = {
+            game_id: game.game_id,
+            pool_id: this.props.params.poolId,
+            pick: "away",
+            week: game.week
+          };
+          picks.push(newPick);
+        } else {
+          let newPick = {
+            game_id: game.game_id,
+            pool_id: this.props.params.poolId,
+            pick: "home",
+            week: game.week
+          };
+          picks.push(newPick);
+        }
+      }
+    });
+    if (picks.length > 0) {
+      this.props.sendPicks(picks);
+    }
+  }
+
   renderSelections() {
     if (this.state.loading) {
       return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(id => (
         <LoadingForm key={`loading-${id}`} />
       ));
     }
-
 
     if (this.props.picks[this.state.week]) {
       return Object.values(this.props.picks[this.state.week]).map(game => (
@@ -83,14 +110,34 @@ class Picks extends React.Component {
     }
   }
 
+  renderWeekRecord() {
+    if (this.props.picks[this.state.week]) {
+      let picks = 0;
+      let misses = 0;
+      Object.values(this.props.picks[this.state.week]).forEach(pick => {
+        if (pick.completed) {
+          if (pick.pick === 'away' && pick.away_score > pick.home_score) {
+            picks += 1;
+          } else if (pick.pick === 'home' && pick.home_score > pick.away_score) {
+            picks += 1;
+          } else {
+            misses += 1;
+          }
+        }
+      });
+      return <div>{picks} - {misses}</div>;
+    }
+  }
+
   render() {
     return (
       <div className="picks-container">
         <div className="picks-top">
           <div className="picks-header">
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
+            {this.renderWeekRecord()}
             <div>
-              <button onClick={this.pickHomers}>
+              <button onClick={this.pickFavorites}>
                 Auto-Pick
               </button>
             </div>
