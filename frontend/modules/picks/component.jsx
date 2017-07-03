@@ -69,7 +69,6 @@ class Picks extends React.Component {
       ));
     }
 
-
     if (this.props.picks[this.state.week]) {
       return Object.values(this.props.picks[this.state.week]).map(game => (
         <PickForm
@@ -83,12 +82,32 @@ class Picks extends React.Component {
     }
   }
 
+  renderWeekRecord() {
+    if (this.props.picks[this.state.week]) {
+      let picks = 0;
+      let misses = 0;
+      Object.values(this.props.picks[this.state.week]).forEach(pick => {
+        if (pick.completed) {
+          if (pick.pick === 'away' && pick.away_score > pick.home_score) {
+            picks += 1;
+          } else if (pick.pick === 'home' && pick.home_score > pick.away_score) {
+            picks += 1;
+          } else {
+            misses += 1;
+          }
+        }
+      });
+      return <div>{picks} - {misses}</div>
+    }
+  }
+
   render() {
     return (
       <div className="picks-container">
         <div className="picks-top">
           <div className="picks-header">
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
+            {this.renderWeekRecord()}
             <div>
               <button onClick={this.pickHomers}>
                 Auto-Pick
