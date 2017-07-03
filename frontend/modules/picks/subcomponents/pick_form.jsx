@@ -32,7 +32,7 @@ class PickForm extends React.Component {
     let other = type === 'home' ? 'away' : 'home';
 
     if (game.completed) {
-      if (game.pick === type) {
+      if (game.pick === type || game.pick === '') {
         if (game[`${type}_score`] > game[`${other}_score`]) {
           className += ' correct-pick-button';
         } else {
