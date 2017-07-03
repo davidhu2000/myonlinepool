@@ -1,7 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
 
 class Metrics extends React.Component {
   constructor(props) {
@@ -18,6 +18,12 @@ class Metrics extends React.Component {
     console.log(this.props);
     return (
       <div className="metrics-container">
+        <div className="metrics-header">
+          
+        </div>
+        <div className="metrics-teams">
+          
+        </div>    
       </div>
     );
   }
