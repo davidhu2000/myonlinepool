@@ -11,6 +11,10 @@ class EvaluatePicksJob < ApplicationJob
       picks.each do |pick|
         game = games.find_by(id: pick.game_id)
 
+        if pick.pick == ''
+          pick.pick = 'away'
+        end  
+
         if pick.pick == 'home' && game.home_score > game.away_score
           pick.is_correct = 'correct'
         elsif pick.pick == 'away' && game.away_score > game.home_score

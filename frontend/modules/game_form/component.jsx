@@ -102,7 +102,7 @@ class GameForm extends React.Component {
               className='auth-form-password'
             />
             <span className='bar' />
-            <label htmlFor='number'>Home Score</label>
+            <label htmlFor='number'>Away Score</label>
           </div>
 
           <div className='poolform-group'>
@@ -113,7 +113,7 @@ class GameForm extends React.Component {
               className='auth-form-password'
             />
             <span className='bar' />
-            <label htmlFor='number'>Home Score</label>
+            <label htmlFor='number'>Line</label>
           </div>
 
           <div className='poolform-group'>
@@ -124,7 +124,7 @@ class GameForm extends React.Component {
               className='auth-form-password'
             />
             <span className='bar' />
-            <label htmlFor='number'>Home Score</label>
+            <label htmlFor='number'>Over</label>
           </div>
 
           <select value={this.state.completed} onChange={e => this.handleChange(e.target.value)}>
