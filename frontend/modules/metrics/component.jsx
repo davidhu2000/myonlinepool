@@ -1,7 +1,8 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
+import { values } from 'lodash';
 
 class Metrics extends React.Component {
   constructor(props) {
@@ -13,11 +14,52 @@ class Metrics extends React.Component {
   componentDidMount() {
     this.props.fetchTeams();
   }
-  
+
+  renderTeams() {
+    let teams = values(this.props.teams);
+    console.log(teams[0]);
+    return teams.map(team => (
+      <div className="team-item">
+        <div>
+          {(team.name).toUpperCase()}
+        </div>
+        <div>
+          {team.games_played}
+        </div>
+        <div>
+          {team.wins} - {team.losses} - {team.ties}
+        </div>
+        <div>
+          {team.home_wins} - {team.home_losses}
+        </div>
+        <div>
+          {team.away_wins} - {team.away_losses}
+        </div>
+        <div>
+          {team.beat_over}
+        </div>
+      </div>
+    ));
+  }
+
   render() {
     console.log(this.props);
     return (
       <div className="metrics-container">
+        <div className="metrics-header">
+          <div className="blocker" />
+          <div className="labels">
+            <div>Team</div>
+            <div>Games Played</div>
+            <div>Record</div>
+            <div>Home</div>
+            <div>Away</div>
+            <div>Beat Over</div>
+          </div>
+        </div>
+        <div className="metrics-teams">
+          {this.renderTeams()}
+        </div>
       </div>
     );
   }
