@@ -117,7 +117,18 @@ Pool.create!(
   password_digest: 'not-secure'
 )
 
-(total - 1).times do 
+Pool.create!(
+  title: 'Test pool 2',
+  description: 'not a real pool',
+  buy_in: 1,
+  moderator_id: 2,
+  league: 'nfl',
+  season: 2017,
+  password: 'password',
+  password_digest: 'not-secure'
+)
+
+(total - 2).times do 
   Pool.create!(
     title: Faker::Superhero.name,
     description: Faker::ChuckNorris.fact,

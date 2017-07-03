@@ -1,5 +1,11 @@
 json.partial! 'api/pools/pool', pool: @pool
 json.locked @locked
+
+if @is_moderator
+  json.identifier @pool.identifier
+  json.password @pool.password
+end
+
 json.standings do
   @standings.each do |week, pool_standings|
     
