@@ -55,7 +55,6 @@ class Payment extends React.Component {
 
   render() {
     let { pool, user } = this.props;
-    console.log(this.state);
     return (
       <div>
         <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" onSubmit={this.updatePool}>
@@ -72,16 +71,19 @@ class Payment extends React.Component {
               <tr>
                 <td>
                   <select name="os0" onChange={this.update}>
-                    <option value="5 or less people">{"5 or less people $9.95 USD"}</option>
-                    <option value="15 or less people">{"15 or less people $15.95 USD"}</option>
-                    <option value="more than 15 people">{"more than 15 people $25.95 USD"}</option>
+                    <option value="5 or less people -">5 or less people - $9.95 USD</option>
+                    <option value="15 or less people -">15 or less people - $15.95 USD</option>
+                    <option value="more than 15 people -">more than 15 people - $25.95 USD</option>
                   </select>
                 </td>
               </tr>
             </tbody>
           </table>
           <input type="hidden" name="currency_code" value="USD" />
-          <input type="hidden" name="return" value={`http://localhost:3000/payments?email=${user.email}&identifier=${pool.identifier}`} />
+          <input type="hidden" name="email" value={user.email} />
+          <input type="hidden" name="identifier" value={pool.identifier} />
+          {/*<input type="hidden" name="rm" value="1" />*/}
+          <input type="hidden" name="return" value={`http://myonlinepool.herokuapp.com/payments?email=${user.email}&identifier=${pool.identifier}`} />
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
           <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
         </form>
