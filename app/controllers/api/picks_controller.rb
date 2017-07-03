@@ -34,7 +34,7 @@ class Api::PicksController < ApplicationController
   def create
     @picks = {}
     @week = nil
-    current_time = DateTime.parse(get_current_time["currentDateTime"])
+    current_time = get_current_time
 
     params[:picks].each do |key, game|
       @week ||= game[:week]

@@ -32,10 +32,7 @@ class Api::PoolsController < ApplicationController
 
   def show
     @pool = Pool.where(id: params[:id]).includes(:members, :weekly_result_nfls).first
-
-    if !@pool.payment_made && (get_current_time.to_date - @pool.created_at.to_date).to_i > 7
-      render json: ['please pay first'], status: 404
-    end
+    @locked = !@pool.payment_made && (get_current_time.to_date - @pool.created_at.to_date).to_i > 7
 
     @standings = show_standings(@pool)
   end
