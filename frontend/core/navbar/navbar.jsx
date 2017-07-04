@@ -27,21 +27,13 @@ class Navbar extends React.Component {
   renderAuthButton() {
     if (this.props.loggedIn) {
       return (
-        <button
-          onClick={this.props.signout}
-          id='right-dropdown-button'
-          className="account-button"
-        >
+        <button onClick={this.props.signout} className="account-button">
           <span>Sign Out</span>
         </button>
       );
     } else {
       return (
-        <Link
-          to='auth?form=signin'
-          id='right-dropdown-button'
-          className="account-button"
-        >
+        <Link to='auth?form=signin' className="account-button">
           <span>Sign In</span>
         </Link>
       );
