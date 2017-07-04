@@ -79,7 +79,7 @@ class Navbar extends React.Component {
           <span /><span /><span /><span />
         </button>
 
-        <div className="title" onClick={() => this.props.router.push('/')}>
+        <div className="title" onClick={() => this.props.router.push(this.props.loggedIn ? '/home' : '/')}>
           MyOnlinePool
         </div>
 
