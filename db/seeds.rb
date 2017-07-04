@@ -7,10 +7,10 @@ green = pastel.on_green(" ")
 red = pastel.inverse(" ")
 
 bar_total = 50
-user_total = 50
+user_total = 20
 pool_total = 5
 announcement_total = 10
-membership_total = 100
+membership_total = 50
 bulletin_total = 100
 message_total = 200
 pick_total = pool_total
