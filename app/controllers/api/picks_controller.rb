@@ -1,8 +1,5 @@
 class Api::PicksController < ApplicationController
   def index
-    # TODO: make season, week dynamic
-    # TODO: only do this the first time picks are rendered.
-    records = Team.calculate_team_records(2016)
     current_time = get_current_time
     # TODO: make season, week dynamic
     all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
@@ -15,19 +12,14 @@ class Api::PicksController < ApplicationController
       @picks[game.id][:home] = game.home.name.capitalize
       @picks[game.id][:away] = game.away.name.capitalize
       @picks[game.id][:pick] = ""
-      @picks[game.id][:home_wins] = records[game.home_id][:wins]
-      @picks[game.id][:home_losses] = records[game.home_id][:losses]
-      @picks[game.id][:home_ties] = records[game.home_id][:ties]
-      @picks[game.id][:away_wins] = records[game.away_id][:wins]
-      @picks[game.id][:away_losses] = records[game.away_id][:losses]
-      @picks[game.id][:away_ties] = records[game.away_id][:ties]
+      @picks[game.id][:home_record] = game.home_record
+      @picks[game.id][:away_record] = game.away_record
       @picks[game.id][:pick_locked] = game.start_time < current_time
     end
     raw_picks.each do |pick| 
       @picks[pick[:game_id]][:pick] = pick.pick 
     end
 
-    # debugger
     @week = params[:week]
     render 'api/picks/index'
   end
