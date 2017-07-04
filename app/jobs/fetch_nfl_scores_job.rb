@@ -37,9 +37,9 @@ class FetchNflScoresJob < ApplicationJob
         parse_page.css('.new-score-box-wrapper').each do |game|
           # game date
           date = game.css('.new-score-box-heading .date').text
-          time = game.css('.new-score-box .game-center-area .time-left').text.downcase
+          time = game.css('.new-score-box .game-center-area .time-left').text.downcase.strip
           date_str = date + ', ' + season.to_s
-          date_str += ', ' + time.sub('ET', 'EDT') unless time == 'final'
+          date_str += ', ' + time.sub('ET', 'EDT') unless time.include? 'final'
 
           start_time = Time.parse(date_str).utc
 
@@ -67,7 +67,7 @@ class FetchNflScoresJob < ApplicationJob
           game.home_score = home_score unless home_score == '--'
           game.away_score = away_score unless away_score == '--'
           game.start_time = start_time
-          game.completed = time == 'final'
+          game.completed = time.include? 'final'
           game.home_record = home_record
           game.away_record = away_record
 
