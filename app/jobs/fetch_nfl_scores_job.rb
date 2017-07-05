@@ -1,6 +1,6 @@
 require 'httparty'
 require 'nokogiri'
-require 'JSON'
+require 'json'
 
 class FetchNflScoresJob < ApplicationJob
   queue_as :default
