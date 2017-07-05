@@ -26,8 +26,10 @@ puts
 puts 'SEEDING SCHEDULE'
 puts '-------------------------------------------------------------------------'
 
+puts 'seeding 2016 NFL schedule'
 FetchNflScoresJob.perform_now(2016, (1..22).to_a)
 
+puts 'seeding 2017 NFL schedule'
 FetchNflScoresJob.perform_now(2017, (1..17).to_a)
 
 puts 
@@ -195,6 +197,15 @@ total = pick_total
 
 end
 progress_bar.current = 50
+
+weeks = (1..20).to_a + [22]
+
+weeks.each do |week|
+  puts "Evaluating week #{week} results"
+  EvaluatePicksJob.perform_now(2016, week)
+  CalculateWeeklyResultsJob.perform_now(2016, week)
+end
+
 puts 
 puts
 puts '-------------------------------------------------------------------------'
