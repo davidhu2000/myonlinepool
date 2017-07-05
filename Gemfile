@@ -43,6 +43,7 @@ gem 'nokogiri'
 gem 'roo'
 gem 'tty-progressbar'
 gem 'pastel'
+gem 'faker'
 
 group :production do
   gem 'rails_12factor'
@@ -54,7 +55,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'faker'
   gem 'annotate'
   gem 'better_errors'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
