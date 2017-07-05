@@ -35,6 +35,14 @@
     flex-direction: row;
     justify-content: space-between;
 
+    span:first-child {
+      color: #476C9B;
+    }
+
+    span:last-child {
+      color: #A71D31;
+    }
+
     .fa-caret-left {
       position: absolute;
       bottom: 76px;
@@ -57,7 +65,7 @@
     button {
       height: 40px;
       width: 135px;
-      font-size: 20px;
+      font-size: 15px;
       display: flex;
       justify-content: center;
       align-items: center;

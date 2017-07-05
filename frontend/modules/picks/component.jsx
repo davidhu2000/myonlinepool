@@ -125,7 +125,7 @@ class Picks extends React.Component {
           }
         }
       });
-      return <div>{picks} - {misses}</div>;
+      return <div><span>{picks}</span> - <span>{misses}</span></div>;
     }
   }
 
@@ -138,7 +138,7 @@ class Picks extends React.Component {
             {this.renderWeekRecord()}
             <div>
               <button onClick={this.pickFavorites}>
-                Auto-Pick
+                Pick Favorites
               </button>
             </div>
           </div>
