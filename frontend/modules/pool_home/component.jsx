@@ -9,7 +9,7 @@ class PoolHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      week: 17
+      week: 1
     };
   }
 
@@ -28,13 +28,11 @@ class PoolHome extends React.Component {
   }
 
   checkForPayment() {
-    if (!this.props.pool.paymentMade) {
+    if (!this.props.pool.paymentMade && this.props.user.id === this.props.pool.moderatorId) {
       return (
         <div className="pool-alert">
-          Please click here to make your payment.
-          <br />
           <Link to={`pool/${this.props.pool.id}/payment`}>
-            Click Here
+            Please click here to make your payment.
           </Link>
         </div>
       );
@@ -79,12 +77,17 @@ class PoolHome extends React.Component {
 }
 
 PoolHome.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.shape()
+  }),
   pool: PropTypes.shape({
     messages: PropTypes.shape(),
     bulletins: PropTypes.shape(),
     standings: PropTypes.shape(),
     members: PropTypes.shape(),
-    paymentMade: PropTypes.bool.isRequired
+    paymentMade: PropTypes.bool.isRequired,
+    moderatorId: PropTypes.string.isRequired,
+    id: PropTypes.shape()
   }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired
