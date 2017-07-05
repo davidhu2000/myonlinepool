@@ -1,3 +1,15 @@
+import { connect } from 'react-redux';
 import Splash from './component';
 
-export default Splash;
+const mapStateToProps = ({ user }) => ({
+  user
+});
+
+const mapDispatchToProps = () => ({
+
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Splash);

@@ -11,6 +11,22 @@ class Splash extends React.Component {
     };
   }
 
+  componentDidMount() {
+    let { user } = this.props;
+    this._redirectIfLoggedIn(user);
+  }
+
+  componentWillReceiveProps(newProps) {
+    let { user } = this.props;
+    this._redirectIfLoggedIn(user);
+  }
+
+  _redirectIfLoggedIn(userId) {
+    if (userId) {
+      this.props.router.push('/home');
+    }
+  }
+
   render() {
     return (
       <div className="splash-container">
