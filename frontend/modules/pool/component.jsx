@@ -1,9 +1,8 @@
 import React from 'react';
-import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
+import { MoonLoader } from 'react-spinners';
 
-// TODO: render buy_in
-// TODO: render unique pool identifier
 class Pool extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +34,9 @@ class Pool extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <div></div>
+        <div>
+          <MoonLoader color={'#2d2d2d'} size={50} />
+        </div>
       );
     }
 
