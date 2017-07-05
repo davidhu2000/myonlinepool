@@ -27,7 +27,7 @@
   }
 
   .picks-header {
-    padding-left: 19px;
+    // padding-left: 19px;
     font-size: 25px;
     padding-bottom: 10px;
     font-weight: bold;
@@ -35,31 +35,28 @@
     flex-direction: row;
     justify-content: space-between;
 
-    span:first-child {
-      color: #476C9B;
-    }
+    .week-switcher {
+      position: relative;
+      padding-left: 20px;
 
-    span:last-child {
-      color: #A71D31;
-    }
+      .fa-caret-left {
+        position: absolute;
+        bottom: 9px;
+        left: 0px;
+      }
 
-    .fa-caret-left {
-      position: absolute;
-      bottom: 76px;
-      left: 0px;
-    }
+      .fa-caret-right {
+        padding-left: 10px;
+      }
 
-    .fa-caret-right {
-      padding-left: 10px;
-    }
+      i {
+        transition: .3s;
+      }
 
-    i {
-      transition: .3s;
-    }
-
-    i:hover {
-      opacity: .5;
-      cursor: pointer;
+      i:hover {
+        opacity: .5;
+        cursor: pointer;
+      }
     }
 
     button {

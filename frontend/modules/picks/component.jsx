@@ -125,7 +125,7 @@ class Picks extends React.Component {
           }
         }
       });
-      return <div><span>{picks}</span> - <span>{misses}</span></div>;
+      return <div>{picks} - {misses}</div>;
     }
   }
 
