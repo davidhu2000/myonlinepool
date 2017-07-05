@@ -45,6 +45,16 @@ class Api::MembershipsController < ApplicationController
     end
   end
 
+  def update 
+    membership = Membership.find_by(id: params[:membership_id])
+    membership.paid = !membership.paid
+    if membership.save
+      puts "saved"
+    else 
+      render json: ['Could not update member']
+    end 
+  end 
+
   private 
 
   def membership_params 

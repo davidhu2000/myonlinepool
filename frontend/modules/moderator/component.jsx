@@ -29,14 +29,15 @@ class Moderator extends React.Component {
 
   renderMembers() {
     return Object.values(this.props.pool.members || []).map(member => (
-        <div className="pool-member" key={`member-${member.id}`}>
-          <i className="fa fa-angle-right" aria-hidden="true" />          
-          <span>{ member.name }</span>
+      <div className="pool-member">
+        <button onClick={() => this.props.toggleMembership(member.userId, this.props.pool.id)}>
           <i className="fa fa-usd" aria-hidden="true"></i>
-          <button onClick={() => this.props.removeMember(member.id, this.props.pool.id)}>
-            <i className="fa fa-times" aria-hidden="true"></i>
-          </button>
-        </div>
+        </button>
+        <button onClick={() => this.props.removeMember(member.userId, this.props.pool.id)}>
+          <i className="fa fa-times" aria-hidden="true"></i>
+        </button>    
+        <span>{ member.name }</span>
+      </div>
     ));
   }
 
@@ -68,6 +69,7 @@ Moderator.propTypes = {
   createBulletin: PropTypes.func.isRequired,
   deleteBulletin: PropTypes.func.isRequired,
   removeMember: PropTypes.func.isRequired,
+  toggleMembership: PropTypes.func.isRequired,
   pool: PropTypes.shape().isRequired,
   user: PropTypes.shape().isRequired,
   params: PropTypes.shape({
