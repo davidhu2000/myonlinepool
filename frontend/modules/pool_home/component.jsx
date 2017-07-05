@@ -40,9 +40,6 @@ class PoolHome extends React.Component {
   }
 
   checkForMemberPayment() {
-    // console.log("=====");
-    // console.log(this.props.pool.members[this.props.user.id].paid);
-    // console.log("=====");
     if (!this.props.pool.members[this.props.user.id].paid && this.props.user.id !== this.props.pool.moderatorId) {
       return (
         <div className="pool-alert">

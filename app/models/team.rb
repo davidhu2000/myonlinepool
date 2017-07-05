@@ -50,7 +50,7 @@ class Team < ApplicationRecord
           records[game.home_id][:home_losses] += 1
       end
 
-      if (game.home_score + game.away_score) > game.spread
+      if game.spread && (game.home_score + game.away_score) > game.spread
         records[game.home_id][:beat_over] += 1
         records[game.away_id][:beat_over] += 1
       end
