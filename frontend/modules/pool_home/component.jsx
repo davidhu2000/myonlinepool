@@ -32,7 +32,7 @@ class PoolHome extends React.Component {
       return (
         <div className="pool-alert">
           <Link to={`pool/${this.props.pool.id}/payment`}>
-            Please click here to make your payment.
+            Trial period will end after 14 days. Please click here to make your payment.
           </Link>
         </div>
       );
