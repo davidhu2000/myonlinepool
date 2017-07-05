@@ -215,6 +215,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  nokogiri
   pastel
   pg (~> 0.18)
   pry-coolline

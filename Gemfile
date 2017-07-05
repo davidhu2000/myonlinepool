@@ -39,6 +39,7 @@ gem 'pry-coolline'
 # gem 'sidekiq'
 gem 'figaro'
 gem 'httparty'
+gem 'nokogiri'
 
 group :production do
   gem 'rails_12factor'
