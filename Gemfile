@@ -38,6 +38,7 @@ gem 'rb-readline'
 gem 'pry-coolline'
 # gem 'sidekiq'
 gem 'figaro'
+gem 'httparty'
 
 group :production do
   gem 'rails_12factor'

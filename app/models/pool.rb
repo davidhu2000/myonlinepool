@@ -13,14 +13,18 @@
 #  updated_at      :datetime         not null
 #  password_digest :string           not null
 #  identifier      :string           not null
+#  max_size        :integer
+#  amount_paid     :integer
+#  payment_made    :boolean          default("false"), not null
+#  password        :string           not null
 #
 
 class Pool < ApplicationRecord
-  include ApplicationHelper
+  # include ApplicationHelper
 
   def self.find_by_credentials(identifier, password)
     pool = Pool.find_by(identifier: identifier)
-    pool && pool.valid_password?(password) ? pool : nil
+    pool && pool.password == password ? pool : nil
   end
 
   before_validation :set_key
@@ -32,6 +36,23 @@ class Pool < ApplicationRecord
       self.identifier = SecureRandom.urlsafe_base64(8)
     end
   end
+
+  # attr_reader :password
+
+  # def password=(password)
+  #   self.password = password
+  #   self.password_digest = BCrypt::Password.create(password)
+  # end
+
+  # def valid_password?(password)
+  #   BCrypt::Password.new(self.password_digest).is_password?(password)
+  # end
+
+  # attr_reader :password_digest
+
+  # def password_digest=(val)
+  #   self.password_digest = val
+  # end
 
   validates :title, presence: true
   validates :moderator, presence: true

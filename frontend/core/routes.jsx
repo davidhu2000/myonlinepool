@@ -14,6 +14,7 @@ import Auth from 'modules/auth';
 import PoolForm from 'modules/pool_form';
 import AdminConsole from 'modules/console';
 import GameForm from 'modules/game_form';
+import Payment from 'modules/payment';
 
 const routes = (
   <Route path="/" component={App}>
@@ -37,6 +38,7 @@ const routes = (
       <Route path="leaderboard" component={Leaderboard} />
       <Route path="metrics" component={Metrics} />
       <Route path="moderator" component={Moderator} />
+      <Route path='payment' component={Payment} />
     </Route>
 
   </Route>

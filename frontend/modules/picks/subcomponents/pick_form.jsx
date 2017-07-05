@@ -67,7 +67,7 @@ class PickForm extends React.Component {
               {game.away.toUpperCase()}
             </div>
             <div>
-              {game.away_wins}-{game.away_losses}-{game.away_ties}
+              {game.away_record}
             </div>
           </div>
         </label>
@@ -102,7 +102,7 @@ class PickForm extends React.Component {
               {game.home.toUpperCase()}
             </div>
             <div>
-              {game.home_wins}-{game.home_losses}-{game.home_ties}
+              {game.home_record}
             </div>
           </div>
           <button onClick={() => this.submitPick("home")} />

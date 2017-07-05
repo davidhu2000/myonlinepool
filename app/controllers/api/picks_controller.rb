@@ -1,15 +1,8 @@
-require 'net/http'
-require 'json'
-
 class Api::PicksController < ApplicationController
   def index
+    current_time = get_current_time
     # TODO: make season, week dynamic
-    # TODO: only do this the first time picks are rendered.
-    records = Team.calculate_team_records(2016)
-    
-    current_time = DateTime.parse(get_current_time["currentDateTime"])
-    # TODO: make season, week dynamic
-    all_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
+    all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
     raw_picks = current_user.picks.where(pool_id: params[:poolId], game_id: all_games)
     @picks = {}
 
@@ -19,17 +12,14 @@ class Api::PicksController < ApplicationController
       @picks[game.id][:home] = game.home.name.capitalize
       @picks[game.id][:away] = game.away.name.capitalize
       @picks[game.id][:pick] = ""
-      @picks[game.id][:home_wins] = records[game.home_id][:wins]
-      @picks[game.id][:home_losses] = records[game.home_id][:losses]
-      @picks[game.id][:home_ties] = records[game.home_id][:ties]
-      @picks[game.id][:away_wins] = records[game.away_id][:wins]
-      @picks[game.id][:away_losses] = records[game.away_id][:losses]
-      @picks[game.id][:away_ties] = records[game.away_id][:ties]
+      @picks[game.id][:home_record] = game.home_record
+      @picks[game.id][:away_record] = game.away_record
       @picks[game.id][:pick_locked] = game.start_time < current_time
     end
     raw_picks.each do |pick| 
       @picks[pick[:game_id]][:pick] = pick.pick 
     end
+
     @week = params[:week]
     render 'api/picks/index'
   end
@@ -37,7 +27,7 @@ class Api::PicksController < ApplicationController
   def create
     @picks = {}
     @week = nil
-    current_time = DateTime.parse(get_current_time["currentDateTime"])
+    current_time = get_current_time
 
     params[:picks].each do |key, game|
       @week ||= game[:week]
@@ -58,13 +48,5 @@ class Api::PicksController < ApplicationController
       end
     end
     render 'api/picks/index'
-  end
-
-  private 
-
-  def get_current_time
-    url = 'http://worldclockapi.com/api/json/utc/now'
-    uri = URI(url)
-    JSON.parse(Net::HTTP.get(uri))
   end
 end

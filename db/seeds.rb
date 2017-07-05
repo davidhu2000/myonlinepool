@@ -7,10 +7,10 @@ green = pastel.on_green(" ")
 red = pastel.inverse(" ")
 
 bar_total = 50
-user_total = 100
-pool_total = 10
+user_total = 20
+pool_total = 5
 announcement_total = 10
-membership_total = 100
+membership_total = 50
 bulletin_total = 100
 message_total = 200
 pick_total = pool_total
@@ -21,50 +21,57 @@ puts
 puts
 puts 'SEEDING NFL TEAMS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+# progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
-team_data = data.sheet('team_nfl')
-total = team_data.to_a.length - 1
+# team_data = data.sheet('team_nfl')
+# total = team_data.to_a.length - 1
 
-team_data.each_with_index do |team, idx|
-  next if idx.zero?
-  Team.create!(
-    city: team[0].downcase, 
-    name: team[1].downcase,
-    abbreviation: team[2].downcase, 
-    league: team[3].downcase
-  )
-  progress_bar.advance((1 / total.to_f) * bar_total)
-end
-progress_bar.current = 50
+# team_data.each_with_index do |team, idx|
+#   next if idx.zero?
+#   Team.create!(
+#     city: team[0].downcase, 
+#     name: team[1].downcase,
+#     abbreviation: team[2].downcase, 
+#     league: team[3].downcase
+#   )
+#   progress_bar.advance((1 / total.to_f) * bar_total)
+# end
+# progress_bar.current = 50
+
+FetchTeamJob.perform_now
+
 puts 
 puts
 puts 'SEEDING SCHEDULE'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+# progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 
-schedule = data.sheet('test_schedule')
-total = schedule.to_a.length - 1
+# schedule = data.sheet('test_schedule')
+# total = schedule.to_a.length - 1
 
-schedule.each_with_index do |game, idx|
-  next if idx.zero?
-  next unless game[0]
+# schedule.each_with_index do |game, idx|
+#   next if idx.zero?
+#   next unless game[0]
 
-  GameNfl.create!(
-    season: game[0],
-    week: game[1],
-    home_id: game[2],
-    away_id: game[3],
-    home_score: game[4],
-    away_score: game[5],
-    completed: game[6],
-    start_time: Time.parse(game[7]).utc,
-    line: game[8],
-    spread: game[9]
-  )
-  progress_bar.advance((1 / total.to_f) * bar_total)
-end
-progress_bar.current = 50
+#   GameNfl.create!(
+#     season: game[0],
+#     week: game[1],
+#     home_id: game[2],
+#     away_id: game[3],
+#     home_score: game[4],
+#     away_score: game[5],
+#     completed: game[6],
+#     start_time: Time.parse(game[7]).utc,
+#     line: game[8],
+#     spread: game[9]
+#   )
+#   progress_bar.advance((1 / total.to_f) * bar_total)
+# end
+# progress_bar.current = 50
+
+FetchNflScoresJob.perform_now(2016, (1..22).to_a)
+
+FetchScheduleJob.perform_now(2017)
 
 puts 
 puts
@@ -108,10 +115,22 @@ Pool.create!(
   moderator_id: 1,
   league: 'nfl',
   season: 2017,
-  password: 'password'
+  password: 'password',
+  password_digest: 'not-secure'
 )
 
-(total - 1).times do 
+Pool.create!(
+  title: 'Test pool 2',
+  description: 'not a real pool',
+  buy_in: 1,
+  moderator_id: 2,
+  league: 'nfl',
+  season: 2017,
+  password: 'password',
+  password_digest: 'not-secure'
+)
+
+(total - 2).times do 
   Pool.create!(
     title: Faker::Superhero.name,
     description: Faker::ChuckNorris.fact,
@@ -119,7 +138,8 @@ Pool.create!(
     moderator_id: rand(user_total) + 1,
     league: 'nfl',
     season: 2017,
-    password: 'password'
+    password: 'password',
+    password_digest: 'not-secure'
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
@@ -198,22 +218,22 @@ puts
 puts 'SEEDING PICKS'
 puts '-------------------------------------------------------------------------'
 progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
-
+game_total = GameNfl.where(season: 2016).count
 total = pick_total
 (total).times do |i|
   pool = Pool.find(i + 1)
   users = pool.members
 
   users.each do |user|
-    32.times do |j|
+    game_total.times do |j|
       Pick.create(
         pool_id: pool.id,
         user_id: user.id,
         game_id: j + 1,
         pick: ['home', 'away'].sample
       )
+      progress_bar.advance((1 / total.to_f / users.count / game_total) * bar_total)
     end
-    progress_bar.advance((1 / total.to_f / users.count) * bar_total)
   end
 
 end

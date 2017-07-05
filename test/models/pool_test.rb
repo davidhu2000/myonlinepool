@@ -13,6 +13,10 @@
 #  updated_at      :datetime         not null
 #  password_digest :string           not null
 #  identifier      :string           not null
+#  max_size        :integer
+#  amount_paid     :integer
+#  payment_made    :boolean          default("false"), not null
+#  password        :string           not null
 #
 
 require 'test_helper'
