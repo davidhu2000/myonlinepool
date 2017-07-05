@@ -27,7 +27,7 @@ class PoolHome extends React.Component {
     }
   }
 
-  checkForPayment() {
+  checkForAdminPayment() {
     if (!this.props.pool.paymentMade && this.props.user.id === this.props.pool.moderatorId) {
       return (
         <div className="pool-alert">
@@ -39,12 +39,28 @@ class PoolHome extends React.Component {
     }
   }
 
+  checkForMemberPayment() {
+    // console.log("=====");
+    // console.log(this.props.pool.members[this.props.user.id].paid);
+    // console.log("=====");
+    if (!this.props.pool.members[this.props.user.id].paid && this.props.user.id !== this.props.pool.moderatorId) {
+      return (
+        <div className="pool-alert">
+          <Link to={`pool/${this.props.pool.id}/payment`}>
+            Please pay the buy-in to your pool administrator.
+          </Link>
+        </div>
+      );
+    }
+  }
+
   render() {
     let { pool } = this.props;
 
     return (
       <div className="pool-container">
-        { this.checkForPayment() }
+        { this.checkForAdminPayment() }
+        { this.checkForMemberPayment() }
         <div className="pool-standings">
           <PoolStandingsBox
             title="Weekly Leaders"
