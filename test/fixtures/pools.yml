@@ -16,6 +16,7 @@
 #  max_size        :integer
 #  amount_paid     :integer
 #  payment_made    :boolean          default("false"), not null
+#  password        :string           not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

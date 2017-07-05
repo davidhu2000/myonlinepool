@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630221832) do
+ActiveRecord::Schema.define(version: 20170703225159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170630221832) do
     t.integer  "max_size"
     t.integer  "amount_paid"
     t.boolean  "payment_made",    default: false, null: false
+    t.string   "password",                        null: false
     t.index ["identifier"], name: "index_pools_on_identifier", unique: true, using: :btree
     t.index ["moderator_id"], name: "index_pools_on_moderator_id", using: :btree
     t.index ["title"], name: "index_pools_on_title", using: :btree
