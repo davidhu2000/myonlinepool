@@ -1,4 +1,3 @@
-require 'roo'
 require 'tty-progressbar'
 require 'pastel'
 
@@ -15,28 +14,10 @@ bulletin_total = 100
 message_total = 200
 pick_total = pool_total
 
-data = Roo::Spreadsheet.open('db/seed/seed.xlsx')
-
 puts 
 puts
 puts 'SEEDING NFL TEAMS'
 puts '-------------------------------------------------------------------------'
-# progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
-
-# team_data = data.sheet('team_nfl')
-# total = team_data.to_a.length - 1
-
-# team_data.each_with_index do |team, idx|
-#   next if idx.zero?
-#   Team.create!(
-#     city: team[0].downcase, 
-#     name: team[1].downcase,
-#     abbreviation: team[2].downcase, 
-#     league: team[3].downcase
-#   )
-#   progress_bar.advance((1 / total.to_f) * bar_total)
-# end
-# progress_bar.current = 50
 
 FetchTeamJob.perform_now
 
@@ -44,34 +25,10 @@ puts
 puts
 puts 'SEEDING SCHEDULE'
 puts '-------------------------------------------------------------------------'
-# progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
-
-# schedule = data.sheet('test_schedule')
-# total = schedule.to_a.length - 1
-
-# schedule.each_with_index do |game, idx|
-#   next if idx.zero?
-#   next unless game[0]
-
-#   GameNfl.create!(
-#     season: game[0],
-#     week: game[1],
-#     home_id: game[2],
-#     away_id: game[3],
-#     home_score: game[4],
-#     away_score: game[5],
-#     completed: game[6],
-#     start_time: Time.parse(game[7]).utc,
-#     line: game[8],
-#     spread: game[9]
-#   )
-#   progress_bar.advance((1 / total.to_f) * bar_total)
-# end
-# progress_bar.current = 50
 
 FetchNflScoresJob.perform_now(2016, (1..22).to_a)
 
-FetchScheduleJob.perform_now(2017)
+FetchNflScoresJob.perform_now(2017, (1..17).to_a)
 
 puts 
 puts
