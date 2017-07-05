@@ -9,7 +9,7 @@ class PoolHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      week: 0
+      week: 17
     };
   }
 

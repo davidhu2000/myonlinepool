@@ -5,7 +5,7 @@ class Api::GameNflsController < ApplicationController
   def index
     # TODO: make season, week dynamic
     @week = params[:week]
-    @games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
+    @games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
   end
 
   def create 
