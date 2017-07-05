@@ -26,3 +26,14 @@ export const removeMember = (userId, poolId) => (
     }
   })
 );
+
+export const toggleMembership = (membershipId, poolId) => (
+  $.ajax({
+    method: "PATCH",
+    url: `api/memberships/${membershipId}`,
+    data: {
+      id: poolId,
+      membership_id: membershipId
+    }
+  })
+);

@@ -138,7 +138,7 @@ class Picks extends React.Component {
             {this.renderWeekRecord()}
             <div>
               <button onClick={this.pickFavorites}>
-                Auto-Pick
+                Pick Favorites
               </button>
             </div>
           </div>

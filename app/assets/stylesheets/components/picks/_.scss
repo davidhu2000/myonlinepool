@@ -27,7 +27,6 @@
   }
 
   .picks-header {
-    padding-left: 19px;
     font-size: 25px;
     padding-bottom: 10px;
     font-weight: bold;
@@ -35,29 +34,34 @@
     flex-direction: row;
     justify-content: space-between;
 
-    .fa-caret-left {
-      position: absolute;
-      bottom: 76px;
-      left: 0px;
-    }
+    .week-switcher {
+      position: relative;
+      padding-left: 20px;
 
-    .fa-caret-right {
-      padding-left: 10px;
-    }
+      .fa-caret-left {
+        position: absolute;
+        bottom: 9px;
+        left: 0px;
+      }
 
-    i {
-      transition: .3s;
-    }
+      .fa-caret-right {
+        padding-left: 10px;
+      }
 
-    i:hover {
-      opacity: .5;
-      cursor: pointer;
+      i {
+        transition: .3s;
+      }
+
+      i:hover {
+        opacity: .5;
+        cursor: pointer;
+      }
     }
 
     button {
       height: 40px;
       width: 135px;
-      font-size: 20px;
+      font-size: 15px;
       display: flex;
       justify-content: center;
       align-items: center;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const WeekSwitcher = ({ week, updateWeek }) => {
   return (
-    <div>
+    <div className="week-switcher">
       { week > 1 && (
         <i
           onClick={() => updateWeek(-1)}

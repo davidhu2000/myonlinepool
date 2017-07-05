@@ -14,12 +14,12 @@ class PoolListItem extends React.Component {
 
   render() {
     return (
-      <Link to={`/pool/${this.props.id}`}>
-        <div className="pool-list-item">
+      <div className="pool-list-item">
+        <Link to={`/pool/${this.props.id}`}>
           <i className="fa fa-angle-right" aria-hidden="true" />
           {this.shorten(this.props.title)}
-        </div>
-      </Link>
+        </Link>
+      </div>
     );
   }
 }
