@@ -27,11 +27,19 @@ class Moderator extends React.Component {
     }
   }
 
+  renderClass(paid) {
+    if (paid) {
+      return "fa fa-usd red";
+    } else {
+      return "fa fa-usd green";
+    }
+  }
+
   renderMembers() {
     return Object.values(this.props.pool.members || []).map(member => (
       <div className="pool-member">
         <button onClick={() => this.props.toggleMembership(member.id, this.props.pool.id)}>
-          <i className="fa fa-usd" aria-hidden="true"></i>
+          <i className={this.renderClass(member.paid)} aria-hidden="true"></i>
         </button>
         <button onClick={() => this.props.removeMember(member.userId, this.props.pool.id)}>
           <i className="fa fa-times" aria-hidden="true"></i>

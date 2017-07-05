@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import enhanceWithClickOutside from 'react-click-outside';
 import autoBind from 'react-autobind';
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 import { Link } from 'react-router';
-import { ConfirmForm } from './';
+// import { ConfirmForm } from './';
 
 import customStyles from './modal_styles.json';
 
