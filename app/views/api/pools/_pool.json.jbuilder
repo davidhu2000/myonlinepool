@@ -1,4 +1,4 @@
-json.extract! pool, :id, :title, :description, :league, :season, :identifier
+json.extract! pool, :id, :title, :description, :league, :season
 json.buyIn pool.buy_in
 json.maxSize pool.max_size
 json.paymentMade pool.payment_made

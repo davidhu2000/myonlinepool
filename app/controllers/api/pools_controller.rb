@@ -11,6 +11,7 @@ class Api::PoolsController < ApplicationController
     @pool.moderator_id = current_user.id
     @pool.created_at = get_current_time
     @pool.updated_at = get_current_time
+    @pool.password_digest = 'not-secure'
     @pool.memberships.new(user_id: current_user.id)
     @standings = {}
 
@@ -33,7 +34,7 @@ class Api::PoolsController < ApplicationController
   def show
     @pool = Pool.where(id: params[:id]).includes(:members, :weekly_result_nfls).first
     @locked = !@pool.payment_made && (get_current_time.to_date - @pool.created_at.to_date).to_i > 7
-
+    @is_moderator = current_user.id == @pool.moderator_id
     @standings = show_standings(@pool)
   end
 

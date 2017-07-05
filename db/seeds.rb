@@ -37,6 +37,7 @@ puts '-------------------------------------------------------------------------'
 #   progress_bar.advance((1 / total.to_f) * bar_total)
 # end
 # progress_bar.current = 50
+
 FetchTeamJob.perform_now
 
 puts 
@@ -69,6 +70,8 @@ puts '-------------------------------------------------------------------------'
 # progress_bar.current = 50
 
 FetchNflScoresJob.perform_now(2016, (1..22).to_a)
+
+FetchScheduleJob.perform_now(2017)
 
 puts 
 puts
@@ -112,10 +115,22 @@ Pool.create!(
   moderator_id: 1,
   league: 'nfl',
   season: 2017,
-  password: 'password'
+  password: 'password',
+  password_digest: 'not-secure'
 )
 
-(total - 1).times do 
+Pool.create!(
+  title: 'Test pool 2',
+  description: 'not a real pool',
+  buy_in: 1,
+  moderator_id: 2,
+  league: 'nfl',
+  season: 2017,
+  password: 'password',
+  password_digest: 'not-secure'
+)
+
+(total - 2).times do 
   Pool.create!(
     title: Faker::Superhero.name,
     description: Faker::ChuckNorris.fact,
@@ -123,7 +138,8 @@ Pool.create!(
     moderator_id: rand(user_total) + 1,
     league: 'nfl',
     season: 2017,
-    password: 'password'
+    password: 'password',
+    password_digest: 'not-secure'
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
