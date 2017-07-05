@@ -18,7 +18,7 @@ class EvaluatePicksJob < ApplicationJob
         else
           pick.is_correct = 'wrong'
         end
-        pick.save
+        pick.save!
       end
       puts '=============================================='
       puts '================JOB COMPLETED================='

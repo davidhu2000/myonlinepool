@@ -19,7 +19,7 @@
 #
 
 class GameNfl < ApplicationRecord
-  validates :week, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 22 }
+  validates :week, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 23 }
   validates :season, presence: true, numericality: { only_integer: true, greater_than: 2000 }
   validates :home, presence: true
   validates :away, presence: true

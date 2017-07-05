@@ -15,7 +15,7 @@ class CalculateWeeklyResultsJob < ApplicationJob
 
       games = games.where(completed: true, evaluated: false)
 
-      pools = Pool.all.includes(:members, :picks)
+      pools = Pool.all.includes(:members)
 
       WeeklyResultNfl.transaction do 
         pools.each do |pool|

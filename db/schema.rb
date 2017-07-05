@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703225159) do
+ActiveRecord::Schema.define(version: 20170704044641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,19 +31,21 @@ ActiveRecord::Schema.define(version: 20170703225159) do
   end
 
   create_table "game_nfls", force: :cascade do |t|
-    t.integer  "week",                       null: false
-    t.integer  "season",                     null: false
-    t.integer  "home_id",                    null: false
-    t.integer  "away_id",                    null: false
+    t.integer  "week",                        null: false
+    t.integer  "season",                      null: false
+    t.integer  "home_id",                     null: false
+    t.integer  "away_id",                     null: false
     t.integer  "home_score"
     t.integer  "away_score"
-    t.boolean  "completed",  default: false, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.datetime "start_time",                 null: false
+    t.boolean  "completed",   default: false, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.datetime "start_time",                  null: false
     t.integer  "spread"
     t.integer  "line"
-    t.boolean  "evaluated",  default: false, null: false
+    t.boolean  "evaluated",   default: false, null: false
+    t.string   "away_record"
+    t.string   "home_record"
     t.index ["week", "season"], name: "index_game_nfls_on_week_and_season", using: :btree
   end
 

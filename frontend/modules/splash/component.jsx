@@ -3,6 +3,14 @@ import { sampleSize } from 'lodash';
 import NflTeams from './nfl-teams.json';
 
 class Splash extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      teams: sampleSize(NflTeams, 5)
+    };
+  }
+
   render() {
     return (
       <div className="splash-container">
@@ -19,7 +27,7 @@ class Splash extends React.Component {
 
           {/* Randomly display logo for 5 NFL teams */}
           <div className="splash-mid-carousel">
-            { sampleSize(NflTeams, 5).map(name => (
+            { this.state.teams.map(name => (
               <div key={name} className={`logo-${name}`} />
             ))}
           </div>
