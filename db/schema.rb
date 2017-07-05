@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170704044641) do
 
   # These are extensions that must be enabled in order to support this database
@@ -50,10 +51,11 @@ ActiveRecord::Schema.define(version: 20170704044641) do
   end
 
   create_table "memberships", force: :cascade do |t|
-    t.integer  "pool_id",    null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "pool_id",                    null: false
+    t.integer  "user_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "paid",       default: false, null: false
     t.index ["pool_id", "user_id"], name: "index_memberships_on_pool_id_and_user_id", unique: true, using: :btree
   end
 

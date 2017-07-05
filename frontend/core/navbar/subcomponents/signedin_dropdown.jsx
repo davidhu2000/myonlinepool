@@ -17,6 +17,11 @@ class Dropdown extends React.Component {
           <Link to={`/home`} onClick={this.props.toggleLeftDropdown}>
             Home
           </Link>
+          { this.props.user.id === 1 && (
+            <Link to={'console'} onClick={this.props.toggleLeftDropdown}>
+              Console
+            </Link>
+          )}
         </div>
       </div>
     );
