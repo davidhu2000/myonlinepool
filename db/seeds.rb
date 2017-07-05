@@ -198,11 +198,12 @@ total = pick_total
 end
 progress_bar.current = 50
 
-weeks = (1..20).to_a + [22]
-
-weeks.each do |week|
+(1..22).each do |week|
+  puts
+  puts
   puts "Evaluating week #{week} results"
   EvaluatePicksJob.perform_now(2016, week)
+  puts
   CalculateWeeklyResultsJob.perform_now(2016, week)
 end
 
