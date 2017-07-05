@@ -26,7 +26,7 @@ export const removeMember = (userId, poolId) => dispatch => (
 );
 
 export const toggleMembership = (membershipId, poolId) => dispatch => (
-  ModeratorAPI.togglePaid(membershipId, poolId).then(
+  ModeratorAPI.toggleMembership(membershipId, poolId).then(
     () => dispatch(receiveAlerts(processMessages(['Membership successfully modified.']))),
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
