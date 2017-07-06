@@ -23,8 +23,8 @@ class StandingsBox extends React.Component {
         <div className="standings-box-top-item">
           <div className="title">Player</div>
           <div className="pool">Pool</div>
-          <div className="score">Wins</div>
-          <div className="losses">Losses</div>
+          <div className="score">Picks</div>
+          <div className="losses">Record</div>
         </div>
         {this.renderList()}
       </div>
