@@ -15,10 +15,6 @@ $off-white: #e9ebee;
     display: flex;
     justify-content: space-between;
 
-    .title {
-      // opacity: .5;
-    }
-
     .week-switcher {
       .fa-caret-left {
         cursor: pointer;
@@ -56,7 +52,6 @@ $off-white: #e9ebee;
   }
 
   .title {
-    // height: 20px;
     width: 200px;
     text-overflow: ellipsis !important;
   }
