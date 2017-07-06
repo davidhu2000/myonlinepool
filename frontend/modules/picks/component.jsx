@@ -172,9 +172,9 @@ class Picks extends React.Component {
             <div>Home</div>
           </div>
         </div>
-        <div className="picks-selections">
+       
           { this.renderSelections() }
-        </div>
+   
       </div>
     );
   }
