@@ -40,9 +40,7 @@ class MessageBox extends React.Component {
             Load more
           </button>
         );
-
       }
-
     }
   }
 

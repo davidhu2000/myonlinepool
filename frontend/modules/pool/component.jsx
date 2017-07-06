@@ -56,9 +56,7 @@ Pool.propTypes = {
     poolId: PropTypes.string.isRequired
   }).isRequired,
   fetchPoolInformation: PropTypes.func.isRequired,
-  clearPoolInformation: PropTypes.func.isRequired,
-  pool: PropTypes.shape().isRequired,
-  user: PropTypes.shape().isRequired
+  clearPoolInformation: PropTypes.func.isRequired
 };
 
 export default withRouter(Pool);
