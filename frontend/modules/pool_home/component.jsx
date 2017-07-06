@@ -53,6 +53,7 @@ class PoolHome extends React.Component {
 
   render() {
     let { pool } = this.props;
+    console.log(this.props.pool.standings);
 
     return (
       <div className="pool-container">
@@ -63,6 +64,7 @@ class PoolHome extends React.Component {
             title="Weekly Leaders"
             standings={pool.standings[this.state.week]}
             members={pool.members}
+            weeklyStandings="true"
           />
           <PoolStandingsBox
             title="Season Leaders"

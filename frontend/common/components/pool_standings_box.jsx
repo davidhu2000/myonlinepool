@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import autoBind from 'react-autobind';
 import { values, sortBy } from 'lodash';
 
 import { PoolStandingsBoxItem } from './';
@@ -7,6 +8,52 @@ import { PoolStandingsBoxItem } from './';
 class PoolStandingsBox extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      week: 1
+    };
+    autoBind(this);
+  }
+
+  updateWeek(dir) {
+    let week = this.state.week + dir;
+    if (week < 1) {
+      week = 1;
+    }
+
+    if (week > 17) {
+      week = 17;
+    }
+
+    if (this.props.standings[week]) {
+      this.setState({ week });
+    }
+  }
+
+  renderSwitcher() {
+    if (this.props.weeklyStandings === "true") {
+      return (
+        <div className="week-switcher">
+          { this.state.week > 1 && (
+            <i 
+              onClick={() => this.updateWeek(-1)}
+              className="fa fa-caret-left"
+              aria-hidden="true"
+            />
+          )}
+
+          Week { this.state.week }
+
+          { this.state.week < 17 && (
+            <i
+              onClick={() => this.updateWeek(1)}
+              className="fa fa-caret-right"
+              aria-hidden="true"
+            />
+          )}
+        </div>
+      );
+    }
   }
 
   renderItems() {
@@ -26,9 +73,12 @@ class PoolStandingsBox extends React.Component {
     return (
       <div className="pool-standings-box">
         <div className="pool-standings-box-title">
-          <h1>
+          <div className="title">
             {this.props.title}
-          </h1>
+          </div>
+          <div>
+            {this.renderSwitcher()}
+          </div>
         </div>
         <div className="pool-standings-box-top-item">
           <div className="title">Player</div>

@@ -7,12 +7,31 @@ $off-white: #e9ebee;
 
   .pool-standings-box-title {
     position: absolute;
+    width: 100%;
     top: 0px;
     left: 0px;
     font-size: 20px;
-    text-align: left;
-    opacity: .5;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+      // opacity: .5;
+    }
+
+    .week-switcher {
+      .fa-caret-left {
+        cursor: pointer;
+        padding-right: 5px;
+      }
+      .fa-caret-right {
+        cursor: pointer;
+        padding-left: 5px;
+      }
+      .fa-caret-left:hover, .fa-caret-right:hover {
+        opacity: .5;
+      }
+    }
   }
 
   div:nth-child(3) {
