@@ -16,7 +16,13 @@ $off-white: #e9ebee;
   }
 
   div:nth-child(3) {
-    color: #AF1E2C;
+    color: $best-red;
+  }
+
+  .pool-standings-box-top-item {
+    .score, .losses {
+      text-align: center;
+    }
   }
 }
 
@@ -39,6 +45,10 @@ $off-white: #e9ebee;
   div {
     text-align: left;
     width: 100px;
+  }
+
+  .score, .losses {
+    text-align: center;
   }
 }
 

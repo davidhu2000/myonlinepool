@@ -32,8 +32,8 @@ class PoolStandingsBox extends React.Component {
         </div>
         <div className="pool-standings-box-top-item">
           <div className="title">Player</div>
-          <div className="score">Wins</div>
-          <div className="losses">Losses</div>
+          <div className="score">Picks</div>
+          <div className="losses">Record</div>
         </div>
         {this.renderItems()}
       </div>
