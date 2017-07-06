@@ -44,7 +44,7 @@ class Pool extends React.Component {
     }
 
     return (
-      <div className="pool-container">
+      <div className="pool-root">
         { this.props.children }
       </div>
     );
