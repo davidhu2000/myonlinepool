@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { shortenString } from 'helpers';
 
 const PoolStandingsBoxItem = props => {
   return (
     <div className="pool-standings-box-item">
-      <div className="title">{props.name}</div>
+      <div className="title">{shortenString(props.name)}</div>
       <div className="score">{props.correctPicks}</div>
       <div className="losses">{props.correctPicks} - {props.wrongPicks}</div>
     </div>

@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { shortenString } from 'helpers';
 
 const StandingsBoxItem = ({ standing }) => {
   return (
     <div className="standings-box-item">
-      <div className="title">{standing.userName}</div>
-      <div className="pool">{standing.poolName}</div>
+      <div className="title">{shortenString(standing.userName)}</div>
+      <div className="pool">{shortenString(standing.poolName)}</div>
       <div className="score">{standing.correctPicks}</div>
-      <div className="losses">{standing.wrongPicks}</div>
+      <div className="losses">{standing.correctPicks} - {standing.wrongPicks}</div>
     </div>
   );
 };

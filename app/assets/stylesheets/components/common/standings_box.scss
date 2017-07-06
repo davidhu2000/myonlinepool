@@ -50,6 +50,10 @@ $off-white: #e9ebee;
     width: 150px;
     border-left: none;
   }
+
+  .score, .losses {
+    text-align: center;
+  } 
 }
 
 .standings-box-top-item {
@@ -60,6 +64,10 @@ $off-white: #e9ebee;
 
   .title, .pool {
     width: 150px;
+  }
+
+  .score, .losses {
+    text-align: center;
   }
 
   .score, .losses {

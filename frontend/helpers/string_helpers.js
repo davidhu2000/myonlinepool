@@ -19,3 +19,11 @@ export const hashString = string => {
 
   return hash;
 };
+
+export const shortenString = string => {
+  let ret = string;
+  if (ret.length > 20) {
+    ret = ret.substr(0, 20-3) + "...";
+  }
+  return ret;
+};
