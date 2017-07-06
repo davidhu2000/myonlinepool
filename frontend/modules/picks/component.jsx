@@ -9,7 +9,7 @@ class Picks extends React.Component {
     super(props);
 
     this.state = {
-      week: 1,
+      week: 16,
       loading: true
     };
     autoBind(this);
@@ -23,12 +23,16 @@ class Picks extends React.Component {
 
   updateWeek(dir) {
     let week = this.state.week + dir;
+    if (week === 21) {
+      week += dir;
+    }
+
     if (week < 1) {
       week = 1;
     }
 
-    if (week > 17) {
-      week = 17;
+    if (week > 22) {
+      week = 22;
     }
 
     this.setState({ week });
@@ -37,7 +41,7 @@ class Picks extends React.Component {
       this.props.fetchPicks(week, this.props.params.poolId).then(
         () => {
           // TODO: remove setTimeout after finishing loading animation
-          setTimeout(() => this.setState({ loading: false }), 2000);
+          setTimeout(() => this.setState({ loading: false }), 200);
         }
       );
     }
@@ -92,7 +96,24 @@ class Picks extends React.Component {
 
   renderSelections() {
     if (this.state.loading) {
-      return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map(id => (
+      let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+      let count = 16;
+      switch (this.state.week) {
+        case 18:
+        case 19:
+          count = 4;
+          break;
+        case 20:
+          count = 2;
+          break;
+        case 22:
+          count = 1;
+          break;
+        default:
+          count = 16;
+      }
+
+      return array.slice(0, count).map(id => (
         <LoadingForm key={`loading-${id}`} />
       ));
     }

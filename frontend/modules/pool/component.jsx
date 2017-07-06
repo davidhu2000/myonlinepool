@@ -1,24 +1,26 @@
 import React from 'react';
-import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
+import autoBind from 'react-autobind';
+import { withRouter } from 'react-router';
+import { MoonLoader } from 'react-spinners';
 
-// TODO: render buy_in
-// TODO: render unique pool identifier
 class Pool extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true
     };
+    autoBind(this);
   }
 
   componentWillMount() {
     let { poolId } = this.props.params;
 
     this.props.clearPoolInformation();
+    let startTime = Date.now();
 
     this.props.fetchPoolInformation(poolId).then(
-      () => this.setState({ loading: false })
+      () => setTimeout(() => this.setState({ loading: false }), 200 - (Date.now() - startTime))
     );
   }
 
@@ -35,7 +37,9 @@ class Pool extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <div></div>
+        <div>
+          <MoonLoader color={'#2d2d2d'} size={50} />
+        </div>
       );
     }
 
@@ -52,9 +56,7 @@ Pool.propTypes = {
     poolId: PropTypes.string.isRequired
   }).isRequired,
   fetchPoolInformation: PropTypes.func.isRequired,
-  clearPoolInformation: PropTypes.func.isRequired,
-  pool: PropTypes.shape().isRequired,
-  user: PropTypes.shape().isRequired
+  clearPoolInformation: PropTypes.func.isRequired
 };
 
 export default withRouter(Pool);
