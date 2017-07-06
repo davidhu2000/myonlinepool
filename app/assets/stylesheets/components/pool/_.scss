@@ -1,6 +1,15 @@
 @import "chat_box";
 @import "mod_board";
 
+.pool-root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .pool-alert {
   width: 100%;
   padding: 10px 0px;
@@ -12,11 +21,11 @@
 }
 
 .pool-container {
-  height: 100%;
+  min-height: 1030px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 

@@ -6,9 +6,9 @@ $white: #F6F7F9;
 
 .pool-list {
   width: 870px;
-  height: 180px;
-  padding: 0px 5px;
+  height: 314px;
   position: relative;
+  padding-bottom: 5px;
   padding-top: 35px;
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@ $white: #F6F7F9;
   }
 
   .pool-list-bottom {
-    max-height: 145px;
+    height: 275px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
