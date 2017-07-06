@@ -6,7 +6,7 @@ const PoolStandingsBoxItem = props => {
     <div className="pool-standings-box-item">
       <div className="title">{props.name}</div>
       <div className="score">{props.correctPicks}</div>
-      <div className="losses">{props.wrongPicks}</div>
+      <div className="losses">{props.correctPicks} - {props.wrongPicks}</div>
     </div>
   );
 };

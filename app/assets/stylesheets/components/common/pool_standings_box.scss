@@ -7,16 +7,37 @@ $off-white: #e9ebee;
 
   .pool-standings-box-title {
     position: absolute;
+    width: 100%;
     top: 0px;
     left: 0px;
     font-size: 20px;
-    text-align: left;
-    opacity: .5;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+
+    .week-switcher {
+      .fa-caret-left {
+        cursor: pointer;
+        padding-right: 5px;
+      }
+      .fa-caret-right {
+        cursor: pointer;
+        padding-left: 5px;
+      }
+      .fa-caret-left:hover, .fa-caret-right:hover {
+        opacity: .5;
+      }
+    }
   }
 
   div:nth-child(3) {
-    color: #AF1E2C;
+    color: $best-red;
+  }
+
+  .pool-standings-box-top-item {
+    .score, .losses {
+      text-align: center;
+    }
   }
 }
 
@@ -31,7 +52,6 @@ $off-white: #e9ebee;
   }
 
   .title {
-    // height: 20px;
     width: 200px;
     text-overflow: ellipsis !important;
   }
@@ -39,6 +59,10 @@ $off-white: #e9ebee;
   div {
     text-align: left;
     width: 100px;
+  }
+
+  .score, .losses {
+    text-align: center;
   }
 }
 

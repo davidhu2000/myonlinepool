@@ -44,4 +44,4 @@ export const fetchSiteStandings = () => dispatch => (
     res => dispatch(receiveSiteStandings(res)),
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
-)
+);
