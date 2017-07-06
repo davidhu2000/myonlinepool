@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router';
 import PropTypes from 'prop-types';
+import autoBind from 'react-autobind';
 import { calculateSeasonStandings } from 'helpers';
 import { PoolStandingsBox } from "common/components";
 import { MessageBox, BulletinBox } from "./subcomponents";
@@ -11,6 +12,7 @@ class PoolHome extends React.Component {
     this.state = {
       week: 1
     };
+    autoBind(this);
   }
 
   componentDidMount() {
@@ -51,6 +53,21 @@ class PoolHome extends React.Component {
     }
   }
 
+  updateWeek(dir) {
+    let week = this.state.week + dir;
+    if (week < 1) {
+      week = 1;
+    }
+
+    if (week > 17) {
+      week = 17;
+    }
+
+    if (this.props.pool.standings[week]) {
+      this.setState({ week });
+    }
+  }
+
   render() {
     let { pool } = this.props;
     console.log(this.props.pool.standings);
@@ -65,6 +82,8 @@ class PoolHome extends React.Component {
             standings={pool.standings[this.state.week]}
             members={pool.members}
             weeklyStandings="true"
+            updateWeek={this.updateWeek}
+            week={this.state.week}
           />
           <PoolStandingsBox
             title="Season Leaders"
