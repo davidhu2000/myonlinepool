@@ -6,12 +6,14 @@ $white: #F6F7F9;
 
 .pool-list {
   width: 870px;
+  height: 180px;
   padding: 0px 5px;
   position: relative;
   padding-top: 35px;
   display: flex;
   flex-direction: column;
   align-content: space-between;
+
 
   .pool-list-top {
     width: 100%;
@@ -59,13 +61,14 @@ $white: #F6F7F9;
   }
 
   .pool-list-bottom {
-    height: 145px;
+    max-height: 145px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
     overflow-y: overlay;
-    padding-left: 5px;
+    // padding-left: 5px;
 
     .pool-list-item {
       display: flex;
@@ -74,7 +77,7 @@ $white: #F6F7F9;
       height: 30px;
       width: 125px;
       transition: .25s;
-      margin: 5px 0px;
+      margin: 7.5px 5px;
       font-size: 12px;
       line-height: 12px;
       border-radius: 2px;
