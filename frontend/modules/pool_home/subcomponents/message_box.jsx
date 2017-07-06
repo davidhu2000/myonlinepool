@@ -14,9 +14,10 @@ class MessageBox extends React.Component {
 
   fetchMessages(poolId, numberMessages) {
     this.setState({ loading: true });
-    this.props.fetchMessages(poolId, numberMessages).then(
+
+    setTimeout(() => this.props.fetchMessages(poolId, numberMessages).then(
       () => this.setState({ loading: false })
-    );
+    ), 200);
   }
 
   renderButton() {

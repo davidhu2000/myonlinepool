@@ -1,6 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { ensureLoaderRenders } from 'helpers';
 import { WeekSwitcher } from 'common/components';
 import { PickForm, LoadingForm } from './subcomponents';
 
@@ -37,7 +38,7 @@ class Picks extends React.Component {
       this.props.fetchPicks(week, this.props.params.poolId).then(
         () => {
           // TODO: remove setTimeout after finishing loading animation
-          setTimeout(() => this.setState({ loading: false }), 2000);
+          setTimeout(() => this.setState({ loading: false }), 200);
         }
       );
     }

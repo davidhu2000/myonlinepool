@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import autoBind from 'react-autobind';
 import { withRouter } from 'react-router';
 import { MoonLoader } from 'react-spinners';
 
@@ -9,15 +10,17 @@ class Pool extends React.Component {
     this.state = {
       loading: true
     };
+    autoBind(this);
   }
 
   componentWillMount() {
     let { poolId } = this.props.params;
 
     this.props.clearPoolInformation();
+    let startTime = Date.now();
 
     this.props.fetchPoolInformation(poolId).then(
-      () => this.setState({ loading: false })
+      () => setTimeout(() => this.setState({ loading: false }), 200 - (Date.now() - startTime))
     );
   }
 
