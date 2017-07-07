@@ -15,12 +15,21 @@
 
 .home-top {
   height: 278px;
-
   padding: 10px 0px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.home-bulletin {
+  min-height: 327px;
+  width: 100%;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $lt-primary;
 }
 
 .home-bottom {
@@ -40,12 +49,4 @@
   }
 }
 
-.home-bulletin {
-  min-height: 327px;
-  width: 100%;
-  padding: 20px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: $lt-primary;
-}
+
