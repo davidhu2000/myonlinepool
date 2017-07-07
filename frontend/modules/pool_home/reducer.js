@@ -11,8 +11,6 @@ const poolReducer = (state = _defaultState, action) => {
   // console.log(action);
   switch (action.type) {
     case POOL.UPDATE_MEMBERPAID:
-      console.log(state);
-      console.log(action);
       let newState = merge({}, state);
       newState.members[action.memberId].paid = !newState.members[action.memberId].paid;
       return newState;
