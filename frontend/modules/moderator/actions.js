@@ -1,8 +1,18 @@
-import { receiveAlerts } from 'common/actions';
+import { receiveAlerts, POOL } from 'common/actions';
 import { processMessages } from 'helpers';
 
-import * as Actions from '../pool/actions';
+// import * as Actions from '../pool/actions';
 import * as ModeratorAPI from './utils';
+
+export const updateMemberPaid = memberId => ({
+  type: POOL.UPDATE_MEMBERPAID,
+  member
+});
+
+export const removeMembership = memberId => ({
+  type: POOL.REMOVE_MEMBERSHIP,
+  memberId
+});
 
 export const deleteBulletin = poolId => dispatch => (
   ModeratorAPI.deleteBulletin(poolId).then(

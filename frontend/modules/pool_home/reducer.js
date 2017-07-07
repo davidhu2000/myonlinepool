@@ -10,6 +10,14 @@ const poolReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   // console.log(action);
   switch (action.type) {
+    case POOL.UPDATE_MEMBERPAID:
+      let newState = merge({}, state);
+      newState.members[action].paid = !newState.members[action].paid;
+      return newState;
+    case POOL.REMOVE_MEMBERSHIP:
+      let newerState = merge({}, state);
+      delete newerState.members[action];
+      return newerState;
     case POOL.RECEIVE_INFORMATION:
       return merge({}, state, action.pool);
     case POOL.RECEIVE_MESSAGES:
