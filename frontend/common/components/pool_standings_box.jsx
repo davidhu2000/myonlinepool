@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { values, sortBy } from 'lodash';
 
+import { WeekSwitcher } from 'common/components';
 import { PoolStandingsBoxItem } from './';
 
 class PoolStandingsBox extends React.Component {
@@ -14,25 +15,7 @@ class PoolStandingsBox extends React.Component {
   renderSwitcher() {
     if (this.props.weeklyStandings === "true") {
       return (
-        <div className="week-switcher">
-          { this.props.week > 1 && (
-            <i
-              onClick={() => this.props.updateWeek(-1)}
-              className="fa fa-caret-left"
-              aria-hidden="true"
-            />
-          )}
-
-          Week { this.props.week }
-
-          { this.props.week < 17 && (
-            <i
-              onClick={() => this.props.updateWeek(1)}
-              className="fa fa-caret-right"
-              aria-hidden="true"
-            />
-          )}
-        </div>
+        <WeekSwitcher week={this.props.week} updateWeek={this.props.updateWeek} />
       );
     }
   }

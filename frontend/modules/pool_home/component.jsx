@@ -59,8 +59,8 @@ class PoolHome extends React.Component {
       week = 1;
     }
 
-    if (week > 17) {
-      week = 17;
+    if (week > 22) {
+      week = 22;
     }
 
     if (this.props.pool.standings[week]) {
