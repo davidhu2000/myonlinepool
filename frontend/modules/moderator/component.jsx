@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { values } from 'lodash';
 import PropTypes from 'prop-types';
 
 import { BulletinForm } from './subcomponents';
@@ -35,15 +36,37 @@ class Moderator extends React.Component {
     }
   }
 
+  // renderMembers() {
+  //   return Object.values(this.props.pool.members || []).map(member => (
+  //     <div className="pool-member">
+  //       <button onClick={() => this.props.toggleMembership(member.id, this.props.pool.id)}>
+  //         <i className={this.renderClass(member.paid)} aria-hidden="true"></i>
+  //       </button>
+  //       <button onClick={() => this.props.removeMember(member.userId, this.props.pool.id)}>
+  //         <i className="fa fa-times" aria-hidden="true"></i>
+  //       </button>  
+  //       <span>{ member.name }</span>
+  //     </div>
+  //   ));
+  // }
+
   renderMembers() {
-    return Object.values(this.props.pool.members || []).map(member => (
+    let { members } = this.props.pool;
+    let realMembers = [];
+    Object.keys(members).forEach(key => {
+      if (members[key].id !== this.props.pool.moderatorId) {
+        realMembers.push(members[key]);
+      }
+    });
+
+    return realMembers.map(member => (
       <div className="pool-member">
         <button onClick={() => this.props.toggleMembership(member.id, this.props.pool.id)}>
           <i className={this.renderClass(member.paid)} aria-hidden="true"></i>
         </button>
         <button onClick={() => this.props.removeMember(member.userId, this.props.pool.id)}>
           <i className="fa fa-times" aria-hidden="true"></i>
-        </button>    
+        </button>  
         <span>{ member.name }</span>
       </div>
     ));
