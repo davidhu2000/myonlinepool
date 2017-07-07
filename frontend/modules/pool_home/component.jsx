@@ -59,7 +59,7 @@ class PoolHome extends React.Component {
       week = 1;
     }
 
-    if (week > 22) {
+    if (week >= 21) {
       week = 22;
     }
 
@@ -70,7 +70,7 @@ class PoolHome extends React.Component {
 
   render() {
     let { pool } = this.props;
-    console.log(this.props.pool.standings);
+    console.log(pool.standings);
 
     return (
       <div className="pool-container">
