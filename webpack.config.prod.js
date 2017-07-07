@@ -15,7 +15,14 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
+          plugins: [
+            ["transform-react-remove-prop-types", {
+              mode: "remove",
+              removeImport: "true",
+              ignoreFilenames: ["node_modules"]
+            }]
+          ]
         }
       }
     ]
