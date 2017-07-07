@@ -46,7 +46,7 @@ class Api::MembershipsController < ApplicationController
   end
 
   def update 
-    membership = Membership.find_by(id: params[:membership_id])
+    membership = Membership.find_by(pool_id: params[:pool_id], user_id: params[:membership_id])
     membership.paid = !membership.paid
     if membership.save
       puts "saved"

@@ -32,7 +32,7 @@ export const toggleMembership = (membershipId, poolId) => (
     method: "PATCH",
     url: `api/memberships/${membershipId}`,
     data: {
-      id: poolId,
+      pool_id: poolId,
       membership_id: membershipId
     }
   })

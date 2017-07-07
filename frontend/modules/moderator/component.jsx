@@ -61,7 +61,7 @@ class Moderator extends React.Component {
 
     return realMembers.map(member => (
       <div className="pool-member">
-        <button onClick={() => this.props.toggleMembership(member.id, this.props.pool.id)}>
+        <button onClick={() => this.props.toggleMembership(member.userId, this.props.pool.id)}>
           <i className={this.renderClass(member.paid)} aria-hidden="true"></i>
         </button>
         <button onClick={() => this.props.removeMember(member.userId, this.props.pool.id)}>
