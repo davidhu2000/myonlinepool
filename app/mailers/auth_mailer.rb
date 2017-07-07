@@ -2,7 +2,7 @@ class AuthMailer < ApplicationMailer
 
   def confirm_email(user)
     @user = user
-    @url = "#{root_url}#/auth?form=confirm-email&token=#{user.confirmation_token}&email=#{user.email}"
+    @url = "#{ENV['ROOT_URL']}#/auth?form=confirm-email&token=#{user.confirmation_token}&email=#{user.email}"
     @title = 'Activate your account'
     @message_one = "Thanks for signing up to My Online Pool"
     @message_two = "You can join other pools right after you click the link to activate your account."
@@ -12,7 +12,7 @@ class AuthMailer < ApplicationMailer
 
   def reset_password(user)
     @user = user
-    @url = "#{root_url}#/auth?form=reset-password&token=#{user.reset_password_token}&email=#{user.email}"
+    @url = "#{ENV['ROOT_URL']}#/auth?form=reset-password&token=#{user.reset_password_token}&email=#{user.email}"
     @title = 'Reset your password'
     @message_one = "You requested to reset your password"
     @message_two = "You will be able to create a new password."
