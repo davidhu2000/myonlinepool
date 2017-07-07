@@ -18,7 +18,7 @@ const poolReducer = (state = _defaultState, action) => {
       return newState;
     case POOL.REMOVE_MEMBERSHIP:
       let newerState = merge({}, state);
-      delete newerState.members[action];
+      delete newerState.members[action.memberId];
       return newerState;
     case POOL.RECEIVE_INFORMATION:
       return merge({}, state, action.pool);
