@@ -65,13 +65,10 @@
     }
     .fa-times {
       padding: 0px 10px;
-      color: red;
-    }
-    .fa-usd {
-      // color: green;
+      color: $best-red;
     }
     .pool-member {
-      padding-top: 5px;
+      padding: 5px 0px;
     }
   }
 }
