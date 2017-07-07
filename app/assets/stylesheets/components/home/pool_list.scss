@@ -2,8 +2,8 @@
   width: 870px;
   height: 258px;
   position: relative;
-  padding-bottom: 5px;
-  padding-top: 35px;
+  // padding-bottom: 5px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -40,8 +40,17 @@
     }
   }
 
+  .pool-list-alert {
+    font-size: 25px;
+    opacity: .5;
+    height: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .pool-list-bottom {
-    height: 225px;
+    height: 210px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -63,5 +72,6 @@
         padding-right: 5px;
       }
     }
+
   }
 }
