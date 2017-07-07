@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/davidhu2000/myonlinepool#readme",
   "dependencies": {
-    "@trainline/react-skeletor": "^0.1.4",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-closure-elimination": "^1.1.16",
