@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   .auth-form {
     width: 400px;
     font-size: 20px;
@@ -15,7 +16,6 @@
     .auth-form-password {
       width: 100%;
       padding: 5px;
-      // margin-bottom: 25px;
       border-bottom: .2px rgba(51, 51, 51, .2) solid;
     }
     .submit-row {
@@ -59,21 +59,22 @@
       transition: .2s;
       color: white;
     }
-    .auth-form-button:hover {
-      color: $lt-primary;
-      background: white;
-      border: 1px black solid;
-    }
 
     .auth-form-button:disabled {
       cursor: not-allowed;
 
       &:hover {
         color: white;
-        background: black;
+        background: $drk-primary;
         border: none;
       }
     }
+    
+    .auth-form-button:hover {
+      color: $lt-primary;
+      background: white;
+      border: 1px black solid;
+    }   
   }
 }
 
