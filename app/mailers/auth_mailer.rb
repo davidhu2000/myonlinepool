@@ -1,7 +1,7 @@
 class AuthMailer < ApplicationMailer
 
   def confirm_email(user)
-    url = ENV['ROOT_URL']
+    url = ENV['BASE_URL']
     url = 'localhost:3000' if ENV['RAILS_ENV'] == 'development'
 
     @user = user
@@ -16,7 +16,7 @@ class AuthMailer < ApplicationMailer
   def reset_password(user)
     url = ENV['ROOT_URL']
     url = 'localhost:3000' if ENV['RAILS_ENV'] == 'development'
-    
+
     @user = user
     @url = "#{url}/#/auth?form=reset-password&token=#{user.reset_password_token}&email=#{user.email}"
     @title = 'Reset your password'
