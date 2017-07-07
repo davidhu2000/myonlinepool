@@ -14,7 +14,7 @@ class PoolList extends React.Component {
 
   fillEmptyPage() {
     let pools = values(this.props.pools);
-    if (values(pools).length < 10) {
+    if (values(pools).length < 1) {
       return <div className="pool-list-alert">Add or Join a pool to start playing</div>;
     }
   }
@@ -52,7 +52,7 @@ class PoolList extends React.Component {
           </div>
         </div>
         <div className="pool-list-bottom">
-          {/*{this.renderList()}*/}
+          {this.renderList()}
           {this.fillEmptyPage()}
         </div>
       </div>
