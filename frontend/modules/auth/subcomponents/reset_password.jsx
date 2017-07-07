@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
+import { ScaleLoader } from 'react-spinners';
 
 import { PasswordInput, PasswordConfirmation } from 'common/components';
 
@@ -11,7 +12,8 @@ class ResetPassword extends React.Component {
     this.state = {
       password: '',
       passwordConfirmation: '',
-      isValid: false
+      isValid: false,
+      loading: false
     };
 
     autoBind(this);
@@ -19,15 +21,18 @@ class ResetPassword extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-
+    this.setState({ loading: true });
     let user = {
       email: this.props.email,
       reset_password_token: this.props.token,
       password: this.state.password,
       password_confirmation: this.state.passwordConfirmation
     };
-
-    this.props.resetPassword(user);
+    let start = Date.now();
+    this.props.resetPassword(user).then(
+      () => {},
+      () => setTimeout(() => this.setState({ loading: false }), 200 - (Date.now() - start))
+    );
   }
 
   isFormValid() {
@@ -70,6 +75,10 @@ class ResetPassword extends React.Component {
             onMouseEnter={this.isFormValid}
             disabled={!this.state.isValid}
           />
+
+          { this.state.loading && (
+            <div className='loader'><ScaleLoader height={25} width={2} /></div>
+          ) }
         </div>
       </form>
     );

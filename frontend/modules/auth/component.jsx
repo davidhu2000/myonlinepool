@@ -4,7 +4,13 @@ import { withRouter, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 
-import { SigninForm, SignupForm, ForgetPassword, Message, ResetPassword } from './subcomponents';
+import {
+  SigninForm,
+  SignupForm,
+  ForgetPassword,
+  Message,
+  ResetPassword
+} from './subcomponents';
 
 class AuthForm extends React.Component {
   constructor(props) {

@@ -2,6 +2,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import { hashHistory } from 'react-router';
+import { ScaleLoader } from 'react-spinners';
 
 import { EmailInput } from 'common/components';
 
@@ -11,7 +12,8 @@ class ForgetPassword extends React.Component {
 
     this.state = {
       email: 'me@gmail.com',
-      isValid: false
+      isValid: false,
+      loading: false
     };
 
     autoBind(this);
@@ -19,14 +21,14 @@ class ForgetPassword extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-
+    this.setState({ loading: true });
     let message = 'Please check your email to reset your password.';
 
     let url = {
       pathname: 'auth',
       query: { form: 'message', message }
     };
-
+    let start = Date.now();
     $.ajax({
       method: 'POST',
       url: '/api/auth/passwords',
@@ -35,7 +37,7 @@ class ForgetPassword extends React.Component {
       }
     }).then(
       () => hashHistory.push(url),
-      err => console.log(err)
+      () => setTimeout(() => this.setState({ loading: false }), 200 - (Date.now() - start))
     );
   }
 
@@ -61,15 +63,21 @@ class ForgetPassword extends React.Component {
     return (
       <form onSubmit={this.submitForm} className="auth-form">
         <EmailInput update={this.update} email={this.state.email} />
+        <div className="submit-row">
+          <input
+            id="form-submit-button"
+            type='submit'
+            className="button auth-form-button"
+            style={{ margin: '0 0 0 auto' }}
+            value={'Reset password'}
+            onMouseEnter={this.isFormValid}
+            disabled={!this.state.isValid}
+          />
 
-        <input
-          id="form-submit-button"
-          type='submit'
-          className="button auth-form-button"
-          value={'Reset password'}
-          onMouseEnter={this.isFormValid}
-          disabled={!this.state.isValid}
-        />
+          { this.state.loading && (
+            <div className='loader'><ScaleLoader height={25} width={2} /></div>
+          ) }
+        </div>
 
       </form>
     );

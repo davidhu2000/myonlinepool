@@ -2,24 +2,6 @@ $transition-time: 0.1s;
 
 @import 'hamburger.scss';
 
-@keyframes barsIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes minusIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .navbar-container {
   height: 60px;
   width: 95%;
@@ -74,8 +56,10 @@ $transition-time: 0.1s;
   .account-button, .info-button {
     span {
       font-size: 20px;
-      // display: none;
-      // margin-top: 5px;
+      font-family: 'Roboto', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
     }
   }
 }
