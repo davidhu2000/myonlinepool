@@ -29,6 +29,11 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development')
+      }
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.js'

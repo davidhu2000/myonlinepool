@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require('webpack');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -13,21 +14,10 @@ module.exports = {
       {
         test: [/\.jsx?$/, /\.js?$/],
         exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react'],
-          plugins: [
-            ["transform-react-remove-prop-types", {
-              mode: "remove",
-              removeImport: "true",
-              ignoreFilenames: ["node_modules"]
-            }]
-          ]
-        }
+        loader: 'babel-loader'
       }
     ]
   },
-  devtool: 'source-maps',
   resolve: {
     extensions: ["*", ".js", ".jsx"],
     modules: [
@@ -36,14 +26,14 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.js'
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.js'
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -54,6 +44,7 @@ module.exports = {
       },
       sourceMap: false,
       mangle: true
-    })
+    }),
+    new LodashModuleReplacementPlugin()
   ]
 };
