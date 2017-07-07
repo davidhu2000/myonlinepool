@@ -6,7 +6,7 @@ import * as ModeratorAPI from './utils';
 
 export const updateMemberPaid = memberId => ({
   type: POOL.UPDATE_MEMBERPAID,
-  member
+  memberId
 });
 
 export const removeMembership = memberId => ({
@@ -30,14 +30,14 @@ export const createBulletin = bulletin => dispatch => (
 
 export const removeMember = (userId, poolId) => dispatch => (
   ModeratorAPI.removeMember(userId, poolId).then(
-    () => dispatch(receiveAlerts(processMessages(['Member successfully removed from pool.']))),
+    () => dispatch(removeMembership(userId)),
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );
 
 export const toggleMembership = (membershipId, poolId) => dispatch => (
   ModeratorAPI.toggleMembership(membershipId, poolId).then(
-    () => dispatch(receiveAlerts(processMessages(['Membership successfully modified.']))),
+    () => dispatch(updateMemberPaid(membershipId)),
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );
