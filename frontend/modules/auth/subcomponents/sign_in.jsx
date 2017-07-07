@@ -1,8 +1,9 @@
 /* global document */
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
+import { Link, hashHistory } from 'react-router';
+import { ScaleLoader } from 'react-spinners';
 
 import { EmailInput, PasswordInput } from 'common/components';
 
@@ -13,7 +14,8 @@ class SigninForm extends React.Component {
     this.state = {
       email: "me@gmail.com",
       password: "password",
-      isValid: false
+      isValid: false,
+      loading: false
     };
 
     autoBind(this);
@@ -21,9 +23,11 @@ class SigninForm extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-
+    let start = Date.now();
+    this.setState({ loading: true });
     this.props.signin(this.state).then(
-      () => hashHistory.push('/home')
+      () => hashHistory.push('/home'),
+      () => setTimeout(() => this.setState({ loading: false }), 200 - (Date.now() - start))
     );
   }
 
@@ -80,12 +84,15 @@ class SigninForm extends React.Component {
           <input
             id="form-submit-button"
             type='submit'
-            className="auth-form-button"
+            className="button auth-form-button"
             value={submitValue}
             onMouseEnter={this.isFormValid}
             disabled={!this.state.isValid}
           />
 
+          { this.state.loading && (
+            <div className='loader'><ScaleLoader height={25} width={2} /></div>
+          ) }
         </div>
         { this.renderUtility() }
       </form>

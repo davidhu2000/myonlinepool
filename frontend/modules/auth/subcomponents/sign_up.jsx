@@ -1,8 +1,9 @@
 /* global document */
 import React from 'react';
-import { hashHistory, Link } from 'react-router';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
+import { hashHistory, Link } from 'react-router';
+import { ScaleLoader } from 'react-spinners';
 
 import { FormTextInput, EmailInput, PasswordInput, PasswordConfirmation } from 'common/components';
 
@@ -15,7 +16,8 @@ class SignupForm extends React.Component {
       email: "me@gmail.com",
       password: "password",
       passwordConfirmation: "password",
-      isValid: false
+      isValid: false,
+      loading: false
     };
 
     autoBind(this);
@@ -23,15 +25,17 @@ class SignupForm extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
+    this.setState({ loading: true });
     let message = 'Please check your email to activate your account.';
 
     let url = {
       pathname: 'auth',
       query: { form: 'message', message }
     };
-
+    let start = Date.now();
     this.props.signup(this.state).then(
-      () => hashHistory.push(url)
+      () => hashHistory.push(url),
+      () => setTimeout(() => this.setState({ loading: false }), 200 - (Date.now() - start))
     );
   }
 
@@ -95,11 +99,15 @@ class SignupForm extends React.Component {
           <input
             id="form-submit-button"
             type='submit'
-            className="auth-form-button"
+            className="button auth-form-button"
             value={submitValue}
             onMouseEnter={this.isFormValid}
             disabled={!this.state.isValid}
           />
+
+          { this.state.loading && (
+            <div className='loader'><ScaleLoader height={25} width={2} /></div>
+          ) }
 
         </div>
       </form>
