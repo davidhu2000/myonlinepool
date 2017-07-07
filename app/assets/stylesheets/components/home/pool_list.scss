@@ -1,9 +1,9 @@
 .pool-list {
   width: 870px;
-  height: 314px;
+  height: 258px;
   position: relative;
-  padding-bottom: 5px;
-  padding-top: 35px;
+  // padding-bottom: 5px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -40,8 +40,17 @@
     }
   }
 
+  .pool-list-alert {
+    font-size: 25px;
+    opacity: .5;
+    height: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .pool-list-bottom {
-    height: 275px;
+    height: 210px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -50,11 +59,11 @@
     overflow-y: overlay;
 
     .pool-list-item {
-      height: 30px;
-      width: 125px;
+      height: 37.5px;
+      width: 140px;
       margin: 7.5px 5px;
-      font-size: 12px;
-      line-height: 12px;
+      font-size: 15px;
+      line-height: 15px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -63,5 +72,6 @@
         padding-right: 5px;
       }
     }
+
   }
 }

@@ -10,7 +10,7 @@ class Api::StandingsController < ApplicationController
     WeeklyResultNfl.where(season: season, week: week)
       .includes(:pool, :user)
       .order(correct_picks: :desc)
-      .limit(10)
+      .limit(12)
   end
 
   def get_season_leaders(season)
@@ -24,7 +24,7 @@ class Api::StandingsController < ApplicationController
       )
       .group(:user_id, :pool_id)
       .order('correct_picks DESC')
-      .limit(10)
+      .limit(12)
   end
 end
 
