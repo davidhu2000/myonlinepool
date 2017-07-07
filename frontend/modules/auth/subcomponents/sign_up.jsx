@@ -95,7 +95,7 @@ class SignupForm extends React.Component {
           <input
             id="form-submit-button"
             type='submit'
-            className="auth-form-button"
+            className="button auth-form-button"
             value={submitValue}
             onMouseEnter={this.isFormValid}
             disabled={!this.state.isValid}

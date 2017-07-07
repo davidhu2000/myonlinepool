@@ -65,7 +65,7 @@ class ForgetPassword extends React.Component {
         <input
           id="form-submit-button"
           type='submit'
-          className="auth-form-button"
+          className="button auth-form-button"
           value={'Reset password'}
           onMouseEnter={this.isFormValid}
           disabled={!this.state.isValid}
