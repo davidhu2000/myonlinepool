@@ -54,7 +54,7 @@ class Moderator extends React.Component {
     let { members } = this.props.pool;
     let realMembers = [];
     Object.keys(members).forEach(key => {
-      if (members[key].id !== this.props.pool.moderatorId) {
+      if (members[key].userId !== this.props.pool.moderatorId) {
         realMembers.push(members[key]);
       }
     });
