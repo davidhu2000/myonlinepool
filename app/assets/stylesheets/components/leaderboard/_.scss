@@ -1,73 +1,20 @@
 .leaderboard-container {
-
-  .leaderboard-box {
-    padding-top: 20px;
-    position: relative;
-
-  .leaderboard-box-title {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    font-size: 20px;
-    text-align: left;
-    opacity: .5;
-    font-weight: bold;
-  }
-
-  div:nth-child(3) {
-    color: #AF1E2C;
-  }
-
-  .leaderboard-box-item {
+  min-width: 870px;
+  width: 95%;
   display: flex;
-  border-top: .2px rgba(51, 51, 51,.2) solid;
-  padding: 5px;
+  flex-direction: column; 
+     
 
-    div:nth-child(3) {
-        color: inherit;
-    }
-
-    div {
-        text-align: left;
-    }
-
-    .title {
-        width: 125px;
-    }
-
-    .score {
-        width: 75px;
-        border-left: none;
-    }
-
-    .losses {
-        width: 75px;
-        border-left: none;
-    }
-
-    .pool {
-        width: 125px;
-        border-left: none;
-    }
-  }
-
-  .leaderboard-box-top-item {
+  .leaderboard-labels {
+    min-width: 870px;
+    width: 95%;
     display: flex;
-    margin-top: 10px;
-    padding: 5px;
-    font-weight: bold;
-
-    .title, .pool {
-        width: 125px;
-    }
-
-    .score, .losses {
-        width: 75px;
-    }
-
-    div:nth-child(3) {
-        color: inherit;
-    }
+    justify-content: space-around;
   }
-}
+
+  .leaderboard-body {
+    min-width: 870px;
+    width: 95%;
+    display: flex;
+  }    
 }
