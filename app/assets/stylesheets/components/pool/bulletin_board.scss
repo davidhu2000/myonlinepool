@@ -1,0 +1,58 @@
+.bulletin-box {
+  height: 287px;
+  width: 870px;
+  padding: 0px 5px;
+  padding-top: 30px;
+  position: relative;
+  background: $lt-primary;
+  color: white;
+  overflow-y: hidden;
+
+  h2 {
+    position: absolute;
+    top: 0px;
+    font-size: 20px;
+    text-align: left;
+    opacity: .5;
+    font-weight: bold;
+  }
+
+  // .bulletin-container-container {
+  //   padding: 5px;
+  //   overflow-y: hidden;
+  // }
+
+  .bulletin-container {
+    width: 100%;
+    height: 247px;
+    // padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow-y: hidden;
+
+    .welcome {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .bulletin-item {
+      margin-bottom: 10px;
+      padding-left: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .author {
+        font-size: 12.5px;
+        font-weight: bold;
+        // margin-bottom: 5px;
+      }
+
+      .message {
+        font-size: 15px;
+        // font-weight: bold;
+      }
+    }
+  }
+}

@@ -15,15 +15,11 @@ class BulletinBox extends React.Component {
 
   render() {
     return (
-      <div className="modboard-box">
+      <div className="bulletin-box">
         <h2>Bulletins</h2>
-
-        <div className="modboard-container-container">
-          <div className="modboard-container">
-            {this.renderBulletins()}
-          </div>
+        <div className="bulletin-container">
+          {this.renderBulletins()}
         </div>
-
       </div>
     );
   }
