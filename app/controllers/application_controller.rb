@@ -1,3 +1,6 @@
+require 'net/http'
+require 'json'
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -29,5 +32,12 @@ class ApplicationController < ActionController::Base
 
   def generate_token
     SecureRandom.urlsafe_base64(128)
+  end
+
+  def get_current_time
+    url = 'http://worldclockapi.com/api/json/utc/now'
+    uri = URI(url)
+    date_data = JSON.parse(Net::HTTP.get(uri))
+    DateTime.parse(date_data["currentDateTime"])
   end
 end

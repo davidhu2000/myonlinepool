@@ -1,13 +1,10 @@
-require 'net/http'
-require 'json'
-
 class Api::PicksController < ApplicationController
   def index
     # TODO: make season, week dynamic
     # TODO: only do this the first time picks are rendered.
     records = Team.calculate_team_records(2016)
-    
-    current_time = DateTime.parse(get_current_time["currentDateTime"])
+    debugger
+    current_time = get_current_time
     # TODO: make season, week dynamic
     all_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
     raw_picks = current_user.picks.where(pool_id: params[:poolId], game_id: all_games)
@@ -58,13 +55,5 @@ class Api::PicksController < ApplicationController
       end
     end
     render 'api/picks/index'
-  end
-
-  private 
-
-  def get_current_time
-    url = 'http://worldclockapi.com/api/json/utc/now'
-    uri = URI(url)
-    JSON.parse(Net::HTTP.get(uri))
   end
 end

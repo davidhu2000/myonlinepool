@@ -9,9 +9,11 @@ class Api::PoolsController < ApplicationController
   def create
     @pool = Pool.new(pool_params)
     @pool.moderator_id = current_user.id
-
+    @pool.created_at = get_current_time
+    @pool.updated_at = get_current_time
     @pool.memberships.new(user_id: current_user.id)
     @standings = {}
+
     if @pool.save
       @standings[0] = {
         current_user.id => WeeklyResultNfl.new(
@@ -30,6 +32,11 @@ class Api::PoolsController < ApplicationController
 
   def show
     @pool = Pool.where(id: params[:id]).includes(:members, :weekly_result_nfls).first
+
+    if !@pool.payment_made && (get_current_time.to_date - @pool.created_at.to_date).to_i > 7
+      render json: ['please pay first'], status: 404
+    end
+
     @standings = show_standings(@pool)
   end
 
