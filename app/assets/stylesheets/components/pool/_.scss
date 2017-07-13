@@ -31,12 +31,13 @@
 
 .pool-standings {
   width: 870px;
-  // min-height: 374px;
+  min-height: 374px;
+  // height: 278px;
   padding: 20px 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 
   .standings-box {
     font-size: 12px;

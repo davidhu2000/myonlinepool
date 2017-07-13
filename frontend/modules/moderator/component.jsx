@@ -1,14 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import { values } from 'lodash';
 import PropTypes from 'prop-types';
 
 import { BulletinForm } from './subcomponents';
 
 class Moderator extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     let { poolId } = this.props.params;
@@ -36,25 +32,11 @@ class Moderator extends React.Component {
     }
   }
 
-  // renderMembers() {
-  //   return Object.values(this.props.pool.members || []).map(member => (
-  //     <div className="pool-member">
-  //       <button onClick={() => this.props.toggleMembership(member.id, this.props.pool.id)}>
-  //         <i className={this.renderClass(member.paid)} aria-hidden="true"></i>
-  //       </button>
-  //       <button onClick={() => this.props.removeMember(member.userId, this.props.pool.id)}>
-  //         <i className="fa fa-times" aria-hidden="true"></i>
-  //       </button>  
-  //       <span>{ member.name }</span>
-  //     </div>
-  //   ));
-  // }
-
   renderMembers() {
     let { members } = this.props.pool;
     let realMembers = [];
     Object.keys(members).forEach(key => {
-      if (members[key].id !== this.props.pool.moderatorId) {
+      if (members[key].userId !== this.props.pool.moderatorId) {
         realMembers.push(members[key]);
       }
     });
@@ -62,11 +44,11 @@ class Moderator extends React.Component {
     return realMembers.map(member => (
       <div className="pool-member">
         <button onClick={() => this.props.toggleMembership(member.userId, this.props.pool.id)}>
-          <i className={this.renderClass(member.paid)} aria-hidden="true"></i>
+          <i className={this.renderClass(member.paid)} aria-hidden="true" />
         </button>
         <button onClick={() => this.props.removeMember(member.userId, this.props.pool.id)}>
-          <i className="fa fa-times" aria-hidden="true"></i>
-        </button>  
+          <i className="fa fa-times" aria-hidden="true" />
+        </button>
         <span>{ member.name }</span>
       </div>
     ));
@@ -90,7 +72,7 @@ class Moderator extends React.Component {
           <div className="moderator-pool-members">
             { this.renderMembers() }
           </div>
-        </div>  
+        </div>
       </div>
     );
   }

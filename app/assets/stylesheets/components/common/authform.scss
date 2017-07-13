@@ -124,7 +124,7 @@
   position: relative;
 
   > input {
-    border-bottom: 2px solid red !important;
+    border-bottom: 2px solid $best-red !important;
     z-index: 10;
   }
 
@@ -134,7 +134,7 @@
     bottom: -28px;
     display: inline-block;
     font-size: 13px;
-    background: red;
+    background: $best-red;
     padding: 5px;
     color: white;
     border-bottom-right-radius: 5px;
