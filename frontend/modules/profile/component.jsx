@@ -15,14 +15,14 @@ class Profile extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({ email: this.props.user.email });
+    this.setState({ email: this.props.user.email, username: this.props.user.name });
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
-        profile
+        {this.props.user.email}
+        {this.props.user.name}
       </div>
     );
   }
