@@ -30,10 +30,10 @@ class Dropdown extends React.Component {
       <div className="navbar-dropdown" id="pool-dropdown">
         <div className="navbar-dropdown-list">
           <Link to={`/home`} onClick={this.props.toggleLeftDropdown}>
-            Home
+            Dashboard
           </Link>
           <Link to={`/pool/${this.props.poolId}`} onClick={this.props.toggleLeftDropdown}>
-            Pool Homepage
+            Homepage
           </Link>
           <Link to={`/pool/${this.props.poolId}/picks`} onClick={this.props.toggleLeftDropdown}>
             Picks
