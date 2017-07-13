@@ -40,7 +40,9 @@ class LeaderboardItem extends React.Component {
     keys(this.props.standings).forEach(week => {
       this.state.weeks[week] = this.props.standings[week][this.props.member.userId].correctPicks;
     });
-    console.log(this.state.weeks);
+    return keys(this.state.weeks).map(week => (
+      <div>{this.state.weeks[week]}</div>
+    ));
   }
 
   render() {
