@@ -15,6 +15,7 @@ import PoolForm from 'modules/pool_form';
 import AdminConsole from 'modules/console';
 import GameForm from 'modules/game_form';
 import Payment from 'modules/payment';
+import Profile from 'modules/profile';
 
 const routes = (
   <Route path="/" component={App}>
@@ -31,6 +32,9 @@ const routes = (
       <Route path="create/:weekId/:gameId" component={GameForm} />
     </Route>
 
+    <Route path="/profile">
+      <IndexRoute component={Profile} />
+    </Route>
 
     <Route path="/pool/:poolId" component={Pool}>
       <IndexRoute component={PoolHome} />
