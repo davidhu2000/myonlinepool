@@ -107,16 +107,20 @@ puts
 puts
 puts 'SEEDING ANOUNCEMENTS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
-total = announcement_total
+Announcement.create(title: "Administrator", body: "Change your user information by clicking the profile link in the dropdown")
+Announcement.create(title: "Administrator", body: "Make your picks before games start on Sundays or you'll get locked out!")
+Announcement.create(title: "Administrator", body: "Moderators can add increase pool size with paypal")
+Announcement.create(title: "Administrator", body: "Click the Create or Join Pool button to start playing!")
+# progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+# total = announcement_total
 
-total.times do 
-  Announcement.create!(
-    title: Faker::Friends.character,
-    body: Faker::Friends.quote
-  )
-  progress_bar.advance((1 / total.to_f) * bar_total)
-end
+# total.times do 
+#   Announcement.create!(
+#     title: Faker::Friends.character,
+#     body: Faker::Friends.quote
+#   )
+#   progress_bar.advance((1 / total.to_f) * bar_total)
+# end
 
 puts 
 puts

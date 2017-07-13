@@ -6,7 +6,6 @@ class ModBoard extends React.Component {
     let { announcements } = this.props;
     return announcements.map(announcement => (
       <div className="modboard-item" key={announcement.id}>
-        <div className="author">{announcement.title}</div>
         <div className="message">{announcement.body}</div>
       </div>
     ));
@@ -15,13 +14,10 @@ class ModBoard extends React.Component {
   render() {
     return (
       <div className="modboard-box">
-        <h2>{ this.props.title }</h2>
-        <div className="modboard-container-container">
-          <div className="modboard-container">
-            {this.renderAnnouncements()}
-          </div>
+        <div className="modboard-container">
+          <div className="welcome">Welcome to MyOnlinePool!</div>
+          {this.renderAnnouncements()}
         </div>
-
       </div>
     );
   }
