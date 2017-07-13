@@ -107,10 +107,10 @@ puts
 puts
 puts 'SEEDING ANOUNCEMENTS'
 puts '-------------------------------------------------------------------------'
-Announcement.create(title: "Administrator", body: "Change your user information by clicking the profile link in the dropdown")
-Announcement.create(title: "Administrator", body: "Make your picks before games start on Sundays or you'll get locked out!")
-Announcement.create(title: "Administrator", body: "Moderators can add increase pool size with paypal")
-Announcement.create(title: "Administrator", body: "Click the Create or Join Pool button to start playing!")
+Announcement.create(title: "Manage Profile", body: "Change your user information by clicking the profile link in the dropdown")
+Announcement.create(title: "Manage Pools", body: "Moderators can increase pool size with paypal")
+Announcement.create(title: "Join Pools", body: "Once you've received a pool's id and password, use the Join Pool button")
+Announcement.create(title: "Create Pools", body: "Click the Create Pool button to start a pool and invite players")
 # progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
 # total = announcement_total
 
