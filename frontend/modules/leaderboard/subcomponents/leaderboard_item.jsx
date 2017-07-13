@@ -37,37 +37,10 @@ class LeaderboardItem extends React.Component {
   }
 
   renderWeeks() {
-    let weeks = {
-      1: "0",
-      2: "0",
-      3: "0",
-      4: "0",
-      5: "0",
-      6: "0",
-      7: "0",
-      8: "0",
-      9: "0",
-      10: "0",
-      11: "0",
-      12: "0",
-      13: "0",
-      14: "0",
-      15: "0",
-      16: "0",
-      17: "0",
-      19: "0",
-      20: "0",
-      22: "0"
-    };
-    // console.log(keys(this.props.standings));
-    // console.log(this.props);
     keys(this.props.standings).forEach(week => {
-        weeks[week] = this.props.standings[week][this.props.member.id];
+      this.state.weeks[week] = this.props.standings[week][this.props.member.userId].correctPicks;
     });
-    console.log(weeks);
-    // return keys(weeks).map(week => (
-    //   <div>{weeks[week]}</div>
-    // ));
+    console.log(this.state.weeks);
   }
 
   render() {
