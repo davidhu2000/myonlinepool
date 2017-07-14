@@ -27,6 +27,22 @@ class Profile extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
+
+    let sub = {
+      user_id: this.props.user.id,
+      username: this.state.username
+    };
+    this.props.changeUsername(sub);
+  }
+
+  submitOtherForm(e) {
+    e.preventDefault();
+
+    let sub = {
+      user_id: this.props.user.id,
+      email: this.state.email
+    };
+    this.props.changeEmail(sub);
   }
 
   render() {
@@ -53,7 +69,7 @@ class Profile extends React.Component {
 
         </form>
 
-        <form onSubmit={this.submitForm} className="auth-form">
+        <form onSubmit={this.submitOtherForm} className="auth-form">
 
           <FormTextInput
             update={this.update}

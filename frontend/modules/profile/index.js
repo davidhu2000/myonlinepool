@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
 import Profile from './component';
 
-import * as Actions from './actions';
+import { changeEmail, changeUsername } from './actions';
 
 const mapStateToProps = ({ user }) => ({
   user
 });
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = dispatch => ({
+  changeEmail: email => dispatch(changeEmail(email)),
+  changeUsername: username => dispatch(changeUsername(username))
 });
 
 export default connect(

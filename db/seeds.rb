@@ -48,6 +48,14 @@ mainAdminUser = User.new(
 )
 mainAdminUser.save!
 
+testUser = User.new(
+    name: 'Tester',
+    email: "Tester@gmail.com",
+    password: 'password',
+    confirmed_at: Date.new
+)
+testUser.save!
+
 (total - 1).times do
   User.create!(
     name: Faker::Name.name,
