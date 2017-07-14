@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { calculateSeasonStandings } from 'helpers';
 import { PoolStandingsBox } from "common/components";
-import { MessageBox, BulletinBox } from "./subcomponents";
+import { MessageBox, BulletinBox, WeeklyWinners } from "./subcomponents";
 
 class PoolHome extends React.Component {
   constructor(props) {
@@ -76,19 +76,27 @@ class PoolHome extends React.Component {
       <div className="pool-container">
         { this.checkForAdminPayment() }
         <div className="pool-standings">
-          <PoolStandingsBox
-            title="Weekly Leaders"
-            standings={pool.standings[this.state.week]}
-            members={pool.members}
-            weeklyStandings="true"
-            updateWeek={this.updateWeek}
-            week={this.state.week}
-          />
-          <PoolStandingsBox
-            title="Season Leaders"
-            standings={calculateSeasonStandings(pool.standings)}
-            members={pool.members}
-          />
+          <div className="pool-standings-top">
+            <PoolStandingsBox
+              title={`Week ${this.state.week} Leaders`}
+              standings={pool.standings[this.state.week]}
+              members={pool.members}
+              weeklyStandings="true"
+              updateWeek={this.updateWeek}
+              week={this.state.week}
+            />
+            <PoolStandingsBox
+              title="Season Leaders"
+              standings={calculateSeasonStandings(pool.standings)}
+              members={pool.members}
+            />
+          </div>
+          <div className="pool-standings-bottom">
+            <WeeklyWinners 
+              standings={pool.standings}
+              members={pool.members}
+            />
+          </div>  
         </div>
 
         <div className="pool-bulletin">
