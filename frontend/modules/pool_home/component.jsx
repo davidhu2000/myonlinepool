@@ -41,17 +41,17 @@ class PoolHome extends React.Component {
     }
   }
 
-  checkForMemberPayment() {
-    if (!this.props.pool.members[this.props.user.id].paid && this.props.user.id !== this.props.pool.moderatorId) {
-      return (
-        <div className="pool-alert">
-          <Link to={`pool/${this.props.pool.id}/payment`}>
-            Please pay the buy-in to your pool administrator.
-          </Link>
-        </div>
-      );
-    }
-  }
+  // checkForMemberPayment() {
+  //   if (!this.props.pool.members[this.props.user.id].paid && this.props.user.id !== this.props.pool.moderatorId) {
+  //     return (
+  //       <div className="pool-alert">
+  //         <Link to={`pool/${this.props.pool.id}/payment`}>
+  //           Please pay the buy-in to your pool administrator.
+  //         </Link>
+  //       </div>
+  //     );
+  //   }
+  // }
 
   updateWeek(dir) {
     let week = this.state.week + dir;
