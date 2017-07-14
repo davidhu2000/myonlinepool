@@ -75,7 +75,6 @@ class PoolHome extends React.Component {
     return (
       <div className="pool-container">
         { this.checkForAdminPayment() }
-        { this.checkForMemberPayment() }
         <div className="pool-standings">
           <PoolStandingsBox
             title="Weekly Leaders"
