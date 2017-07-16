@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { hashHistory } from 'react-router';
 import { PulseLoader } from 'react-spinners';
 
 // amt=9.95
@@ -10,15 +11,7 @@ import { PulseLoader } from 'react-spinners';
 // tx=37K97484AP598031D
 
 class PaymentConfirmation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
   componentDidMount() {
-    console.log(this.props)
-
     let { query } = this.props.location;
     let status = query.st;
 
@@ -26,13 +19,15 @@ class PaymentConfirmation extends React.Component {
       let amountPaid = query.amt;
       let poolIdentifer = query.cm;
       let transactionNumber = query.tx;
+
+      
     } else {
       let alert = {
         type: 'error',
-        message: 'The payment is not processed properly. Please contact paypal.'
+        message: 'Payment unsuccessful! Please contact paypal.'
       };
-
-      this.props.receiveAlert(alert);
+      this.props.receiveAlerts([alert]);
+      hashHistory.push('/home');
     }
   }
 
@@ -47,7 +42,7 @@ class PaymentConfirmation extends React.Component {
 }
 
 PaymentConfirmation.propTypes = {
-  receiveAlert: PropTypes.func.isRequired
+  receiveAlerts: PropTypes.func.isRequired
 };
 
 export default PaymentConfirmation;
