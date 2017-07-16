@@ -147,7 +147,7 @@ class Picks extends React.Component {
           }
         }
       });
-      return <div>{picks} - {misses}</div>;
+      return <div className="correct-picks">{picks}</div>;
     }
   }
 
@@ -157,6 +157,7 @@ class Picks extends React.Component {
         <div className="picks-top">
           <div className="picks-header">
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
+            {this.props.pool.title}
             {this.renderWeekRecord()}
             <div>
               <button onClick={this.pickFavorites}>

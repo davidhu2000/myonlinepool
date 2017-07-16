@@ -7,7 +7,8 @@ import Picks from './component';
 
 const mapStateToProps = state => ({
   picks: state.picks,
-  userId: state.user.id
+  userId: state.user.id,
+  pool: state.pool
 });
 
 const mapDispatchToProps = dispatch => ({
