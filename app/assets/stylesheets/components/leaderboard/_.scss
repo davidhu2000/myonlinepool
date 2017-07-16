@@ -1,7 +1,5 @@
 .leaderboard-container {
   min-height: 1080px;
-  // min-width: 870px;
-  // width: 95%;
   padding: 20px 0px;
   display: flex;
   flex-direction: column;
@@ -9,12 +7,8 @@
   position: relative;
      
   .leaderboard-labels {
-    // min-width: 870px;
-    // width: 95%;
-    // width: 100%;
     margin-bottom: 5px;
     display: flex;
-    // justify-content: space-between;
     padding: 5px 0px;
     border-radius: 2px;
     font-size: 20px;
@@ -37,24 +31,18 @@
   }
 
   .leaderboard-body {
-    // min-width: 870px;
-    // width: 100%;
     display: flex;
     flex-direction: column;
 
     .leaderboard-item {
-      // width: 100%;
-      // padding: 5px 0px;
       height: 30px;
       display: flex;
       border-bottom: .2px rgba(51, 51, 51,.2) solid;
-      // justify-content: space-between;
       div {
         width: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
-       
       }
       .title {
         width: 100px;
