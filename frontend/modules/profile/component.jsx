@@ -22,6 +22,7 @@ class Profile extends React.Component {
   update(field) {
     return e => {
       this.setState({ [field]: e.target.value });
+      console.log(this.state);
     };
   }
 
@@ -55,7 +56,7 @@ class Profile extends React.Component {
             update={this.update}
             value={this.state.username}
             type='name'
-            field="name"
+            field="username"
             label='username'
             errorMessage="Please enter a new username"
           />
