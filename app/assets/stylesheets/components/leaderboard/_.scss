@@ -1,9 +1,8 @@
 .leaderboard-container {
-  min-height: 1060px;
+  min-height: 1080px;
   // min-width: 870px;
-  width: 95%;
-  padding-bottom: 20px;
-  padding-top: 57px;
+  // width: 95%;
+  padding: 20px 0px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -12,13 +11,13 @@
   .leaderboard-labels {
     // min-width: 870px;
     // width: 95%;
-    width: 100%;
+    // width: 100%;
     margin-bottom: 5px;
     display: flex;
     // justify-content: space-between;
-    padding: 5px 5px;
+    padding: 5px 0px;
     border-radius: 2px;
-    // font-size: 20px;
+    font-size: 20px;
     font-weight: bold;
     background: $drk-primary;
     color: white;
@@ -39,23 +38,34 @@
 
   .leaderboard-body {
     // min-width: 870px;
-    width: 100%;
+    // width: 100%;
     display: flex;
     flex-direction: column;
 
     .leaderboard-item {
-      width: 100%;
-      padding: 5px 0px;
+      // width: 100%;
+      // padding: 5px 0px;
+      height: 30px;
       display: flex;
+      border-bottom: .2px rgba(51, 51, 51,.2) solid;
       // justify-content: space-between;
       div {
         width: 50px;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
       }
       .title {
         width: 100px;
         text-align: center;
       }
+      .total {
+        width: 100px;
+      }
+    }
+    div:last-child {
+      border-bottom: none;
     }
   }    
 }

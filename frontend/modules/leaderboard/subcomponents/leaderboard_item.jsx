@@ -47,11 +47,20 @@ class LeaderboardItem extends React.Component {
     ));
   }
 
+  renderTotal() {
+    let total = 0;
+    keys(this.state.weeks).forEach(week => {
+      total += Number(this.state.weeks[week]);
+    });
+    return <div className="total">{total}</div>;
+  }
+
   render() {
     return (
       <div className="leaderboard-item">
         <div className="title">{shortestString(this.props.member.name)}</div>
         {this.renderWeeks()}
+        {this.renderTotal()}
       </div>
     );
   }
