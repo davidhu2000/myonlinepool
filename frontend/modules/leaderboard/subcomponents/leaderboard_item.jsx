@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { keys } from 'lodash';
-import { shortenString } from 'helpers';
+import { shortestString } from 'helpers';
 
 class LeaderboardItem extends React.Component {
   constructor(props) {
@@ -37,10 +37,12 @@ class LeaderboardItem extends React.Component {
   }
 
   renderWeeks() {
-    keys(this.props.standings).forEach(week => {
+    let actualStandings = this.props.standings;
+    delete actualStandings[21];
+    keys(actualStandings).forEach(week => {
       this.state.weeks[week] = this.props.standings[week][this.props.member.userId].correctPicks;
     });
-    return keys(this.state.weeks).map(week => (
+    return keys(this.state.weeks).slice(1).map(week => (
       <div>{this.state.weeks[week]}</div>
     ));
   }
@@ -48,7 +50,7 @@ class LeaderboardItem extends React.Component {
   render() {
     return (
       <div className="leaderboard-item">
-        <div className="title">{this.props.member.name}</div>
+        <div className="title">{shortestString(this.props.member.name)}</div>
         {this.renderWeeks()}
       </div>
     );

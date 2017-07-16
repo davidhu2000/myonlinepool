@@ -23,7 +23,7 @@ class Leaderboard extends React.Component {
     return (
       <div className="leaderboard-container">
         <div className="leaderboard-labels">
-          <div>Name</div>
+          <div className="title">Name</div>
           <div>W1</div>
           <div>W2</div>
           <div>W3</div>
@@ -45,7 +45,7 @@ class Leaderboard extends React.Component {
           <div>W19</div>
           <div>W20</div>
           <div>W22</div>
-          <div>Record</div>
+          <div className="points">Points</div>
         </div>
         <div className="leaderboard-body">
           {this.renderMembers()}
