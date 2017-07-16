@@ -55,11 +55,15 @@ class PoolHome extends React.Component {
 
   updateWeek(dir) {
     let week = this.state.week + dir;
+    if (week === 21) {
+      week += dir;
+    }
+
     if (week < 1) {
       week = 1;
     }
 
-    if (week >= 21) {
+    if (week > 22) {
       week = 22;
     }
 
