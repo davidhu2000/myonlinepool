@@ -79,9 +79,8 @@ class Payment extends React.Component {
               </tr>
             </tbody>
           </table>
+          <input type="hidden" name="custom" value={pool.identifier} />
           <input type="hidden" name="currency_code" value="USD" />
-          <input type="hidden" name="email" value={user.email} />
-          <input type="hidden" name="identifier" value={pool.identifier} />
           <input type="hidden" name="return" value={`http://myonlinepool.herokuapp.com/payments?email=${user.email}&identifier=${pool.identifier}`} />
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
           <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
