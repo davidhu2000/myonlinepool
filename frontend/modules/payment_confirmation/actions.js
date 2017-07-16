@@ -1,10 +1,14 @@
-export const confirmPayment = (identifier, attributes) => {
+/* global $ */
+
+export const confirmPayment = pool => {
   return $.ajax({
     method: "PATCH",
+    url: 'api/payment_confirmation',
     data: {
       pool: {
-        identifier,
-        ...attributes
+        identifier: pool.identifier,
+        amount_paid: pool.amountPaid,
+        transaction_number: pool.transactionNumber
       }
     }
   });

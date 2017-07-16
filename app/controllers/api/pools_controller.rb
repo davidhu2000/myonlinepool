@@ -57,7 +57,27 @@ class Api::PoolsController < ApplicationController
   end
 
   def payment_confirmation
-    p params
+    pool = Pool.find_by(identifier: params[:pool][:identifier])
+    if pool
+      case params[:pool][:amount_paid].to_i
+        when 1595 then max_size = 15
+        when 2595 then max_size = 1000
+        else max_size = 5
+      end
+
+      attributes = params['pool']
+      attributes['max_size'] = max_size
+      attributes['payment_made'] = true
+
+      if pool.update(attributes)
+        render json: ['Payment successful!']
+      else
+        render json: pool.errors.full_messages, status: 422
+      end
+
+    else
+      render json: ['Cannot find pool with that identifier. Please contact administrator.'], status: 404
+    end
   end
 
   private
