@@ -6,7 +6,7 @@ import { BulletinBoxItem } from './';
 class BulletinBox extends React.Component {
   renderBulletins() {
     let { bulletins } = this.props;
-    let bulletinIds = Object.keys(bulletins).reverse().slice(0, 4);
+    let bulletinIds = Object.keys(bulletins).reverse().slice(0, 1);
 
     return bulletinIds.map(id => (
       <BulletinBoxItem key={`bulletin-${id}`} bulletin={bulletins[id]} />
