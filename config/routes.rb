@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, default: { format: :json } do 
     resources :pools, only: [:show, :create, :destroy, :update, :index]
+    patch 'payment_confirmation', to: 'pools#payment_confirmation'
     resources :memberships, only: [:create, :update]
     delete 'memberships', to: 'memberships#destroy'
     resources :announcements, only: [:index, :create]

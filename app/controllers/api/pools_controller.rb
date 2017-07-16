@@ -56,6 +56,10 @@ class Api::PoolsController < ApplicationController
     end
   end
 
+  def payment_confirmation
+    p params
+  end
+
   private
 
   def pool_params
