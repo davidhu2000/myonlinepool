@@ -2,8 +2,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { WeekSwitcher } from 'common/components';
-import { PickForm, LoadingForm } from './subcomponents';
-import PicksDropdown from './subcomponents';
+import { PickForm, LoadingForm, PicksDropdown } from './subcomponents';
 
 class Picks extends React.Component {
   constructor(props) {
@@ -71,6 +70,7 @@ class Picks extends React.Component {
     if (picks.length > 0) {
       this.props.sendPicks(picks);
     }
+    this.toggleDropdown();
   }
 
   pickAway() {
@@ -89,6 +89,7 @@ class Picks extends React.Component {
     if (picks.length > 0) {
       this.props.sendPicks(picks);
     }
+    this.toggleDropdown();
   }
 
   pickFavorites() {
@@ -117,6 +118,7 @@ class Picks extends React.Component {
     if (picks.length > 0) {
       this.props.sendPicks(picks);
     }
+    this.toggleDropdown();
   }
 
   renderSelections() {
@@ -184,11 +186,17 @@ class Picks extends React.Component {
             {this.props.pool.title}
             {this.renderWeekRecord()}
             <div>
-              <button onClick={this.toggleDropdown}>
-                - Auto Pick
+              <button className="autopick-button" onClick={this.toggleDropdown}>
+                <i className="fa fa-caret-down" aria-hidden="true"></i>
+                Auto Pick
               </button>
               { this.state.showDropdown ?
-                <PicksDropdown /> : null }
+                <PicksDropdown
+                  pickFavorites={this.pickFavorites}
+                  pickAway={this.pickAway}
+                  pickHome={this.pickHome}
+                  toggleDropdown={this.toggleDropdown}
+                /> : null }
             </div>
           </div>
           <div className="picks-labels">
