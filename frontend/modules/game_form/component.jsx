@@ -131,7 +131,7 @@ class GameForm extends React.Component {
             <option value="true">Completed</option>
             <option value="false">Pending</option>
           </select>
-          
+
           <input
             type="submit"
             className="game-update-button"

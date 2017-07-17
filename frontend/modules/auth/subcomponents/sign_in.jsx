@@ -53,7 +53,7 @@ class SigninForm extends React.Component {
         <Link to='auth?form=forget-password'>
           Forgot your password?
         </Link>
-        {/*<div className="utility-item">
+        {/* <div className="utility-item">
           Remember me?
         </div>*/}
       </div>

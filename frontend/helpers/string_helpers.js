@@ -23,7 +23,7 @@ export const hashString = string => {
 export const shortenString = string => {
   let ret = string;
   if (ret.length > 20) {
-    ret = ret.substr(0, 17) + "...";
+    ret = `${ret.substr(0, 17)}...`;
   }
   return ret;
 };
@@ -31,7 +31,7 @@ export const shortenString = string => {
 export const shortestString = string => {
   let ret = string;
   if (ret.length > 9) {
-    ret = ret.substr(0, 9) + "...";
+    ret = `${ret.substr(0, 9)}...`;
   }
   return ret;
 };
