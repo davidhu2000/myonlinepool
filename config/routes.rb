@@ -24,6 +24,8 @@ Rails.application.routes.draw do
       post 'passwords/reset', to: 'passwords#update'
 
       resource :session, only: [:create, :destroy]
+
+      resource :users, only: [:update]
     end
   end
 end

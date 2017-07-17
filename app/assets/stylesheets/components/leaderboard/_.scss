@@ -1,20 +1,59 @@
 .leaderboard-container {
-  min-width: 870px;
-  width: 95%;
+  min-height: 1080px;
+  padding: 20px 0px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
      
-
   .leaderboard-labels {
-    min-width: 870px;
-    width: 95%;
+    margin-bottom: 5px;
     display: flex;
-    justify-content: space-around;
+    padding: 5px 0px;
+    border-radius: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    background: $drk-primary;
+    color: white;
+    div {
+      width: 50px;
+      text-align: center;
+    }
+
+    .title {
+      width: 100px;
+      text-align: center;
+    }
+
+    .points{
+      width: 100px;
+    }
   }
 
   .leaderboard-body {
-    min-width: 870px;
-    width: 95%;
     display: flex;
+    flex-direction: column;
+
+    .leaderboard-item {
+      height: 30px;
+      display: flex;
+      border-bottom: .2px rgba(51, 51, 51,.2) solid;
+      div {
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .title {
+        width: 100px;
+        text-align: center;
+      }
+      .total {
+        width: 100px;
+      }
+    }
+    div:last-child {
+      border-bottom: none;
+    }
   }    
 }

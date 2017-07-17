@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { calculateSeasonStandings } from 'helpers';
 import { PoolStandingsBox } from "common/components";
-import { MessageBox, BulletinBox } from "./subcomponents";
+import { MessageBox, BulletinBox, WeeklyWinners } from "./subcomponents";
 
 class PoolHome extends React.Component {
   constructor(props) {
@@ -41,25 +41,29 @@ class PoolHome extends React.Component {
     }
   }
 
-  checkForMemberPayment() {
-    if (!this.props.pool.members[this.props.user.id].paid && this.props.user.id !== this.props.pool.moderatorId) {
-      return (
-        <div className="pool-alert">
-          <Link to={`pool/${this.props.pool.id}/payment`}>
-            Please pay the buy-in to your pool administrator.
-          </Link>
-        </div>
-      );
-    }
-  }
+  // checkForMemberPayment() {
+  //   if (!this.props.pool.members[this.props.user.id].paid && this.props.user.id !== this.props.pool.moderatorId) {
+  //     return (
+  //       <div className="pool-alert">
+  //         <Link to={`pool/${this.props.pool.id}/payment`}>
+  //           Please pay the buy-in to your pool administrator.
+  //         </Link>
+  //       </div>
+  //     );
+  //   }
+  // }
 
   updateWeek(dir) {
     let week = this.state.week + dir;
+    if (week === 21) {
+      week += dir;
+    }
+
     if (week < 1) {
       week = 1;
     }
 
-    if (week >= 21) {
+    if (week > 22) {
       week = 22;
     }
 
@@ -75,21 +79,20 @@ class PoolHome extends React.Component {
     return (
       <div className="pool-container">
         { this.checkForAdminPayment() }
-        { this.checkForMemberPayment() }
         <div className="pool-standings">
-          <PoolStandingsBox
-            title="Weekly Leaders"
-            standings={pool.standings[this.state.week]}
-            members={pool.members}
-            weeklyStandings="true"
-            updateWeek={this.updateWeek}
-            week={this.state.week}
-          />
-          <PoolStandingsBox
-            title="Season Leaders"
-            standings={calculateSeasonStandings(pool.standings)}
-            members={pool.members}
-          />
+            <PoolStandingsBox
+              title={`Week ${this.state.week} Leaders`}
+              standings={pool.standings[this.state.week]}
+              members={pool.members}
+              weeklyStandings="true"
+              updateWeek={this.updateWeek}
+              week={this.state.week}
+            />
+            <PoolStandingsBox
+              title="Season Leaders"
+              standings={calculateSeasonStandings(pool.standings)}
+              members={pool.members}
+            />
         </div>
 
         <div className="pool-bulletin">

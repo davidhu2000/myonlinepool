@@ -30,24 +30,29 @@ class Dropdown extends React.Component {
       <div className="navbar-dropdown" id="pool-dropdown">
         <div className="navbar-dropdown-list">
           <Link to={`/home`} onClick={this.props.toggleLeftDropdown}>
-            Home
+            Dashboard
           </Link>
           <Link to={`/pool/${this.props.poolId}`} onClick={this.props.toggleLeftDropdown}>
-            Pool Homepage
+            Homepage
           </Link>
           <Link to={`/pool/${this.props.poolId}/picks`} onClick={this.props.toggleLeftDropdown}>
             Picks
           </Link>
+          <Link to={`/pool/${this.props.poolId}/leaderboard`} onClick={this.props.toggleLeftDropdown}>
+            Leaderboard
+          </Link>
           <Link to={`/pool/${this.props.poolId}/metrics`} onClick={this.props.toggleLeftDropdown}>
             Team Stats
           </Link>
-          <div className='remove-button' onClick={this.leavePoolButton}>
-            Leave Pool
-          </div>
           { this.props.isModerator && (
             <Link to={`/pool/${this.props.poolId}/moderator`} onClick={this.props.toggleLeftDropdown}>
               Moderator
           </Link>
+          )}
+          { this.props.isModerator && (
+            <div className='remove-button' onClick={this.leavePoolButton}>
+              Delete Pool
+            </div>
           )}
         </div>
       </div>

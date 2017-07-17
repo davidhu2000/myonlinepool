@@ -15,7 +15,10 @@ class Dropdown extends React.Component {
       <div className="navbar-dropdown" id="settings-dropdown">
         <div className="navbar-dropdown-list">
           <Link to={`/home`} onClick={this.props.toggleLeftDropdown}>
-            Home
+            Dashboard
+          </Link>
+          <Link to={`/profile`}>
+            Profile
           </Link>
           { this.props.user.id === 1 && (
             <Link to={'console'} onClick={this.props.toggleLeftDropdown}>

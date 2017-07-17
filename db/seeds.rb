@@ -48,6 +48,14 @@ mainAdminUser = User.new(
 )
 mainAdminUser.save!
 
+testUser = User.new(
+    name: 'Tester',
+    email: "Tester@gmail.com",
+    password: 'password',
+    confirmed_at: Date.new
+)
+testUser.save!
+
 (total - 1).times do
   User.create!(
     name: Faker::Name.name,
@@ -107,16 +115,20 @@ puts
 puts
 puts 'SEEDING ANOUNCEMENTS'
 puts '-------------------------------------------------------------------------'
-progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
-total = announcement_total
+Announcement.create(title: "Manage Profile", body: "Change your user information by clicking the profile link in the dropdown")
+Announcement.create(title: "Manage Pools", body: "Moderators can increase pool size with paypal")
+Announcement.create(title: "Join Pools", body: "Once you've received a pool's id and password, use the Join Pool button")
+Announcement.create(title: "Create Pools", body: "Click the Create Pool button to start a pool and invite players")
+# progress_bar = TTY::ProgressBar.new('progress :bar :elapsed :percent', total: bar_total,complete: green, incomplete: red)
+# total = announcement_total
 
-total.times do 
-  Announcement.create!(
-    title: Faker::Friends.character,
-    body: Faker::Friends.quote
-  )
-  progress_bar.advance((1 / total.to_f) * bar_total)
-end
+# total.times do 
+#   Announcement.create!(
+#     title: Faker::Friends.character,
+#     body: Faker::Friends.quote
+#   )
+#   progress_bar.advance((1 / total.to_f) * bar_total)
+# end
 
 puts 
 puts
