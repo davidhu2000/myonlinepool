@@ -27,15 +27,15 @@ class Pool < ApplicationRecord
     pool && pool.password == password ? pool : nil
   end
 
-  after_create :set_key
+  # after_initialize :set_key
 
-  def set_key
-    self.identifier = SecureRandom.urlsafe_base64(8)
+  # def set_key
+  #   self.identifier ||= SecureRandom.urlsafe_base64(8)
 
-    while Pool.find_by(identifier: self.identifier)
-      self.identifier = SecureRandom.urlsafe_base64(8)
-    end
-  end
+  #   while Pool.where(identifier: self.identifier)
+  #     self.identifier ||= SecureRandom.urlsafe_base64(8)
+  #   end
+  # end
 
   # attr_reader :password
 

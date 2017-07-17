@@ -83,7 +83,8 @@ Pool.create!(
   league: 'nfl',
   season: 2017,
   password: 'password',
-  password_digest: 'not-secure'
+  password_digest: 'not-secure',
+  identifier: SecureRandom.urlsafe_base64(8)
 )
 
 Pool.create!(
@@ -94,7 +95,8 @@ Pool.create!(
   league: 'nfl',
   season: 2017,
   password: 'password',
-  password_digest: 'not-secure'
+  password_digest: 'not-secure',
+  identifier: SecureRandom.urlsafe_base64(8)
 )
 
 (total - 2).times do 
@@ -106,7 +108,8 @@ Pool.create!(
     league: 'nfl',
     season: 2017,
     password: 'password',
-    password_digest: 'not-secure'
+    password_digest: 'not-secure',
+    identifier: SecureRandom.urlsafe_base64(8)
   )
   progress_bar.advance((1 / total.to_f) * bar_total)
 end
