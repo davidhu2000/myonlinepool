@@ -56,10 +56,38 @@ class Api::PoolsController < ApplicationController
     end
   end
 
+  def payment_confirmation
+    pool = Pool.find_by(identifier: params[:pool][:identifier])
+    if pool
+      case params[:pool][:amount_paid].to_i
+        when 1595 then max_size = 15
+        when 2595 then max_size = 1000
+        else max_size = 5
+      end
+
+      pool.max_size = max_size
+      pool.amount_paid = params[:pool][:amount_paid]
+      pool.transaction_number = params[:pool][:transaction_number]
+      pool.payment_made = true
+
+      if pool.save
+        render json: ['Payment successful!']
+      else
+        render json: pool.errors.full_messages, status: 422
+      end
+
+    else
+      render json: ['Cannot find pool with that identifier. Please contact administrator.'], status: 404
+    end
+  end
+
   private
 
   def pool_params
-    params.require(:pool).permit(:title, :description, :buy_in, :league, :season, :password, :max_size, :amount_paid, :made_payment)
+    params.require(:pool).permit(
+      :title, :description, :buy_in, :league, :season, 
+      :password, :max_size, :amount_paid, :payment_made, :transaction_number
+    )
   end
 
   def require_membership_to_access

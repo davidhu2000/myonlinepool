@@ -15,7 +15,9 @@ import PoolForm from 'modules/pool_form';
 import AdminConsole from 'modules/console';
 import GameForm from 'modules/game_form';
 import Payment from 'modules/payment';
+import PaymentConfirmation from 'modules/payment_confirmation';
 import Profile from 'modules/profile';
+
 
 const routes = (
   <Route path="/" component={App}>
@@ -44,6 +46,8 @@ const routes = (
       <Route path="moderator" component={Moderator} />
       <Route path='payment' component={Payment} />
     </Route>
+
+    <Route path='/payment_confirmation' component={PaymentConfirmation} />
 
   </Route>
 );

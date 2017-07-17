@@ -2,55 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { hashHistory } from 'react-router';
-import { updatePool } from './utils';
 
 class Payment extends React.Component {
   constructor(props) {
     super(props);
     autoBind(this);
-
-    this.state = {
-      amountPaid: 995,
-      maxSize: 5,
-      id: props.pool.id
-    };
   }
 
   componentWillMount() {
     if (!this.props.pool.identifier || !this.props.user.email) {
       hashHistory.replace('/');
     }
-  }
-
-  update(e) {
-    let amountPaid = null;
-    let maxSize = null;
-
-    switch (e.target.value) {
-      case "5 or less people":
-        amountPaid = 995;
-        maxSize = 5;
-        break;
-      case "15 or less people":
-        amountPaid = 1595;
-        maxSize = 15;
-        break;
-      case "more than 15 people":
-        amountPaid = 2595;
-        maxSize = 1000;
-        break;
-      default:
-        return;
-    }
-
-    this.setState({
-      amountPaid,
-      maxSize
-    });
-  }
-
-  updatePool() {
-    updatePool(this.state);
   }
 
   render() {
@@ -79,9 +41,8 @@ class Payment extends React.Component {
               </tr>
             </tbody>
           </table>
+          <input type="hidden" name="custom" value={pool.identifier} />
           <input type="hidden" name="currency_code" value="USD" />
-          <input type="hidden" name="email" value={user.email} />
-          <input type="hidden" name="identifier" value={pool.identifier} />
           <input type="hidden" name="return" value={`http://myonlinepool.herokuapp.com/payments?email=${user.email}&identifier=${pool.identifier}`} />
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
           <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
