@@ -6,7 +6,7 @@
   min-width: 870px;
   width: 95%;
   padding-bottom: 20px;
-  padding-top: 125px;
+  padding-top: 127.5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     background: white;
+
   }
 
   .picks-header {
@@ -34,6 +35,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: relative;
 
     .week-switcher {
       position: relative;
@@ -71,11 +73,22 @@
       background: $drk-primary;
       transition: .3s;
       color: white;
+      i {
+        margin-right: 10px;
+      }
     }
     button:hover {
       color: $lt-primary;
       background: white;
       border: 1px black solid;
+    }
+    .picks-dropdown {
+      z-index: 100;
+      position: absolute;
+      bottom: -110px;
+      right: 0px;
+      display: flex;
+      flex-direction: column;
     }
   }
   .picks-labels {

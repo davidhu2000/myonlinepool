@@ -1,5 +1,5 @@
 @import "chat_box";
-@import "mod_board";
+@import "bulletin_board";
 
 .pool-root {
   height: 100%;
@@ -36,7 +36,7 @@
   padding: 20px 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
 
   .standings-box {
@@ -47,22 +47,26 @@
     }
   }
 
-  div:first-child {
-    margin-right: 15px;
-  }
+  // div:first-child {
+  //   margin-right: 15px;
+  // }
 
-  .standings-box {
-    div:first-child {
-      margin-right: 0px;
-    }
-    div:last-child {
-      margin-left: 0px;
-    }
+  // .standings-box {
+  //   div:first-child {
+  //     margin-right: 0px;
+  //   }
+  //   div:last-child {
+  //     margin-left: 0px;
+  //   }
+  // }
+
+  .pool-standings-top, .pool-standings-bottom {
+    display: flex;
   }
 }
 
 .pool-bulletin {
-  min-height: 327px;
+  // min-height: 327px;
   width: 100%;
   padding: 20px 0px;
   display: flex;

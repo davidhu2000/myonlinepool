@@ -1,9 +1,3 @@
-// .picks-selections {
-//     width: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     margin-bottom: auto;
-
   .selection-item {
     width: 100%;
     margin-bottom: 10px;
@@ -133,10 +127,9 @@
   }
 
   .correct-pick-button {
-    color: #476C9B;
+    color: $green;
   }
 
   .incorrect-pick-button {
     color: #A71D31;
   }
-// }

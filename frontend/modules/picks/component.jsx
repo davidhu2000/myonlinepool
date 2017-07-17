@@ -2,7 +2,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { WeekSwitcher } from 'common/components';
-import { PickForm, LoadingForm } from './subcomponents';
+import { PickForm, LoadingForm, PicksDropdown } from './subcomponents';
 
 class Picks extends React.Component {
   constructor(props) {
@@ -10,7 +10,8 @@ class Picks extends React.Component {
 
     this.state = {
       week: 16,
-      loading: true
+      loading: true,
+      showDropdown: false
     };
     autoBind(this);
   }
@@ -19,6 +20,10 @@ class Picks extends React.Component {
     this.props.fetchPicks(this.state.week, this.props.params.poolId).then(
       () => this.setState({ loading: false })
     );
+  }
+
+  toggleDropdown() {
+    this.setState({ showDropdown: !this.state.showDropdown });
   }
 
   updateWeek(dir) {
@@ -45,9 +50,10 @@ class Picks extends React.Component {
         }
       );
     }
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
   }
 
-  pickHomers() {
+  pickHome() {
     let picks = [];
     Object.values(this.props.picks[this.state.week]).forEach(game => {
       if (game.pick === '') {
@@ -64,6 +70,26 @@ class Picks extends React.Component {
     if (picks.length > 0) {
       this.props.sendPicks(picks);
     }
+    this.toggleDropdown();
+  }
+
+  pickAway() {
+    let picks = [];
+    Object.values(this.props.picks[this.state.week]).forEach(game => {
+      if (game.pick === '') {
+        let newPick = {
+          game_id: game.game_id,
+          pool_id: this.props.params.poolId,
+          pick: "away",
+          week: game.week
+        };
+        picks.push(newPick);
+      }
+    });
+    if (picks.length > 0) {
+      this.props.sendPicks(picks);
+    }
+    this.toggleDropdown();
   }
 
   pickFavorites() {
@@ -92,6 +118,7 @@ class Picks extends React.Component {
     if (picks.length > 0) {
       this.props.sendPicks(picks);
     }
+    this.toggleDropdown();
   }
 
   renderSelections() {
@@ -146,7 +173,7 @@ class Picks extends React.Component {
           }
         }
       });
-      return <div>{picks} - {misses}</div>;
+      return <div className="correct-picks">{picks} - {misses}</div>;
     }
   }
 
@@ -156,11 +183,20 @@ class Picks extends React.Component {
         <div className="picks-top">
           <div className="picks-header">
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
+            {this.props.pool.title}
             {this.renderWeekRecord()}
             <div>
-              <button onClick={this.pickFavorites}>
-                Pick Favorites
+              <button className="autopick-button" onClick={this.toggleDropdown}>
+                <i className="fa fa-caret-down" aria-hidden="true"></i>
+                Auto Pick
               </button>
+              { this.state.showDropdown ?
+                <PicksDropdown
+                  pickFavorites={this.pickFavorites}
+                  pickAway={this.pickAway}
+                  pickHome={this.pickHome}
+                  toggleDropdown={this.toggleDropdown}
+                /> : null }
             </div>
           </div>
           <div className="picks-labels">
@@ -173,7 +209,7 @@ class Picks extends React.Component {
           </div>
         </div>
        
-          { this.renderSelections() }
+        { this.renderSelections() }
    
       </div>
     );
