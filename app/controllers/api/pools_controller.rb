@@ -65,11 +65,12 @@ class Api::PoolsController < ApplicationController
         else max_size = 5
       end
 
-      attributes = params['pool']
-      attributes['max_size'] = max_size
-      attributes['payment_made'] = true
+      pool.max_size = max_size
+      pool.amount_paid = params[:pool][:amount_paid]
+      pool.transaction_number = params[:pool][:transaction_number]
+      pool.payment_made = true
 
-      if pool.update(attributes)
+      if pool.save
         render json: ['Payment successful!']
       else
         render json: pool.errors.full_messages, status: 422
@@ -83,7 +84,10 @@ class Api::PoolsController < ApplicationController
   private
 
   def pool_params
-    params.require(:pool).permit(:title, :description, :buy_in, :league, :season, :password, :max_size, :amount_paid, :made_payment)
+    params.require(:pool).permit(
+      :title, :description, :buy_in, :league, :season, 
+      :password, :max_size, :amount_paid, :payment_made, :transaction_number
+    )
   end
 
   def require_membership_to_access

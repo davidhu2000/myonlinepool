@@ -32,7 +32,7 @@ class PaymentConfirmation extends React.Component {
           console.log(res)
           let alert = {
             type: 'success',
-            message: res.responseJSON[0]
+            message: res[0]
           };
 
           this.props.receiveAlerts([alert]);
@@ -41,7 +41,7 @@ class PaymentConfirmation extends React.Component {
         error => {
           let alert = {
             type: 'error',
-            message: error.responseJSON[0]
+            message: error[0]
           };
 
           this.props.receiveAlerts([alert]);
