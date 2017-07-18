@@ -3,6 +3,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { hashHistory } from 'react-router';
+import { ScaleLoader } from 'react-spinners';
 
 import { FormTextInput } from 'common/components';
 
@@ -18,7 +19,8 @@ class PoolForm extends React.Component {
       league: 'nfl',
       password: '',
       password_confirmation: '',
-      isValid: false
+      isValid: false,
+      loading: false
     };
 
     autoBind(this);
@@ -50,10 +52,16 @@ class PoolForm extends React.Component {
 
   createPool(e) {
     e.preventDefault();
+    this.setState({ loading: true });
 
-    this.props.createPool(this.state).then(
-      poolId => hashHistory.push(`pool/${poolId}`)
-    );
+    setTimeout(() => this.props.createPool(this.state).then(
+      poolId => hashHistory.push(`pool/${poolId}`),
+      err => {
+        this.setState({ loading: false });
+        // add action to render alert
+        console.log(err);
+      }
+    ), 500000);
   }
 
   render() {
@@ -106,13 +114,22 @@ class PoolForm extends React.Component {
             errorMessage="Password confirmation does not match password."
           />
 
-          <input
-            type="submit"
-            className="button pool-create-button"
-            value="Create"
-            onMouseEnter={this.isFormValid}
-            disabled={!this.state.isValid}
-          />
+          <div className="submit-row">
+            <input
+              type="submit"
+              className="button pool-create-button"
+              value="Create"
+              onMouseEnter={this.isFormValid}
+              disabled={!this.state.isValid}
+            />
+
+            { this.state.loading && (
+              <div className='loader'>
+                <ScaleLoader height={25} width={2} />
+              </div>
+            ) }
+          </div>
+   
         </form>
       </div>
     );
