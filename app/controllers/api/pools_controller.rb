@@ -14,10 +14,10 @@ class Api::PoolsController < ApplicationController
     @pool.password_digest = 'not-secure'
     @pool.memberships.new(user_id: current_user.id)
     @pool.identifier = SecureRandom.urlsafe_base64(8)
-    while Pool.where(identifier: @pool.identifier)
+    while Pool.find_by(identifier: @pool.identifier)
       @pool.identifier = SecureRandom.urlsafe_base64(8)
     end
-    puts @pool
+
     @standings = {}
 
     if @pool.save
