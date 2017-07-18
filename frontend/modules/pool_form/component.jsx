@@ -54,14 +54,14 @@ class PoolForm extends React.Component {
     e.preventDefault();
     this.setState({ loading: true });
 
-    setTimeout(() => this.props.createPool(this.state).then(
+    this.props.createPool(this.state).then(
       poolId => hashHistory.push(`pool/${poolId}`),
       err => {
         this.setState({ loading: false });
         // add action to render alert
         console.log(err);
       }
-    ), 500000);
+    );
   }
 
   render() {
