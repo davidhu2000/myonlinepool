@@ -1,5 +1,27 @@
 /* global $ */
 
+export const updateBuyin = (buyIn, poolId) => (
+  $.ajax({
+    method: "PATCH",
+    url: 'api/pool',
+    data: {
+      buy_in: buyIn,
+      pool_id: poolId
+    }
+  })
+);
+
+export const updateName = (name, poolId) => (
+  $.ajax({
+    method: "PATCH",
+    url: 'api/pool',
+    data: {
+      pool_name: name,
+      pool_id: poolId
+    }
+  })
+);
+
 export const deleteBulletin = poolId => (
   $.ajax({
     method: "DELETE",

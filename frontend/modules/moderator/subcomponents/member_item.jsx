@@ -51,12 +51,9 @@ class MemberItem extends React.Component {
         <button onClick={() => this.props.toggleMembership(this.props.member.userId, this.props.pool.id)}>
           <i className={this.renderClass(this.props.member.paid)} aria-hidden="true" />
         </button>
-        <button onClick={() => this.props.removeMember(this.props.member.userId, this.props.pool.id)}>
+        <button onClick={() => this.openModal()}>
           <i className="fa fa-times" aria-hidden="true" />
         </button>
-        <button onClick={() => this.openModal()}>
-          modal
-        </button>  
         <span>{ this.props.member.name }</span>
         
         <Modal
