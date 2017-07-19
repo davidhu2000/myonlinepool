@@ -8,7 +8,6 @@ const StandingsBoxItem = ({ standing }) => {
       <div className="title">{shortenString(standing.userName)}</div>
       <div className="pool">{shortenString(standing.poolName)}</div>
       <div className="score">{standing.correctPicks}</div>
-      <div className="losses">{standing.correctPicks} - {standing.wrongPicks}</div>
     </div>
   );
 };
