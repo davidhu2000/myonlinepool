@@ -18,8 +18,8 @@ class BulletinBox extends React.Component {
       <div className="bulletin-box">
         <div className="bulletin-header">
           <h2>Pool: {this.props.title}</h2>
-          <h2>Moderator: {this.props.moderatorName}</h2>
           <h2>Buy In: ${this.props.buyIn}</h2>
+          <h2>Moderator: {this.props.moderatorName}</h2>
         </div>
         <div className="bulletin-container">
           {this.renderBulletins()}
