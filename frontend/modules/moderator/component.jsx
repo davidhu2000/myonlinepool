@@ -1,10 +1,16 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 
-import { BulletinForm } from './subcomponents';
+import { BulletinForm, MemberItem } from './subcomponents';
 
 class Moderator extends React.Component {
+  constructor(props) {
+    super(props);
+
+    autoBind(this);
+  }
 
   componentDidMount() {
     let { poolId } = this.props.params;
@@ -42,15 +48,12 @@ class Moderator extends React.Component {
     });
 
     return realMembers.map(member => (
-      <div className="pool-member">
-        <button onClick={() => this.props.toggleMembership(member.userId, this.props.pool.id)}>
-          <i className={this.renderClass(member.paid)} aria-hidden="true" />
-        </button>
-        <button onClick={() => this.props.removeMember(member.userId, this.props.pool.id)}>
-          <i className="fa fa-times" aria-hidden="true" />
-        </button>
-        <span>{ member.name }</span>
-      </div>
+      <MemberItem
+        member={member}
+        toggleMembership={this.props.toggleMembership}
+        removeMember={this.props.removeMember}
+        pool={this.props.pool}
+      />
     ));
   }
 
