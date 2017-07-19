@@ -72,7 +72,7 @@ class MemberItem extends React.Component {
             </div>
             <div className="confirm-buttons">
               <button
-                type="submit"
+                onClick={() => this.props.removeMember(this.props.member.userId, this.props.pool.id)}
                 className="confirm-form-button confirm-button"
               >
                 Confirm
