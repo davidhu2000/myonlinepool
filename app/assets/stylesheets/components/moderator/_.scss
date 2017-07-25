@@ -42,12 +42,52 @@
         border-radius: 3px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: .2s;
-        background: black;
+        background: $drk-primary;
         color: white;
       }
       .bulletin-form-button:hover {
-        color: $lt-primary;
-        border: 1px black solid;
+        color: $drk-primary;
+        border: 1px $drk-primary solid;
+        background: white;
+      }
+    }
+  }
+  .moderator-name-form {
+    width: 780px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .name-form {
+      width: 780px;
+    }
+    .poolform-group {
+      margin-bottom: 0px;
+    }
+    .name-form-button-row {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 5px;
+      padding-bottom: 20px;
+      input {
+        margin-left: 10px;
+      }
+      .name-form-button {
+        width: 90px;
+        height: 30px;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: .2s;
+        background: $drk-primary;
+        color: white;
+      }
+      .name-form-button:hover {
+        color: $drk-primary;
+        border: 1px $drk-primary solid;
         background: white;
       }
     }
@@ -64,8 +104,11 @@
       font-weight: bold;
     }
     .fa-times {
-      padding: 0px 10px;
+      padding: 0px 5px;
       color: $best-red;
+    }
+    .fa-usd {
+      padding: 0px 5px;
     }
     .pool-member {
       padding: 5px 0px;

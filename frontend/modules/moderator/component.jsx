@@ -3,7 +3,7 @@ import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 
-import { BulletinForm, MemberItem } from './subcomponents';
+import { BulletinForm, MemberItem, NameForm } from './subcomponents';
 
 class Moderator extends React.Component {
   constructor(props) {
@@ -69,7 +69,9 @@ class Moderator extends React.Component {
             poolId={Number(this.props.params.poolId)}
           />
         </div>
-
+        <div className="moderator-name-form">
+          <NameForm />
+        </div>
         <div className="pool-roster">
           <div className="roster-header">Pool Members</div>
           <div className="moderator-pool-members">

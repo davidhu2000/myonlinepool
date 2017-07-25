@@ -12,7 +12,8 @@ const mapDispatchToProps = dispatch => ({
   createBulletin: bulletin => dispatch(Actions.createBulletin(bulletin)),
   removeMember: (userId, poolId) => dispatch(Actions.removeMember(userId, poolId)),
   deleteBulletin: poolId => dispatch(Actions.deleteBulletin(poolId)),
-  toggleMembership: (membershipId, poolId) => dispatch(Actions.toggleMembership(membershipId, poolId))
+  toggleMembership: (membershipId, poolId) => dispatch(Actions.toggleMembership(membershipId, poolId)),
+  updateName: (name, poolId) => dispatch(Actions.updateName(name, poolId))
 });
 
 export default connect(
