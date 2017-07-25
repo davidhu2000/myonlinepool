@@ -14,12 +14,17 @@
     top: 0px;
     left: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     font-size: 20px;
 
     .pool-list-top-title {
+      margin-right: 20px;
       font-weight: bold;
       opacity: .5;
+    }
+
+    .pool-create-button {
+      margin-right: 20px;
     }
 
     // .pool-list-top-buttons {
