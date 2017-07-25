@@ -22,6 +22,7 @@ class NameForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.updateName(this.state.name, this.props.poolId);
   }
 
   render() {

@@ -45,12 +45,23 @@ class Api::PoolsController < ApplicationController
   end
 
   def update
-    if @pool.update(pool_params)
-      @standings = show_standings(@pool)
-      render 'api/pools/show'
-    else
-      render json: @pool.errors.full_messages, status: 422
-    end
+    # if @pool.update(pool_params)
+    #   @standings = show_standings(@pool)
+    #   render 'api/pools/show'
+    # else
+    #   render json: @pool.errors.full_messages, status: 422
+    # end
+    if params[:pool_name]
+      puts "FOUND IT FOUND IT FOUND iT"
+      @pool = Pool.find_by(id: params[:pool_id])
+      @pool[:title] = params[:pool_name]
+      if @pool.save
+        render 'api/pools/show'
+      end   
+    elsif params[:buyIn]
+      @pool = Pool.find_by(id: params[:pool_id])
+      @pool[:buy_in] = params[:buyIn]
+    end   
   end
 
   def destroy

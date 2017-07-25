@@ -70,7 +70,10 @@ class Moderator extends React.Component {
           />
         </div>
         <div className="moderator-name-form">
-          <NameForm />
+          <NameForm
+            updateName={this.props.updateName}
+            poolId={Number(this.props.params.poolId)}
+          />
         </div>
         <div className="pool-roster">
           <div className="roster-header">Pool Members</div>

@@ -3,7 +3,7 @@
 export const updateBuyin = (buyIn, poolId) => (
   $.ajax({
     method: "PATCH",
-    url: 'api/pool',
+    url: `api/pools`,
     data: {
       buy_in: buyIn,
       pool_id: poolId
@@ -14,7 +14,7 @@ export const updateBuyin = (buyIn, poolId) => (
 export const updateName = (name, poolId) => (
   $.ajax({
     method: "PATCH",
-    url: 'api/pool',
+    url: `api/pools/${poolId}`,
     data: {
       pool_name: name,
       pool_id: poolId
