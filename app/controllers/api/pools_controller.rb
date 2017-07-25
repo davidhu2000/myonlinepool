@@ -41,15 +41,26 @@ class Api::PoolsController < ApplicationController
     @locked = !@pool.payment_made && (get_current_time.to_date - @pool.created_at.to_date).to_i > 7
     @is_moderator = current_user.id == @pool.moderator_id
     @standings = show_standings(@pool)
+    @moderator_name = User.find_by(id: @pool.moderator_id).name
   end
 
   def update
-    if @pool.update(pool_params)
-      @standings = show_standings(@pool)
-      render 'api/pools/show'
-    else
-      render json: @pool.errors.full_messages, status: 422
-    end
+    # if @pool.update(pool_params)
+    #   @standings = show_standings(@pool)
+    #   render 'api/pools/show'
+    # else
+    #   render json: @pool.errors.full_messages, status: 422
+    # end
+    if params[:pool_name]
+      @pool = Pool.find_by(id: params[:pool_id])
+      @pool[:title] = params[:pool_name]
+      @pool.save
+    elsif params[:buy_in]
+      puts "FOUND IT FOUND IT FOUND iT"
+      @pool = Pool.find_by(id: params[:pool_id])
+      @pool[:buy_in] = params[:buy_in]
+      @pool.save
+    end   
   end
 
   def destroy

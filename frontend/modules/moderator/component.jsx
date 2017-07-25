@@ -1,10 +1,16 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 
-import { BulletinForm } from './subcomponents';
+import { BulletinForm, MemberItem, NameForm, BuyForm } from './subcomponents';
 
 class Moderator extends React.Component {
+  constructor(props) {
+    super(props);
+
+    autoBind(this);
+  }
 
   componentDidMount() {
     let { poolId } = this.props.params;
@@ -42,15 +48,12 @@ class Moderator extends React.Component {
     });
 
     return realMembers.map(member => (
-      <div className="pool-member">
-        <button onClick={() => this.props.toggleMembership(member.userId, this.props.pool.id)}>
-          <i className={this.renderClass(member.paid)} aria-hidden="true" />
-        </button>
-        <button onClick={() => this.props.removeMember(member.userId, this.props.pool.id)}>
-          <i className="fa fa-times" aria-hidden="true" />
-        </button>
-        <span>{ member.name }</span>
-      </div>
+      <MemberItem
+        member={member}
+        toggleMembership={this.props.toggleMembership}
+        removeMember={this.props.removeMember}
+        pool={this.props.pool}
+      />
     ));
   }
 
@@ -66,7 +69,18 @@ class Moderator extends React.Component {
             poolId={Number(this.props.params.poolId)}
           />
         </div>
-
+        <div className="moderator-name-form">
+          <NameForm
+            updateName={this.props.updateName}
+            poolId={Number(this.props.params.poolId)}
+          />
+        </div>
+        <div className="moderator-buy-form">
+          <BuyForm 
+            updateBuyin={this.props.updateBuyin}
+            poolId={Number(this.props.params.poolId)}
+          />
+        </div>  
         <div className="pool-roster">
           <div className="roster-header">Pool Members</div>
           <div className="moderator-pool-members">

@@ -14,6 +14,16 @@ export const removeMembership = memberId => ({
   memberId
 });
 
+export const receiveName = name => ({
+  type: POOL.RECEIVE_NAME,
+  name
+});
+
+export const receiveBuyin = buyIn => ({
+  type: POOL.RECEIVE_BUYIN,
+  buyIn
+});
+
 export const deleteBulletin = poolId => dispatch => (
   ModeratorAPI.deleteBulletin(poolId).then(
     () => dispatch(receiveAlerts(processMessages(['Bulletin successfully removed.']))),
@@ -38,6 +48,20 @@ export const removeMember = (userId, poolId) => dispatch => (
 export const toggleMembership = (membershipId, poolId) => dispatch => (
   ModeratorAPI.toggleMembership(membershipId, poolId).then(
     () => dispatch(updateMemberPaid(membershipId)),
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+  )
+);
+
+export const updateName = (name, poolId) => dispatch => (
+  ModeratorAPI.updateName(name, poolId).then(
+    () => dispatch(receiveName(name)),
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
+  )
+);
+
+export const updateBuyin = (buyIn, poolId) => dispatch => (
+  ModeratorAPI.updateBuyin(buyIn, poolId).then(
+    () => dispatch(receiveBuyin(buyIn)),
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );

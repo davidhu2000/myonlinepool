@@ -6,6 +6,8 @@ if @is_moderator
   json.password @pool.password
 end
 
+json.moderatorName @moderator_name
+
 json.standings do
   @standings.each do |week, pool_standings|
     

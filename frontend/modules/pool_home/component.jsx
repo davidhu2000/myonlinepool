@@ -96,7 +96,12 @@ class PoolHome extends React.Component {
         </div>
 
         <div className="pool-bulletin">
-          <BulletinBox bulletins={pool.bulletins} />
+          <BulletinBox
+            bulletins={pool.bulletins}
+            title={pool.title}
+            moderatorName={pool.moderatorName}
+            buyIn={pool.buyIn}
+          />
         </div>
 
         <div className="pool-coms">

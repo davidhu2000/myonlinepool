@@ -16,7 +16,11 @@ class BulletinBox extends React.Component {
   render() {
     return (
       <div className="bulletin-box">
-        <h2>Bulletins</h2>
+        <div className="bulletin-header">
+          <h2>Pool: {this.props.title}</h2>
+          <h2>Buy In: ${this.props.buyIn}</h2>
+          <h2>Moderator: {this.props.moderatorName}</h2>
+        </div>
         <div className="bulletin-container">
           {this.renderBulletins()}
         </div>

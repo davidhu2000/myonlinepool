@@ -4,23 +4,21 @@
   padding: 0px 5px;
   padding-top: 40px;
   position: relative;
-  background: $lt-primary;
+  background: $drk-primary;
   color: white;
   overflow-y: hidden;
 
-  h2 {
+  .bulletin-header {
+    width: 870px;
+    padding-right: 10px;
     position: absolute;
     top: 0px;
+    display: flex;
+    justify-content: space-between;
     font-size: 20px;
-    text-align: left;
-    opacity: .5;
+    // opacity: .5;
     font-weight: bold;
   }
-
-  // .bulletin-container-container {
-  //   padding: 5px;
-  //   overflow-y: hidden;
-  // }
 
   .bulletin-container {
     width: 100%;
