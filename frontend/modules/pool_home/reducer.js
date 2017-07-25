@@ -28,6 +28,14 @@ const poolReducer = (state = _defaultState, action) => {
       return merge({}, state, {
         bulletins: action.bulletins
       });
+    case POOL.RECEIVE_NAME:
+      return merge({}, state, {
+        name: action.name
+      });
+    case POOL.RECEIVE_BUYIN:
+      return merge({}, state, {
+        buyIn: action.buyIn
+      });
     case POOL.CLEAR:
       return merge({}, _defaultState);
     default :
