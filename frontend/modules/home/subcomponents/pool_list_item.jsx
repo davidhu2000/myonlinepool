@@ -17,7 +17,6 @@ class PoolListItem extends React.Component {
       <div>
         <Link to={`/pool/${this.props.id}`}>
           <div className="button pool-list-item">
-            <i className="fa fa-angle-right" aria-hidden="true" />
             {this.shorten(this.props.title)}
           </div>
         </Link>
