@@ -8,7 +8,7 @@ class BuyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buyIn: ""
+      buy_in: ""
     };
 
     autoBind(this);
@@ -22,7 +22,7 @@ class BuyForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateBuyin(this.state.buyIn, this.props.poolId);
+    this.props.updateBuyin(this.state.buy_in, this.props.poolId);
   }
 
   render() {
@@ -31,8 +31,8 @@ class BuyForm extends React.Component {
 
         <FormTextInput
           update={this.update}
-          type='integer'
-          value={this.state.name}
+          type='number'
+          value={this.state.buy_in}
           label="Update Pool Buy-in"
           field="buy_in"
           errorMessage="Please enter a price"

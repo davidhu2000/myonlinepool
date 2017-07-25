@@ -52,15 +52,14 @@ class Api::PoolsController < ApplicationController
     #   render json: @pool.errors.full_messages, status: 422
     # end
     if params[:pool_name]
-      puts "FOUND IT FOUND IT FOUND iT"
       @pool = Pool.find_by(id: params[:pool_id])
       @pool[:title] = params[:pool_name]
-      if @pool.save
-        render 'api/pools/show'
-      end   
-    elsif params[:buyIn]
+      @pool.save
+    elsif params[:buy_in]
+      puts "FOUND IT FOUND IT FOUND iT"
       @pool = Pool.find_by(id: params[:pool_id])
-      @pool[:buy_in] = params[:buyIn]
+      @pool[:buy_in] = params[:buy_in]
+      @pool.save
     end   
   end
 

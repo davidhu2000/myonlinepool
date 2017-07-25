@@ -77,7 +77,8 @@ class Moderator extends React.Component {
         </div>
         <div className="moderator-buy-form">
           <BuyForm 
-
+            updateBuyin={this.props.updateBuyin}
+            poolId={Number(this.props.params.poolId)}
           />
         </div>  
         <div className="pool-roster">
