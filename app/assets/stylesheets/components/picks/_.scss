@@ -71,17 +71,22 @@
       border-radius: 2px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
       // background: $drk-primary;
-      background: $lt-primary;
+      // background: $lt-primary;
       transition: .3s;
-      color: white;
+      // color: white;
+      background: white;
+      color: black;
+      border: 1px black solid;
       i {
         margin-right: 10px;
       }
     }
     button:hover {
-      color: $lt-primary;
-      background: white;
-      border: 1px black solid;
+      // color: $lt-primary;
+      color: white;
+      background: black;
+      // background: white;
+      // border: 1px black solid;
     }
     .picks-dropdown {
       z-index: 100;

@@ -42,13 +42,18 @@
         border-radius: 3px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: .2s;
-        background: $drk-primary;
-        color: white;
+        background: white;
+        border: 1px $drk-primary solid;
+        color: $drk-primary;
+        // background: $drk-primary;
+        // color: white;
       }
       .bulletin-form-button:hover {
-        color: $drk-primary;
-        border: 1px $drk-primary solid;
-        background: white;
+        color: white;
+        background: $drk-primary;
+        // color: $drk-primary;
+        // border: 1px $drk-primary solid;
+        // background: white;
       }
     }
   }
@@ -82,13 +87,18 @@
         border-radius: 3px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: .2s;
-        background: $drk-primary;
-        color: white;
+        // background: $drk-primary;
+        // color: white;
+        background: white;
+        border: 1px $drk-primary solid;
+        color: $drk-primary;
       }
       .name-form-button:hover {
-        color: $drk-primary;
-        border: 1px $drk-primary solid;
-        background: white;
+        // color: $drk-primary;
+        // border: 1px $drk-primary solid;
+        // background: white;
+        color: white;
+        background: $drk-primary;
       }
     }
   }
@@ -123,13 +133,18 @@
         border-radius: 3px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: .2s;
-        background: $drk-primary;
-        color: white;
+        // background: $drk-primary;
+        // color: white;
+        background: white;
+        border: 1px $drk-primary solid;
+        color: $drk-primary;
       }
       .buy-form-button:hover {
-        color: $drk-primary;
-        border: 1px $drk-primary solid;
-        background: white;
+        // color: $drk-primary;
+        // border: 1px $drk-primary solid;
+        // background: white;
+        color: white;
+        background: $drk-primary;
       }
     }
   }
