@@ -37,7 +37,8 @@ $transition-time: 0.1s;
     font-weight: 500;
 
     &:hover {
-      color: #A71D31;
+      // color: #A71D31;
+      color: $sea-green;
     }
   }
 
@@ -53,7 +54,8 @@ $transition-time: 0.1s;
     right: 25px;
 
     &:hover {
-      color: #A71D31;
+      // color: #A71D31;
+      color: $sea-green;
     }
 
     i {
@@ -124,7 +126,8 @@ $transition-time: 0.1s;
 
   a:hover, .remove-button:hover {
     background-color: #ddd;
-    color: #A71D31;
+    // color: #A71D31;
+    color: $sea-green;
   }
 
 }
