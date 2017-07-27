@@ -14,7 +14,8 @@ $drk-text: #CDCDCD;
   padding: 0; 
 
   &:hover span {
-    background: #A71D31;
+    // background: #A71D31;
+    background: $sea-green;
   }
 
   span {
