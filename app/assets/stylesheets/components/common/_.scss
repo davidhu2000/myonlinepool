@@ -27,8 +27,8 @@
 .app-container {
   position: relative;
   width: 100%;
-  // min-width: 900px;
-  min-width: 1360px;
+  min-width: 900px;
+  // min-width: 1360px;
   min-height: 950px;
   padding-top: 60px;
   display: flex;
@@ -51,4 +51,12 @@
   width: 100vw;
   background: rgba(0, 0, 0, 0.5);
   z-index: 10;
+}
+
+.submit-row {
+  width: 100%;
+  padding-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
