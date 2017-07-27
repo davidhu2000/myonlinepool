@@ -29,7 +29,6 @@ class PaymentConfirmation extends React.Component {
 
       confirmPayment(pool).then(
         res => {
-          console.log(res)
           let alert = {
             type: 'success',
             message: res[0]

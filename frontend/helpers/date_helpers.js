@@ -56,7 +56,7 @@ export const parseTime = string => {
     let jan = new Date(new Date().getFullYear(), 0, 1);
     let jul = new Date(new Date().getFullYear(), 6, 1);
     let offset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-    if (offset <= date.getTimezoneOffset()){
+    if (offset <= date.getTimezoneOffset()) {
       hour += 1;
       return 1;
     }

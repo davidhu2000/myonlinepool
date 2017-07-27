@@ -80,19 +80,19 @@ class PoolHome extends React.Component {
       <div className="pool-container">
         { this.checkForAdminPayment() }
         <div className="pool-standings">
-            <PoolStandingsBox
-              title={`Week ${this.state.week} Leaders`}
-              standings={pool.standings[this.state.week]}
-              members={pool.members}
-              weeklyStandings="true"
-              updateWeek={this.updateWeek}
-              week={this.state.week}
-            />
-            <PoolStandingsBox
-              title="Season Leaders"
-              standings={calculateSeasonStandings(pool.standings)}
-              members={pool.members}
-            />
+          <PoolStandingsBox
+            title={`Week ${this.state.week} Leaders`}
+            standings={pool.standings[this.state.week]}
+            members={pool.members}
+            weeklyStandings="true"
+            updateWeek={this.updateWeek}
+            week={this.state.week}
+          />
+          <PoolStandingsBox
+            title="Season Leaders"
+            standings={calculateSeasonStandings(pool.standings)}
+            members={pool.members}
+          />
         </div>
 
         <div className="pool-bulletin">

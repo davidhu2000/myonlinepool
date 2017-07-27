@@ -187,7 +187,7 @@ class Picks extends React.Component {
             {this.renderWeekRecord()}
             <div>
               <button className="autopick-button" onClick={this.toggleDropdown}>
-                <i className="fa fa-caret-down" aria-hidden="true"></i>
+                <i className="fa fa-caret-down" aria-hidden="true" />
                 Auto Pick
               </button>
               { this.state.showDropdown ?
@@ -208,9 +208,9 @@ class Picks extends React.Component {
             <div>Home</div>
           </div>
         </div>
-       
+
         { this.renderSelections() }
-   
+
       </div>
     );
   }

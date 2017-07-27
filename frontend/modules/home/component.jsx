@@ -56,7 +56,7 @@ Home.propTypes = {
   fetchAnnouncements: PropTypes.func.isRequired,
   toggleJoinFormModal: PropTypes.func.isRequired,
   fetchSiteStandings: PropTypes.func.isRequired,
-  home: PropTypes.shape().isRequired,
+  home: PropTypes.shape().isRequired
 };
 
 export default withRouter(Home);

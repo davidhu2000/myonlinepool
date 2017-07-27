@@ -7,7 +7,7 @@ class PoolListItem extends React.Component {
   shorten(text) {
     let ret = text;
     if (ret.length > 15) {
-      ret = ret.substr(0,15-3) + "...";
+      ret = `${ret.substr(0, 15 - 3)}...`;
     }
     return ret;
   }
