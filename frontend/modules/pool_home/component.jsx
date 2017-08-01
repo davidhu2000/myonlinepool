@@ -74,7 +74,6 @@ class PoolHome extends React.Component {
 
   render() {
     let { pool } = this.props;
-    console.log(pool.standings);
 
     return (
       <div className="pool-container">
@@ -92,6 +91,9 @@ class PoolHome extends React.Component {
             title="Season Leaders"
             standings={calculateSeasonStandings(pool.standings)}
             members={pool.members}
+            weeklyStandings="false"
+            updateWeek={this.updateWeek}
+            week={this.state.week}
           />
         </div>
 
@@ -120,16 +122,16 @@ class PoolHome extends React.Component {
 
 PoolHome.propTypes = {
   user: PropTypes.shape({
-    id: PropTypes.shape()
-  }),
+    id: PropTypes.number
+  }).isRequired,
   pool: PropTypes.shape({
     messages: PropTypes.shape(),
     bulletins: PropTypes.shape(),
     standings: PropTypes.shape(),
     members: PropTypes.shape(),
     paymentMade: PropTypes.bool.isRequired,
-    moderatorId: PropTypes.string.isRequired,
-    id: PropTypes.shape()
+    moderatorId: PropTypes.number.isRequired,
+    id: PropTypes.number
   }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired

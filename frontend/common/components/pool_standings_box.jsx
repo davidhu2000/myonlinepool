@@ -57,7 +57,10 @@ class PoolStandingsBox extends React.Component {
 PoolStandingsBox.propTypes = {
   standings: PropTypes.shape().isRequired,
   members: PropTypes.shape().isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  weeklyStandings: PropTypes.string.isRequired,
+  week: PropTypes.number.isRequired,
+  updateWeek: PropTypes.func.isRequired
 };
 
 export { PoolStandingsBox };
