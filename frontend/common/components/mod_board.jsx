@@ -25,7 +25,6 @@ class ModBoard extends React.Component {
 }
 
 ModBoard.propTypes = {
-  title: PropTypes.string.isRequired,
   announcements: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
