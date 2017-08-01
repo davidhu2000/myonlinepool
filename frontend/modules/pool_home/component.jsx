@@ -74,7 +74,6 @@ class PoolHome extends React.Component {
 
   render() {
     let { pool } = this.props;
-    console.log(pool.standings);
 
     return (
       <div className="pool-container">
@@ -120,7 +119,7 @@ class PoolHome extends React.Component {
 
 PoolHome.propTypes = {
   user: PropTypes.shape({
-    id: PropTypes.shape()
+    id: PropTypes.number
   }),
   pool: PropTypes.shape({
     messages: PropTypes.shape(),
@@ -128,8 +127,8 @@ PoolHome.propTypes = {
     standings: PropTypes.shape(),
     members: PropTypes.shape(),
     paymentMade: PropTypes.bool.isRequired,
-    moderatorId: PropTypes.string.isRequired,
-    id: PropTypes.shape()
+    moderatorId: PropTypes.number.isRequired,
+    id: PropTypes.number
   }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired
