@@ -16,11 +16,11 @@
   overflow: hidden;
 
   .picks-top {
-    min-width: 870px;      
+    min-width: 1292px;
+    width: 90.2%;
     position: fixed;
     top: 60px;
     z-index: 50;
-    width: 90.25%;
     padding-top: 20px;
     display: flex;
     flex-direction: column;
@@ -76,7 +76,7 @@
       // color: white;
       background: white;
       color: black;
-      border: 1px black solid;
+      border: 1px $drk-primary solid;
       i {
         margin-right: 10px;
       }
@@ -84,7 +84,8 @@
     button:hover {
       // color: $lt-primary;
       color: white;
-      background: black;
+      // background: black;
+      background: $drk-primary;
       // background: white;
       // border: 1px black solid;
     }
@@ -98,6 +99,7 @@
     }
   }
   .picks-labels {
+    // min-width: 870px;
     padding-bottom: 10px;
     padding-top: 10px;
     margin-bottom: 10px;
@@ -105,7 +107,7 @@
     justify-content: space-between;
     flex: 0 0 auto;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    background: $lt-primary;
+    background: $drk-primary;
     color: white;
     font-size: 20px;
     font-weight: bold;
