@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const WeekSwitcher = ({ week, updateWeek, text }) => {
+const WeekSwitcher = ({ week, updateWeek }) => {
   if (week === 21) {
     week = 22;
   }
