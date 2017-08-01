@@ -28,7 +28,9 @@ class Team < ApplicationRecord
                                           home_losses: 0,
                                           away_wins: 0,
                                           away_losses: 0,
-                                          beat_over: 0 } 
+                                          beat_over: 0,
+                                          points_for: 0,
+                                          points_against: 0 } 
                                         }
 
     games.each do |game|
@@ -54,6 +56,12 @@ class Team < ApplicationRecord
         records[game.home_id][:beat_over] += 1
         records[game.away_id][:beat_over] += 1
       end
+
+      records[game.home_id][:points_for] += game.home_score
+      records[game.home_id][:points_against] += game.away_score
+
+      records[game.away_id][:points_for] += game.away_score
+      records[game.home_id][:points_against] += game.home_score
       
       records[game.home_id][:name] = Team.find_by(id: game.home_id).name
       records[game.away_id][:name] = Team.find_by(id: game.away_id).name

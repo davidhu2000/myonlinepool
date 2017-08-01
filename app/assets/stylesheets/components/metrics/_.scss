@@ -1,43 +1,44 @@
 .metrics-container {
   min-width: 870px;
   width: 95%;
-  padding-bottom: 20px;
-  padding-top: 57px;
+  padding: 20px 0px;
   display: flex;
   flex-direction: column;
   position: relative;
-  .metrics-header {
-    min-width: 870px;
-    width: 95%;
-    position: fixed;
-    top: 60px;
-    z-index: 50;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    .blocker {
-      background: #E9EBEE;
-      overflow: hidden;
-      height: 20px;
+    .conference-header {
       min-width: 870px;
-      width: 95%;
-    }
-    .labels {
-      min-width: 870px;
-      width: 95%;
+      width: 100%;
       display: flex;
       justify-content: space-around;
       padding: 5px 0px;
       border-radius: 2px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
       font-size: 20px;
       font-weight: bold;
       background: $drk-primary;
       color: white;
+    }
+    .labels {
+      min-width: 870px;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      padding: 5px 0px;
+      border-radius: 2px;
+      border-top-right-radius: 0px;
+      border-top-left-radius: 0px;
+      font-size: 17.5px;
+      font-weight: bold;
+      background: $drk-primary;
+      color: white;
       div {
-        width: 140px;
+        width: 180px;
         text-align: center;
       }
-    }
+  }
+  .metrics-teams {
+    margin-bottom: 20px;
   }
   .team-item {
     width: 100%;

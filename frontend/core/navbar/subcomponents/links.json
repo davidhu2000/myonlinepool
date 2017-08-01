@@ -1,7 +1,6 @@
 {
   "signedoutLinks": [
     { "link": "/auth?form=signin", "text": "Sign In" },
-    { "link": "/auth?form=signup", "text": "Sign Up" },
-    { "link": "/", "text": "Splash" }
+    { "link": "/auth?form=signup", "text": "Sign Up" }
   ]
 }
