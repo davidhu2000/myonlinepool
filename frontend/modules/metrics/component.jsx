@@ -3,6 +3,7 @@ import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { values } from 'lodash';
+import { MetricsBox } from './subcomponents/team_metrics_box';
 
 class Metrics extends React.Component {
   constructor(props) {
@@ -15,50 +16,52 @@ class Metrics extends React.Component {
     this.props.fetchTeams();
   }
 
-  renderTeams() {
+  renderTeams(divTeams, sectionName) {
     let teams = values(this.props.teams);
-    console.log(teams[0]);
-    return teams.map(team => (
-      <div className="team-item">
-        <div>
-          {(team.name).toUpperCase()}
-        </div>
-        <div>
-          {team.games_played}
-        </div>
-        <div>
-          {team.wins} - {team.losses} - {team.ties}
-        </div>
-        <div>
-          {team.home_wins} - {team.home_losses}
-        </div>
-        <div>
-          {team.away_wins} - {team.away_losses}
-        </div>
-        <div>
-          {team.beat_over}
-        </div>
-      </div>
-    ));
+    let AFCTeams = [];
+    teams.forEach(team => {
+      if (team.name === divTeams[0] || team.name === divTeams[1] || team.name === divTeams[2] || team.name === divTeams[3]) {
+        AFCTeams.push(team);
+      }
+    });
+    return <MetricsBox
+            teams={AFCTeams}
+            section={sectionName}
+           />;
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="metrics-container">
-        <div className="metrics-header">
-          <div className="blocker" />
-          <div className="labels">
-            <div>Team</div>
-            <div>Games Played</div>
-            <div>Record</div>
-            <div>Home</div>
-            <div>Away</div>
-            <div>Beat Over</div>
-          </div>
+        <div className="conference-header">
+          American Football Conference
         </div>
         <div className="metrics-teams">
-          {this.renderTeams()}
+          {this.renderTeams(["patriots", "dolphins", "jets", "bills"], "AFC East Teams")}
+        </div>
+        <div className="metrics-teams">
+          {this.renderTeams(["ravens", "bengals", "steelers", "browns"], "AFC North Teams")}
+        </div>
+        <div className="metrics-teams">
+          {this.renderTeams(["texans", "jaguars", "colts", "titans"], "AFC South Teams")}
+        </div>
+        <div className="metrics-teams">
+          {this.renderTeams(["chiefs", "broncos", "raiders", "chargers"], "AFC West Teams")}
+        </div>
+        <div className="conference-header">
+          National Football Conference
+        </div>
+        <div className="metrics-teams">
+          {this.renderTeams(["giants", "eagles", "redskins", "cowboys"], "NFC East Teams")}
+        </div>
+        <div className="metrics-teams">
+          {this.renderTeams(["vikings", "packers", "lions", "bears"], "NFC North Teams")}
+        </div>
+        <div className="metrics-teams">
+          {this.renderTeams(["buccaneers", "saints", "panthers", "falcons"], "NFC South Teams")}
+        </div>
+        <div className="metrics-teams">
+          {this.renderTeams(["49ers", "seahawks", "cardinals", "rams"], "NFC West Teams")}
         </div>
       </div>
     );
