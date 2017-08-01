@@ -32,7 +32,10 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
-  toggleLeftDropdown: PropTypes.func.isRequired
+  toggleLeftDropdown: PropTypes.func.isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.number
+  }).isRequired
 };
 
 export const SignedinDropdown = enhanceWithClickOutside(Dropdown);

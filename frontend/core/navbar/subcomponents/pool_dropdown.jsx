@@ -5,8 +5,7 @@ import autoBind from 'react-autobind';
 // import Modal from 'react-modal';
 import { Link } from 'react-router';
 // import { ConfirmForm } from './';
-
-import customStyles from './modal_styles.json';
+// import customStyles from './modal_styles.json';
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -61,10 +60,10 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
-  userId: PropTypes.number.isRequired,
   poolId: PropTypes.number.isRequired,
   isModerator: PropTypes.bool.isRequired,
-  toggleLeftDropdown: PropTypes.func.isRequired
+  toggleLeftDropdown: PropTypes.func.isRequired,
+  showConfirmFormModal: PropTypes.func.isRequired
 };
 
 export const PoolDropdown = enhanceWithClickOutside(Dropdown);
