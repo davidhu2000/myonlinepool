@@ -34,27 +34,25 @@ class PoolList extends React.Component {
     return (
       <div className="pool-list">
         <div className="pool-list-top">
-          <div className="pool-list-top-title">My Pools</div>
+          <div className="pool-list-top-title">Pools</div>
         </div>
         <div className="pool-list-bottom">
-          
-            <button className="button pool-create-button" onClick={() => hashHistory.push('pool/create')}>
-              <div>
-                <i className="fa fa-angle-right" aria-hidden="true" />
-                Create Pool
-              </div>
-            </button>
-            <button
-              id="pool-join-button"
-              className="button pool-join-button"
-              onClick={this.props.toggleJoinFormModal}
-            >
+          <button className="button pool-create-button" onClick={() => hashHistory.push('pool/create')}>
             <div>
               <i className="fa fa-angle-right" aria-hidden="true" />
-              Join Pool
+              Create Pool
             </div>
-            </button>
-           
+          </button>
+          <button
+            id="pool-join-button"
+            className="button pool-join-button"
+            onClick={this.props.toggleJoinFormModal}
+          >
+          <div>
+            <i className="fa fa-angle-right" aria-hidden="true" />
+            Join Pool
+          </div>
+          </button>
           {this.renderList()}
           {this.fillEmptyPage()}
         </div>

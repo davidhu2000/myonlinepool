@@ -1,0 +1,53 @@
+.profile-box { 
+  width: 435px;
+  height: 225px;
+  position: relative;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+
+  .profile-box-top {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+
+    .profile-box-top-title {
+      // margin-right: 20px;
+      font-weight: bold;
+      opacity: .5;
+    }
+  }
+  
+  .profile-box-bottom {
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+    .profile-box-bottom-left {
+      display: flex;
+      flex-direction: column;
+    }
+    .label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .email, .username {
+      margin-bottom: 15px;
+    }
+    .profile-edit-button {
+      height: 30px;
+      width: 140px;
+      font-size: 12px;
+      line-height: 12px;
+        i {
+          padding-right: 10px;
+        }     
+      }
+    }
+  
+}  
