@@ -8,8 +8,9 @@ import {
   fetchSiteStandings
 } from './actions';
 
-const mapStateToProps = ({ home }) => ({
-  home
+const mapStateToProps = state => ({
+  home: state.home,
+  user: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

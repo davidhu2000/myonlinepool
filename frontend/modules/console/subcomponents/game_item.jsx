@@ -8,7 +8,7 @@ class GameItem extends React.Component {
   render() {
     let game = this.props.game;
     // TODO: add gametime info
-    let timeInfo = parseTime(game.start_time);
+    // let timeInfo = parseTime(game.start_time);
     return (
       <div>
         <Link to={`/console/create/${this.props.week}/${game.id}`}>

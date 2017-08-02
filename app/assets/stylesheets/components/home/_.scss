@@ -3,6 +3,7 @@
 @import "join_pool_form";
 @import "confirm_form";
 @import "mod_board";
+@import "profile_box";
 
 .home-container {
   height: 100%;
@@ -35,7 +36,7 @@
 
 .home-bottom {
   width: 870px;
-  min-height: 432px;
+  min-height: 376px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

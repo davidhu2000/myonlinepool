@@ -91,6 +91,9 @@ class PoolHome extends React.Component {
             title="Season Leaders"
             standings={calculateSeasonStandings(pool.standings)}
             members={pool.members}
+            weeklyStandings="false"
+            updateWeek={this.updateWeek}
+            week={this.state.week}
           />
         </div>
 
@@ -120,7 +123,7 @@ class PoolHome extends React.Component {
 PoolHome.propTypes = {
   user: PropTypes.shape({
     id: PropTypes.number
-  }),
+  }).isRequired,
   pool: PropTypes.shape({
     messages: PropTypes.shape(),
     bulletins: PropTypes.shape(),

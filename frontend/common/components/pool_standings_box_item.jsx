@@ -13,8 +13,7 @@ const PoolStandingsBoxItem = props => {
 
 PoolStandingsBoxItem.propTypes = {
   name: PropTypes.string.isRequired,
-  correctPicks: PropTypes.number.isRequired,
-  wrongPicks: PropTypes.number.isRequired
+  correctPicks: PropTypes.number.isRequired
 };
 
 export { PoolStandingsBoxItem };

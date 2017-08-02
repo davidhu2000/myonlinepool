@@ -4,7 +4,7 @@ import { StandingsBoxItem } from './standings_box_item';
 
 class StandingsBox extends React.Component {
   renderList() {
-    return this.props.standings.map(standing => (
+    return this.props.standings.slice(0, 10).map(standing => (
       <StandingsBoxItem
         key={Math.random()}
         standing={standing}

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 
 import { ModBoard, StandingsBox } from 'common/components';
-import { PoolList } from './subcomponents';
+import { PoolList, ProfileBox } from './subcomponents';
 
 class Home extends React.Component {
 
@@ -28,6 +28,9 @@ class Home extends React.Component {
           <PoolList
             pools={this.props.home.myPools}
             toggleJoinFormModal={this.props.toggleJoinFormModal}
+          />
+          <ProfileBox
+            user={this.props.user}
           />
         </div>
         <div className="home-bulletin">

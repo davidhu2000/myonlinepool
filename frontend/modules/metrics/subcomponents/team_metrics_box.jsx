@@ -34,7 +34,7 @@ class MetricsBox extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <div className="labels">
           <div>{this.props.section}</div>

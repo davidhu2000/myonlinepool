@@ -76,7 +76,6 @@ class App extends React.Component {
 
 App.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
-  moderatorId: PropTypes.number,
   user: PropTypes.shape(),
   modals: PropTypes.shape({
     showConfirmForm: PropTypes.bool.isRequired,
