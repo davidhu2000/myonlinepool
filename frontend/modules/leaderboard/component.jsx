@@ -2,7 +2,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import { values } from 'lodash';
 import { withRouter } from 'react-router';
-import { LeaderboardItem } from './subcomponents/leaderboard_item';
+import { LeaderboardItem, LeaderboardWeeklyItem } from './subcomponents';
 
 class Leaderboard extends React.Component {
   constructor(props) {
@@ -15,6 +15,20 @@ class Leaderboard extends React.Component {
       <LeaderboardItem
         member={member}
         standings={this.props.pool.standings}
+        key={member.id}
+      />
+    ));
+  }
+
+  renderWeeklyWinners() {
+    let actualStandings = this.props.pool.standings;
+    delete actualStandings[21];
+
+
+    return values(actualStandings).slice(1).map(standing => (
+      <LeaderboardWeeklyItem
+        members={this.props.pool.members}
+        standings={standing}
       />
     ));
   }
@@ -22,6 +36,9 @@ class Leaderboard extends React.Component {
   render() {
     return (
       <div className="leaderboard-container">
+        <div className="leaderboard-banner">
+          Season Statistics
+        </div>
         <div className="leaderboard-labels">
           <div className="title">Name</div>
           <div>1</div>
@@ -49,6 +66,17 @@ class Leaderboard extends React.Component {
         </div>
         <div className="leaderboard-body">
           {this.renderMembers()}
+        </div>
+        <div className="leaderboard-banner">
+          Weekly Winners
+        </div>
+        <div className="leaderboard-weekly-labels">
+          <div className="leaderboard-name">Name</div>
+          <div className="leaderboard-week">Week</div>
+          <div className="leaderboard-score">Points</div>
+        </div>
+        <div className="leaderboard-weekly-body">
+          {this.renderWeeklyWinners()}
         </div>
       </div>
     );

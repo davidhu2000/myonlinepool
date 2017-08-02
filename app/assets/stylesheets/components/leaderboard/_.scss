@@ -7,6 +7,19 @@
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+
+  .leaderboard-banner {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0px;
+    border-radius: 2px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    background: $drk-primary;
+    color: white;
+  }
      
   .leaderboard-labels {
     margin-bottom: 5px;
@@ -14,6 +27,8 @@
     justify-content: space-between;
     padding: 5px 0px;
     border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
     font-size: 20px;
     font-weight: bold;
     background: $drk-primary;
@@ -34,6 +49,7 @@
   .leaderboard-body {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 
     .leaderboard-item {
       height: 30px;
@@ -55,6 +71,68 @@
         width: 100px;
       }
     }
+    div:last-child {
+      border-bottom: none;
+    }
+  }
+  .leaderboard-weekly-labels {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+    border-radius: 2px;
+    border-top-right-radius: 0xp;
+    border-top-left-radius: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    background: $drk-primary;
+    color: white;
+    .leaderboard-week {
+      width: 125px;
+      text-align: center;
+    }
+    .leaderboard-name {
+      // width: 125px;
+      // text-align: center;
+      padding-left: 25px;
+    }
+    .leaderboard-score {
+      // width: 125px;
+      // text-align: center;
+      padding-right: 25px;
+    }
+  }
+  .leaderboard-weekly-item {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .2px rgba(51, 51, 51,.2) solid;
+    position: relative;
+    .week {
+      // position: absolute;
+      // left: 45%;
+      // width: 125px;
+      width: 33.33%;
+      display: flex;
+      justify-content: center;
+    }
+    .weekly-winner {
+      display: flex;
+      justify-content: flex-start;
+      width: 33.33%;
+      padding-left: 25px;
+      font-weight: bold;
+    }
+    .weekly-points {
+      // position: absolute;
+      // right: 2%;
+      width: 33.33%;
+      padding-right: 45px;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  .leaderboard-weekly-body {
     div:last-child {
       border-bottom: none;
     }
