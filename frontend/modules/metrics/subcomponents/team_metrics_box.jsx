@@ -62,7 +62,8 @@ class MetricsBox extends React.Component {
 }
 
 MetricsBox.propTypes = {
-  teams: PropTypes.shape().isRequired
+  teams: PropTypes.shape().isRequired,
+  section: PropTypes.string.isRequired
 };
 
 export { MetricsBox };
