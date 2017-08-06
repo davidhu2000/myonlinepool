@@ -24,10 +24,11 @@ class Metrics extends React.Component {
         AFCTeams.push(team);
       }
     });
-    return <MetricsBox
-            teams={AFCTeams}
-            section={sectionName}
-           />;
+    return (
+      <MetricsBox
+        teams={AFCTeams}
+        section={sectionName}
+      />);
   }
 
   render() {

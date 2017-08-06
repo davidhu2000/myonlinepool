@@ -1,9 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MetricsBox extends React.Component {
 
   renderTeam() {
-    return this.props.teams.map(team => (
+    let sortedTeams = [this.props.teams[0]];
+    this.props.teams.slice(1).forEach(team => {
+      if (team.wins > sortedTeams[0].wins) {
+        sortedTeams.unshift(team);
+      } else {
+        sortedTeams.push(team);
+      }
+    });
+    return sortedTeams.map(team => (
       <div className="team-item">
         <div>
           {(team.name).toUpperCase()}
@@ -51,5 +60,9 @@ class MetricsBox extends React.Component {
     );
   }
 }
+
+MetricsBox.propTypes = {
+  teams: PropTypes.shape().isRequired
+};
 
 export { MetricsBox };
