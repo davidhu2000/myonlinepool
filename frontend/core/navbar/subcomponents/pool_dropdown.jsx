@@ -32,7 +32,7 @@ class Dropdown extends React.Component {
             Dashboard
           </Link>
           <Link to={`/pool/${this.props.poolId}`} onClick={this.props.toggleLeftDropdown}>
-            Homepage
+            Pool Home
           </Link>
           <Link to={`/pool/${this.props.poolId}/picks`} onClick={this.props.toggleLeftDropdown}>
             Picks
