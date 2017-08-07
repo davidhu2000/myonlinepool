@@ -37,7 +37,7 @@ class Leaderboard extends React.Component {
     return (
       <div className="leaderboard-container">
         <div className="leaderboard-banner">
-          Season Statistics
+          Leaderboard
         </div>
         <div className="leaderboard-labels">
           <div className="title">Name</div>
