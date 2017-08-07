@@ -54,7 +54,7 @@ class PoolList extends React.Component {
           </div>
           </button>
           {this.renderList()}
-          {this.fillEmptyPage()}
+          {/* {this.fillEmptyPage()} */}
         </div>
       </div>
     );
