@@ -51,10 +51,6 @@
     align-content: flex-start;
     overflow-y: overlay;
 
-    .pool-create-button {
-      margin-right: 20px;
-    }
-
     .pool-list-item {
       // height: 37.5px;
       width: 140px;
@@ -81,6 +77,16 @@
         i {
           padding-right: 10px;
         }     
+    }
+    .pool-create-button, .pool-join-button {
+      margin-right: 20px;
+      background: $drk-primary;
+      color: white;     
+      &:hover {
+        background: white;
+        color: black;
+        border: 1px $drk-primary solid;
       }
+    }  
   }
 }

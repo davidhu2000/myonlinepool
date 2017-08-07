@@ -11,25 +11,10 @@ class MetricsBox extends React.Component {
   }
 
   renderTeam() {
-    console.log(this.props.teams);
-    // let sortedTeams = [];
-    // sortedTeams.push(this.props.teams[0]);
-    // this.props.teams.slice(1).forEach(team => {
-    //   if (team.wins > sortedTeams[0].wins) {
-    //     sortedTeams.unshift(team);
-    //   } else {
-    //     sortedTeams.push(team);
-    //   }
-    // });
-    // console.log(sortedTeams);
-    
     let sortedTeams = this.props.teams.slice(0);
     sortedTeams.sort(function(a,b) {
       return b.wins - a.wins;
     });
-    console.log(sortedTeams);
-
-
     return values(sortedTeams).map(team => (
       <div className="team-item">
         <div>
