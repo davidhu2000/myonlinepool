@@ -20,7 +20,10 @@ class Metrics extends React.Component {
     let teams = values(this.props.teams);
     let AFCTeams = [];
     teams.forEach(team => {
-      if (team.name === divTeams[0] || team.name === divTeams[1] || team.name === divTeams[2] || team.name === divTeams[3]) {
+      if (team.name === divTeams[0] ||
+          team.name === divTeams[1] ||
+          team.name === divTeams[2] ||
+          team.name === divTeams[3]) {
         AFCTeams.push(team);
       }
     });
