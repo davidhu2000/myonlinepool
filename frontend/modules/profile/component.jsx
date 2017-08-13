@@ -1,5 +1,6 @@
 import React from 'react';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { FormTextInput } from 'common/components';
 
@@ -93,5 +94,15 @@ class Profile extends React.Component {
     );
   }
 }
+
+Profile.propTypes = {
+  user: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
+  }).isRequired,
+  changeUsername: PropTypes.func.isRequired,
+  changeEmail: PropTypes.func.isRequired
+};
 
 export default withRouter(Profile);

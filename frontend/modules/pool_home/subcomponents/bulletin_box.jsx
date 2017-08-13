@@ -30,7 +30,10 @@ class BulletinBox extends React.Component {
 }
 
 BulletinBox.propTypes = {
-  bulletins: PropTypes.shape().isRequired
+  bulletins: PropTypes.shape().isRequired,
+  title: PropTypes.string.isRequired,
+  buyIn: PropTypes.number.isRequired,
+  moderatorName: PropTypes.string.isRequired
 };
 
 export { BulletinBox };
