@@ -28,6 +28,9 @@ class Api::PicksController < ApplicationController
     @picks = {}
     @week = nil
     current_time = get_current_time
+    pool = Pool.find_by(id: params[:picks].values.first[:pool_id])
+     
+    return render(json: ['Pool Locked'], status: 404) if pool.locked
 
     params[:picks].each do |key, game|
       @week ||= game[:week]

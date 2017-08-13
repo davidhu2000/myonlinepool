@@ -155,6 +155,7 @@ class Picks extends React.Component {
           game={game}
           sendPicks={this.props.sendPicks}
           poolId={this.props.params.poolId}
+          paymentMade={this.props.pool.paymentMade}
         />
       ));
     }
