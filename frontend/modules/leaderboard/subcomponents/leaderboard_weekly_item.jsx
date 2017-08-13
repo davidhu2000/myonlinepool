@@ -11,29 +11,9 @@ class LeaderboardWeeklyItem extends React.Component {
     autoBind(this);
   }
 
-  // renderWeeks() {
-  //   let actualStandings = this.props.standings;
-  //   delete actualStandings[21];
-  //   keys(actualStandings).forEach(week => {
-  //     this.state.weeks[week] = this.props.standings[week][this.props.member.userId].correctPicks;
-  //   });
-  //   return keys(this.state.weeks).slice(1).map(week => (
-  //     <div>{this.state.weeks[week]}</div>
-  //   ));
-  // }
-
-  // renderTotal() {
-  //   let total = 0;
-  //   keys(this.state.weeks).forEach(week => {
-  //     total += Number(this.state.weeks[week]);
-  //   });
-  //   return <div className="total">{total}</div>;
-  // }
-
   findWinner() {
     let topScore = 0;
     let winnerId = [];
-    let winnerNames = [];
     values(this.props.standings).forEach(player => {
       if (player.correctPicks > topScore) {
         topScore = player.correctPicks;
@@ -42,12 +22,6 @@ class LeaderboardWeeklyItem extends React.Component {
         winnerId.push(player.userId);
       }
     });
-    // winnerId.forEach(id => {
-    //   winnerNames.push(this.props.members[id].name);
-    // });
-    // return winnerNames.slice(0, 5).map(name => (
-    //   <div>{shortestString(name)}</div>
-    // ));
     if (winnerId.length > 5) {
       return winnerId.slice(0, 5).forEach(id => (
         <div>{shortestString(this.props.members[id].name)}</div>
