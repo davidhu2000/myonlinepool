@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { values } from 'lodash';
+import { shortestString } from 'helpers';
 
 class LeaderboardWeeklyItem extends React.Component {
   constructor(props) {
@@ -31,15 +32,33 @@ class LeaderboardWeeklyItem extends React.Component {
 
   findWinner() {
     let topScore = 0;
-    let winnerId = 0;
+    let winnerId = [];
+    let winnerNames = [];
     values(this.props.standings).forEach(player => {
       if (player.correctPicks > topScore) {
         topScore = player.correctPicks;
-        winnerId = player.userId;
+        winnerId = [player.userId];
+      } else if (player.correctPicks === topScore) {
+        winnerId.push(player.userId);
       }
     });
-    let winner = this.props.members[winnerId].name;
-    return <div className="weekly-winner">{winner}</div>;
+    // winnerId.forEach(id => {
+    //   winnerNames.push(this.props.members[id].name);
+    // });
+    // return winnerNames.slice(0, 5).map(name => (
+    //   <div>{shortestString(name)}</div>
+    // ));
+    if (winnerId.length > 5) {
+      return winnerId.slice(0, 5).forEach(id => (
+        <div>{shortestString(this.props.members[id].name)}</div>
+      ));
+    } else if (winnerId.length > 1) {
+      return winnerId.map(id => (
+        <div>{shortestString(this.props.members[id].name)}</div>
+      ));
+    } else {
+      return <div>{this.props.members[winnerId[0]].name}</div>;
+    }
   }
 
   findPoints() {
@@ -57,7 +76,9 @@ class LeaderboardWeeklyItem extends React.Component {
   render() {
     return (
       <div className="leaderboard-weekly-item">
-        {this.findWinner()}
+        <div className="weekly-winner">
+          {this.findWinner()}
+        </div>
         <div className="week">
           {this.props.standings[Object.keys(this.props.standings)[0]].week}
         </div>
