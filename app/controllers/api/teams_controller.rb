@@ -5,7 +5,7 @@ class Api::TeamsController < ApplicationController
     @teams = {}
 
     records.each do |k, v|
-      v[:games_played] = v[:wins] + v[:losses]
+      v[:games_played] = v[:wins] + v[:losses] + v[:ties]
       @teams[k] = v
     end
 

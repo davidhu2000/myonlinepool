@@ -12,7 +12,7 @@ class MetricsBox extends React.Component {
 
   renderTeam() {
     let sortedTeams = this.props.teams.slice(0);
-    sortedTeams.sort(function(a,b) {
+    sortedTeams.sort((a, b) => {
       return b.wins - a.wins;
     });
     return values(sortedTeams).map(team => (
@@ -64,9 +64,9 @@ class MetricsBox extends React.Component {
   }
 }
 
-// MetricsBox.propTypes = {
-//   teams: PropTypes.shape().isRequired,
-//   section: PropTypes.string.isRequired
-// };
+MetricsBox.propTypes = {
+  teams: PropTypes.shape().isRequired,
+  section: PropTypes.string.isRequired
+};
 
 export { MetricsBox };
