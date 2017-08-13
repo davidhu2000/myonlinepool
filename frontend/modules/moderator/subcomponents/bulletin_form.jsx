@@ -45,7 +45,12 @@ class BulletinForm extends React.Component {
         />
 
         <div className="bulletin-form-button-row">
-          <button onClick={() => this.props.deleteBulletin(this.props.poolId)} className="bulletin-form-button">Delete Last</button>
+          <button
+            onClick={() => this.props.deleteBulletin(this.props.poolId)}
+            className="bulletin-form-button"
+          >
+            Delete Last
+          </button>
           <input type='submit' className="bulletin-form-button" value="Post" />
         </div>
       </form>

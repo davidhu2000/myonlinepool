@@ -46,4 +46,9 @@ class NameForm extends React.Component {
   }
 }
 
+NameForm.propTypes = {
+  updateName: PropTypes.func.isRequired,
+  poolId: PropTypes.number.isRequired
+};
+
 export { NameForm };

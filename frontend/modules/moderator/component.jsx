@@ -76,11 +76,11 @@ class Moderator extends React.Component {
           />
         </div>
         <div className="moderator-buy-form">
-          <BuyForm 
+          <BuyForm
             updateBuyin={this.props.updateBuyin}
             poolId={Number(this.props.params.poolId)}
           />
-        </div>  
+        </div>
         <div className="pool-roster">
           <div className="roster-header">Pool Members</div>
           <div className="moderator-pool-members">
@@ -101,7 +101,9 @@ Moderator.propTypes = {
   user: PropTypes.shape().isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  updateName: PropTypes.func.isRequired,
+  updateBuyin: PropTypes.func.isRequired
 };
 
 export default withRouter(Moderator);
