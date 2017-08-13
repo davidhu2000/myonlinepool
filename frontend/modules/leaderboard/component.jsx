@@ -1,5 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
+
 import { values } from 'lodash';
 import { withRouter } from 'react-router';
 import { LeaderboardItem, LeaderboardWeeklyItem } from './subcomponents';
@@ -37,7 +39,7 @@ class Leaderboard extends React.Component {
     return (
       <div className="leaderboard-container">
         <div className="leaderboard-banner">
-          Season Statistics
+          Leaderboard
         </div>
         <div className="leaderboard-labels">
           <div className="title">Name</div>
@@ -82,5 +84,12 @@ class Leaderboard extends React.Component {
     );
   }
 }
+
+Leaderboard.propTypes = {
+  pool: PropTypes.shape({
+    members: PropTypes.shape().isRequired,
+    standings: PropTypes.shape().isRequired
+  }).isRequired
+};
 
 export default withRouter(Leaderboard);

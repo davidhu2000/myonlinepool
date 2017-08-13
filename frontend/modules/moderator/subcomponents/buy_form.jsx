@@ -46,4 +46,9 @@ class BuyForm extends React.Component {
   }
 }
 
+BuyForm.propTypes = {
+  updateBuyin: PropTypes.func.isRequired,
+  poolId: PropTypes.number.isRequired
+};
+
 export { BuyForm };

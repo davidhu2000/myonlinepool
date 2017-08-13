@@ -59,8 +59,8 @@ class PickForm extends React.Component {
     let timeInfo = parseTime(game.start_time);
     return (
       <div className="selection-item">
-        <label className={this.renderClassName('away')}>
-          <button onClick={() => this.submitPick("away")} />
+        <label htmlFor={`${game.away}`} className={this.renderClassName('away')}>
+          <button id={`${game.away}`} onClick={() => this.submitPick("away")} />
           <div className={`logo-${game.away} pick-button pick-away-button`} />
           <div className="selection-form-away-name">
             <div>
@@ -96,7 +96,7 @@ class PickForm extends React.Component {
           {this.renderScore()}
         </div>
 
-        <label className={this.renderClassName('home')}>
+        <label htmlFor={`${game.away}`} className={this.renderClassName('home')}>
           <div className="selection-form-home-name">
             <div>
               {game.home.toUpperCase()}
@@ -105,7 +105,7 @@ class PickForm extends React.Component {
               {game.home_record}
             </div>
           </div>
-          <button onClick={() => this.submitPick("home")} />
+          <button id={`${game.away}`} onClick={() => this.submitPick("home")} />
           <div className={`logo-${game.home} pick-button pick-home-button`} />
         </label>
       </div>

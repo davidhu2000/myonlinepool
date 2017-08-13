@@ -1,3 +1,5 @@
+/* global $ */
+
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
@@ -223,6 +225,9 @@ Picks.propTypes = {
   receiveAlerts: PropTypes.func.isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired
+  }).isRequired,
+  pool: PropTypes.shape({
+    title: PropTypes.string.isRequired
   }).isRequired
 };
 

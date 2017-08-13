@@ -1,6 +1,7 @@
 import React from 'react';
 import enhanceWithClickOutside from 'react-click-outside';
 import autoBind from 'react-autobind';
+import PropTypes from 'prop-types';
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -30,5 +31,12 @@ class Dropdown extends React.Component {
     );
   }
 }
+
+Dropdown.propTypes = {
+  toggleDropdown: PropTypes.func.isRequired,
+  pickFavorites: PropTypes.func.isRequired,
+  pickHome: PropTypes.func.isRequired,
+  pickAway: PropTypes.func.isRequired
+};
 
 export const PicksDropdown = enhanceWithClickOutside(Dropdown);

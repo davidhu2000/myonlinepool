@@ -1,6 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+
 import { Link } from 'react-router';
 
 class ProfileBox extends React.Component {
@@ -33,11 +34,18 @@ class ProfileBox extends React.Component {
                 Edit Profile
               </div>
             </Link>
-          </div>  
+          </div>
         </div>
       </div>
     );
   }
 }
+
+ProfileBox.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired
+  }).isRequired
+};
 
 export { ProfileBox };

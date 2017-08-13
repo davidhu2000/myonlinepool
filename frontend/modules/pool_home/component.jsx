@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { calculateSeasonStandings } from 'helpers';
 import { PoolStandingsBox } from "common/components";
-import { MessageBox, BulletinBox, WeeklyWinners } from "./subcomponents";
+import { MessageBox, BulletinBox } from "./subcomponents";
 
 class PoolHome extends React.Component {
   constructor(props) {
@@ -41,32 +41,17 @@ class PoolHome extends React.Component {
     }
   }
 
-  // checkForMemberPayment() {
-  //   if (!this.props.pool.members[this.props.user.id].paid && this.props.user.id !== this.props.pool.moderatorId) {
-  //     return (
-  //       <div className="pool-alert">
-  //         <Link to={`pool/${this.props.pool.id}/payment`}>
-  //           Please pay the buy-in to your pool administrator.
-  //         </Link>
-  //       </div>
-  //     );
-  //   }
-  // }
-
   updateWeek(dir) {
     let week = this.state.week + dir;
     if (week === 21) {
       week += dir;
     }
-
     if (week < 1) {
       week = 1;
     }
-
     if (week > 22) {
       week = 22;
     }
-
     if (this.props.pool.standings[week]) {
       this.setState({ week });
     }

@@ -129,13 +129,10 @@ class PoolForm extends React.Component {
               </div>
             ) }
           </div>
-   
         </form>
       </div>
     );
   }
-
-
 }
 
 PoolForm.propTypes = {

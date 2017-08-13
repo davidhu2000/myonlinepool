@@ -48,13 +48,13 @@ class PoolList extends React.Component {
             className="button pool-join-button"
             onClick={this.props.toggleJoinFormModal}
           >
-          <div>
-            <i className="fa fa-angle-right" aria-hidden="true" />
-            Join Pool
-          </div>
+            <div>
+              <i className="fa fa-angle-right" aria-hidden="true" />
+              Join Pool
+            </div>
           </button>
           {this.renderList()}
-          {this.fillEmptyPage()}
+          {/* {this.fillEmptyPage()} */}
         </div>
       </div>
     );

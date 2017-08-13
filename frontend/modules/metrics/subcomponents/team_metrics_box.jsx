@@ -1,9 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import autoBind from 'react-autobind';
+import { values } from 'lodash';
 
 class MetricsBox extends React.Component {
+  constructor(props) {
+    super(props);
+
+    autoBind(this);
+  }
 
   renderTeam() {
-    return this.props.teams.map(team => (
+    let sortedTeams = this.props.teams.slice(0);
+    sortedTeams.sort((a, b) => {
+      return b.wins - a.wins;
+    });
+    return values(sortedTeams).map(team => (
       <div className="team-item">
         <div>
           {(team.name).toUpperCase()}
@@ -21,10 +33,10 @@ class MetricsBox extends React.Component {
           {team.away_wins} - {team.away_losses}
         </div>
         <div>
-          {team.points_for}
+          {Math.floor(team.points_for / team.games_played)}
         </div>
         <div>
-          {team.points_against}
+          {Math.floor(team.points_against / team.games_played)}
         </div>
         <div>
           {team.beat_over}
@@ -46,10 +58,15 @@ class MetricsBox extends React.Component {
           <div>Allowed/Game</div>
           <div>Beat Over</div>
         </div>
-        {this.renderTeam()}
+        {this.props.teams.length > 0 && this.renderTeam()}
       </div>
     );
   }
 }
+
+MetricsBox.propTypes = {
+  teams: PropTypes.shape().isRequired,
+  section: PropTypes.string.isRequired
+};
 
 export { MetricsBox };

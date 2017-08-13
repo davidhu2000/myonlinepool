@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import { keys, values } from 'lodash';
+import { values } from 'lodash';
 
 class LeaderboardWeeklyItem extends React.Component {
   constructor(props) {
@@ -44,22 +44,23 @@ class LeaderboardWeeklyItem extends React.Component {
 
   findPoints() {
     let topScore = 0;
-    let winnerId = 0;
+    // let winnerId = 0;
     values(this.props.standings).forEach(player => {
       if (player.correctPicks > topScore) {
         topScore = player.correctPicks;
-        winnerId = player.userId;
+        // winnerId = player.userId;
       }
     });
     return <div className="weekly-points">{topScore}</div>;
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="leaderboard-weekly-item">
         {this.findWinner()}
-        <div className="week">{this.props.standings[Object.keys(this.props.standings)[0]].week}</div>
+        <div className="week">
+          {this.props.standings[Object.keys(this.props.standings)[0]].week}
+        </div>
         {this.findPoints()}
       </div>
     );
@@ -67,7 +68,10 @@ class LeaderboardWeeklyItem extends React.Component {
 }
 
 LeaderboardWeeklyItem.propTypes = {
-  week: PropTypes.shape().isRequired
+  standings: PropTypes.shape().isRequired,
+  members: PropTypes.shape({
+    name: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export { LeaderboardWeeklyItem };

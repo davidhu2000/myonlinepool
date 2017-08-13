@@ -2,9 +2,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { parseTime } from 'helpers';
-import { hashHistory } from 'react-router';
 
-import { FormTextInput } from 'common/components';
 import { WaitingPage } from './subcomponents';
 
 class GameForm extends React.Component {
@@ -142,5 +140,12 @@ class GameForm extends React.Component {
     );
   }
 }
+
+GameForm.propTypes = {
+  games: PropTypes.shape().isRequired,
+  userId: PropTypes.number.isRequired,
+  updateGame: PropTypes.func.isRequired,
+  params: PropTypes.shape().isRequired
+};
 
 export default GameForm;

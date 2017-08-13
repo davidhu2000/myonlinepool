@@ -67,7 +67,8 @@ class LeaderboardItem extends React.Component {
 }
 
 LeaderboardItem.propTypes = {
-  member: PropTypes.string.isRequired
+  member: PropTypes.shape().isRequired,
+  standings: PropTypes.shape().isRequired
 };
 
 export { LeaderboardItem };

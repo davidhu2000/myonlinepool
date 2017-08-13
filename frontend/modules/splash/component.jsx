@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { sampleSize } from 'lodash';
 import NflTeams from './nfl-teams.json';
+
 
 class Splash extends React.Component {
   constructor() {
@@ -16,7 +18,7 @@ class Splash extends React.Component {
     this._redirectIfLoggedIn(user);
   }
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps() {
     let { user } = this.props;
     this._redirectIfLoggedIn(user);
   }
@@ -66,5 +68,9 @@ class Splash extends React.Component {
     );
   }
 }
+
+Splash.propTypes = {
+  user: PropTypes.shape().isRequired
+};
 
 export default Splash;
