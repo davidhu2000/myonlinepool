@@ -228,7 +228,8 @@ Picks.propTypes = {
     poolId: PropTypes.string.isRequired
   }).isRequired,
   pool: PropTypes.shape({
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    paymentMade: PropTypes.bool.isRequired
   }).isRequired
 };
 

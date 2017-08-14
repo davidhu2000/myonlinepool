@@ -12,10 +12,11 @@ class PickForm extends React.Component {
 
   submitPick(pick) {
     let { game, poolId, sendPicks } = this.props;
-
-    if (!this.props.paymentMade) {
-      this.props.receiveAlerts(['Pool payment pending.'], 422);
-    } else if (game.pick_locked) {
+    console.log(pick)
+    // if (!this.props.paymentMade) {
+    //   this.props.receiveAlerts(['Pool payment pending.'], 422);
+    // } else
+    if (game.pick_locked) {
       this.props.receiveAlerts(['Game pick locked.'], 422);
     } else if (pick !== game.pick) {
       let submission = [{
@@ -98,7 +99,7 @@ class PickForm extends React.Component {
           {this.renderScore()}
         </div>
 
-        <label htmlFor={`${game.away}`} className={this.renderClassName('home')}>
+        <label htmlFor={`${game.home}`} className={this.renderClassName('home')}>
           <div className="selection-form-home-name">
             <div>
               {game.home.toUpperCase()}
@@ -107,7 +108,7 @@ class PickForm extends React.Component {
               {game.home_record}
             </div>
           </div>
-          <button id={`${game.away}`} onClick={() => this.submitPick("home")} />
+          <button id={`${game.home}`} onClick={() => this.submitPick("home")} />
           <div className={`logo-${game.home} pick-button pick-home-button`} />
         </label>
       </div>
