@@ -17,7 +17,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -33,10 +33,7 @@ gem 'font-awesome-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'pry-rails'
-# gem 'devise'
-gem 'rb-readline'
-gem 'pry-coolline'
-# gem 'sidekiq'
+
 gem 'figaro'
 gem 'httparty'
 gem 'nokogiri'
@@ -52,6 +49,8 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rb-readline'
+  gem 'pry-coolline'
 end
 
 group :development do

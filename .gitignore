@@ -16,3 +16,7 @@ app/assets/javascripts/*
 !app/assets/javascripts/application.js
 !app/assets/javascripts/cable.js
 !app/assets/javascripts/config/.keep
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
