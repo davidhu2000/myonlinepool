@@ -1,0 +1,79 @@
+@media (max-width: 500px) {
+  // common
+  .base-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .app-container {
+    width: 100%;
+    max-width: 500px;
+    min-width: 400px;
+    min-height: 500px;
+  }
+  // navbar
+  .navbar-container {
+    width: 100%;
+    min-width: 300px;
+    max-width: 500px;
+  }
+  // splash
+  .splash-top {
+    h1 {
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+  .splash-mid {
+    h1 {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .splash-mid-carousel {
+      padding: 0px;
+      div[class^='logo-'] {
+        margin: 0px 5px;
+        transform: scale(.75);
+      }
+    }
+  }
+  .splash-bottom {
+    h1 {
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .splash-bottom-body {
+      width: 100%;
+    }
+  }
+  // dashboard
+  .home-container {
+    max-width: 500px;
+    min-width: 400px;
+    min-height: 500px;
+    justify-content: space-around;
+    .home-top {
+      width: 400px;
+      height: 400px;
+      padding: none;
+      flex-direction: column;
+      .pool-list {
+        // height: 420px;
+        width: 400px;
+        height: none;
+      }
+      .profile-box {
+        width: 400px;
+        height: none;
+      }
+    }
+    .home-bottom {
+      width: 400px;
+      min-height: 0px;
+      flex-direction: column;
+      .standings-box {
+        margin-top: 10px;
+      }
+    }
+  }
+}
