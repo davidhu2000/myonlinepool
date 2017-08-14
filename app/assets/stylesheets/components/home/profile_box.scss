@@ -1,5 +1,5 @@
 .profile-box { 
-  width: 435px;
+  width: 289px;
   height: 225px;
   position: relative;
   padding-top: 40px;
@@ -17,14 +17,13 @@
     font-size: 20px;
 
     .profile-box-top-title {
-      // margin-right: 20px;
       font-weight: bold;
       opacity: .5;
     }
   }
-  
   .profile-box-bottom {
     padding-left: 10px;
+    padding-top: 7.5px;
     display: flex;
     justify-content: space-between;
     
@@ -35,6 +34,7 @@
     .label {
       font-weight: bold;
       margin-bottom: 5px;
+      font-size: 15px;
     }
     .email, .username {
       margin-bottom: 15px;
