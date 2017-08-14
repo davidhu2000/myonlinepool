@@ -14,7 +14,7 @@ class PickForm extends React.Component {
     let { game, poolId, sendPicks } = this.props;
 
     if (!this.props.paymentMade) {
-      this.props.receiveAlerts(['Pool payment pending.'], 422);
+      this.props.receiveAlerts(['Pool payment pending.'], 404);
     } else if (game.pick_locked) {
       this.props.receiveAlerts(['Game pick locked.'], 422);
     } else if (pick !== game.pick) {

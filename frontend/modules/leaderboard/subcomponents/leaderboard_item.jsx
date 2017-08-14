@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
-import { keys } from 'lodash';
+import { values, keys } from 'lodash';
 import { shortestString } from 'helpers';
 
 class LeaderboardItem extends React.Component {
@@ -36,6 +36,18 @@ class LeaderboardItem extends React.Component {
     autoBind(this);
   }
 
+  findWeeklyHighest(week) {
+    let actualStandings = this.props.standings;
+    delete actualStandings[21];
+    let highestScore = 0;
+    values(actualStandings[week]).forEach(weeklyStanding => {
+      if (weeklyStanding.correctPicks > highestScore) {
+        highestScore = weeklyStanding.correctPicks;
+      }
+    });
+    return highestScore;
+  }
+
   renderWeeks() {
     let actualStandings = this.props.standings;
     delete actualStandings[21];
@@ -43,7 +55,7 @@ class LeaderboardItem extends React.Component {
       this.state.weeks[week] = this.props.standings[week][this.props.member.userId].correctPicks;
     });
     return keys(this.state.weeks).slice(1).map(week => (
-      <div>{this.state.weeks[week]}</div>
+      <div className={this.state.weeks[week] >= this.findWeeklyHighest(week) ? "highlight" : ""}>{this.state.weeks[week]}</div>
     ));
   }
 

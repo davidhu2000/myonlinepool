@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { values } from 'lodash';
+import { shortestString } from 'helpers';
 
 class LeaderboardWeeklyItem extends React.Component {
   constructor(props) {
@@ -10,36 +11,28 @@ class LeaderboardWeeklyItem extends React.Component {
     autoBind(this);
   }
 
-  // renderWeeks() {
-  //   let actualStandings = this.props.standings;
-  //   delete actualStandings[21];
-  //   keys(actualStandings).forEach(week => {
-  //     this.state.weeks[week] = this.props.standings[week][this.props.member.userId].correctPicks;
-  //   });
-  //   return keys(this.state.weeks).slice(1).map(week => (
-  //     <div>{this.state.weeks[week]}</div>
-  //   ));
-  // }
-
-  // renderTotal() {
-  //   let total = 0;
-  //   keys(this.state.weeks).forEach(week => {
-  //     total += Number(this.state.weeks[week]);
-  //   });
-  //   return <div className="total">{total}</div>;
-  // }
-
   findWinner() {
     let topScore = 0;
-    let winnerId = 0;
+    let winnerId = [];
     values(this.props.standings).forEach(player => {
       if (player.correctPicks > topScore) {
         topScore = player.correctPicks;
-        winnerId = player.userId;
+        winnerId = [player.userId];
+      } else if (player.correctPicks === topScore) {
+        winnerId.push(player.userId);
       }
     });
-    let winner = this.props.members[winnerId].name;
-    return <div className="weekly-winner">{winner}</div>;
+    if (winnerId.length > 5) {
+      return winnerId.slice(0, 5).forEach(id => (
+        <div>{shortestString(this.props.members[id].name)}</div>
+      ));
+    } else if (winnerId.length > 1) {
+      return winnerId.map(id => (
+        <div>{shortestString(this.props.members[id].name)}</div>
+      ));
+    } else {
+      return <div>{this.props.members[winnerId[0]].name}</div>;
+    }
   }
 
   findPoints() {
@@ -57,7 +50,9 @@ class LeaderboardWeeklyItem extends React.Component {
   render() {
     return (
       <div className="leaderboard-weekly-item">
-        {this.findWinner()}
+        <div className="weekly-winner">
+          {this.findWinner()}
+        </div>
         <div className="week">
           {this.props.standings[Object.keys(this.props.standings)[0]].week}
         </div>
