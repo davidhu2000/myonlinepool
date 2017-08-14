@@ -23,7 +23,7 @@ class Api::PoolsController < ApplicationController
     if @pool.save
       @standings[0] = {
         current_user.id => WeeklyResultNfl.new(
-          season: 2016,
+          season: 2017,
           week: 0,
           correct_picks: 0,
           wrong_picks: 0,
@@ -130,7 +130,7 @@ class Api::PoolsController < ApplicationController
     pool.members.each do |member|
       standings[0] ||= {}
       standings[0][member.id] = WeeklyResultNfl.new(
-        season: 2016,
+        season: 2017,
         week: 0,
         correct_picks: 0,
         wrong_picks: 0,
