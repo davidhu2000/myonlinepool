@@ -2,7 +2,7 @@ class Api::PicksController < ApplicationController
   def index
     current_time = get_current_time
     # TODO: make season, week dynamic
-    all_games = GameNfl.where(season: 2016, week: params[:week]).includes(:home, :away)
+    all_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
     raw_picks = current_user.picks.where(pool_id: params[:poolId], game_id: all_games)
     @picks = {}
 
@@ -28,6 +28,9 @@ class Api::PicksController < ApplicationController
     @picks = {}
     @week = nil
     current_time = get_current_time
+    pool = Pool.find_by(id: params[:picks].values.first[:pool_id])
+     
+    return render(json: ['Pool Locked'], status: 404) if pool.locked
 
     params[:picks].each do |key, game|
       @week ||= game[:week]
