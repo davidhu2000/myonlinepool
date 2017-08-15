@@ -8,7 +8,7 @@ class NameForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ""
+      name: this.props.title
     };
 
     autoBind(this);
@@ -48,7 +48,8 @@ class NameForm extends React.Component {
 
 NameForm.propTypes = {
   updateName: PropTypes.func.isRequired,
-  poolId: PropTypes.number.isRequired
+  poolId: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export { NameForm };
