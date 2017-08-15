@@ -19,4 +19,5 @@ class AuthMailer < ApplicationMailer
     @button_text = 'Reset Password'
     mail(to: @user.email, subject: "Reset your password to My Online Pool!", template_name: 'email')
   end
+
 end
