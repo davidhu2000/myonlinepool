@@ -11,7 +11,7 @@ class Picks extends React.Component {
     super(props);
 
     this.state = {
-      week: 16,
+      week: 1,
       loading: true,
       showDropdown: false
     };
