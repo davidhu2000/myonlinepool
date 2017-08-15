@@ -1,13 +1,21 @@
 require 'tty-progressbar'
 require 'pastel'
 
-mainAdminUser = User.new(
+main_adminuser = User.new(
   name: 'Me Admin',
   email: "me@gmail.com",
   password: 'password',
   confirmed_at: Date.new
 )
-mainAdminUser.save!
+main_adminuser.save!
+
+test_user = User.new(
+  name: 'Webmaster',
+  email: 'asherman.ca@gmail.com',
+  password: 'password',
+  confirmed_at: Date.new
+)
+test_user.save!
 
 puts 
 puts
