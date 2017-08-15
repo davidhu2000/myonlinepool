@@ -88,6 +88,7 @@ class PoolHome extends React.Component {
             title={pool.title}
             moderatorName={pool.moderatorName}
             buyIn={pool.buyIn}
+            sendInvite={this.props.sendInvite}
           />
         </div>
 
@@ -123,7 +124,8 @@ PoolHome.propTypes = {
   }).isRequired,
   createMessage: PropTypes.func.isRequired,
   fetchMessages: PropTypes.func.isRequired,
-  fetchBulletins: PropTypes.func.isRequired
+  fetchBulletins: PropTypes.func.isRequired,
+  sendInvite: PropTypes.func.isRequired
 };
 
 export default withRouter(PoolHome);

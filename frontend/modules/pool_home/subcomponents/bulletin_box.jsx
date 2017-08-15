@@ -20,6 +20,9 @@ class BulletinBox extends React.Component {
           <h2>Pool: {this.props.title}</h2>
           <h2>Buy In: ${this.props.buyIn}</h2>
           <h2>Moderator: {this.props.moderatorName}</h2>
+          <button onClick={() => this.props.sendInvite({ username: "Alex", email: "asherman.ca@gmail.com", id: "1", password: "password" })}>
+            Invite Member
+          </button>
         </div>
         <div className="bulletin-container">
           {this.renderBulletins()}
@@ -33,7 +36,8 @@ BulletinBox.propTypes = {
   bulletins: PropTypes.shape().isRequired,
   title: PropTypes.string.isRequired,
   buyIn: PropTypes.number.isRequired,
-  moderatorName: PropTypes.string.isRequired
+  moderatorName: PropTypes.string.isRequired,
+  sendInvite: PropTypes.func.isRequired
 };
 
 export { BulletinBox };
