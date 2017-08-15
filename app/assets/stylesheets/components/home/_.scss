@@ -24,9 +24,8 @@
 }
 
 .home-bulletin {
-  min-height: 327px;
   width: 100%;
-  padding: 20px 0px;
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,11 +34,12 @@
 
 .home-bottom {
   width: 870px;
-  min-height: 376px;
+  padding-top: 20px;
+  // min-height: 376px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 
   .standings-box {
     font-size: 12px;
