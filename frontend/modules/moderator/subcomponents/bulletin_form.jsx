@@ -2,13 +2,14 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
+import { values } from 'lodash';
 import { FormTextInput } from 'common/components';
 
 class BulletinForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bulletin: ""
+      bulletin: values(this.props.bulletin)[values(this.props.bulletin).length - 1].body
     };
 
     autoBind(this);
@@ -61,7 +62,7 @@ class BulletinForm extends React.Component {
 BulletinForm.propTypes = {
   poolId: PropTypes.number.isRequired,
   createBulletin: PropTypes.func.isRequired,
-  deleteBulletin: PropTypes.func.isRequired
+  bulletin: PropTypes.shape().isRequired
 };
 
 export { BulletinForm };
