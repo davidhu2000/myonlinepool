@@ -52,7 +52,7 @@ class BulletinForm extends React.Component {
           >
             Delete Last
           </button> */}
-          <input type='submit' className="bulletin-form-button" value="Post" />
+          <input type='submit' className="bulletin-form-button" value="Update" />
         </div>
       </form>
     );
