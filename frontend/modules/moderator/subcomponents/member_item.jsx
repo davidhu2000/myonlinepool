@@ -38,7 +38,7 @@ class MemberItem extends React.Component {
   }
 
   renderClass(paid) {
-    if (paid) {
+    if (!paid) {
       return "fa fa-usd red";
     } else {
       return "fa fa-usd green";
@@ -53,7 +53,8 @@ class MemberItem extends React.Component {
         >
           <i className={this.renderClass(this.props.member.paid)} aria-hidden="true" />
         </button>
-        <span>{ this.props.member.name }</span>
+        <span className="member-name">{ this.props.member.name }</span>
+        <span>{ this.props.member.email }</span>
         <button onClick={() => this.openModal()}>
           <i className="fa fa-times" aria-hidden="true" />
         </button>
@@ -95,7 +96,8 @@ MemberItem.propTypes = {
   member: PropTypes.shape({
     userId: PropTypes.number.isRequired,
     paid: PropTypes.bool.isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired
   }).isRequired,
   pool: PropTypes.shape({
     id: PropTypes.number.isRequired

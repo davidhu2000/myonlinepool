@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create, :update, :destroy]
     resources :bulletins, only: [:index, :create]
     delete 'bulletins', to: 'bulletins#destroy'
+    resources :mailers, only: [:create]
 
     get 'standings', to: 'standings#index'
 

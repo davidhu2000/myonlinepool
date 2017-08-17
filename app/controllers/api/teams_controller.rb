@@ -1,7 +1,8 @@
 class Api::TeamsController < ApplicationController
   def index
     # update to get team record using GameNfl and current week
-    records = Team.calculate_team_records(2016)
+    
+    records = Team.calculate_team_records(2017)
     @teams = {}
 
     records.each do |k, v|

@@ -88,6 +88,11 @@ class PoolHome extends React.Component {
             title={pool.title}
             moderatorName={pool.moderatorName}
             buyIn={pool.buyIn}
+            sendInvite={this.props.sendInvite}
+            userName={this.props.user.name}
+            id={pool.identifier}
+            password={pool.password}
+            poolId={pool.id}
           />
         </div>
 
@@ -107,7 +112,8 @@ class PoolHome extends React.Component {
 
 PoolHome.propTypes = {
   user: PropTypes.shape({
-    id: PropTypes.number
+    id: PropTypes.number,
+    name: PropTypes.string.isRequired
   }).isRequired,
   pool: PropTypes.shape({
     messages: PropTypes.shape(),
@@ -123,7 +129,8 @@ PoolHome.propTypes = {
   }).isRequired,
   createMessage: PropTypes.func.isRequired,
   fetchMessages: PropTypes.func.isRequired,
-  fetchBulletins: PropTypes.func.isRequired
+  fetchBulletins: PropTypes.func.isRequired,
+  sendInvite: PropTypes.func.isRequired
 };
 
 export default withRouter(PoolHome);

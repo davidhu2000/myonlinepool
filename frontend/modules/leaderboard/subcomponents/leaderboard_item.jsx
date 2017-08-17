@@ -54,7 +54,7 @@ class LeaderboardItem extends React.Component {
     keys(actualStandings).forEach(week => {
       this.state.weeks[week] = this.props.standings[week][this.props.member.userId].correctPicks;
     });
-    return keys(this.state.weeks).slice(1).map(week => (
+    return keys(this.state.weeks).map(week => (
       <div className={this.state.weeks[week] >= this.findWeeklyHighest(week) ? "highlight" : ""}>{this.state.weeks[week]}</div>
     ));
   }

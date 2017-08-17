@@ -8,7 +8,7 @@ class BuyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buy_in: ""
+      buy_in: this.props.buyIn
     };
 
     autoBind(this);
@@ -48,7 +48,8 @@ class BuyForm extends React.Component {
 
 BuyForm.propTypes = {
   updateBuyin: PropTypes.func.isRequired,
-  poolId: PropTypes.number.isRequired
+  poolId: PropTypes.number.isRequired,
+  buyIn: PropTypes.string.isRequired
 };
 
 export { BuyForm };

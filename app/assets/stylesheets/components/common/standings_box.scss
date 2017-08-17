@@ -5,6 +5,18 @@ $off-white: #e9ebee;
   padding-top: 20px;
   position: relative;
 
+  .preseason-text {
+    height: 200px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: .5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black !important;
+  }
+
   .standings-box-title {
     position: absolute;
     top: 0px;
