@@ -40,14 +40,16 @@ span {
     font-weight: bold;
 
     .invite-button {
-      padding: 5px 20px;
+      padding: 2.5px 20px;
       background: white;
       border: 1px white solid;
       color: black;
+      border: 1px black solid;
     
       &:hover {
         background: $drk-primary;
         color: white;
+        border: 1px white solid;
       }
     }
 
