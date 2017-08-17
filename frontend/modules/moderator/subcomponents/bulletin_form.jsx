@@ -9,7 +9,7 @@ class BulletinForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bulletin: values(this.props.bulletin)[values(this.props.bulletin).length - 1].body
+      bulletin: ""
     };
 
     autoBind(this);
