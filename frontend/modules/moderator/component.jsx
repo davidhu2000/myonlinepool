@@ -68,7 +68,6 @@ class Moderator extends React.Component {
             createBulletin={this.props.createBulletin}
             deleteBulletin={this.props.deleteBulletin}
             poolId={Number(this.props.params.poolId)}
-            bulletin={this.props.pool.bulletins}
             key={Math.random()}
           />
         </div>
