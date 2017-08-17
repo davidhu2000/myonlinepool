@@ -133,14 +133,11 @@
       }
     }
   }
-
   .pool-roster {
-    width: 780px;
+    width: 100%;
     font-size: 15px;
-    span {
-      padding: 0px 5px;
-    }
     .member-name {
+      padding: 0px 5px;
       font-weight: bold;
     }
     .roster-header {
@@ -159,6 +156,7 @@
     }
     .pool-member {
       padding: 5px 0px;
+      display: flex;
     }
   }
 }

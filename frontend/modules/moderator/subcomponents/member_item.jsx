@@ -54,7 +54,7 @@ class MemberItem extends React.Component {
           <i className={this.renderClass(this.props.member.paid)} aria-hidden="true" />
         </button>
         <span className="member-name">{ this.props.member.name }</span>
-        <span>{ this.props.member.email }</span>
+        <div>{ this.props.member.email }</div>
         <button onClick={() => this.openModal()}>
           <i className="fa fa-times" aria-hidden="true" />
         </button>
