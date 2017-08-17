@@ -92,6 +92,7 @@ class PoolHome extends React.Component {
             userName={this.props.user.name}
             id={pool.identifier}
             password={pool.password}
+            poolId={pool.id}
           />
         </div>
 

@@ -3,6 +3,7 @@ import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 
+import { Link } from 'react-router';
 import { FormTextInput } from 'common/components';
 import { BulletinBoxItem } from './';
 
@@ -82,8 +83,13 @@ class BulletinBox extends React.Component {
     return (
       <div className="bulletin-box">
         <div className="bulletin-header">
+          <Link to={`/pool/${this.props.poolId}/picks`}>
+            <button className="invite-button">
+              Make Picks
+            </button>
+          </Link>
           <button className="invite-button" onClick={() => this.openInfoModal()}>
-              Pool Info
+            Pool Info
           </button>
           <Modal
             isOpen={this.state.infoModalIsOpen}
@@ -92,11 +98,11 @@ class BulletinBox extends React.Component {
             style={customStyles}
             contentLabel="Example Modal"
           >
-            <h2>Pool: {this.props.title}</h2>
-            <h2>Moderator: {this.props.moderatorName}</h2>
-            <h2>Buy In: ${this.props.buyIn}</h2>
-            <h2>Identifier: {this.props.id}</h2>
-            <h2>Password: {this.props.password}</h2>
+            <h2><span>Pool:</span> {this.props.title}</h2>
+            <h2><span>Moderator:</span> {this.props.moderatorName}</h2>
+            <h2><span>Buy In:</span> ${this.props.buyIn}</h2>
+            <h2><span>Identifier:</span> {this.props.id}</h2>
+            <h2><span>Password:</span> {this.props.password}</h2>
           </Modal>
           <button className="invite-button" onClick={() => this.openModal()}>
               Send Invite
@@ -142,7 +148,8 @@ BulletinBox.propTypes = {
   sendInvite: PropTypes.func.isRequired,
   userName: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired
+  password: PropTypes.string.isRequired,
+  poolId: PropTypes.string.isRequired
 };
 
 export { BulletinBox };
