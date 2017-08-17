@@ -8,12 +8,16 @@ import { BulletinBoxItem } from './';
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    padding: "40px",
+    borderRadius: "2px",
+    boxShadow: "0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)",
+    width: "400px"
   }
 };
 
@@ -23,6 +27,7 @@ class BulletinBox extends React.Component {
 
     this.state = {
       modalIsOpen: false,
+      infoModalIsOpen: false,
       invitee: ""
     };
 
@@ -30,7 +35,6 @@ class BulletinBox extends React.Component {
   }
 
   handleSubmit() {
-    // e.preventDefault();
     this.props.sendInvite({
       username: this.props.userName,
       email: this.state.invitee,
@@ -49,12 +53,20 @@ class BulletinBox extends React.Component {
     this.setState({ modalIsOpen: true });
   }
 
-  afterOpenModal() {
-    this.subtitle.style.color = '#f00';
-  }
-
   closeModal() {
     this.setState({ modalIsOpen: false });
+  }
+
+  closeInfoModal() {
+    this.setState({ infoModalIsOpen: false });
+  }
+
+  openInfoModal() {
+    this.setState({ infoModalIsOpen: true });
+  }
+
+  afterOpenModal() {
+    this.subtitle.style.color = '#f00';
   }
 
   renderBulletins() {
@@ -70,9 +82,22 @@ class BulletinBox extends React.Component {
     return (
       <div className="bulletin-box">
         <div className="bulletin-header">
-          <h2>Pool: {this.props.title}</h2>
-          <h2>Buy In: ${this.props.buyIn}</h2>
-          <h2>Moderator: {this.props.moderatorName}</h2>
+          <button className="invite-button" onClick={() => this.openInfoModal()}>
+              Pool Info
+          </button>
+          <Modal
+            isOpen={this.state.infoModalIsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={this.closeInfoModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+          >
+            <h2>Pool: {this.props.title}</h2>
+            <h2>Moderator: {this.props.moderatorName}</h2>
+            <h2>Buy In: ${this.props.buyIn}</h2>
+            <h2>Identifier: {this.props.id}</h2>
+            <h2>Password: {this.props.password}</h2>
+          </Modal>
           <button className="invite-button" onClick={() => this.openModal()}>
               Send Invite
           </button>
@@ -87,16 +112,18 @@ class BulletinBox extends React.Component {
               update={this.update}
               type='text'
               value={this.state.invitee}
-              label=""
+              label="email"
               field="invitee"
               errorMessage="please enter an email"
             />
-            <button onClick={() => this.handleSubmit()}>
-                Invite Member
-            </button>
-            <button onClick={() => this.closeModal()}>
-                Cancel
-            </button>
+            <div className="modal-button-row">
+              <button className="modal-button" onClick={() => this.handleSubmit()}>
+                  Invite Member
+              </button>
+              <button className="modal-button" onClick={() => this.closeModal()}>
+                  Cancel
+              </button>
+            </div>
           </Modal>
         </div>
         <div className="bulletin-container">
