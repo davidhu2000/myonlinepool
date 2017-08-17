@@ -73,7 +73,7 @@ class BulletinBox extends React.Component {
           <h2>Pool: {this.props.title}</h2>
           <h2>Buy In: ${this.props.buyIn}</h2>
           <h2>Moderator: {this.props.moderatorName}</h2>
-          <button onClick={() => this.openModal()}>
+          <button className="invite-button" onClick={() => this.openModal()}>
               Send Invite
           </button>
           <Modal
