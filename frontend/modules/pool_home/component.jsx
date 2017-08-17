@@ -89,6 +89,9 @@ class PoolHome extends React.Component {
             moderatorName={pool.moderatorName}
             buyIn={pool.buyIn}
             sendInvite={this.props.sendInvite}
+            userName={this.props.user.name}
+            id={pool.identifier}
+            password={pool.password}
           />
         </div>
 
@@ -108,7 +111,8 @@ class PoolHome extends React.Component {
 
 PoolHome.propTypes = {
   user: PropTypes.shape({
-    id: PropTypes.number
+    id: PropTypes.number,
+    name: PropTypes.string.isRequired
   }).isRequired,
   pool: PropTypes.shape({
     messages: PropTypes.shape(),
