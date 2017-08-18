@@ -2,7 +2,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
-import { values } from 'lodash';
+// import { values } from 'lodash';
 import { FormTextInput } from 'common/components';
 
 class BulletinForm extends React.Component {
@@ -61,8 +61,7 @@ class BulletinForm extends React.Component {
 
 BulletinForm.propTypes = {
   poolId: PropTypes.number.isRequired,
-  createBulletin: PropTypes.func.isRequired,
-  bulletin: PropTypes.shape().isRequired
+  createBulletin: PropTypes.func.isRequired
 };
 
 export { BulletinForm };
