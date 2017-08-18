@@ -1,11 +1,14 @@
 @media screen and (max-device-width : 737px) {
 
-  // and (max-device-width: 480px)
-  // and (orientation: portrait)
-  // common
   .base-wrapper {
+    min-height: initial;
     padding-left: 0px;
     padding-right: 0px;
+    background: #E9EBEE;
+  }
+  .base-container {
+    min-height: initial;
+    background: #E9EBEE;
   }
   .app-container {
     width: 100%;
@@ -52,19 +55,15 @@
   }
   // dashboard
   .home-container {
-    // max-width: 500px;
     min-width: 0px;
-    // min-height: 0px;
     justify-content: flex-start;
     .home-top {
       width: 100%;
       height: auto;
       padding: 10px 0px;
-      // flex-direction: column;
       justify-content: space-around;
       align-items: flex-start;
       .pool-list {
-        // width: 100%;
         padding-left: 20px;
         padding-right: 20px;
         height: none;
@@ -90,10 +89,8 @@
       }
     }
     .home-bottom {
-      // width: 400px;
       width: 100%;
       min-height: 0px;
-      // flex-direction: column;
       .standings-box {
         margin-top: 10px;
       }
@@ -117,8 +114,6 @@
     min-height: 0px;
     .pool-standings {
       width: 100%;
-      // flex-direction: column;
-      // align-items: center;
       justify-content: space-around;
     }
     .pool-bulletin {
@@ -153,10 +148,6 @@
     .picks-top {
       min-width: 100%;
       width: 100%;
-      // display: none;
-    }
-    .selection-item {
-      // flex: auto;
     }
   }
   // team stats
@@ -166,7 +157,6 @@
   }
   // moderator
   .moderator-container {
-    // width: 100%;
     padding-top: 40px;
   }
   // console
