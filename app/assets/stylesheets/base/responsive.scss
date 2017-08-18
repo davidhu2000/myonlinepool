@@ -1,4 +1,7 @@
-@media screen and (max-width : 1000px) {
+@media screen and (max-device-width : 737px) {
+
+  // and (max-device-width: 480px)
+  // and (orientation: portrait)
   // common
   .base-wrapper {
     padding-left: 0px;
