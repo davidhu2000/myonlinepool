@@ -160,4 +160,18 @@ and (max-device-width : 1000px) {
       // flex: auto;
     }
   }
+  // team stats
+  .metrics-container {
+    min-width: 0px;
+    width: 100%;
+  }
+  // moderator
+  .moderator-container {
+    // width: 100%;
+    padding-top: 40px;
+  }
+  // console
+  .console-container {
+    padding-top: 40px;
+  }
 }
