@@ -7,16 +7,16 @@ and (max-device-width : 1000px) {
   }
   .app-container {
     width: 100%;
-    max-width: 500px;
-    min-width: 400px;
+    // max-width: 500px;
+    min-width: 0px;
     min-height: 0px;
     justify-content: flex-start;
   }
   // navbar
   .navbar-container {
     width: 100%;
-    min-width: 300px;
-    max-width: 500px;
+    // min-width: 300px;
+    // max-width: 500px;
   }
   // splash
   .splash-container {
@@ -53,17 +53,19 @@ and (max-device-width : 1000px) {
   }
   // dashboard
   .home-container {
-    max-width: 500px;
-    min-width: 400px;
+    // max-width: 500px;
+    min-width: 0px;
     min-height: 0px;
     justify-content: flex-start;
     .home-top {
       width: 100%;
       height: auto;
       padding: 10px 0px;
-      flex-direction: column;
+      // flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
       .pool-list {
-        width: 100%;
+        // width: 100%;
         padding-left: 20px;
         padding-right: 20px;
         height: none;
@@ -72,19 +74,9 @@ and (max-device-width : 1000px) {
         }
       }
       .profile-box {
-        width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
         height: auto;
-        .profile-box-top {
-          left: 10px;
-        }
         .profile-box-bottom {
           padding-top: 0px;
-          flex-flow: column-reverse;
-        }
-        .profile-edit-button {
-          margin-bottom: 10px;
         }
         .email {
           margin-bottom: 0px;
@@ -94,14 +86,15 @@ and (max-device-width : 1000px) {
     .home-bulletin {
       .modboard-box {
         width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
       }
     }
     .home-bottom {
-      width: 400px;
+      // width: 400px;
+      width: 100%;
       min-height: 0px;
-      flex-direction: column;
+      // flex-direction: column;
       .standings-box {
         margin-top: 10px;
       }
@@ -125,8 +118,9 @@ and (max-device-width : 1000px) {
     min-height: 0px;
     .pool-standings {
       width: 100%;
-      flex-direction: column;
-      align-items: center;
+      // flex-direction: column;
+      // align-items: center;
+      justify-content: space-around;
     }
     .pool-bulletin {
       .bulletin-box {
@@ -143,12 +137,27 @@ and (max-device-width : 1000px) {
       width: 100%;
       .chat-box {
         width: 100%;
-        padding-right: 10px;
-        padding-left: 10px;
+        padding-right: 20px;
+        padding-left: 20px;
         h2 {
-          left: 10px;
+          left: 20px;
         }
       }
+    }
+  }
+  // pick form
+  .picks-container {
+    min-height: 0px;
+    min-width: 100%;
+    width: 100%;
+    padding-bottom: 0px;
+    .picks-top {
+      min-width: 100%;
+      width: 100%;
+      // display: none;
+    }
+    .selection-item {
+      // flex: auto;
     }
   }
 }
