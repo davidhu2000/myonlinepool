@@ -56,7 +56,7 @@ and (max-device-width : 1000px) {
     max-width: 500px;
     min-width: 400px;
     min-height: 500px;
-    justify-content: space-around;
+    justify-content: flex-start;
     .home-top {
       width: 400px;
       height: 400px;
@@ -70,6 +70,13 @@ and (max-device-width : 1000px) {
       .profile-box {
         width: 400px;
         height: none;
+        .profile-box-bottom {
+          padding-top: 0px;
+          flex-flow: column-reverse;
+        }
+        .profile-edit-button {
+          margin-bottom: 10px;
+        }
       }
     }
     .home-bottom {
