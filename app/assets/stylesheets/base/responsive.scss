@@ -117,4 +117,38 @@ and (max-device-width : 1000px) {
     align-items: flex-start;
     padding-top: 100px;
   }
+  // pool home
+  .pool-root {
+    justify-content: flex-start;
+  }
+  .pool-container {
+    min-height: 0px;
+    .pool-standings {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+    .pool-bulletin {
+      .bulletin-box {
+        width: 100%;
+      }
+      .bulletin-header {
+        width: 100%;
+      }
+    }
+    .bulletin-container {
+      padding-left: 20px;
+    }
+    .pool-coms {
+      width: 100%;
+      .chat-box {
+        width: 100%;
+        padding-right: 10px;
+        padding-left: 10px;
+        h2 {
+          left: 10px;
+        }
+      }
+    }
+  }
 }
