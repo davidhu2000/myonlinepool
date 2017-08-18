@@ -9,16 +9,13 @@
   }
   .app-container {
     width: 100%;
-    // max-width: 500px;
-    min-width: 0px;
-    min-height: 0px;
+    min-width: initial;
+    min-height: initial;
     justify-content: flex-start;
   }
   // navbar
   .navbar-container {
     width: 100%;
-    // min-width: 300px;
-    // max-width: 500px;
   }
   // splash
   .splash-container {
@@ -57,7 +54,7 @@
   .home-container {
     // max-width: 500px;
     min-width: 0px;
-    min-height: 0px;
+    // min-height: 0px;
     justify-content: flex-start;
     .home-top {
       width: 100%;
