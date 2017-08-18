@@ -1,4 +1,5 @@
-@media (max-width: 500px) {
+@media only screen 
+and (max-device-width : 1000px) {
   // common
   .base-wrapper {
     padding-left: 0px;
@@ -8,7 +9,8 @@
     width: 100%;
     max-width: 500px;
     min-width: 400px;
-    min-height: 500px;
+    min-height: 0px;
+    justify-content: flex-start;
   }
   // navbar
   .navbar-container {
@@ -17,6 +19,9 @@
     max-width: 500px;
   }
   // splash
+  .splash-container {
+    justify-content: flex-start;
+  }
   .splash-top {
     h1 {
       font-size: 25px;
