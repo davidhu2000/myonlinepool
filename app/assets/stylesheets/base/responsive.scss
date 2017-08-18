@@ -1,8 +1,14 @@
 @media screen and (max-device-width : 737px) {
 
   .base-wrapper {
+    min-height: initial;
     padding-left: 0px;
     padding-right: 0px;
+    background: #E9EBEE;
+  }
+  .base-container {
+    min-height: initial;
+    background: #E9EBEE;
   }
   .app-container {
     width: 100%;

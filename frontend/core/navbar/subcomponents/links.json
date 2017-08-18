@@ -1,9 +1,7 @@
 {
   "signedoutLinks": [
-    // { "link": "/auth?form=signin", "text": "Sign In" },
-    // { "link": "/auth?form=signup", "text": "Sign Up" },
-    { "link": "/contact", "text": "contact" },
-    { "link": "/faq", "text": "FAQ" },
-    { "link": "/auth?form=signin", "text": "Demo" }
+    { "link": "/faq", "text": "FAQs & Pricing" },
+    { "link": "/auth?form=signin", "text": "Demo Account" },
+    { "link": "/contact", "text": "Contact" }
   ]
 }
