@@ -33,36 +33,42 @@ class Splash extends React.Component {
     return (
       <div className="splash-container">
         <div className="splash-top">
-          <h1>Welcome to My Online Puol</h1>
+          <h1>Welcome to MyOnlinePool.com</h1>
           <p>
-          A simple app to organize your sports pools.
+          A simple app to make running your own office pool <span>QUICK</span>, <span>EASY</span> and most
+          of all <span>FUN</span>!
           <br />
-          No more organizational nightmares.
+          With the 2017 NFL fast approaching, why not create and host
+          your own NFL Football office pool today.
+          <br />
+            <span>Invite your friends</span> to join the fun!
           </p>
         </div>
         <div className="splash-mid">
-          <h1>Play with your favorite teams</h1>
-
+          <h1>Host Your Own 2017 NFL Football Pool in 3 Easy Steps</h1>
+          <p>
+            Register for free
+          <br />
+            Create a pool
+          <br />
+            Invite friends to play
+          </p>
           {/* Randomly display logo for 5 NFL teams */}
-          <div className="splash-mid-carousel">
+          {/* <div className="splash-mid-carousel">
             { this.state.teams.map(name => (
               <div key={name} className={`logo-${name}`} />
             ))}
-          </div>
-
+          </div> */}
         </div>
         <div className="splash-bottom">
-          <h1>Create or join pools with all of your groups</h1>
-          <div className="splash-bottom-body">
-            <p>Work</p>
-            <p>Family</p>
-            <p>Friends</p>
-          </div>
-          <div className="splash-bottom-body">
-            <p>Enemies</p>
-            <p>Frenemies</p>
-            <p>Strangers</p>
-          </div>
+          <h1>Playing is even easier! Here's how to play</h1>
+          <p>
+            A moderator creates a pool, sets rules and invites members
+            <br />
+            Members join the pool, make their picks and score points for correct picks
+            <br />
+            The player that scores the most points wins!
+          </p>
         </div>
       </div>
     );
