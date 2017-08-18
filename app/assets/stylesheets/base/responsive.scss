@@ -58,18 +58,27 @@ and (max-device-width : 1000px) {
     min-height: 500px;
     justify-content: flex-start;
     .home-top {
-      width: 400px;
+      width: 100%;
       height: 400px;
       padding: none;
       flex-direction: column;
       .pool-list {
-        // height: 420px;
-        width: 400px;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
         height: none;
+        .pool-list-top {
+          left: 10px;
+        }
       }
       .profile-box {
-        width: 400px;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
         height: none;
+        .profile-box-top {
+          left: 10px;
+        }
         .profile-box-bottom {
           padding-top: 0px;
           flex-flow: column-reverse;
@@ -77,6 +86,13 @@ and (max-device-width : 1000px) {
         .profile-edit-button {
           margin-bottom: 10px;
         }
+      }
+    }
+    .home-bulletin {
+      .modboard-box {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
     .home-bottom {
