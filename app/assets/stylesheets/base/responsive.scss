@@ -4,13 +4,14 @@
   // and (orientation: portrait)
   // common
   .base-wrapper {
+    // min-height: initial;
     padding-left: 0px;
     padding-right: 0px;
   }
   .app-container {
     width: 100%;
     min-width: initial;
-    min-height: initial;
+    // min-height: initial;
     justify-content: flex-start;
   }
   // navbar
