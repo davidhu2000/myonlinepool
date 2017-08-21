@@ -186,6 +186,16 @@
           -ms-flex-pack: justify;
               justify-content: space-between;
       position: relative;
+      .auth-form-button{
+        // width: 120px;
+        // width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+                justify-content: center;
+      }
     }
     .utility-row {
       font-size: 12px;

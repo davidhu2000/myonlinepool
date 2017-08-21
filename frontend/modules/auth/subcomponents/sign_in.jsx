@@ -81,14 +81,23 @@ class SigninForm extends React.Component {
             </span>
           </div>
 
-          <input
+          {/* <input
             id="form-submit-button"
             type='submit'
             className="button auth-form-button"
             value={submitValue}
             onMouseEnter={this.isFormValid}
             disabled={!this.state.isValid}
-          />
+          /> */}
+
+          <button
+            id="form-submit-button"
+            type='submit'
+          >
+            <div className='button auth-form-button'>
+              {submitValue}
+            </div>
+          </button>
 
           { this.state.loading && (
             <div className='loader'><ScaleLoader height={25} width={2} /></div>
