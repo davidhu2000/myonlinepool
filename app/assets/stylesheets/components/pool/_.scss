@@ -105,7 +105,7 @@
 @import "bulletin_board";
 
 .pool-root {
-  height: 100%;
+  min-height: 950px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;

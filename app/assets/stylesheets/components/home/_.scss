@@ -59,7 +59,7 @@
 @import "profile_box";
 
 .home-container {
-  height: 100%;
+  min-height: 950px;
   width: 100%;
   min-width: 900px;
   display: -webkit-box;
@@ -75,7 +75,7 @@
 }
 
 .home-top {
-  height: 278px;
+//   height: 278px;
   padding: 10px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
