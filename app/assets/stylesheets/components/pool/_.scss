@@ -1,21 +1,139 @@
+// @import "chat_box";
+// @import "bulletin_board";
+
+// .pool-root {
+//   height: 100%;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .pool-alert {
+//   width: 100%;
+//   padding: 10px 0px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background: $best-red;
+//   color: white;
+// }
+
+// .pool-container {
+//   min-height: 1030px;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   align-items: center;
+// }
+
+// .pool-standings {
+//   width: 870px;
+//   min-height: 238px;
+//   // height: 278px;
+//   padding: 20px 10px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-items: flex-start;
+
+//   .standings-box {
+//     font-size: 12px;
+//     .standings-box-top-item{
+//       font-size: 14px;
+//       font-weight: bold;
+//     }
+//   }
+
+//   .pool-standings-top, .pool-standings-bottom {
+//     display: flex;
+//   }
+// }
+
+// .pool-bulletin {
+//   width: 100%;
+//   padding: 20px 0px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background: $drk-primary;
+// }
+
+// .pool-coms {
+//   min-height: 431px;
+//   padding: 20px 0px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+// }
+
+// .pool-message {
+//   margin: 5px;
+//   margin-bottom: 10px;
+//   padding: 5px;
+//   background: white;
+//   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+//   border-radius: 2px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+
+//   .title {
+//     width: 100%;
+//     padding: 10px 5px;
+//     margin-bottom: 10px;
+//     font-size: 18px;
+//     line-height: 18px;
+//     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+//     background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
+//   }
+
+//   div {
+//     padding-bottom: 10px;
+//     padding-left: 5px;
+//     font-size: 15px;
+//   }
+
+//   div:last-child{
+//     padding-bottom: 5px;
+//   }
+// }
+
 @import "chat_box";
 @import "bulletin_board";
 
 .pool-root {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .pool-alert {
   width: 100%;
   padding: 10px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: $best-red;
   color: white;
 }
@@ -23,10 +141,19 @@
 .pool-container {
   min-height: 1030px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .pool-standings {
@@ -34,10 +161,19 @@
   min-height: 238px;
   // height: 278px;
   padding: 20px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 
   .standings-box {
     font-size: 12px;
@@ -48,6 +184,8 @@
   }
 
   .pool-standings-top, .pool-standings-bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 }
@@ -55,18 +193,31 @@
 .pool-bulletin {
   width: 100%;
   padding: 20px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: $drk-primary;
 }
 
 .pool-coms {
   min-height: 431px;
   padding: 20px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .pool-message {
@@ -74,11 +225,19 @@
   margin-bottom: 10px;
   padding: 5px;
   background: white;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 
   .title {
     width: 100%;
@@ -86,7 +245,8 @@
     margin-bottom: 10px;
     font-size: 18px;
     line-height: 18px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     background:-webkit-gradient(linear, center bottom, center top, from(#F0EDE9), to(#FEFEFE));
   }
 

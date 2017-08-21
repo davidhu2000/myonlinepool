@@ -1,7 +1,106 @@
+// .modal-button-row {
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-around;
+//   .modal-button {
+//     padding: 5px 20px;
+//     background: white;
+//     border: 1px $drk-primary solid;
+//     color: black;
+//     border-radius: 2px;
+  
+//     &:hover {
+//       background: $drk-primary;
+//       color: white;
+//       border: white;
+//     }
+//   }
+// }
+
+// span {
+//   font-weight: bold;
+// }
+
+// .bulletin-box {
+//   width: 870px;
+//   padding: 0px 5px;
+//   padding-top: 40px;
+//   position: relative;
+//   background: $drk-primary;
+//   color: white;
+
+//   .bulletin-header {
+//     width: 870px;
+//     padding-right: 10px;
+//     position: absolute;
+//     top: 0px;
+//     display: flex;
+//     justify-content: space-around;
+//     font-size: 15px;
+//     font-weight: bold;
+
+//     .invite-button {
+//       padding: 2.5px 20px;
+//       background: white;
+//       border: 1px white solid;
+//       color: black;
+//       border: 1px black solid;
+    
+//       &:hover {
+//         background: $drk-primary;
+//         color: white;
+//         border: 1px white solid;
+//       }
+//     }
+
+//     h2 {
+//       font-weight: bold;
+//     }
+
+  
+    
+//   }
+
+//   .bulletin-container {
+//     width: 100%;
+//     margin-top: 10px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     overflow-y: hidden;
+
+//     .welcome {
+//       font-size: 20px;
+//       font-weight: bold;
+//     }
+
+//     .bulletin-item {
+//       margin-bottom: 10px;
+//       padding-left: 5px;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: flex-start;
+
+//       .author {
+//         font-size: 15px;
+//         font-weight: bold;
+//         margin-bottom: 5px;
+//       }
+
+//       .message {
+//         font-size: 15px;
+//       }
+//     }
+//   }
+// }
+
 .modal-button-row {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   .modal-button {
     padding: 5px 20px;
     background: white;
@@ -34,8 +133,11 @@ span {
     padding-right: 10px;
     position: absolute;
     top: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     font-size: 15px;
     font-weight: bold;
 
@@ -64,9 +166,15 @@ span {
   .bulletin-container {
     width: 100%;
     margin-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     overflow-y: hidden;
 
     .welcome {
@@ -77,9 +185,16 @@ span {
     .bulletin-item {
       margin-bottom: 10px;
       padding-left: 5px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
 
       .author {
         font-size: 15px;

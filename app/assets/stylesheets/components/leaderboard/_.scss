@@ -1,16 +1,174 @@
+// .leaderboard-container {
+//   min-height: 1080px;
+//   min-width: 870px;
+//   width: 95%;
+//   padding: 20px 0px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   position: relative;
+
+//   .leaderboard-banner {
+//     display: flex;
+//     justify-content: center;
+//     padding: 5px 0px;
+//     border-radius: 2px;
+//     border-bottom-left-radius: 0px;
+//     border-bottom-right-radius: 0px;
+//     font-size: 20px;
+//     font-weight: bold;
+//     background: $drk-primary;
+//     color: white;
+//   }
+     
+//   .leaderboard-labels {
+//     margin-bottom: 5px;
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 5px 0px;
+//     border-radius: 2px;
+//     border-top-right-radius: 0px;
+//     border-top-left-radius: 0px;
+//     font-size: 20px;
+//     font-weight: bold;
+//     background: $drk-primary;
+//     color: white;
+//     div {
+//       width: 50px;
+//       text-align: center;
+//     }
+//     .title {
+//       width: 125px;
+//       text-align: center;
+//     }
+//     .points{
+//       width: 100px;
+//     }
+//   }
+
+//   .leaderboard-body {
+//     display: flex;
+//     flex-direction: column;
+//     margin-bottom: 20px;
+
+//     .leaderboard-item {
+//       height: 30px;
+//       display: flex;
+//       justify-content: space-between;
+//       border-bottom: .2px rgba(51, 51, 51,.2) solid;
+//       div {
+//         width: 50px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//       }
+//       .title {
+//         width: 125px;
+//         text-align: center;
+//         font-weight: bold;
+//       }
+//       .total {
+//         width: 100px;
+//       }
+//       .highlight {
+//         background: rgba(255, 189, 0, .2);
+//       }
+//     }
+//     div:last-child {
+//       border-bottom: none;
+//     }
+//   }
+//   .leaderboard-weekly-labels {
+//     margin-bottom: 5px;
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 5px 0px;
+//     border-radius: 2px;
+//     border-top-right-radius: 0xp;
+//     border-top-left-radius: 0px;
+//     font-size: 20px;
+//     font-weight: bold;
+//     background: $drk-primary;
+//     color: white;
+//     .leaderboard-week {
+//       width: 125px;
+//       display: flex;
+//       justify-content: center;
+//       // text-align: center;
+//     }
+//     .leaderboard-name {
+//       width: 550px;
+//       padding-left: 25px;
+//     }
+//     .leaderboard-score {
+//       width: 125px;
+//       padding-right: 25px;
+//       display: flex;
+//       justify-content: center;
+//     }
+//   }
+//   .leaderboard-weekly-item {
+//     height: 30px;
+//     // padding: 0px 25px;
+//     display: flex;
+//     justify-content: space-between;
+//     border-bottom: .2px rgba(51, 51, 51,.2) solid;
+//     position: relative;
+//     .week {
+//       // width: 230px;
+//       width: 125px;
+//       display: flex;
+//       justify-content: center;
+//     }
+//     .weekly-winner {
+//       width: 550px;
+//       display: flex;
+//       justify-content: flex-start;
+//       padding-left: 25px;
+//       font-weight: bold;
+//       div {
+//         padding-right: 15px;
+//       }
+//     }
+//     .weekly-points {
+//       // width: 230px;
+//       width: 125px;
+//       padding-right: 25px;
+//       display: flex;
+//       justify-content: center;
+//     }
+//   }
+//   .leaderboard-weekly-body {
+//     div:last-child {
+//       border-bottom: none;
+//     }
+//   }    
+// }
+
 .leaderboard-container {
   min-height: 1080px;
   min-width: 870px;
   width: 95%;
   padding: 20px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   position: relative;
 
   .leaderboard-banner {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding: 5px 0px;
     border-radius: 2px;
     border-bottom-left-radius: 0px;
@@ -23,8 +181,12 @@
      
   .leaderboard-labels {
     margin-bottom: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 5px 0px;
     border-radius: 2px;
     border-top-right-radius: 0px;
@@ -47,20 +209,35 @@
   }
 
   .leaderboard-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-bottom: 20px;
 
     .leaderboard-item {
       height: 30px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: space-between;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
       border-bottom: .2px rgba(51, 51, 51,.2) solid;
       div {
         width: 50px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
       }
       .title {
         width: 125px;
@@ -80,8 +257,12 @@
   }
   .leaderboard-weekly-labels {
     margin-bottom: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding: 5px 0px;
     border-radius: 2px;
     border-top-right-radius: 0xp;
@@ -92,8 +273,12 @@
     color: white;
     .leaderboard-week {
       width: 125px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
       // text-align: center;
     }
     .leaderboard-name {
@@ -103,27 +288,43 @@
     .leaderboard-score {
       width: 125px;
       padding-right: 25px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
     }
   }
   .leaderboard-weekly-item {
     height: 30px;
     // padding: 0px 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     border-bottom: .2px rgba(51, 51, 51,.2) solid;
     position: relative;
     .week {
       // width: 230px;
       width: 125px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
     }
     .weekly-winner {
       width: 550px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: flex-start;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
       padding-left: 25px;
       font-weight: bold;
       div {
@@ -134,8 +335,12 @@
       // width: 230px;
       width: 125px;
       padding-right: 25px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
     }
   }
   .leaderboard-weekly-body {

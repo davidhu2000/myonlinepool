@@ -1,9 +1,181 @@
+// .moderator-container {
+//   width: 780px;
+//   display: flex; 
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+
+//   .header {
+//     margin-right: auto;
+//     padding-bottom: 30px;
+//     font-size: 20px;
+//     opacity: .5;
+//     font-weight: bold;
+//   }
+//   .moderator-bulletin-form {
+//     width: 780px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     .bulletin-form {
+//       width: 780px;
+//     }
+//     .poolform-group {
+//       margin-bottom: 0px;
+//     }
+//     .bulletin-form-button-row {
+//       display: flex;
+//       justify-content: flex-end;
+//       padding: 10px 5px;
+//       padding-bottom: 20px;
+//       input {
+//         margin-left: 10px;
+//       }
+//       .bulletin-form-button {
+//         width: 90px;
+//         height: 30px;
+//         font-size: 15px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         border-radius: 3px;
+//         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+//         transition: .2s;
+//         background: white;
+//         border: 1px $drk-primary solid;
+//         color: $drk-primary;
+//       }
+//       .bulletin-form-button:hover {
+//         color: white;
+//         background: $drk-primary;
+//       }
+//     }
+//   }
+//   .moderator-name-form {
+//     width: 780px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     .name-form {
+//       width: 780px;
+//     }
+//     .poolform-group {
+//       margin-bottom: 0px;
+//     }
+//     .name-form-button-row {
+//       display: flex;
+//       justify-content: flex-end;
+//       padding: 10px 5px;
+//       padding-bottom: 20px;
+//       input {
+//         margin-left: 10px;
+//       }
+//       .name-form-button {
+//         width: 90px;
+//         height: 30px;
+//         font-size: 15px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         border-radius: 3px;
+//         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+//         transition: .2s;
+//         background: white;
+//         border: 1px $drk-primary solid;
+//         color: $drk-primary;
+//       }
+//       .name-form-button:hover {
+//         color: white;
+//         background: $drk-primary;
+//       }
+//     }
+//   }
+
+//   .moderator-buy-form {
+//     width: 780px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     .buy-form {
+//       width: 780px;
+//     }
+//     .poolform-group {
+//       margin-bottom: 0px;
+//     }
+//     .buy-form-button-row {
+//       display: flex;
+//       justify-content: flex-end;
+//       padding: 10px 5px;
+//       padding-bottom: 20px;
+//       input {
+//         margin-left: 10px;
+//       }
+//       .buy-form-button {
+//         width: 90px;
+//         height: 30px;
+//         font-size: 15px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         border-radius: 3px;
+//         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+//         transition: .2s;
+//         background: white;
+//         border: 1px $drk-primary solid;
+//         color: $drk-primary;
+//       }
+//       .buy-form-button:hover {
+//         color: white;
+//         background: $drk-primary;
+//       }
+//     }
+//   }
+//   .pool-roster {
+//     width: 100%;
+//     font-size: 15px;
+//     .member-name {
+//       padding: 0px 5px;
+//       font-weight: bold;
+//     }
+//     .roster-header {
+//       font-size: 20px;
+//       margin-right: auto;
+//       padding-bottom: 5px;
+//       opacity: .5;
+//       font-weight: bold;
+//     }
+//     .fa-times {
+//       padding: 0px 5px;
+//       color: $best-red;
+//     }
+//     .fa-usd {
+//       padding: 0px 5px;
+//     }
+//     .pool-member {
+//       padding: 5px 0px;
+//       display: flex;
+//     }
+//   }
+// }
+
 .moderator-container {
   width: 780px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; 
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-pack: center; 
+      -ms-flex-pack: center; 
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 
   .header {
     margin-right: auto;
@@ -14,10 +186,19 @@
   }
   .moderator-bulletin-form {
     width: 780px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     .bulletin-form {
       width: 780px;
     }
@@ -25,8 +206,12 @@
       margin-bottom: 0px;
     }
     .bulletin-form-button-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: flex-end;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
       padding: 10px 5px;
       padding-bottom: 20px;
       input {
@@ -36,11 +221,20 @@
         width: 90px;
         height: 30px;
         font-size: 15px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         border-radius: 3px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        -webkit-transition: .2s;
+        -o-transition: .2s;
         transition: .2s;
         background: white;
         border: 1px $drk-primary solid;
@@ -54,10 +248,19 @@
   }
   .moderator-name-form {
     width: 780px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     .name-form {
       width: 780px;
     }
@@ -65,8 +268,12 @@
       margin-bottom: 0px;
     }
     .name-form-button-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: flex-end;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
       padding: 10px 5px;
       padding-bottom: 20px;
       input {
@@ -76,11 +283,20 @@
         width: 90px;
         height: 30px;
         font-size: 15px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         border-radius: 3px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        -webkit-transition: .2s;
+        -o-transition: .2s;
         transition: .2s;
         background: white;
         border: 1px $drk-primary solid;
@@ -95,10 +311,19 @@
 
   .moderator-buy-form {
     width: 780px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     .buy-form {
       width: 780px;
     }
@@ -106,8 +331,12 @@
       margin-bottom: 0px;
     }
     .buy-form-button-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: flex-end;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
       padding: 10px 5px;
       padding-bottom: 20px;
       input {
@@ -117,11 +346,20 @@
         width: 90px;
         height: 30px;
         font-size: 15px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         border-radius: 3px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        -webkit-transition: .2s;
+        -o-transition: .2s;
         transition: .2s;
         background: white;
         border: 1px $drk-primary solid;
@@ -156,6 +394,8 @@
     }
     .pool-member {
       padding: 5px 0px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
     }
   }

@@ -1,11 +1,58 @@
+// .button {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   border-radius: 3px;
+//   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+//   // background: $drk-primary;
+//   background: white;
+//   transition: .2s;
+//   // color: white;
+//   color: black;
+//   cursor: pointer;
+//   border: 1px $drk-primary solid;
+
+//   &:hover {
+//     // color: $lt-primary;
+//     // background: white;
+//     color: white;
+//     background: $drk-primary;
+//     border: none;
+//   }
+
+//   &:disabled {
+//     cursor: not-allowed;
+
+//     &:hover {
+//       color: white;
+//       background: $drk-primary;
+//       border: none;
+//     }
+//   }
+// }
+
+// .loader {
+//   position: absolute;
+//   right: -40px;
+//   height: 30px;
+// }
 .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-radius: 3px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   // background: $drk-primary;
   background: white;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
   transition: .2s;
   // color: white;
   color: black;
