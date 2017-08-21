@@ -141,6 +141,7 @@ $transition-time: 0.1s;
   z-index: 100;
 
   .title {
+    height: 100%;
     position: absolute;
     left: 75px;
     display: -webkit-box;
@@ -166,6 +167,7 @@ $transition-time: 0.1s;
   }
 
   .account-button {
+    height: 100%;
     position: absolute;
     display: -webkit-box;
     display: -ms-flexbox;
