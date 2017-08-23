@@ -188,36 +188,42 @@
       width: 100%;
     }
     // splash
+    // .splash-container {
+    //   -webkit-box-pack: start;
+    //       -ms-flex-pack: start;
+    //           justify-content: flex-start;
+    // }
     .splash-container {
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
+      
     }
     .splash-top {
       h1 {
-       
-      }
-    }
-    .splash-mid {
-      h1 {
-        
-      }
-    }
-    .splash-bottom {
-
-    }
-    .splash-teaser {
-      h1 {
-        font-size: 30px;
-        margin-bottom: 25px;
-        font-weight: bold;
+       font-size: 30px;
       }
       p {
-        text-align: center;
         font-size: 20px;
-        line-height: 35px;
       }
     }
+    // .splash-mid {
+    //   h1 {
+        
+    //   }
+    // }
+    // .splash-bottom {
+
+    // }
+    // .splash-teaser {
+    //   h1 {
+    //     font-size: 30px;
+    //     margin-bottom: 25px;
+    //     font-weight: bold;
+    //   }
+    //   p {
+    //     text-align: center;
+    //     font-size: 20px;
+    //     line-height: 35px;
+    //   }
+    // }
     // dashboard
     .home-container {
       min-width: 0px;

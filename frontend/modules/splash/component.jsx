@@ -56,11 +56,7 @@ class Splash extends React.Component {
         <div className="splash-bottom">
           <h1>Playing is even easier! Here is how to play</h1>
           <p>
-            A moderator creates a pool, sets rules and invites members
-            <br />
-            Members join the pool, make their picks and score points for correct picks
-            <br />
-            The player that scores the most points wins!
+            A moderator creates a pool, sets rules and invites members. Members join the pool, make their picks and score points for correct picks. The player that scores the most points wins!
           </p>
           <div className="splash-mid-carousel">
             { this.state.teams.map(name => (
