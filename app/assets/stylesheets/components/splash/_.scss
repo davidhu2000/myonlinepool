@@ -122,7 +122,7 @@
 // }
 
 .splash-container {
-  min-height: 100%;
+//   min-height: 100%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -173,6 +173,7 @@
   }
 
   p {
+    width: 870px;
     text-align: center;
     font-size: 20px;
     line-height: 35px;
@@ -199,9 +200,11 @@
       -ms-flex-align: center;
           align-items: center;
 //   background: $drk-primary;
-    background: url(http://i.huffpost.com/gen/2312972/images/o-ODELL-facebook.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
+    // background: url(http://i.huffpost.com/gen/2312972/images/o-ODELL-facebook.jpg);
+    // background-size: 100%;
+    background-image: url(http://i.huffpost.com/gen/2312972/images/o-ODELL-facebook.jpg);
+
+    // background-repeat: no-repeat;
 
 
   .splash-mid-content {
@@ -255,7 +258,8 @@
   p {
     text-align: center;
     font-size: 20px;
-    line-height: 45px;
+    line-height: 35px;
+    margin-bottom: 25px;
   }
   .splash-mid-carousel {
     padding: 20px 20px;
@@ -281,6 +285,7 @@
 
 .splash-teaser {
   width: 100%;
+//   width: 870px;
   padding: 40px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -305,6 +310,7 @@
   p {
     text-align: center;
     font-size: 20px;
-    line-height: 45px;
+    line-height: 35px;
+    width: 870px;
   }
 }

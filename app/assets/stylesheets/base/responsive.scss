@@ -164,7 +164,7 @@
 //   }
 // }
 
-@media screen and (max-device-width : 769px) {
+@media screen and (max-width : 769px) {
   
     .base-wrapper {
       padding-left: 0px;
@@ -204,15 +204,6 @@
         font-size: 25px;
         font-weight: bold;
       }
-      .splash-mid-carousel {
-        padding: 0px;
-        div[class^='logo-'] {
-          margin: 0px 5px;
-          -webkit-transform: scale(.75);
-              -ms-transform: scale(.75);
-                  transform: scale(.75);
-        }
-      }
     }
     .splash-bottom {
       h1 {
@@ -220,8 +211,13 @@
         font-weight: bold;
         text-align: center;
       }
-      .splash-bottom-body {
-        width: 100%;
+      // .splash-bottom-body {
+      //   width: 100%;
+      // }
+      p {
+        text-align: center;
+        font-size: 20px;
+        line-height: 35px;
       }
     }
     // dashboard

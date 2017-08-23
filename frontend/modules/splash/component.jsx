@@ -37,12 +37,8 @@ class Splash extends React.Component {
           <p>
           A simple app to make running your own office pool
           <span> QUICK</span>, <span>EASY</span> and most
-          of all <span>FUN</span>!
-          <br />
-          With the 2017 NFL fast approaching, why not create and host
-          your own NFL Football office pool today.
-          <br />
-            <span>Invite your friends</span> to join the fun!
+          of all <span>FUN</span>! With the 2017 NFL fast approaching, why not create and host
+          your own NFL Football office pool today. <span>Invite your friends</span> to join the fun!
           </p>
         </div>
         <div className="splash-mid">
@@ -76,10 +72,7 @@ class Splash extends React.Component {
           <h1>Create your own NFL office pool today!</h1>
           <p>
             Once the season begins we{"'"}ll update game scores and display weekly results
-            on your pools{"'"} leaderboard.
-            <br />
-            There{"'"}s a a message board where you can talk trash or chat during games
-            <br />
+            on your pools{"'"} leaderboard. There{"'"}s a a message board where you can talk trash or chat during games
             and a stats page with helpful research
           </p>
         </div>
