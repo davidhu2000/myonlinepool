@@ -46,20 +46,16 @@ class Splash extends React.Component {
           </p>
         </div>
         <div className="splash-mid">
-          <h1>Host Your Own 2017 NFL Football Pool in 3 Easy Steps</h1>
-          <p>
-            Register for free
-          <br />
-            Create a pool
-          <br />
-            Invite friends to play
-          </p>
-          {/* Randomly display logo for 5 NFL teams */}
-          {/* <div className="splash-mid-carousel">
-            { this.state.teams.map(name => (
-              <div key={name} className={`logo-${name}`} />
-            ))}
-          </div> */}
+          <div className="splash-mid-content">
+            <h1>Host Your Own 2017 NFL Football Pool in 3 Easy Steps</h1>
+            <p>
+              1. Register for free
+            <br />
+              2. Create a pool
+            <br />
+              3. Invite friends to play
+            </p>
+          </div>
         </div>
         <div className="splash-bottom">
           <h1>Playing is even easier! Here is how to play</h1>
@@ -70,9 +66,14 @@ class Splash extends React.Component {
             <br />
             The player that scores the most points wins!
           </p>
+          <div className="splash-mid-carousel">
+            { this.state.teams.map(name => (
+              <div key={name} className={`logo-${name}`} />
+            ))}
+          </div>
         </div>
         <div className="splash-teaser">
-          <h1>Create an NFL office pool today!</h1>
+          <h1>Create your own NFL office pool today!</h1>
           <p>
             Once the season begins we{"'"}ll update game scores and display weekly results
             on your pools{"'"} leaderboard.
