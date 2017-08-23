@@ -176,12 +176,12 @@
       background: #E9EBEE;
     }
     .app-container {
-      width: 100%;
-      min-width: initial;
+      // width: 100%;
+      // min-width: none;
       // min-height: initial;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
+      // -webkit-box-pack: start;
+      //     -ms-flex-pack: start;
+      //         justify-content: flex-start;
     }
     // navbar
     .navbar-container {
@@ -195,25 +195,23 @@
     }
     .splash-top {
       h1 {
-        font-size: 25px;
-        font-weight: bold;
+       
       }
     }
     .splash-mid {
       h1 {
-        font-size: 25px;
-        font-weight: bold;
+        
       }
     }
     .splash-bottom {
+
+    }
+    .splash-teaser {
       h1 {
-        font-size: 25px;
+        font-size: 30px;
+        margin-bottom: 25px;
         font-weight: bold;
-        text-align: center;
       }
-      // .splash-bottom-body {
-      //   width: 100%;
-      // }
       p {
         text-align: center;
         font-size: 20px;
