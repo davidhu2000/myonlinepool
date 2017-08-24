@@ -215,7 +215,7 @@
       }
     }
 
-    button {
+    .auto-button {
       height: 40px;
       width: 135px;
       font-size: 15px;
@@ -241,7 +241,7 @@
         margin-right: 10px;
       }
     }
-    button:hover {
+    .auto-button:hover {
       // color: $lt-primary;
       color: white;
       // background: black;
@@ -251,9 +251,13 @@
     }
     .picks-dropdown {
       z-index: 100;
+      width: 135px;
       position: absolute;
-      bottom: -110px;
+      // bottom: -110px;
+      top: 40px;
       right: 0px;
+      font-size: 15px;
+      background: white;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;

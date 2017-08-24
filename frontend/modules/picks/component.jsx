@@ -189,9 +189,11 @@ class Picks extends React.Component {
             {this.props.pool.title}
             {this.renderWeekRecord()}
             <div>
-              <button className="autopick-button" onClick={this.toggleDropdown}>
-                <i className="fa fa-caret-down" aria-hidden="true" />
-                Auto Pick
+              <button onClick={this.toggleDropdown}>
+                <div className="auto-button">
+                  <i className="fa fa-caret-down" aria-hidden="true" />
+                  Auto Pick
+                </div>
               </button>
               { this.state.showDropdown ?
                 <PicksDropdown
