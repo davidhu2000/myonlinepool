@@ -68,18 +68,23 @@
         padding-right: 5px;
       }
     }
-    button {
+    // button {
+    //   height: 30px;
+    //   width: 140px;
+    //   font-size: 12px;
+    //   line-height: 12px;
+    //   margin: 7.5px 5px;  
+    //     i {
+    //       padding-right: 10px;
+    //     }     
+    // }
+    .pool-create-button, .pool-join-button {
+      margin: 7.5px 5px;
+      // margin-right: 20px;
       height: 30px;
       width: 140px;
       font-size: 12px;
       line-height: 12px;
-      margin: 7.5px 5px;  
-        i {
-          padding-right: 10px;
-        }     
-    }
-    .pool-create-button, .pool-join-button {
-      margin-right: 20px;
       background: $drk-primary;
       color: white;     
       &:hover {
@@ -87,6 +92,9 @@
         color: black;
         border: 1px $drk-primary solid;
       }
-    }  
-  }
+      i {
+        padding-right: 10px;
+      }     
+    }
+  }  
 }
