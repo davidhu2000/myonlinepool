@@ -30,7 +30,9 @@ class Team < ApplicationRecord
                                           away_losses: 0,
                                           beat_over: 0,
                                           points_for: 0,
-                                          points_against: 0 } 
+                                          points_against: 0,
+                                          home_ties: 0,
+                                          away_ties: 0 } 
                                         }
 
     games.each do |game|
@@ -44,7 +46,9 @@ class Team < ApplicationRecord
           records[game.away_id][:away_losses] += 1
         when 0
           records[game.home_id][:ties] += 1
+          records[game.home_id][:home_ties] += 1
           records[game.away_id][:ties] += 1
+          records[game.away_id][:away_ties] += 1
         when -1
           records[game.away_id][:wins] += 1
           records[game.away_id][:away_wins] += 1

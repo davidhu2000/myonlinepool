@@ -27,8 +27,10 @@ class Metrics extends React.Component {
           ties: 0,
           home_wins: 0,
           home_losses: 0,
+          home_ties: 0,
           away_wins: 0,
           away_losses: 0,
+          away_ties: 0,
           points_for: 0,
           points_against: 0
         },
@@ -40,8 +42,10 @@ class Metrics extends React.Component {
           ties: 0,
           home_wins: 0,
           home_losses: 0,
+          home_ties: 0,
           away_wins: 0,
           away_losses: 0,
+          away_ties: 0,
           points_for: 0,
           points_against: 0
         },
@@ -53,8 +57,10 @@ class Metrics extends React.Component {
           ties: 0,
           home_wins: 0,
           home_losses: 0,
+          home_ties: 0,
           away_wins: 0,
           away_losses: 0,
+          away_ties: 0,
           points_for: 0,
           points_against: 0
         },
@@ -66,8 +72,10 @@ class Metrics extends React.Component {
           ties: 0,
           home_wins: 0,
           home_losses: 0,
+          home_ties: 0,
           away_wins: 0,
           away_losses: 0,
+          away_ties: 0,
           points_for: 0,
           points_against: 0
         }

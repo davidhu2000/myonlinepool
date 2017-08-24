@@ -27,10 +27,10 @@ class MetricsBox extends React.Component {
           {team.wins} - {team.losses} - {team.ties}
         </div>
         <div>
-          {team.home_wins} - {team.home_losses}
+          {team.home_wins} - {team.home_losses} - {team.home_ties}
         </div>
         <div>
-          {team.away_wins} - {team.away_losses}
+          {team.away_wins} - {team.away_losses} - {team.away_ties}
         </div>
         <div>
           {Math.floor(team.points_for / team.games_played) || 0}
