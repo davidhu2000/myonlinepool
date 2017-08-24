@@ -240,7 +240,7 @@
       .home-top {
         width: 100%;
         height: auto;
-        padding: 10px 0px;
+        padding: 20px 0px;
         -ms-flex-pack: distribute;
             justify-content: space-around;
         -webkit-box-align: start;
@@ -253,14 +253,32 @@
           .pool-list-top {
             left: 10px;
           }
+          .pool-list-bottom {
+            .button {
+              height: 50px;
+              font-size: 20px
+            }
+            .pool-list-item {
+              height: 50px;
+              font-size: 20px;
+            }
+          }
         }
         .profile-box {
-          height: auto;
+          // height: auto;
           .profile-box-bottom {
             padding-top: 0px;
           }
-          .email {
-            margin-bottom: 0px;
+          .label {
+            font-size: 20px;
+          }
+          .email, .username {
+            // margin-bottom: 0px;
+            font-size: 20px;
+          }
+          .profile-edit-button {
+            height: 50px;
+            font-size: 20px;
           }
         }
       }
@@ -269,6 +287,12 @@
           width: 100%;
           padding-left: 40px;
           padding-right: 40px;
+          .title {
+            font-size: 20px;
+          }
+          .message {
+            font-size: 20px;
+          }
         }
       }
       .home-bottom {
