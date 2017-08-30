@@ -1,3 +1,96 @@
+// $off-white: #e9ebee;
+
+// .pool-standings-box {
+//   width: 415px;
+//   position: relative;
+//   padding: 0px 5px;
+//   padding-top: 20px;
+
+//   .pool-standings-box-title {
+//     position: absolute;
+//     width: 100%;
+//     top: 0px;
+//     left: 0px;
+//     font-size: 20px;
+//     font-weight: bold;
+//     display: flex;
+//     justify-content: space-between;
+//     // padding-right: 10px;
+
+//     .week-switcher {
+//       .fa-caret-left {
+//         cursor: pointer;
+//         padding-right: 5px;
+//       }
+//       .fa-caret-right {
+//         cursor: pointer;
+//         padding-left: 5px;
+//       }
+//       .fa-caret-left:hover, .fa-caret-right:hover {
+//         opacity: .5;
+//       }
+//     }
+//   }
+
+//   div:nth-child(3) {
+//     color: $best-red;
+//   }
+
+//   .pool-standings-box-top-item {
+//     display: flex;
+//     justify-content: space-between;
+//     .score, .losses {
+//       text-align: center;
+//     }
+//   }
+// }
+
+// .pool-standings-box-item {
+//   display: flex;
+//   justify-content: space-between;
+//   border-top: .2px rgba(51, 51, 51,.2) solid;
+//   padding: 5px 0px;
+//   font-size: 15px;
+
+//   div:nth-child(3) {
+//     color: inherit;
+//   }
+
+//   .title {
+//     width: 200px;
+//     text-overflow: ellipsis !important;
+//   }
+
+//   div {
+//     text-align: left;
+//     width: 75px;
+//   }
+
+//   .score {
+//     text-align: center;
+//   }
+// }
+
+// .pool-standings-box-top-item {
+//   display: flex;
+//   margin-top: 10px;
+//   padding: 5px 0px;
+//   font-weight: bold;
+//   font-size: 15px;
+
+//   .title{
+//     width: 200px;
+//   }
+
+//   .score, .losses {
+//     width: 75px;
+//   }
+
+//   div:nth-child(3) {
+//     color: inherit;
+//   }
+// }
+
 $off-white: #e9ebee;
 
 .pool-standings-box {
@@ -13,8 +106,12 @@ $off-white: #e9ebee;
     left: 0px;
     font-size: 20px;
     font-weight: bold;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     // padding-right: 10px;
 
     .week-switcher {
@@ -37,8 +134,12 @@ $off-white: #e9ebee;
   }
 
   .pool-standings-box-top-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     .score, .losses {
       text-align: center;
     }
@@ -46,8 +147,12 @@ $off-white: #e9ebee;
 }
 
 .pool-standings-box-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-top: .2px rgba(51, 51, 51,.2) solid;
   padding: 5px 0px;
   font-size: 15px;
@@ -58,7 +163,8 @@ $off-white: #e9ebee;
 
   .title {
     width: 200px;
-    text-overflow: ellipsis !important;
+    -o-text-overflow: ellipsis !important;
+       text-overflow: ellipsis !important;
   }
 
   div {
@@ -72,6 +178,8 @@ $off-white: #e9ebee;
 }
 
 .pool-standings-box-top-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 10px;
   padding: 5px 0px;

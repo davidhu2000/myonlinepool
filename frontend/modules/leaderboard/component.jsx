@@ -69,7 +69,7 @@ class Leaderboard extends React.Component {
         <div className="leaderboard-body">
           {this.renderMembers()}
         </div>
-        <div className="leaderboard-banner">
+        {/* <div className="leaderboard-banner">
           Weekly Winners
         </div>
         <div className="leaderboard-weekly-labels">
@@ -79,7 +79,7 @@ class Leaderboard extends React.Component {
         </div>
         <div className="leaderboard-weekly-body">
           {this.renderWeeklyWinners()}
-        </div>
+        </div> */}
       </div>
     );
   }

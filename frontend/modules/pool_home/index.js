@@ -10,7 +10,8 @@ const mapStateToProps = ({ user, pool }) => ({
 const mapDispatchToProps = dispatch => ({
   fetchMessages: (poolId, offset) => dispatch(Actions.fetchMessages(poolId, offset)),
   fetchBulletins: (poolId, offset) => dispatch(Actions.fetchBulletins(poolId, offset)),
-  createMessage: message => dispatch(Actions.createMessage(message))
+  createMessage: message => dispatch(Actions.createMessage(message)),
+  sendInvite: data => dispatch(Actions.sendInvite(data))
 });
 
 export default connect(

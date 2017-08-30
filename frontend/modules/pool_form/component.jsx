@@ -115,13 +115,21 @@ class PoolForm extends React.Component {
           />
 
           <div className="submit-row">
-            <input
+            {/* <input
               type="submit"
               className="button pool-create-button"
               value="Create"
               onMouseEnter={this.isFormValid}
               disabled={!this.state.isValid}
-            />
+            /> */}
+
+            <button
+              type="submit"
+            >
+              <div className="button pool-create-button">
+                Create
+              </div>
+            </button>
 
             { this.state.loading && (
               <div className='loader'>

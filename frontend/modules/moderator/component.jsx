@@ -53,6 +53,7 @@ class Moderator extends React.Component {
         toggleMembership={this.props.toggleMembership}
         removeMember={this.props.removeMember}
         pool={this.props.pool}
+        key={member.id}
       />
     ));
   }
@@ -67,18 +68,21 @@ class Moderator extends React.Component {
             createBulletin={this.props.createBulletin}
             deleteBulletin={this.props.deleteBulletin}
             poolId={Number(this.props.params.poolId)}
+            key={Math.random()}
           />
         </div>
         <div className="moderator-name-form">
           <NameForm
             updateName={this.props.updateName}
             poolId={Number(this.props.params.poolId)}
+            title={this.props.pool.title}
           />
         </div>
         <div className="moderator-buy-form">
           <BuyForm
             updateBuyin={this.props.updateBuyin}
             poolId={Number(this.props.params.poolId)}
+            buyIn={this.props.pool.buyIn}
           />
         </div>
         <div className="pool-roster">

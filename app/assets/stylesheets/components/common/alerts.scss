@@ -1,3 +1,37 @@
+// .alerts-container {
+//   > div[class^='css-'] > span > div[class^='css-'] {
+//     width: 400px;
+    
+//     div {
+//       // alert icon
+//       &:first-child {
+//         font-size: 30px;
+//         opacity: 0.8;
+
+//         .fa-exclamation-triangle {
+//           color: red;
+//         }
+
+//         .fa-check-circle {
+//           color: green;
+//         }
+//       }
+    
+//       // alert message div
+//       &:nth-child(2) {
+//         font-size: 15px;
+//         font-weight: 700;
+//         text-transform: none;
+//       }
+
+//       // alert close div
+//       &:last-child {
+//       }
+//     }
+    
+//   }
+// }
+
 .alerts-container {
   > div[class^='css-'] > span > div[class^='css-'] {
     width: 400px;

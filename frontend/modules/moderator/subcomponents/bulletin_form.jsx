@@ -2,6 +2,7 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
+// import { values } from 'lodash';
 import { FormTextInput } from 'common/components';
 
 class BulletinForm extends React.Component {
@@ -45,13 +46,13 @@ class BulletinForm extends React.Component {
         />
 
         <div className="bulletin-form-button-row">
-          <button
+          {/* <button
             onClick={() => this.props.deleteBulletin(this.props.poolId)}
             className="bulletin-form-button"
           >
             Delete Last
-          </button>
-          <input type='submit' className="bulletin-form-button" value="Post" />
+          </button> */}
+          <input type='submit' className="bulletin-form-button" value="Update" />
         </div>
       </form>
     );
@@ -60,8 +61,7 @@ class BulletinForm extends React.Component {
 
 BulletinForm.propTypes = {
   poolId: PropTypes.number.isRequired,
-  createBulletin: PropTypes.func.isRequired,
-  deleteBulletin: PropTypes.func.isRequired
+  createBulletin: PropTypes.func.isRequired
 };
 
 export { BulletinForm };

@@ -23,3 +23,11 @@ export const fetchBulletins = (poolId, offset) => (
     data: { pool_id: poolId, offset }
   })
 );
+
+export const sendInvite = email => (
+  $.ajax({
+    method: "POST",
+    url: `api/mailers`,
+    data: email
+  })
+);

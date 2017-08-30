@@ -17,21 +17,91 @@ class Metrics extends React.Component {
   }
 
   renderTeams(divTeams, sectionName) {
-    let teams = values(this.props.teams);
-    let AFCTeams = [];
-    teams.forEach(team => {
-      if (team.name === divTeams[0] ||
-          team.name === divTeams[1] ||
-          team.name === divTeams[2] ||
-          team.name === divTeams[3]) {
-        AFCTeams.push(team);
-      }
-    });
-    return (
-      <MetricsBox
-        teams={AFCTeams}
-        section={sectionName}
-      />);
+    if (values(this.props.teams).length < 1) {
+      let parsedTeams = [
+        {
+          name: divTeams[0],
+          games_played: 0,
+          wins: 0,
+          losses: 0,
+          ties: 0,
+          home_wins: 0,
+          home_losses: 0,
+          home_ties: 0,
+          away_wins: 0,
+          away_losses: 0,
+          away_ties: 0,
+          points_for: 0,
+          points_against: 0
+        },
+        {
+          name: divTeams[1],
+          games_played: 0,
+          wins: 0,
+          losses: 0,
+          ties: 0,
+          home_wins: 0,
+          home_losses: 0,
+          home_ties: 0,
+          away_wins: 0,
+          away_losses: 0,
+          away_ties: 0,
+          points_for: 0,
+          points_against: 0
+        },
+        {
+          name: divTeams[2],
+          games_played: 0,
+          wins: 0,
+          losses: 0,
+          ties: 0,
+          home_wins: 0,
+          home_losses: 0,
+          home_ties: 0,
+          away_wins: 0,
+          away_losses: 0,
+          away_ties: 0,
+          points_for: 0,
+          points_against: 0
+        },
+        {
+          name: divTeams[3],
+          games_played: 0,
+          wins: 0,
+          losses: 0,
+          ties: 0,
+          home_wins: 0,
+          home_losses: 0,
+          home_ties: 0,
+          away_wins: 0,
+          away_losses: 0,
+          away_ties: 0,
+          points_for: 0,
+          points_against: 0
+        }
+      ];
+      return (
+        <MetricsBox
+          teams={parsedTeams}
+          section={sectionName}
+        />);
+    } else {
+      let teams = values(this.props.teams);
+      let ConfTeams = [];
+      teams.forEach(team => {
+        if (team.name === divTeams[0] ||
+            team.name === divTeams[1] ||
+            team.name === divTeams[2] ||
+            team.name === divTeams[3]) {
+          ConfTeams.push(team);
+        }
+      });
+      return (
+        <MetricsBox
+          teams={ConfTeams}
+          section={sectionName}
+        />);
+    }
   }
 
   render() {

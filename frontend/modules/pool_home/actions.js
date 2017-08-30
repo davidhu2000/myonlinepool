@@ -33,3 +33,7 @@ export const fetchBulletins = (poolId, offset = 0) => dispatch => (
     err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );
+
+export const sendInvite = data => () => (
+  PoolAPI.sendInvite(data)
+);

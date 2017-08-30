@@ -1,20 +1,28 @@
 require 'tty-progressbar'
 require 'pastel'
 
-mainAdminUser = User.new(
+main_adminuser = User.new(
   name: 'Me Admin',
   email: "me@gmail.com",
   password: 'password',
   confirmed_at: Date.new
 )
-mainAdminUser.save!
+main_adminuser.save!
+
+test_user = User.new(
+  name: 'Webmaster',
+  email: 'asherman.ca@gmail.com',
+  password: 'password',
+  confirmed_at: Date.new
+)
+test_user.save!
 
 puts 
 puts
 puts 'SEEDING ANOUNCEMENTS'
 puts '-------------------------------------------------------------------------'
-Announcement.create(title: "Manage Profile", body: "Change your user information by clicking the profile link in the dropdown")
-Announcement.create(title: "Manage Pools", body: "Moderators can increase pool size with paypal")
+# Announcement.create(title: "Manage Profile", body: "Change your user information by clicking the profile link in the dropdown")
+Announcement.create(title: "Manage Pools", body: "Moderators can manage rosters and increase pool size")
 Announcement.create(title: "Join Pools", body: "Once you've received a pool's id and password, use the Join Pool button")
 Announcement.create(title: "Create Pools", body: "Click the Create Pool button to start a pool and invite players")
 

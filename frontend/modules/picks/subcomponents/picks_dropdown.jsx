@@ -19,13 +19,19 @@ class Dropdown extends React.Component {
     return (
       <div className="picks-dropdown">
         <button onClick={this.props.pickFavorites}>
+          <div className="auto-button">
           Favorites
+          </div>
         </button>
         <button onClick={this.props.pickHome}>
+          <div className="auto-button">
           Home
+          </div>
         </button>
         <button onClick={this.props.pickAway}>
+          <div className="auto-button">
           Away
+          </div>
         </button>
       </div>
     );

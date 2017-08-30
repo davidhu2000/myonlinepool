@@ -1,79 +1,379 @@
-@media (max-width: 500px) {
-  // common
-  .base-wrapper {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .app-container {
-    width: 100%;
-    max-width: 500px;
-    min-width: 400px;
-    min-height: 500px;
-  }
-  // navbar
-  .navbar-container {
-    width: 100%;
-    min-width: 300px;
-    max-width: 500px;
-  }
-  // splash
-  .splash-top {
-    h1 {
-      font-size: 25px;
-      font-weight: bold;
+// @media screen and (max-device-width : 769px) {
+
+//   .base-wrapper {
+//     padding-left: 0px;
+//     padding-right: 0px;
+//     background: #E9EBEE;
+//   }
+//   .base-container {
+//     // min-height: initial;
+//     background: #E9EBEE;
+//   }
+//   .app-container {
+//     width: 100%;
+//     min-width: initial;
+//     // min-height: initial;
+//     justify-content: flex-start;
+//   }
+//   // navbar
+//   .navbar-container {
+//     width: 100%;
+//   }
+//   // splash
+//   .splash-container {
+//     justify-content: flex-start;
+//   }
+//   .splash-top {
+//     h1 {
+//       font-size: 25px;
+//       font-weight: bold;
+//     }
+//   }
+//   .splash-mid {
+//     h1 {
+//       font-size: 25px;
+//       font-weight: bold;
+//     }
+//     .splash-mid-carousel {
+//       padding: 0px;
+//       div[class^='logo-'] {
+//         margin: 0px 5px;
+//         transform: scale(.75);
+//       }
+//     }
+//   }
+//   .splash-bottom {
+//     h1 {
+//       font-size: 25px;
+//       font-weight: bold;
+//       text-align: center;
+//     }
+//     .splash-bottom-body {
+//       width: 100%;
+//     }
+//   }
+//   // dashboard
+//   .home-container {
+//     min-width: 0px;
+//     justify-content: flex-start;
+//     .home-top {
+//       width: 100%;
+//       height: auto;
+//       padding: 10px 0px;
+//       justify-content: space-around;
+//       align-items: flex-start;
+//       .pool-list {
+//         padding-left: 20px;
+//         padding-right: 20px;
+//         height: none;
+//         .pool-list-top {
+//           left: 10px;
+//         }
+//       }
+//       .profile-box {
+//         height: auto;
+//         .profile-box-bottom {
+//           padding-top: 0px;
+//         }
+//         .email {
+//           margin-bottom: 0px;
+//         }
+//       }
+//     }
+//     .home-bulletin {
+//       .modboard-box {
+//         width: 100%;
+//         padding-left: 40px;
+//         padding-right: 40px;
+//       }
+//     }
+//     .home-bottom {
+//       width: 100%;
+//       min-height: 0px;
+//       .standings-box {
+//         margin-top: 10px;
+//       }
+//     }
+//   }
+//   // profile
+//   .profile-container {
+//     height: 100%;
+//     padding-top: 100px;
+//   }
+//   // auth
+//   .signup-container {
+//     align-items: flex-start;
+//     padding-top: 100px;
+//   }
+//   // pool home
+//   .pool-root {
+//     justify-content: flex-start;
+//   }
+//   .pool-container {
+//     min-height: 0px;
+//     .pool-standings {
+//       width: 100%;
+//       justify-content: space-around;
+//     }
+//     .pool-bulletin {
+//       .bulletin-box {
+//         width: 100%;
+//       }
+//       .bulletin-header {
+//         width: 100%;
+//       }
+//     }
+//     .bulletin-container {
+//       padding-left: 20px;
+//     }
+//     .pool-coms {
+//       width: 100%;
+//       .chat-box {
+//         width: 100%;
+//         padding-right: 20px;
+//         padding-left: 20px;
+//         h2 {
+//           left: 20px;
+//         }
+//       }
+//     }
+//   }
+//   // pick form
+//   .picks-container {
+//     min-height: 0px;
+//     min-width: 100%;
+//     width: 100%;
+//     padding-bottom: 0px;
+//     .picks-top {
+//       min-width: 100%;
+//       width: 100%;
+//     }
+//   }
+//   // team stats
+//   .metrics-container {
+//     min-width: 0px;
+//     width: 100%;
+//   }
+//   // moderator
+//   .moderator-container {
+//     padding-top: 40px;
+//   }
+//   // console
+//   .console-container {
+//     padding-top: 40px;
+//   }
+// }
+
+@media screen and (max-device-width : 769px) {
+  
+    .base-wrapper {
+      padding-left: 0px;
+      padding-right: 0px;
+      background: #E9EBEE;
     }
-  }
-  .splash-mid {
-    h1 {
-      font-size: 25px;
-      font-weight: bold;
+    .base-container {
+      // min-height: initial;
+      background: #E9EBEE;
     }
-    .splash-mid-carousel {
-      padding: 0px;
-      div[class^='logo-'] {
-        margin: 0px 5px;
-        transform: scale(.75);
+    .app-container {
+      padding-top: 100px;
+    }
+    // navbar
+    .navbar-container {
+      height: 100px;
+      .title {
+        font-size: 30px;
+      }
+      .account-button {
+        font-size: 30px;
+      }
+      #left-dropdown-button {
+        top: 40px;
+      }
+      .navbar-dropdown {
+        top: 100px;
+        width: auto;
+        padding: 20px 10px;
+      }
+      .navbar-dropdown-list {
+        font-size: 30px;
       }
     }
-  }
-  .splash-bottom {
-    h1 {
-      font-size: 25px;
-      font-weight: bold;
-      text-align: center;
+    // splash
+    .splash-container {
+      
     }
-    .splash-bottom-body {
+    .splash-top {
+      h1 {
+       font-size: 30px;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+    // .splash-mid {
+    //   h1 {
+        
+    //   }
+    // }
+    // .splash-bottom {
+
+    // }
+    // .splash-teaser {
+    //   h1 {
+    //     font-size: 30px;
+    //     margin-bottom: 25px;
+    //     font-weight: bold;
+    //   }
+    //   p {
+    //     text-align: center;
+    //     font-size: 20px;
+    //     line-height: 35px;
+    //   }
+    // }
+    // dashboard
+    .home-container {
+      min-width: 0px;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+      .home-top {
+        width: 100%;
+        height: auto;
+        padding: 20px 0px;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+        .pool-list {
+          padding-left: 20px;
+          padding-right: 20px;
+          height: none;
+          .pool-list-top {
+            left: 10px;
+          }
+          .pool-list-bottom {
+            .button {
+              height: 50px;
+              font-size: 20px
+            }
+            .pool-list-item {
+              height: 50px;
+              font-size: 20px;
+            }
+          }
+        }
+        .profile-box {
+          // height: auto;
+          .profile-box-bottom {
+            padding-top: 0px;
+          }
+          .label {
+            font-size: 20px;
+          }
+          .email, .username {
+            // margin-bottom: 0px;
+            font-size: 20px;
+          }
+          .profile-edit-button {
+            height: 50px;
+            font-size: 20px;
+          }
+        }
+      }
+      .home-bulletin {
+        .modboard-box {
+          width: 100%;
+          padding-left: 40px;
+          padding-right: 40px;
+          .title {
+            font-size: 20px;
+          }
+          .message {
+            font-size: 20px;
+          }
+        }
+      }
+      .home-bottom {
+        width: 100%;
+        min-height: 0px;
+        .standings-box {
+          margin-top: 10px;
+        }
+      }
+    }
+    // profile
+    .profile-container {
+      height: 100%;
+      padding-top: 100px;
+    }
+    // auth
+    .signup-container {
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      padding-top: 100px;
+    }
+    // pool home
+    .pool-root {
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+    }
+    .pool-container {
+      min-height: 0px;
+      .pool-standings {
+        width: 100%;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+      }
+      .pool-bulletin {
+        .bulletin-box {
+          width: 100%;
+        }
+        .bulletin-header {
+          width: 100%;
+        }
+      }
+      .bulletin-container {
+        padding-left: 20px;
+      }
+      .pool-coms {
+        width: 100%;
+        .chat-box {
+          width: 100%;
+          padding-right: 20px;
+          padding-left: 20px;
+          h2 {
+            left: 20px;
+          }
+        }
+      }
+    }
+    // pick form
+    .picks-container {
+      min-height: 0px;
+      min-width: 100%;
+      width: 100%;
+      padding-bottom: 0px;
+      .picks-top {
+        min-width: 100%;
+        width: 100%;
+        top: 100px;
+      }
+    }
+    // team stats
+    .metrics-container {
+      min-width: 0px;
       width: 100%;
     }
-  }
-  // dashboard
-  .home-container {
-    max-width: 500px;
-    min-width: 400px;
-    min-height: 500px;
-    justify-content: space-around;
-    .home-top {
-      width: 400px;
-      height: 400px;
-      padding: none;
-      flex-direction: column;
-      .pool-list {
-        // height: 420px;
-        width: 400px;
-        height: none;
-      }
-      .profile-box {
-        width: 400px;
-        height: none;
-      }
+    // moderator
+    .moderator-container {
+      padding-top: 40px;
     }
-    .home-bottom {
-      width: 400px;
-      min-height: 0px;
-      flex-direction: column;
-      .standings-box {
-        margin-top: 10px;
-      }
+    // console
+    .console-container {
+      padding-top: 40px;
     }
   }
-}

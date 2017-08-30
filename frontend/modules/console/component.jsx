@@ -66,9 +66,6 @@ class AdminConsole extends React.Component {
         <div className="console-top">
           <div className="console-header">
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
-            <button>
-              Update All
-            </button>
           </div>
           <div className="console-labels">
             <div>Away</div>

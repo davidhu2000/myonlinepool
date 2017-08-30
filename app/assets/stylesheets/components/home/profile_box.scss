@@ -1,19 +1,90 @@
+// .profile-box { 
+//   width: 289px;
+//   height: 225px;
+//   position: relative;
+//   padding-top: 40px;
+//   display: flex;
+//   flex-direction: column;
+//   align-content: space-between;
+
+//   .profile-box-top {
+//     width: 100%;
+//     position: absolute;
+//     top: 0px;
+//     left: 5px;
+//     display: flex;
+//     justify-content: flex-start;
+//     font-size: 20px;
+
+//     .profile-box-top-title {
+//       font-weight: bold;
+//       opacity: .5;
+//     }
+//   }
+//   .profile-box-bottom {
+//     padding-left: 10px;
+//     padding-top: 7.5px;
+//     display: flex;
+//     justify-content: space-between;
+    
+//     .profile-box-bottom-left {
+//       display: flex;
+//       flex-direction: column;
+//     }
+//     .label {
+//       font-weight: bold;
+//       margin-bottom: 5px;
+//       font-size: 15px;
+//     }
+//     .email, .username {
+//       margin-bottom: 15px;
+//     }
+//     .profile-edit-button {
+//       height: 30px;
+//       width: 140px;
+//       font-size: 12px;
+//       line-height: 12px;
+//       background: $drk-primary;
+//       color: white;     
+//         &:hover {
+//           background: white;
+//           color: black;
+//           border: 1px $drk-primary solid;
+//         }
+//         i {
+//           padding-right: 10px;
+//         }     
+//       }
+//     }
+  
+// }  
+
 .profile-box { 
   width: 289px;
-  height: 225px;
+  // height: 225px;
   position: relative;
   padding-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
 
   .profile-box-top {
     width: 100%;
     position: absolute;
     top: 0px;
     left: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     font-size: 20px;
 
     .profile-box-top-title {
@@ -24,12 +95,21 @@
   .profile-box-bottom {
     padding-left: 10px;
     padding-top: 7.5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     
     .profile-box-bottom-left {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
     }
     .label {
       font-weight: bold;
@@ -56,5 +136,4 @@
         }     
       }
     }
-  
-}  
+}
