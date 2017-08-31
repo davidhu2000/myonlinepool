@@ -58,7 +58,7 @@ class Picks extends React.Component {
   pickHome() {
     let picks = [];
     Object.values(this.props.picks[this.state.week]).forEach(game => {
-      if (game.pick === '') {
+      if (game.pick !== 'home') {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
@@ -78,7 +78,7 @@ class Picks extends React.Component {
   pickAway() {
     let picks = [];
     Object.values(this.props.picks[this.state.week]).forEach(game => {
-      if (game.pick === '') {
+      if (game.pick !== 'away') {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
