@@ -94,6 +94,7 @@ class PoolHome extends React.Component {
             password={pool.password}
             poolId={pool.id}
             description={pool.description}
+            receiveAlerts={this.props.receiveAlerts}
           />
         </div>
 
@@ -132,7 +133,8 @@ PoolHome.propTypes = {
   createMessage: PropTypes.func.isRequired,
   fetchMessages: PropTypes.func.isRequired,
   fetchBulletins: PropTypes.func.isRequired,
-  sendInvite: PropTypes.func.isRequired
+  sendInvite: PropTypes.func.isRequired,
+  receiveAlerts: PropTypes.func.isRequired
 };
 
 export default withRouter(PoolHome);

@@ -41,6 +41,7 @@ class BulletinBox extends React.Component {
       email: this.state.invitee,
       id: this.props.id,
       password: this.props.password });
+    this.props.receiveAlerts(['Invite sent.'], 200);
     this.closeModal();
   }
 
@@ -151,7 +152,8 @@ BulletinBox.propTypes = {
   id: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   poolId: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
+  receiveAlerts: PropTypes.func.isRequired
 };
 
 export { BulletinBox };
