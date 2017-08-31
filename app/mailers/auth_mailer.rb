@@ -5,7 +5,7 @@ class AuthMailer < ApplicationMailer
     @url = "#{ENV['BASE_URL']}/#/auth?form=confirm-email&token=#{user.confirmation_token}&email=#{user.email}"
     @title = 'Activate your account'
     @message_one = "Thanks for signing up to My Online Pool"
-    @message_two = "You can join other pools right after you click the link to activate your account."
+    @message_two = "You can create or join other pools right after you click the link to activate your account."
     @button_text = 'Activate Account'
     mail(to: @user.email, subject: "Confirm your account to My Online Pool!", template_name: 'email')
   end
