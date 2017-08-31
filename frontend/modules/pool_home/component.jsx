@@ -93,6 +93,7 @@ class PoolHome extends React.Component {
             id={pool.identifier}
             password={pool.password}
             poolId={pool.id}
+            description={pool.description}
           />
         </div>
 
@@ -122,7 +123,8 @@ PoolHome.propTypes = {
     members: PropTypes.shape(),
     paymentMade: PropTypes.bool.isRequired,
     moderatorId: PropTypes.number.isRequired,
-    id: PropTypes.number
+    id: PropTypes.number,
+    description: PropTypes.string.isRequired
   }).isRequired,
   params: PropTypes.shape({
     poolId: PropTypes.string.isRequired

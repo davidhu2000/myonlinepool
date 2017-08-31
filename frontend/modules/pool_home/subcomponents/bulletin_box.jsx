@@ -99,6 +99,7 @@ class BulletinBox extends React.Component {
             contentLabel="Example Modal"
           >
             <h2><span>Pool:</span> {this.props.title}</h2>
+            <h2><span>Description:</span> {this.props.description}</h2>
             <h2><span>Moderator:</span> {this.props.moderatorName}</h2>
             <h2><span>Buy In:</span> ${this.props.buyIn}</h2>
             <h2><span>Identifier:</span> {this.props.id}</h2>
@@ -149,7 +150,8 @@ BulletinBox.propTypes = {
   userName: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  poolId: PropTypes.string.isRequired
+  poolId: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
 };
 
 export { BulletinBox };
