@@ -123,6 +123,16 @@ class Picks extends React.Component {
     this.toggleDropdown();
   }
 
+  renderAlerts() {
+    if (!this.props.pool.paymentMade) {
+      return (
+        <div className="pool-alert">
+          Pool requires payment.
+        </div>
+      );
+    }
+  }
+
   renderSelections() {
     if (this.state.loading) {
       let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
@@ -214,6 +224,7 @@ class Picks extends React.Component {
           </div>
         </div>
 
+        { this.renderAlerts() }
         { this.renderSelections() }
 
       </div>
