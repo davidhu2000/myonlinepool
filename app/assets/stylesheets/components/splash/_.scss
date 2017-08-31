@@ -138,6 +138,13 @@
       -ms-flex-align: center;
           align-items: center;
   // background: $lt-primary;
+
+//   min-height: 100%;
+  background-image: url(http://s1.ibtimes.com/sites/www.ibtimes.com/files/2014/11/24/odell-beckham.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .splash-top {
@@ -157,12 +164,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  // background: white;
-  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background: #E9EBEE;        
 
   span {
-    // margin-left: 100px;
-    // opacity: 0;
     font-weight: bold;
   }
 
@@ -181,9 +185,9 @@
 }
 
 .splash-mid {
-  height: 500px;
+//   height: 500px;
   width: 100%;
-  padding: 40px 0px;
+  padding: 60px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -199,11 +203,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-//   background: $drk-primary;
+    //   background: $drk-primary;
     // background: url(http://i.huffpost.com/gen/2312972/images/o-ODELL-facebook.jpg);
     // background-size: 100%;
-    background-image: url(http://i.huffpost.com/gen/2312972/images/o-ODELL-facebook.jpg);
-
+    // background-image: url(http://i.huffpost.com/gen/2312972/images/o-ODELL-facebook.jpg);
+    
     // background-repeat: no-repeat;
 
 
@@ -220,7 +224,7 @@
     p {
         margin-left: 35%;
         text-align: right;
-        font-size: 20px;
+        font-size: 25px;
         line-height: 45px;
         color: white;
         font-weight: bold;
@@ -245,6 +249,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: #E9EBEE;        
   // background: white;
   // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
