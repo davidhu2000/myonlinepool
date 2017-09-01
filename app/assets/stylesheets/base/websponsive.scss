@@ -1,169 +1,3 @@
-// @media screen and (max-device-width : 769px) {
-
-//   .base-wrapper {
-//     padding-left: 0px;
-//     padding-right: 0px;
-//     background: #E9EBEE;
-//   }
-//   .base-container {
-//     // min-height: initial;
-//     background: #E9EBEE;
-//   }
-//   .app-container {
-//     width: 100%;
-//     min-width: initial;
-//     // min-height: initial;
-//     justify-content: flex-start;
-//   }
-//   // navbar
-//   .navbar-container {
-//     width: 100%;
-//   }
-//   // splash
-//   .splash-container {
-//     justify-content: flex-start;
-//   }
-//   .splash-top {
-//     h1 {
-//       font-size: 25px;
-//       font-weight: bold;
-//     }
-//   }
-//   .splash-mid {
-//     h1 {
-//       font-size: 25px;
-//       font-weight: bold;
-//     }
-//     .splash-mid-carousel {
-//       padding: 0px;
-//       div[class^='logo-'] {
-//         margin: 0px 5px;
-//         transform: scale(.75);
-//       }
-//     }
-//   }
-//   .splash-bottom {
-//     h1 {
-//       font-size: 25px;
-//       font-weight: bold;
-//       text-align: center;
-//     }
-//     .splash-bottom-body {
-//       width: 100%;
-//     }
-//   }
-//   // dashboard
-//   .home-container {
-//     min-width: 0px;
-//     justify-content: flex-start;
-//     .home-top {
-//       width: 100%;
-//       height: auto;
-//       padding: 10px 0px;
-//       justify-content: space-around;
-//       align-items: flex-start;
-//       .pool-list {
-//         padding-left: 20px;
-//         padding-right: 20px;
-//         height: none;
-//         .pool-list-top {
-//           left: 10px;
-//         }
-//       }
-//       .profile-box {
-//         height: auto;
-//         .profile-box-bottom {
-//           padding-top: 0px;
-//         }
-//         .email {
-//           margin-bottom: 0px;
-//         }
-//       }
-//     }
-//     .home-bulletin {
-//       .modboard-box {
-//         width: 100%;
-//         padding-left: 40px;
-//         padding-right: 40px;
-//       }
-//     }
-//     .home-bottom {
-//       width: 100%;
-//       min-height: 0px;
-//       .standings-box {
-//         margin-top: 10px;
-//       }
-//     }
-//   }
-//   // profile
-//   .profile-container {
-//     height: 100%;
-//     padding-top: 100px;
-//   }
-//   // auth
-//   .signup-container {
-//     align-items: flex-start;
-//     padding-top: 100px;
-//   }
-//   // pool home
-//   .pool-root {
-//     justify-content: flex-start;
-//   }
-//   .pool-container {
-//     min-height: 0px;
-//     .pool-standings {
-//       width: 100%;
-//       justify-content: space-around;
-//     }
-//     .pool-bulletin {
-//       .bulletin-box {
-//         width: 100%;
-//       }
-//       .bulletin-header {
-//         width: 100%;
-//       }
-//     }
-//     .bulletin-container {
-//       padding-left: 20px;
-//     }
-//     .pool-coms {
-//       width: 100%;
-//       .chat-box {
-//         width: 100%;
-//         padding-right: 20px;
-//         padding-left: 20px;
-//         h2 {
-//           left: 20px;
-//         }
-//       }
-//     }
-//   }
-//   // pick form
-//   .picks-container {
-//     min-height: 0px;
-//     min-width: 100%;
-//     width: 100%;
-//     padding-bottom: 0px;
-//     .picks-top {
-//       min-width: 100%;
-//       width: 100%;
-//     }
-//   }
-//   // team stats
-//   .metrics-container {
-//     min-width: 0px;
-//     width: 100%;
-//   }
-//   // moderator
-//   .moderator-container {
-//     padding-top: 40px;
-//   }
-//   // console
-//   .console-container {
-//     padding-top: 40px;
-//   }
-// }
-
 @media screen and (max-width : 769px) {
   
     .base-wrapper {
@@ -342,8 +176,24 @@
       min-height: 0px;
       .pool-standings {
         width: 100%;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
+        padding-top: 0px;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+                align-items: center;
+        .pool-standings-box {
+          width: 100%;
+          margin-top: 20px;
+          padding-left: 20px;
+          padding-right: 20px;  
+        }
+
       }
       .pool-bulletin {
         .bulletin-box {
@@ -351,6 +201,9 @@
         }
         .bulletin-header {
           width: 100%;
+          .invite-button {
+            height: 50px;
+          }
         }
       }
       .bulletin-container {
@@ -362,6 +215,9 @@
           width: 100%;
           padding-right: 20px;
           padding-left: 20px;
+          .chat-form-button {
+            height: 50px;
+          }
           h2 {
             left: 20px;
           }
