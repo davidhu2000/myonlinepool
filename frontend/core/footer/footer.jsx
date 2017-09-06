@@ -14,12 +14,12 @@ const Footer = () => {
           myonlinepool.contact@gmail.com
         </div>
         <div className="internals">
-          <div>
+          <div className="internal-link">
             <Link to={'/faq'}>
               FAQs
             </Link>
           </div>
-          <div>
+          <div className="internal-link">
             <Link to={'/pricing'}>
               Pricing
             </Link>
