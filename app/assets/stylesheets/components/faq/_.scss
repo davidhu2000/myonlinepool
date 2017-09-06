@@ -1,3 +1,13 @@
 .faq {
-  font-size: 100px;
+  width: 870px;
+  padding: 10px 0px;
+  .faq-item {
+    margin: 10px 0px;
+    .title {
+      font-weight: bold;
+    }
+    .info {
+
+    }
+  }
 }
