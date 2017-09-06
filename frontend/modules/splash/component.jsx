@@ -1,8 +1,8 @@
+import { sampleSize } from 'lodash';
+import { Link } from 'react-router';
 import React from 'react';
 import PropTypes from 'prop-types';
 import NflTeams from './nfl-teams.json';
-import { sampleSize } from 'lodash';
-import { Link } from 'react-router';
 
 
 class Splash extends React.Component {

@@ -10,8 +10,8 @@ class Form extends React.Component {
     super(props);
 
     this.state = {
-      identifier: 'bIxWviappRc',
-      password: 'password'
+      identifier: '',
+      password: ''
     };
 
     autoBind(this);
