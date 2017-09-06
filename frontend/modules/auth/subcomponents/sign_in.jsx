@@ -12,8 +12,8 @@ class SigninForm extends React.Component {
     super(props);
 
     this.state = {
-      email: "me@gmail.com",
-      password: "password",
+      email: "",
+      password: "",
       isValid: false,
       loading: false
     };

@@ -12,10 +12,10 @@ class SignupForm extends React.Component {
     super(props);
 
     this.state = {
-      name: "a",
-      email: "me@gmail.com",
-      password: "password",
-      passwordConfirmation: "password",
+      name: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
       isValid: false,
       loading: false
     };
