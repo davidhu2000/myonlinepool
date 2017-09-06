@@ -52,7 +52,7 @@ class Form extends React.Component {
             errorMessage='Please enter a password'
           />
 
-          <button className="button join-form-button" type="submit">
+          <button className="join-form-button" type="submit">
             Submit
           </button>
         </form>
