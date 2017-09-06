@@ -17,11 +17,17 @@ import GameForm from 'modules/game_form';
 import Payment from 'modules/payment';
 import PaymentConfirmation from 'modules/payment_confirmation';
 import Profile from 'modules/profile';
+import Faq from 'modules/faq';
+import Pricing from 'modules/pricing';
 
 
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Splash} />
+
+    <Route path="/faq" component={Faq} />
+
+    <Route path="/pricing" component={Pricing} />
 
     <Route path="/auth" component={Auth} />
 

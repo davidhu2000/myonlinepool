@@ -6,6 +6,7 @@ import autoBind from 'react-autobind';
 import Navbar from 'core/navbar';
 import Alerts from 'core/alerts';
 
+import { Footer } from 'core/footer';
 import { ConfirmForm, JoinForm } from './subcomponents';
 
 class App extends React.Component {
@@ -28,7 +29,9 @@ class App extends React.Component {
   }
 
   _redirect(isLoggedIn, currentLocation) {
-    if (isLoggedIn && /auth/.test(currentLocation)) {
+    if (currentLocation === '/faq' || currentLocation === '/pricing') {
+      console.log("internal redirect");
+    } else if (isLoggedIn && /auth/.test(currentLocation)) {
       this.props.router.replace('/home');
     } else if (!isLoggedIn && !/auth/.test(currentLocation) && currentLocation !== '/') {
       this.props.router.replace('/auth');
@@ -65,9 +68,9 @@ class App extends React.Component {
           <Alerts />
           <div className="app-container">
             { this.props.children }
+            <Footer />
           </div>
         </div>
-
         { this.renderModals() }
       </div>
     );
