@@ -97,25 +97,25 @@ class Picks extends React.Component {
   pickFavorites() {
     let picks = [];
     Object.values(this.props.picks[this.state.week]).forEach(game => {
-      if (game.pick === '') {
-        if (game.line > 0) {
-          let newPick = {
-            game_id: game.game_id,
-            pool_id: this.props.params.poolId,
-            pick: "away",
-            week: game.week
-          };
-          picks.push(newPick);
-        } else {
-          let newPick = {
-            game_id: game.game_id,
-            pool_id: this.props.params.poolId,
-            pick: "home",
-            week: game.week
-          };
-          picks.push(newPick);
-        }
+      // if (game.pick === '') {
+      if (game.line > 0) {
+        let newPick = {
+          game_id: game.game_id,
+          pool_id: this.props.params.poolId,
+          pick: "away",
+          week: game.week
+        };
+        picks.push(newPick);
+      } else {
+        let newPick = {
+          game_id: game.game_id,
+          pool_id: this.props.params.poolId,
+          pick: "home",
+          week: game.week
+        };
+        picks.push(newPick);
       }
+      // }
     });
     if (picks.length > 0) {
       this.props.sendPicks(picks);
