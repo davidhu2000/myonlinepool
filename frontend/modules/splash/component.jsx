@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { sampleSize } from 'lodash';
 import NflTeams from './nfl-teams.json';
+import { sampleSize } from 'lodash';
+import { Link } from 'react-router';
 
 
 class Splash extends React.Component {
@@ -40,6 +41,11 @@ class Splash extends React.Component {
           of all <span>FUN</span>! With the 2017 NFL fast approaching, why not create and host
           your own NFL Football office pool today. <span>Invite your friends</span> to join the fun!
           </p>
+          <Link to={"/auth?form=signup"}>
+            <div className="action-call">
+              Sign Up
+            </div>
+          </Link>
         </div>
         <div className="splash-mid">
           <div className="splash-mid-content">
