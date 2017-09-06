@@ -60,11 +60,9 @@
   border: 1px $drk-primary solid;
 
   &:hover {
-    // color: $lt-primary;
-    // background: white;
     color: white;
     background: $drk-primary;
-    border: none;
+    border: 1px $drk-primary solid;
   }
 
   &:disabled {
