@@ -27,6 +27,7 @@ class LeaderboardItem extends React.Component {
         15: "0",
         16: "0",
         17: "0",
+        18: "0",
         19: "0",
         20: "0",
         22: "0"
