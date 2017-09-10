@@ -48,7 +48,7 @@ class PickForm extends React.Component {
 
   renderScore() {
     let { game } = this.props;
-    if (game.home_score) {
+    if (game.completed) {
       return `${game.away_score} - ${game.home_score}`;
     } else {
       return 'Pending';
