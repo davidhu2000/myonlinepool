@@ -3,6 +3,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { values } from 'lodash';
 import { WeekSwitcher } from 'common/components';
 import { PickForm, LoadingForm, PicksDropdown } from './subcomponents';
 
@@ -57,7 +58,7 @@ class Picks extends React.Component {
 
   pickHome() {
     let picks = [];
-    Object.values(this.props.picks[this.state.week]).forEach(game => {
+    values(this.props.picks[this.state.week]).forEach(game => {
       if (game.pick !== 'home') {
         let newPick = {
           game_id: game.game_id,
@@ -77,7 +78,7 @@ class Picks extends React.Component {
 
   pickAway() {
     let picks = [];
-    Object.values(this.props.picks[this.state.week]).forEach(game => {
+    values(this.props.picks[this.state.week]).forEach(game => {
       if (game.pick !== 'away') {
         let newPick = {
           game_id: game.game_id,
@@ -96,7 +97,7 @@ class Picks extends React.Component {
 
   pickFavorites() {
     let picks = [];
-    Object.values(this.props.picks[this.state.week]).forEach(game => {
+    values(this.props.picks[this.state.week]).forEach(game => {
       // if (game.pick === '') {
       if (game.line > 0) {
         let newPick = {
@@ -158,7 +159,7 @@ class Picks extends React.Component {
     }
 
     if (this.props.picks[this.state.week]) {
-      return Object.values(this.props.picks[this.state.week]).map(game => (
+      return values(this.props.picks[this.state.week]).map(game => (
         <PickForm
           receiveAlerts={this.props.receiveAlerts}
           key={`pick-${game.game_id}`}
@@ -175,7 +176,7 @@ class Picks extends React.Component {
     if (this.props.picks[this.state.week]) {
       let picks = 0;
       let misses = 0;
-      Object.values(this.props.picks[this.state.week]).forEach(pick => {
+      values(this.props.picks[this.state.week]).forEach(pick => {
         if (pick.completed) {
           if (pick.pick === 'away' && pick.away_score > pick.home_score) {
             picks += 1;
