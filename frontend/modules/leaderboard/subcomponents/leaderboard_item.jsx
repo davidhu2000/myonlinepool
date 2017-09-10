@@ -50,6 +50,7 @@ class LeaderboardItem extends React.Component {
 
   renderWeeks() {
     let actualStandings = this.props.standings;
+    delete actualStandings[0];
     delete actualStandings[21];
     keys(actualStandings).forEach(week => {
       if (this.props.standings[week][this.props.member.userId]) {
