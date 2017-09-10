@@ -45,8 +45,7 @@ class FetchScheduleJob < ApplicationJob
         g = GameNfl.find_or_initialize_by(
           home_id: home_id,
           away_id: away_id,
-          season: season,
-          week: game["gameWeek"]
+          season: season
         )
 
         g.start_time = start_time
