@@ -77,20 +77,21 @@
 
 .home-top {
 //   height: 278px;
+  width: 870px;
   padding: 20px 0px;
+  padding-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
+  -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-            align-items: flex-start;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .home-bulletin {
