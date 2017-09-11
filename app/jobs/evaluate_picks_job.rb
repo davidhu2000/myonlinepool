@@ -7,7 +7,7 @@ class EvaluatePicksJob < ApplicationJob
       puts '=========EVALUATING PICKS JOB================='
       puts '=============================================='
       games = GameNfl.where(season: season, week: week, completed: true)
-      picks = Pick.where(game_id: games, is_correct: 'pending')
+      picks = Pick.where(game_id: games)
       picks.each do |pick|
         game = games.find_by(id: pick.game_id)
 

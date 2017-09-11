@@ -28,8 +28,8 @@ class CalculateWeeklyResultsJob < ApplicationJob
               week: week
             )
 
-            results[id][:correct_picks] ||= 0
-            results[id][:wrong_picks] ||= 0
+            results[id][:correct_picks] = 0
+            results[id][:wrong_picks] = 0
 
             Pick.where(game_id: games, user_id: member.id, pool_id: pool.id).each do |pick|
               if pick.is_correct == 'correct'
