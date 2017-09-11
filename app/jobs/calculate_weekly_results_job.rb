@@ -13,7 +13,7 @@ class CalculateWeeklyResultsJob < ApplicationJob
 
       games = GameNfl.where(season: season, week: week)
 
-      games = games.where(completed: true, evaluated: false)
+      games = games.where(completed: true)
 
       pools = Pool.all.includes(:members)
 
