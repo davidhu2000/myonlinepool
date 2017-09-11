@@ -1,7 +1,6 @@
 {
   "signedoutLinks": [
     { "link": "/faq", "text": "FAQs" },
-    { "link": "/pricing", "text": "Pricing"},
-    { "link": "/auth?form=signin", "text": "Demo Account" }
+    { "link": "/pricing", "text": "Pricing"}
   ]
 }
