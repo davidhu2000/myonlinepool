@@ -206,7 +206,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.5)
   jquery-rails
-  listen (~> 3.0.5)
+  listen
   nokogiri
   pastel
   pg (~> 0.18)
