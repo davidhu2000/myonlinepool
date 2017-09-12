@@ -79,9 +79,7 @@ class Navbar extends React.Component {
           <span /><span /><span /><span />
         </button>
 
-        <div className="title" onClick={() => this.props.router.push(this.props.loggedIn ? '/home' : '/')}>
-          MyOnlinePool
-        </div>
+        <div className="logo-container" onClick={() => this.props.router.push(this.props.loggedIn ? '/home' : '/')} />
 
         { this.renderAuthButton() }
       </div>
