@@ -37,7 +37,7 @@ class Pool extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <div>
+        <div className="loader-container">
           <MoonLoader color={'#2d2d2d'} size={50} />
         </div>
       );

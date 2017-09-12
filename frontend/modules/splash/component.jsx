@@ -35,8 +35,6 @@ class Splash extends React.Component {
       <div className="splash-container">
         <div className="splash-top">
           <h1>Welcome to MyOnlinePool.com</h1>
-          
-          {/* <div className="logo-container" /> */}
           <p>
           A simple app to make running your own office pool
           <span> QUICK</span>, <span>EASY</span> and most
