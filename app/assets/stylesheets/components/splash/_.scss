@@ -176,6 +176,13 @@
     font-weight: bold;
   }
 
+  .logo-container {
+    width: 300px;
+    height: 79px;
+    background: url(image_path('myonlinepool-logo.png'));
+    background-size: cover;
+  }
+
   p {
     width: 870px;
     text-align: center;
