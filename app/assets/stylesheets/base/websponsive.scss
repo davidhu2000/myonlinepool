@@ -279,6 +279,12 @@
       }
       .picks-header {
         margin-right: 10px;
+        .week-switcher {
+          margin-left: 10px;
+          i {
+            transform: scale(2);
+          }
+        }
       }
       .selection-item {
         min-width: 100%;
