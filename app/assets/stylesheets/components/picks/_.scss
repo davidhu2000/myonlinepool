@@ -155,10 +155,11 @@
   overflow: hidden;
 
   .picks-top {
-    min-width: 1292px;
+    // min-width: 1292px;
+    min-width: 870px;
     width: 90.3%;
     position: fixed;
-    top: 60px;
+    top: 94px;
     z-index: 50;
     padding-top: 20px;
     display: -webkit-box;
@@ -242,18 +243,13 @@
       }
     }
     .auto-button:hover {
-      // color: $lt-primary;
       color: white;
-      // background: black;
       background: $drk-primary;
-      // background: white;
-      // border: 1px black solid;
     }
     .picks-dropdown {
       z-index: 100;
       width: 135px;
       position: absolute;
-      // bottom: -110px;
       top: 40px;
       right: 0px;
       font-size: 15px;

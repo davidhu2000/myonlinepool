@@ -11,6 +11,7 @@
     }
     .app-container {
       padding-top: 100px;
+      min-width: initial;
     }
     .footer {
       font-size: 20px;
@@ -281,6 +282,12 @@
         min-width: 100%;
         width: 100%;
         top: 100px;
+      }
+      .picks-header {
+        margin-right: 10px;
+      }
+      .selection-item {
+        min-width: 100%;
       }
     }
     // team stats
