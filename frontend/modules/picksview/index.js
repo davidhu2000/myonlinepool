@@ -4,7 +4,7 @@ import Picksview from './component';
 
 
 const mapStateToProps = state => ({
-  picks: state.pool.picks
+  picks: state.picks.allPicks
 });
 
 const mapDispatchToProps = () => ({
