@@ -29,6 +29,7 @@ class Api::PicksController < ApplicationController
       @picks_view[game.id] = game.attributes
       @picks_view[game.id][:home] = game.home.name.capitalize
       @picks_view[game.id][:away] = game.away.name.capitalize
+      @picks_view[game.id][:pick_locked] = game.start_time < current_time
       @picks_view[game.id][:picks] = {}
     end  
     pool_picks.each do |pick| 
@@ -71,6 +72,6 @@ class Api::PicksController < ApplicationController
         return render json: ['Pick locked'], status: 422
       end
     end
-    render 'api/picks/index'
+    render 'api/picks/show'
   end
 end
