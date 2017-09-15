@@ -34,6 +34,11 @@ class Api::PicksController < ApplicationController
     pool_picks.each do |pick| 
       @picks_view[pick.game_id][:picks][pick.user_id] = {}
       @picks_view[pick.game_id][:picks][pick.user_id][:pick] = pick.pick 
+      if pick.pick == "home"
+        @picks_view[pick.game_id][:picks][pick.user_id][:picked] = @picks_view[pick.game_id][:home]
+      elsif pick.pick == "away"
+        @picks_view[pick.game_id][:picks][pick.user_id][:picked] = @picks_view[pick.game_id][:away]
+      end   
       @picks_view[pick.game_id][:picks][pick.user_id][:user_id] = pick.user_id
       @picks_view[pick.game_id][:picks][pick.user_id][:user_name] = User.find_by(id: pick.user_id).name
     end
