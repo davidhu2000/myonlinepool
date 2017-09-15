@@ -19,8 +19,20 @@ class Api::PicksController < ApplicationController
     raw_picks.each do |pick| 
       @picks[pick[:game_id]][:pick] = pick.pick 
     end
-
     @week = params[:week]
+
+
+    pool_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
+    pool_picks = Pick.where(pool_id: params[:poolId], game_id: pool_games)
+    @picks_view = {}
+    pool_games.each do |game| 
+      @picks_view[game.id] = game.attributes
+    end  
+    pool_picks.each do |pick| 
+      @picks_view[pick.game_id][pick.user_id] = {}
+      @picks_view[pick.game_id][pick.user_id][:pick] = pick.pick 
+      @picks_view[pick.game_id][pick.user_id][:user_id] = pick.user_id 
+    end
     render 'api/picks/index'
   end
   
