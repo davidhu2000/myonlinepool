@@ -27,11 +27,15 @@ class Api::PicksController < ApplicationController
     @picks_view = {}
     pool_games.each do |game| 
       @picks_view[game.id] = game.attributes
+      @picks_view[game.id][:home] = game.home.name.capitalize
+      @picks_view[game.id][:away] = game.away.name.capitalize
+      @picks_view[game.id][:picks] = {}
     end  
     pool_picks.each do |pick| 
-      @picks_view[pick.game_id][pick.user_id] = {}
-      @picks_view[pick.game_id][pick.user_id][:pick] = pick.pick 
-      @picks_view[pick.game_id][pick.user_id][:user_id] = pick.user_id 
+      @picks_view[pick.game_id][:picks][pick.user_id] = {}
+      @picks_view[pick.game_id][:picks][pick.user_id][:pick] = pick.pick 
+      @picks_view[pick.game_id][:picks][pick.user_id][:user_id] = pick.user_id
+      @picks_view[pick.game_id][:picks][pick.user_id][:user_name] = User.find_by(id: pick.user_id).name
     end
     render 'api/picks/index'
   end
