@@ -27,11 +27,15 @@ const Footer = () => {
         </div>
       </div>
       <div className="social">
-        <a href="www.facebook.com">
+        <a href="https://www.facebook.com">
           <i className="fa fa-facebook fa-2x" aria-hidden="true" />
         </a>
-        <i className="fa fa-twitter fa-2x" aria-hidden="true" />
-        <i className="fa fa-instagram fa-2x" aria-hidden="true" />
+        <a href="https://www.twitter.com">
+          <i className="fa fa-twitter fa-2x" aria-hidden="true" />
+        </a>
+        <a href="https://www.instagram.com">
+          <i className="fa fa-instagram fa-2x" aria-hidden="true" />
+        </a>
       </div>
     </div>
   );

@@ -22,15 +22,24 @@ class Api::PicksController < ApplicationController
     @week = params[:week]
 
 
-    pool_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
-    pool_picks = Pick.where(pool_id: params[:poolId], game_id: pool_games)
+    # pool_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
+    pool_picks = Pick.where(pool_id: params[:poolId], game_id: all_games)
+    pool_players = Pool.find_by(id: params[:poolId]).members
     @picks_view = {}
-    pool_games.each do |game| 
+    all_games.each do |game| 
       @picks_view[game.id] = game.attributes
       @picks_view[game.id][:home] = game.home.name.capitalize
       @picks_view[game.id][:away] = game.away.name.capitalize
       @picks_view[game.id][:pick_locked] = game.start_time < current_time
       @picks_view[game.id][:picks] = {}
+        pool_players.each do |member|
+          @picks_view[game.id][:picks][member.id] = {
+            pick: "",
+            picked: "",
+            user_id: "",
+            user_name: ""
+          }
+        end
     end  
     pool_picks.each do |pick| 
       @picks_view[pick.game_id][:picks][pick.user_id] = {}
