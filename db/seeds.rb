@@ -49,12 +49,12 @@ unless Rails.env.production?
   red = pastel.inverse(" ")
 
   bar_total = 50
-  user_total = 20
-  pool_total = 5
-  announcement_total = 10
-  membership_total = 50
-  bulletin_total = 100
-  message_total = 200
+  user_total = 10
+  pool_total = 2
+  announcement_total = 5
+  membership_total = 20
+  bulletin_total = 30
+  message_total = 100
   pick_total = pool_total
 
   puts 
