@@ -22,7 +22,6 @@ class Api::PicksController < ApplicationController
     @week = params[:week]
 
 
-    # pool_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
     pool_picks = Pick.where(pool_id: params[:poolId], game_id: all_games)
     pool_players = Pool.find_by(id: params[:poolId]).members
     @picks_view = {}
