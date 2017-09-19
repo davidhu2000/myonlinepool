@@ -3,6 +3,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 import { values } from 'lodash';
 import { WeekSwitcher } from 'common/components';
 import { PickForm, LoadingForm, PicksDropdown } from './subcomponents';
@@ -199,6 +200,11 @@ class Picks extends React.Component {
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
             {this.props.pool.title}
             {this.renderWeekRecord()}
+            <Link to={`/pool/${this.props.params.poolId}/picks/picksview`} >
+              <div className="pool-picks-link">
+                Pool Picks
+              </div>
+            </Link>
             <div>
               <button onClick={this.toggleDropdown}>
                 <div className="auto-button">

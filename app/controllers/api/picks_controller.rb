@@ -35,7 +35,7 @@ class Api::PicksController < ApplicationController
           @picks_view[game.id][:picks][member.id] = {
             pick: "",
             picked: "",
-            user_id: "",
+            user_id: member.id,
             user_name: ""
           }
         end

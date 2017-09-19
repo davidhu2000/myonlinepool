@@ -8,9 +8,22 @@ class Picksview extends React.Component {
     autoBind(this);
   }
 
+  renderGames(){
+    console.log(this.props.picks);
+  }
+
   render() {
     return (
       <div className="picks-view">
+        <div className="picks-view-header">
+          <div>
+            Player Name
+          </div>
+          <div>
+            Points
+          </div>
+          {this.renderGames()}
+        </div>
         test
       </div>
     );
