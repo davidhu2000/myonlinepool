@@ -19,6 +19,7 @@ import PaymentConfirmation from 'modules/payment_confirmation';
 import Profile from 'modules/profile';
 import Faq from 'modules/faq';
 import Pricing from 'modules/pricing';
+import Picksview from 'modules/picksview';
 
 
 const routes = (
@@ -46,7 +47,10 @@ const routes = (
 
     <Route path="/pool/:poolId" component={Pool}>
       <IndexRoute component={PoolHome} />
-      <Route path="picks" component={Picks} />
+      <Route path="picks">
+        <IndexRoute component={Picks} />
+        <Route path="picksview/:weekId" component={Picksview} />
+      </Route>
       <Route path="leaderboard" component={Leaderboard} />
       <Route path="metrics" component={Metrics} />
       <Route path="moderator" component={Moderator} />
