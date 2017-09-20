@@ -46,7 +46,7 @@
       .player-name {
         height: 67px;
         width: 125px;
-        padding: 5px 0px;
+        // padding: 5px 0px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -61,7 +61,7 @@
       .player-standings-item {
         width: 67px;
         height: 67px;
-        // font-size: 10px;
+        margin-bottom: 5px;
         font-weight: bold;
         display: flex;
         justify-content: center;
