@@ -1,0 +1,83 @@
+.picks-view {
+  padding: 20px 0px;
+  min-width: 870px;
+  width: 95%;
+
+  .picks-view-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 10px;
+    background: $drk-primary;
+    color: white;
+    .name-title {
+      width: 70px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .picks-game {
+      width: 70px;
+      font-size: 10px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .standings-title {
+      width: 70px;
+      font-size: 10px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .picks-view-body{ 
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+    .name-column {
+      width: 70px;
+      
+      .player-name {
+        height: 70px;
+        width: 70px;
+        padding: 5px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    }
+
+    .player-standings {
+      display: flex;
+      flex-direction: column;
+      .player-standings-item {
+        width: 70px;
+        height: 70px;
+        // font-size: 10px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .player-picks {
+      display: flex;
+      flex-direction: column;
+      
+      .pick-logo {
+        width: 70px;
+        height: 70px;
+        background-size: 70px 70px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

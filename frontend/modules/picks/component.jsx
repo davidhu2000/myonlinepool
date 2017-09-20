@@ -200,7 +200,7 @@ class Picks extends React.Component {
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
             {this.props.pool.title}
             {this.renderWeekRecord()}
-            <Link to={`/pool/${this.props.params.poolId}/picks/picksview`} >
+            <Link to={`/pool/${this.props.params.poolId}/picks/picksview/${this.state.week}`} >
               <div className="pool-picks-link">
                 Pool Picks
               </div>

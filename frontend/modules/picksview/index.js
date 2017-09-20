@@ -4,7 +4,9 @@ import Picksview from './component';
 
 
 const mapStateToProps = state => ({
-  picks: state.picks.allPicks
+  picks: state.picks.allPicks,
+  members: state.pool.members,
+  standings: state.pool.standings
 });
 
 const mapDispatchToProps = () => ({

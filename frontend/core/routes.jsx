@@ -49,7 +49,7 @@ const routes = (
       <IndexRoute component={PoolHome} />
       <Route path="picks">
         <IndexRoute component={Picks} />
-        <Route path="picksview" component={Picksview} />
+        <Route path="picksview/:weekId" component={Picksview} />
       </Route>
       <Route path="leaderboard" component={Leaderboard} />
       <Route path="metrics" component={Metrics} />
