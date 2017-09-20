@@ -16,7 +16,7 @@
       font-weight: bold;
     }
     .picks-game {
-      width: 65px;
+      width: 67px;
       font-size: 10px;
       font-weight: bold;
       display: flex;
@@ -24,7 +24,7 @@
       align-items: center;
     }
     .standings-title {
-      width: 65px;
+      width: 67px;
       font-size: 10px;
       font-weight: bold;
       display: flex;
@@ -44,7 +44,7 @@
       // width: 100px;
       
       .player-name {
-        height: 65px;
+        height: 67px;
         width: 125px;
         padding: 5px 0px;
         display: flex;
@@ -59,8 +59,8 @@
       display: flex;
       flex-direction: column;
       .player-standings-item {
-        width: 65px;
-        height: 65px;
+        width: 67px;
+        height: 67px;
         // font-size: 10px;
         font-weight: bold;
         display: flex;
@@ -73,9 +73,9 @@
       flex-direction: column;
       
       .pick-logo {
-        width: 65px;
-        height: 65px;
-        background-size: 65px 65px;
+        width: 67px;
+        height: 67px;
+        background-size: 67px 67px;
         margin-bottom: 5px;
       }
     }

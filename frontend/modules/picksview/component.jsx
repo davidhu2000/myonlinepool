@@ -2,7 +2,8 @@ import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { values, keys } from 'lodash';
+import { values } from 'lodash';
+import { shortenString } from 'helpers';
 
 import { teamNames } from './teamNames.json';
 
@@ -24,7 +25,7 @@ class Picksview extends React.Component {
   renderNames() {
     return values(this.props.members).map(member => (
       <div className="player-name">
-        { member.name }
+        { shortenString(member.name) }
       </div>
     ));
   }
