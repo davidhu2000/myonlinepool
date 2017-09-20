@@ -11,12 +11,12 @@
     background: $drk-primary;
     color: white;
     .name-title {
-      width: 70px;
+      width: 125px;
       text-align: center;
       font-weight: bold;
     }
     .picks-game {
-      width: 70px;
+      width: 65px;
       font-size: 10px;
       font-weight: bold;
       display: flex;
@@ -24,7 +24,7 @@
       align-items: center;
     }
     .standings-title {
-      width: 70px;
+      width: 65px;
       font-size: 10px;
       font-weight: bold;
       display: flex;
@@ -41,11 +41,11 @@
 
 
     .name-column {
-      width: 70px;
+      // width: 100px;
       
       .player-name {
-        height: 70px;
-        width: 70px;
+        height: 65px;
+        width: 125px;
         padding: 5px 0px;
         display: flex;
         justify-content: center;
@@ -59,8 +59,8 @@
       display: flex;
       flex-direction: column;
       .player-standings-item {
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
         // font-size: 10px;
         font-weight: bold;
         display: flex;
@@ -73,9 +73,9 @@
       flex-direction: column;
       
       .pick-logo {
-        width: 70px;
-        height: 70px;
-        background-size: 70px 70px;
+        width: 65px;
+        height: 65px;
+        background-size: 65px 65px;
         margin-bottom: 5px;
       }
     }
