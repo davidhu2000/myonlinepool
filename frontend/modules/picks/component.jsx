@@ -202,7 +202,7 @@ class Picks extends React.Component {
             {this.renderWeekRecord()}
             <Link to={`/pool/${this.props.params.poolId}/picks/picksview/${this.state.week}`} >
               <div className="pool-picks-link">
-                Pool Picks
+                View Picks
               </div>
             </Link>
             <div>
