@@ -41,7 +41,7 @@ class Home extends React.Component {
         </div>
         <div className="home-bottom">
           <StandingsBox
-            title="Week 1 Winners"
+            title={`Week ${this.props.prefs.week} Leaders`}
             standings={this.props.home.weeklyStandings}
           />
           <StandingsBox
@@ -60,7 +60,8 @@ Home.propTypes = {
   toggleJoinFormModal: PropTypes.func.isRequired,
   fetchSiteStandings: PropTypes.func.isRequired,
   home: PropTypes.shape().isRequired,
-  user: PropTypes.shape().isRequired
+  user: PropTypes.shape().isRequired,
+  prefs: PropTypes.shape().isRequired
 };
 
 export default withRouter(Home);

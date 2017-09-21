@@ -15,6 +15,10 @@ class App extends React.Component {
     autoBind(this);
   }
 
+  componentWillMount() {
+    this.props.fetchPrefs();
+  }
+
   componentDidMount() {
     this._redirect(this.props.loggedIn, this.props.location.pathname);
   }
@@ -90,7 +94,8 @@ App.propTypes = {
   removeMember: PropTypes.func.isRequired,
   joinPool: PropTypes.func.isRequired,
   toggleConfirmFormModal: PropTypes.func.isRequired,
-  toggleJoinFormModal: PropTypes.func.isRequired
+  toggleJoinFormModal: PropTypes.func.isRequired,
+  fetchPrefs: PropTypes.func.isRequired
 };
 
 App.defaultProps = {
