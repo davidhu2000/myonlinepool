@@ -73,7 +73,7 @@ class AdminConsole extends React.Component {
             <div>Home</div>
             <div>Home Score</div>
             <div>Line</div>
-            <div>Spread</div>
+            <div>O/U</div>
             <div>Completed</div>
           </div>
         </div>
