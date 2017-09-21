@@ -122,19 +122,22 @@
       height: auto;
       padding: 20px 0px;
       padding-right: 20px;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-      -webkit-box-align: start;
-          -ms-flex-align: start;
-              align-items: flex-start;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: flex-start;
+              
       .pool-list {
         padding-left: 20px;
         padding-right: 20px;
         height: none;
+        width: 100%;
+        // width: initial;
         .pool-list-top {
           left: 10px;
         }
         .pool-list-bottom {
+          width: initial;
+          height: 130px;
           .button {
             height: 50px;
             font-size: 20px
@@ -147,8 +150,13 @@
       }
       .profile-box {
         // height: auto;
+        width: 100%;
+        margin-left: 5px;
+        padding-left: 10px;
         .profile-box-bottom {
           padding-top: 0px;
+          justify-content: space-between;
+          
         }
         .label {
           font-size: 20px;
@@ -166,8 +174,8 @@
     .home-bulletin {
       .modboard-box {
         width: 100%;
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
         .title {
           font-size: 20px;
         }
@@ -178,7 +186,7 @@
     }
     .home-bottom {
       width: 100%;
-      padding: 0px 20px;
+      padding: 20px 20px;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -190,7 +198,7 @@
       -ms-flex-align: center;
               align-items: center;
       .standings-box {
-        margin-top: 10px;
+        // margin-top: 10px;
         width: 100%;
         font-size: 20px;
       }
