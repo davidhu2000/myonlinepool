@@ -25,12 +25,12 @@ class Home extends React.Component {
     return (
       <div className="home-container">
         <div className="home-top">
+          <ProfileBox
+            user={this.props.user}
+          />
           <PoolList
             pools={this.props.home.myPools}
             toggleJoinFormModal={this.props.toggleJoinFormModal}
-          />
-          <ProfileBox
-            user={this.props.user}
           />
         </div>
         <div className="home-bulletin">

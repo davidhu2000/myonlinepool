@@ -1,9 +1,15 @@
 .picks-view {
   padding: 20px 0px;
-  min-width: 870px;
-  width: 95%;
+  width: 100%;
+  // min-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: overlay;
 
   .picks-view-header {
+    width: 1300px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -34,11 +40,11 @@
   }
 
   .picks-view-body{ 
+    width: 1300px;
     padding: 10px 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 
     .name-column {
       // width: 100px;
