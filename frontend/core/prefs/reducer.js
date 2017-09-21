@@ -11,7 +11,7 @@ const modalReducer = (state = _defaultState, action) => {
   // console.log(action);
   switch (action.type) {
     case PREFS.RECEIVE_PREFS:
-      return merge({}, state, { week: action.week, year: action.year });
+      return merge({}, state, { week: action.prefs.week, year: action.prefs.year });
     default:
       return state;
   }

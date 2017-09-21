@@ -15,6 +15,10 @@ class App extends React.Component {
     autoBind(this);
   }
 
+  componentWillMount() {
+    this.props.fetchPrefs();
+  }
+
   componentDidMount() {
     this._redirect(this.props.loggedIn, this.props.location.pathname);
   }
@@ -26,8 +30,6 @@ class App extends React.Component {
     if (differentLocation || signinChanged) {
       this._redirect(newProps.loggedIn, newProps.location.pathname);
     }
-
-    this.props.fetchPrefs();
   }
 
   _redirect(isLoggedIn, currentLocation) {
