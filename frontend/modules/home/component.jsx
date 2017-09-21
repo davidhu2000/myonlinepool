@@ -41,7 +41,7 @@ class Home extends React.Component {
         </div>
         <div className="home-bottom">
           <StandingsBox
-            title="Week 1 Winners"
+            title="Week 1 Leaders"
             standings={this.props.home.weeklyStandings}
           />
           <StandingsBox

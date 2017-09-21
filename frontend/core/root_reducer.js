@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 // Core files
 import alerts from 'core/alerts/reducer';
 import modals from 'core/modals/reducer';
+import prefs from 'core/prefs/reducer';
 
 // Module files
 import user from 'modules/auth/reducer';
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   picks,
   modals,
   games,
-  teams
+  teams,
+  prefs
 });
 
 export default rootReducer;

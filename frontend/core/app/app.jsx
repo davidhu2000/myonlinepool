@@ -26,6 +26,8 @@ class App extends React.Component {
     if (differentLocation || signinChanged) {
       this._redirect(newProps.loggedIn, newProps.location.pathname);
     }
+
+    this.props.fetchPrefs();
   }
 
   _redirect(isLoggedIn, currentLocation) {
@@ -90,7 +92,8 @@ App.propTypes = {
   removeMember: PropTypes.func.isRequired,
   joinPool: PropTypes.func.isRequired,
   toggleConfirmFormModal: PropTypes.func.isRequired,
-  toggleJoinFormModal: PropTypes.func.isRequired
+  toggleJoinFormModal: PropTypes.func.isRequired,
+  fetchPrefs: PropTypes.func.isRequired
 };
 
 App.defaultProps = {
