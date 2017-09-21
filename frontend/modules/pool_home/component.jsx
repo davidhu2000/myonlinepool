@@ -15,6 +15,10 @@ class PoolHome extends React.Component {
     autoBind(this);
   }
 
+  componentWillMount() {
+    this.setState({ week: this.props.prefs.week });
+  }
+
   componentDidMount() {
     let { poolId } = this.props.params;
     this.props.fetchMessages(poolId);
@@ -134,7 +138,8 @@ PoolHome.propTypes = {
   fetchMessages: PropTypes.func.isRequired,
   fetchBulletins: PropTypes.func.isRequired,
   sendInvite: PropTypes.func.isRequired,
-  receiveAlerts: PropTypes.func.isRequired
+  receiveAlerts: PropTypes.func.isRequired,
+  prefs: PropTypes.shape().isRequired
 };
 
 export default withRouter(PoolHome);

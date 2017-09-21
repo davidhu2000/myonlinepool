@@ -1,8 +1,8 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { FormTextInput, WeekSwitcher } from 'common/components';
 import { withRouter } from 'react-router';
-import { WeekSwitcher } from 'common/components';
 import { GameItem } from './subcomponents';
 
 class AdminConsole extends React.Component {
@@ -10,9 +10,16 @@ class AdminConsole extends React.Component {
     super(props);
 
     this.state = {
-      week: 1
+      week: 1,
+      currentWeek: this.props.prefs.week,
+      currentYear: this.props.prefs.year
     };
     autoBind(this);
+  }
+
+  componentWillMount() {
+    this.setState({ currentWeek: this.props.prefs.week,
+      currentYear: this.props.prefs.year });
   }
 
   componentDidMount() {
@@ -21,6 +28,7 @@ class AdminConsole extends React.Component {
     if (this.props.userId === 1) {
       this.props.fetchGames(this.state.week);
     }
+    console.log(this.state.currentWeek);
   }
 
   componentWillReceiveProps(newProps) {
@@ -47,6 +55,20 @@ class AdminConsole extends React.Component {
     if (!this.props.games[week]) {
       this.props.fetchGames(week);
     }
+  }
+
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+
+  submitForm(e) {
+    e.preventDefault();
+    this.props.updatePrefs({
+      week: this.state.currentWeek,
+      year: this.state.currentYear
+    });
   }
 
   renderGames() {
@@ -77,9 +99,24 @@ class AdminConsole extends React.Component {
             <div>Completed</div>
           </div>
         </div>
-
         <div className="game-list">
           {this.renderGames()}
+        </div>
+        <div className="week-form">
+          <form onSubmit={this.submitForm} className="auth-form">
+
+            <FormTextInput
+              update={this.update}
+              value={this.state.currentWeek}
+              type='currentWeek'
+              field="currentWeek"
+              label='currentWeek'
+            />
+            
+            <button type="submit" className="button">
+              Update
+            </button>
+          </form>
         </div>
       </div>
     );
@@ -89,7 +126,9 @@ class AdminConsole extends React.Component {
 AdminConsole.propTypes = {
   games: PropTypes.shape().isRequired,
   userId: PropTypes.number.isRequired,
-  fetchGames: PropTypes.func.isRequired
+  fetchGames: PropTypes.func.isRequired,
+  prefs: PropTypes.shape().isRequired,
+  updatePrefs: PropTypes.func.isRequired
 };
 
 export default withRouter(AdminConsole);

@@ -12,6 +12,15 @@ const modalReducer = (state = _defaultState, action) => {
   switch (action.type) {
     case PREFS.RECEIVE_PREFS:
       return merge({}, state, { week: action.prefs.week, year: action.prefs.year });
+    case PREFS.UPDATE_PREFS:
+      let newState = merge({}, state);
+      if (action.prefs.week) {
+        newState.week = action.prefs.week;
+      }
+      if (action.prefs.year) {
+        newState.year = action.prefs.year;
+      }
+      return newState;
     default:
       return state;
   }

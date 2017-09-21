@@ -24,3 +24,11 @@ export const deleteGame = gameId => (
   })
 );
 
+export const sendUpdatePrefs = prefs => (
+  $.ajax({
+    mathod: 'POST',
+    url: 'api/sysprefs/',
+    data: { prefs }
+  })
+);
+
