@@ -60,10 +60,11 @@
 // }  
 
 .profile-box { 
-  // width: 289px;
+  // width: 435px;
   // height: 225px;
   position: relative;
   padding-top: 40px;
+  padding-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,35 +94,27 @@
     }
   }
   .profile-box-bottom {
-    padding-left: 10px;
-    padding-top: 7.5px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-direction: column;
+    padding-left: 10px;
     
-    .profile-box-bottom-left {
-      display: -webkit-box;
-      display: -ms-flexbox;
+    .profile-box-bottom-bottom {
       display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
+      flex-direction: row;
+      padding-top: 10px;
     }
     .label {
       font-weight: bold;
       margin-bottom: 5px;
       font-size: 15px;
     }
-    .email, .username {
-      margin-bottom: 15px;
+    .left {
+      margin-right: 20px;
     }
     .profile-edit-button {
       height: 30px;
       width: 140px;
+      margin-bottom: 10px;
       font-size: 12px;
       line-height: 12px;
       background: $drk-primary;
