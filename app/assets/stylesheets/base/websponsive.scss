@@ -25,8 +25,8 @@
     // auth 
     .signup-container {
     .auth-form {
-      width: 100%;
-      padding: 0px 40px;
+      // width: 100%;
+      // padding: 0px 40px;
       .submit-row {
         font-size: 20px;
         .reroute {
@@ -43,6 +43,13 @@
         font-size: 20px;
       }
     }
+    }
+     // auth
+     .signup-container {
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      padding-top: 100px;
     }
     // navbar
     .navbar-container {
@@ -201,13 +208,7 @@
       height: 100%;
       padding-top: 100px;
     }
-    // auth
-    .signup-container {
-      -webkit-box-align: start;
-          -ms-flex-align: start;
-              align-items: flex-start;
-      padding-top: 100px;
-    }
+   
     // pool home
     .pool-root {
       -webkit-box-pack: start;
