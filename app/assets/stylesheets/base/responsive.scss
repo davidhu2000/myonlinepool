@@ -1,31 +1,32 @@
 @media screen and (max-device-width : 769px) {
   
-    .base-wrapper {
-      padding-left: 0px;
-      padding-right: 0px;
-      background: #E9EBEE;
-    }
-    .base-container {
-      // min-height: initial;
-      background: #E9EBEE;
-    }
-    .app-container {
-      padding-top: 100px;
-      min-width: initial;
-    }
-    .footer {
-      font-size: 20px;
-      .links {
-        .internal-link {
-          font-size: 20px;
-        }
+  .base-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+    background: #E9EBEE;
+  }
+  .base-container {
+    // min-height: initial;
+    background: #E9EBEE;
+  }
+  .app-container {
+    padding-top: 100px;
+    min-width: initial;
+  }
+  // footer
+  .footer {
+    font-size: 20px;
+    .links {
+      .internal-link {
+        font-size: 20px;
       }
     }
-    // auth 
-    .signup-container {
+  }
+  // auth 
+  .signup-container {
     .auth-form {
-      width: 100%;
-      padding: 0px 40px;
+      width: 75%;
+      // padding: 0px 40px;
       .submit-row {
         font-size: 20px;
         .reroute {
@@ -42,271 +43,258 @@
         font-size: 20px;
       }
     }
+  }
+  // navbar
+  .navbar-container {
+    height: 100px;
+    .title {
+      font-size: 30px;
     }
-    // navbar
-    .navbar-container {
-      height: 100px;
-      .title {
-        font-size: 30px;
-      }
-      .account-button {
-        font-size: 30px;
-      }
-      #left-dropdown-button {
-        top: 40px;
-      }
-      .navbar-dropdown {
-        top: 100px;
-        width: auto;
-        padding: 20px 10px;
-      }
-      .navbar-dropdown-list {
-        font-size: 30px;
-      }
+    .account-button {
+      font-size: 30px;
     }
-    // splash
-    .splash-top {
-      padding-right: 20px;
-      padding-left: 20px;
-      h1 {
-       font-size: 30px;
-      }
-      p {
-        font-size: 20px;
-        width: initial;
-      }
-      .action-call {
-        height: 50px;
-      }
+    #left-dropdown-button {
+      top: 40px;
     }
-    .splash-mid {
-      padding-right: 20px;
-      padding-left: 20px;
-      .splash-mid-content {
-        width: initial;
-      }
+    .navbar-dropdown {
+      top: 100px;
+      width: auto;
+      padding: 20px 10px;
     }
-    .splash-bottom {
-      padding-right: 20px;
-      padding-left: 20px;
-      h1 {
-        width: initial;
-      }
-      p {
-        width: initial;
-      }
+    .navbar-dropdown-list {
+      font-size: 30px;
     }
-    .splash-teaser {
-      padding-right: 20px;
-      padding-left: 20px;
-      p {
-        width: initial;
-      }
+  }
+  // splash
+  .splash-top {
+    padding-right: 20px;
+    padding-left: 20px;
+    h1 {
+     font-size: 30px;
     }
-    // faq 
-    .faq {
+    p {
       font-size: 20px;
       width: initial;
-      padding-left: 20px;
-      padding-right: 20px;
     }
-    // pricing 
-    .pricing {
-      font-size: 20px;
+    .action-call {
+      height: 50px;
+    }
+  }
+  .splash-mid {
+    padding-right: 20px;
+    padding-left: 20px;
+    .splash-mid-content {
       width: initial;
-      padding-left: 20px;
-      padding-right: 20px;
     }
-    // dashboard
-    .home-container {
-      min-width: 0px;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: flex-start;
-      .home-top {
-        width: 100%;
-        height: auto;
-        padding: 20px 0px;
+  }
+  .splash-bottom {
+    padding-right: 20px;
+    padding-left: 20px;
+    h1 {
+      width: initial;
+    }
+    p {
+      width: initial;
+    }
+  }
+  .splash-teaser {
+    padding-right: 20px;
+    padding-left: 20px;
+    p {
+      width: initial;
+    }
+  }
+  // faq 
+  .faq {
+    font-size: 20px;
+    width: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  // dashboard
+  .home-container {
+    min-width: 0px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    .home-top {
+      width: 100%;
+      height: auto;
+      padding: 20px 0px;
+      padding-right: 20px;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      .pool-list {
+        padding-left: 20px;
         padding-right: 20px;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        -webkit-box-align: start;
-            -ms-flex-align: start;
-                align-items: flex-start;
-        .pool-list {
-          padding-left: 20px;
-          padding-right: 20px;
-          height: none;
-          .pool-list-top {
-            left: 10px;
-          }
-          .pool-list-bottom {
-            .button {
-              height: 50px;
-              font-size: 20px
-            }
-            .pool-list-item {
-              height: 50px;
-              font-size: 20px;
-            }
-          }
+        height: none;
+        .pool-list-top {
+          left: 10px;
         }
-        .profile-box {
-          // height: auto;
-          .profile-box-bottom {
-            padding-top: 0px;
+        .pool-list-bottom {
+          .button {
+            height: 50px;
+            font-size: 20px
           }
-          .label {
-            font-size: 20px;
-          }
-          .email, .username {
-            // margin-bottom: 0px;
-            font-size: 20px;
-          }
-          .profile-edit-button {
+          .pool-list-item {
             height: 50px;
             font-size: 20px;
           }
         }
       }
-      .home-bulletin {
-        .modboard-box {
-          width: 100%;
-          padding-left: 40px;
-          padding-right: 40px;
-          .title {
-            font-size: 20px;
-          }
-          .message {
-            font-size: 20px;
-          }
+      .profile-box {
+        // height: auto;
+        .profile-box-bottom {
+          padding-top: 0px;
         }
-      }
-      .home-bottom {
-        width: 100%;
-        padding: 0px 20px;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-                justify-content: flex-start;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-                align-items: center;
-        .standings-box {
-          margin-top: 10px;
-          width: 100%;
+        .label {
+          font-size: 20px;
+        }
+        .email, .username {
+          // margin-bottom: 0px;
+          font-size: 20px;
+        }
+        .profile-edit-button {
+          height: 50px;
           font-size: 20px;
         }
       }
     }
-    // profile
-    .profile-container {
-      height: 100%;
-      padding-top: 100px;
+    .home-bulletin {
+      .modboard-box {
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+        .title {
+          font-size: 20px;
+        }
+        .message {
+          font-size: 20px;
+        }
+      }
     }
-    // auth
-    .signup-container {
-      -webkit-box-align: start;
-          -ms-flex-align: start;
-              align-items: flex-start;
-      padding-top: 100px;
-    }
-    // pool home
-    .pool-root {
+    .home-bottom {
+      width: 100%;
+      padding: 0px 20px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
       -webkit-box-pack: start;
-          -ms-flex-pack: start;
+      -ms-flex-pack: start;
               justify-content: flex-start;
-    }
-    .pool-container {
-      min-height: 0px;
-      .pool-standings {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+              align-items: center;
+      .standings-box {
+        margin-top: 10px;
         width: 100%;
-        padding-top: 0px;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-                justify-content: flex-start;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-                align-items: center;
-        .pool-standings-box {
-          width: 100%;
-          margin-top: 20px;
-          padding-left: 20px;
-          padding-right: 20px;  
-        }
-
+        font-size: 20px;
       }
-      .pool-bulletin {
-        .bulletin-box {
-          width: 100%;
-        }
-        .bulletin-header {
-          width: 100%;
-          .invite-button {
-            height: 50px;
-          }
-        }
-      }
-      .bulletin-container {
-        padding-left: 20px;
-      }
-      .pool-coms {
-        width: 100%;
-        .chat-box {
-          width: 100%;
-          padding-right: 20px;
-          padding-left: 20px;
-          .chat-form-button {
-            height: 50px;
-          }
-          h2 {
-            left: 20px;
-          }
-        }
-      }
-    }
-    // pick form
-    .picks-container {
-      min-height: 0px;
-      min-width: 100%;
-      width: 100%;
-      padding-bottom: 0px;
-      .picks-top {
-        min-width: 100%;
-        width: 100%;
-        top: 100px;
-      }
-      .picks-header {
-        margin-right: 10px;
-        .week-switcher {
-          margin-left: 10px;
-          i {
-            transform: scale(2);
-          }
-        }
-      }
-      .selection-item {
-        min-width: 100%;
-      }
-    }
-    // team stats
-    .metrics-container {
-      min-width: 0px;
-      width: 100%;
-    }
-    // moderator
-    .moderator-container {
-      padding-top: 40px;
-    }
-    // console
-    .console-container {
-      padding-top: 40px;
     }
   }
+  // profile
+  .profile-container {
+    height: 100%;
+    padding-top: 100px;
+  }
+ 
+  // pool home
+  .pool-root {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .pool-container {
+    min-height: 0px;
+    .pool-standings {
+      width: 100%;
+      padding-top: 0px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+              justify-content: flex-start;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+              align-items: center;
+      .pool-standings-box {
+        width: 100%;
+        margin-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;  
+      }
+
+    }
+    .pool-bulletin {
+      .bulletin-box {
+        width: 100%;
+      }
+      .bulletin-header {
+        width: 100%;
+        .invite-button {
+          height: 50px;
+        }
+      }
+    }
+    .bulletin-container {
+      padding-left: 20px;
+    }
+    .pool-coms {
+      width: 100%;
+      .chat-box {
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+        .chat-form-button {
+          height: 50px;
+        }
+        h2 {
+          left: 20px;
+        }
+      }
+    }
+  }
+  // pick form
+  .picks-container {
+    min-height: 0px;
+    min-width: 100%;
+    width: 100%;
+    padding-bottom: 0px;
+    .picks-top {
+      min-width: 100%;
+      width: 100%;
+      top: 100px;
+    }
+    .picks-header {
+      margin-right: 10px;
+      .week-switcher {
+        margin-left: 10px;
+        i {
+          transform: scale(2);
+        }
+      }
+    }
+    .selection-item {
+      min-width: 100%;
+    }
+  }
+  // team stats
+  .metrics-container {
+    min-width: 0px;
+    width: 100%;
+  }
+  // moderator
+  .moderator-container {
+    padding-top: 40px;
+  }
+  // console
+  .console-container {
+    padding-top: 40px;
+  }
+}

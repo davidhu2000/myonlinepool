@@ -24,32 +24,25 @@
     }
     // auth 
     .signup-container {
-    .auth-form {
-      // width: 100%;
-      // padding: 0px 40px;
-      .submit-row {
-        font-size: 20px;
-        .reroute {
+      .auth-form {
+        width: 75%;
+        // padding: 0px 40px;
+        .submit-row {
+          font-size: 20px;
+          .reroute {
+            font-size: 20px;
+          }
+        }
+        .utility-row {
+          a {
+          font-size: 20px;
+          }
+        }
+        .auth-form-button {
+          height: 50px;
           font-size: 20px;
         }
       }
-      .utility-row {
-        a {
-        font-size: 20px;
-        }
-      }
-      .auth-form-button {
-        height: 50px;
-        font-size: 20px;
-      }
-    }
-    }
-     // auth
-     .signup-container {
-      -webkit-box-align: start;
-          -ms-flex-align: start;
-              align-items: flex-start;
-      padding-top: 100px;
     }
     // navbar
     .navbar-container {
