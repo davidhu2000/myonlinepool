@@ -1,21 +1,7 @@
-// .profile-container {
-//   width: 400px;
-//   .auth-form-button {
-//     height: 30px;
-//     width: 90px;
-//     margin-left: auto;
-//   }
-//   .poolform-group {
-//     margin-bottom: 10px;
-//   }
-//   .auth-form {
-//     margin-bottom: 40px;
-//   }
-// }
-
 .profile-container {
   margin: auto;
   width: 400px;
+  padding: 40px 0px;
   .auth-form-button {
     height: 30px;
     width: 90px;
@@ -26,5 +12,11 @@
   }
   .auth-form {
     margin-bottom: 40px;
+  }
+  .back-button {
+    margin-right: auto;
+    width: 90px;
+    height: 30px;
+    font-size: 15px;
   }
 }
