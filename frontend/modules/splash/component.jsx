@@ -82,6 +82,14 @@ class Splash extends React.Component {
             and a stats page with helpful research
           </p>
         </div>
+        <div className="splash-promo">
+          <h1>Play for a good cause!</h1>
+          <p>
+            Is there a worthwile cause you care about and need to raise funds for?
+            Why not create your own 2017 NFL Football Office Pool and
+            &quot;Play for a Good Cause!&quot;
+          </p>
+        </div>
       </div>
     );
   }
