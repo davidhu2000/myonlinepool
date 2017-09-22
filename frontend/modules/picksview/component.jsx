@@ -1,7 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 import { values } from 'lodash';
 import { shortestString } from 'helpers';
 
@@ -71,6 +71,11 @@ class Picksview extends React.Component {
           </div>
           {this.renderColumns()}
         </div>
+        <Link to={`/pool/${this.props.poolId}/picks`}>
+          <div className="back-button">
+            Back
+          </div>
+        </Link>
       </div>
     );
   }
@@ -80,7 +85,8 @@ Picksview.propTypes = {
   picks: PropTypes.shape().isRequired,
   routeParams: PropTypes.shape().isRequired,
   members: PropTypes.shape().isRequired,
-  standings: PropTypes.shape().isRequired
+  standings: PropTypes.shape().isRequired,
+  poolId: PropTypes.number.isRequired
 };
 
 export default withRouter(Picksview);
