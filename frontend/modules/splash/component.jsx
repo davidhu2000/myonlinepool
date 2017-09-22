@@ -47,16 +47,18 @@ class Splash extends React.Component {
             </div>
           </Link>
         </div>
-        <div className="splash-mid">
-          <div className="splash-mid-content">
-            <h1>Host Your Own 2017 NFL Football Pool in 3 Easy Steps</h1>
-            <p>
-              1. Register for free
-            <br />
-              2. Create a pool
-            <br />
-              3. Invite friends to play
-            </p>
+        <div className="overlay">
+          <div className="splash-mid">
+            <div className="splash-mid-content">
+              <h1>Host Your Own 2017 NFL Football Pool in 3 Easy Steps</h1>
+              <p>
+                1. Register for free
+              <br />
+                2. Create a pool
+              <br />
+                3. Invite friends to play
+              </p>
+            </div>
           </div>
         </div>
         <div className="splash-bottom">
