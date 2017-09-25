@@ -14,7 +14,8 @@ class Picksview extends React.Component {
   }
 
   renderGames() {
-    let games = this.props.picks[this.props.routeParams.weekId];
+    // console.log(this.props.routeParams.weekId);
+    let games = this.props.picks[this.props.routeParams.weekId[0]];
     return values(games).map(game => (
       <div className="picks-game">
         { teamNames[game.away] } at { teamNames[game.home] }
@@ -31,7 +32,7 @@ class Picksview extends React.Component {
   }
 
   renderColumns() {
-    let weeklyGame = this.props.picks[this.props.routeParams.weekId];
+    let weeklyGame = this.props.picks[this.props.routeParams.weekId[0]];
     return values(weeklyGame).map(game => (
       game.pick_locked ? <div className="player-picks">
         {values(game.picks).map(pick => (
@@ -42,7 +43,7 @@ class Picksview extends React.Component {
   }
 
   renderStandings() {
-    let weeklyStandings = this.props.standings[this.props.routeParams.weekId];
+    let weeklyStandings = this.props.standings[this.props.routeParams.weekId[0]];
     return values(weeklyStandings).map(playerStandings => (
       <div className="player-standings-item">
         {playerStandings.correctPicks}
@@ -71,8 +72,8 @@ class Picksview extends React.Component {
           </div>
           {this.renderColumns()}
         </div>
-        <Link to={`/pool/${this.props.poolId}/picks`}>
-          <div className="back-button">
+        <Link to={`/pool/${this.props.poolId}/picks/${this.props.params.weekId[0]}`}>
+          <div className="button back-button">
             Back
           </div>
         </Link>

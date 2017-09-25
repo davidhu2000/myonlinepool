@@ -99,6 +99,7 @@ class PoolHome extends React.Component {
             poolId={pool.id}
             description={pool.description}
             receiveAlerts={this.props.receiveAlerts}
+            prefs={this.props.prefs}
           />
         </div>
 
