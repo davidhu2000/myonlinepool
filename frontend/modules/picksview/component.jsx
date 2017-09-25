@@ -87,7 +87,10 @@ Picksview.propTypes = {
   routeParams: PropTypes.shape().isRequired,
   members: PropTypes.shape().isRequired,
   standings: PropTypes.shape().isRequired,
-  poolId: PropTypes.number.isRequired
+  poolId: PropTypes.string.isRequired,
+  params: PropTypes.shape({
+    weekId: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default withRouter(Picksview);

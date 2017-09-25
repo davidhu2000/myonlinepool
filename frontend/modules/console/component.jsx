@@ -113,7 +113,7 @@ class AdminConsole extends React.Component {
               field="currentWeek"
               label='currentWeek'
             />
-            <button type="submit" className="button">
+            <button type="submit" className="button week-button">
               Update
             </button>
           </form>

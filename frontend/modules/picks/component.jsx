@@ -246,7 +246,8 @@ Picks.propTypes = {
   fetchPicks: PropTypes.func.isRequired,
   receiveAlerts: PropTypes.func.isRequired,
   params: PropTypes.shape({
-    poolId: PropTypes.string.isRequired
+    poolId: PropTypes.string.isRequired,
+    weekId: PropTypes.string.isRequired
   }).isRequired,
   pool: PropTypes.shape({
     title: PropTypes.string.isRequired,

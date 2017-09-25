@@ -50,7 +50,7 @@
       padding-right: 5px;
       position: absolute;
       left: 0px;
-      bottom: 7px;
+      bottom: 4px;
     }
 
     .fa-caret-right {
@@ -96,5 +96,12 @@
     padding: 50px 0px;
     padding-left: 10px;
     margin-right: auto;
+    .pool-form-group {
+      margin-bottom: 20px;
+    }
+    .week-button {
+      padding: 5px 10px;
+      margin-left: 5px;
+    }
   }
 }
