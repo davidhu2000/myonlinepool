@@ -11,15 +11,16 @@ class AdminConsole extends React.Component {
 
     this.state = {
       week: 1,
-      currentWeek: this.props.prefs.week,
-      currentYear: this.props.prefs.year
+      currentWeek: 1,
+      currentYear: 2017
     };
     autoBind(this);
   }
 
   componentWillMount() {
     this.setState({ currentWeek: this.props.prefs.week,
-      currentYear: this.props.prefs.year });
+      currentYear: this.props.prefs.year,
+      week: Number(this.props.prefs.week) });
   }
 
   componentDidMount() {
@@ -28,7 +29,6 @@ class AdminConsole extends React.Component {
     if (this.props.userId === 1) {
       this.props.fetchGames(this.state.week);
     }
-    console.log(this.state.currentWeek);
   }
 
   componentWillReceiveProps(newProps) {
@@ -83,6 +83,7 @@ class AdminConsole extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="console-container">
         <div className="console-top">
