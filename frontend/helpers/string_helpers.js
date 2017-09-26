@@ -35,3 +35,11 @@ export const shortestString = string => {
   }
   return ret;
 };
+
+export const leaderString = string => {
+  let ret = string;
+  if (ret.length > 15) {
+    ret = `${ret.substr(0, 12)}...`;
+  }
+  return ret;
+};

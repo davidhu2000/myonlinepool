@@ -146,21 +146,14 @@
 // }
 
 .leaderboard-container {
-  // min-height: 1080px;
   min-width: 870px;
   width: 95%;
+  min-height: 500px;
   padding: 20px 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
   position: relative;
+  flex-direction: column;
+  justify-content: flex-start;
 
   .leaderboard-banner {
     display: -webkit-box;
@@ -201,7 +194,10 @@
     }
     .title {
       width: 125px;
-      text-align: center;
+      // text-align: center;
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 10px;
     }
     .points{
       width: 100px;
@@ -241,8 +237,10 @@
       }
       .title {
         width: 125px;
-        text-align: center;
         font-weight: bold;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 10px;
       }
       .total {
         width: 100px;
@@ -346,6 +344,15 @@
   .leaderboard-weekly-body {
     div:last-child {
       border-bottom: none;
+    }
+  }
+  .bottom-links {
+    margin: 0 auto;
+    margin-top: auto;
+    a {
+      margin: 0px 20px;
+      font-weight: bold;
+      font-size: 15px;
     }
   }    
 }

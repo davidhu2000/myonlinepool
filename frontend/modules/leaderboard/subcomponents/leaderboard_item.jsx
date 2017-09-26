@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { values, keys } from 'lodash';
-import { shortestString } from 'helpers';
+import { leaderString } from 'helpers';
 
 class LeaderboardItem extends React.Component {
   constructor(props) {
@@ -59,7 +59,11 @@ class LeaderboardItem extends React.Component {
       }
     });
     return keys(this.state.weeks).map(week => (
-      <div className={this.state.weeks[week] >= this.findWeeklyHighest(week) ? "highlight" : ""}>{this.state.weeks[week]}</div>
+      <div
+        className={this.state.weeks[week] >= this.findWeeklyHighest(week) && this.state.weeks[week] > 0 ? "highlight" : ""}
+      >
+        {this.state.weeks[week]}
+      </div>
     ));
   }
 
@@ -74,7 +78,7 @@ class LeaderboardItem extends React.Component {
   render() {
     return (
       <div className="leaderboard-item">
-        <div className="title">{shortestString(this.props.member.name)}</div>
+        <div className="title">{leaderString(this.props.member.name)}</div>
         {this.renderWeeks()}
         {this.renderTotal()}
       </div>

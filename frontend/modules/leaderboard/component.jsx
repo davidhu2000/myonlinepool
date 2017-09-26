@@ -113,6 +113,14 @@ class Leaderboard extends React.Component {
         <div className="leaderboard-weekly-body">
           {this.renderWeeklyWinners()}
         </div> */}
+        <div className="bottom-links">
+          <a className="nfl-link" href="https://www.nfl.com">
+            NFL.com
+          </a>
+          <a className="espn-link" href="https://www.espn.com">
+            ESPN.com
+          </a>
+        </div>
       </div>
     );
   }
