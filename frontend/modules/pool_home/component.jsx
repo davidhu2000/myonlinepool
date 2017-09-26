@@ -63,7 +63,6 @@ class PoolHome extends React.Component {
 
   render() {
     let { pool } = this.props;
-
     return (
       <div className="pool-container">
         { this.checkForAdminPayment() }

@@ -3,8 +3,9 @@ import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 
 import { values } from 'lodash';
+import { calculateSeasonStandings } from 'helpers';
 import { withRouter } from 'react-router';
-import { LeaderboardItem, LeaderboardWeeklyItem } from './subcomponents';
+import { LeaderboardItem } from './subcomponents';
 
 class Leaderboard extends React.Component {
   constructor(props) {
@@ -13,27 +14,53 @@ class Leaderboard extends React.Component {
   }
 
   renderMembers() {
-    return values(this.props.pool.members).map(member => (
+    let seasonStandings = calculateSeasonStandings(this.props.pool.standings);
+    let sortedStandings = [];
+    console.log(seasonStandings);
+    values(seasonStandings).forEach(standing => {
+      console.log(standing);
+      console.log(sortedStandings);
+      // console.log(sortedStandings[-1]);
+      if (sortedStandings.length === 0) {
+        sortedStandings.push(standing);
+      } else if (standing.correctPicks > sortedStandings[0].correctPicks) {
+        sortedStandings.unshift(standing);
+      } else {
+        sortedStandings.push(standing);
+      }
+    });
+    // console.log(sortedStandings);
+
+    return values(sortedStandings).map(standing => (
       <LeaderboardItem
-        member={member}
+        member={this.props.pool.members[standing.userId]}
         standings={this.props.pool.standings}
-        key={member.id}
+        key={standing.userId}
       />
     ));
+
+
+    // return values(this.props.pool.members).map(member => (
+    //   <LeaderboardItem
+    //     member={member}
+    //     standings={this.props.pool.standings}
+    //     key={member.id}
+    //   />
+    // ));
   }
 
-  renderWeeklyWinners() {
-    let actualStandings = this.props.pool.standings;
-    delete actualStandings[21];
+  // renderWeeklyWinners() {
+  //   let actualStandings = this.props.pool.standings;
+  //   delete actualStandings[21];
 
 
-    return values(actualStandings).slice(1).map(standing => (
-      <LeaderboardWeeklyItem
-        members={this.props.pool.members}
-        standings={standing}
-      />
-    ));
-  }
+  //   return values(actualStandings).slice(1).map(standing => (
+  //     <LeaderboardWeeklyItem
+  //       members={this.props.pool.members}
+  //       standings={standing}
+  //     />
+  //   ));
+  // }
 
   render() {
     return (

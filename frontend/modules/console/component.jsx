@@ -18,6 +18,9 @@ class AdminConsole extends React.Component {
   }
 
   componentWillMount() {
+    // this.props.fetchPrefs();
+    // console.log("admin props");
+    // console.log(this.props);
     this.setState({ currentWeek: this.props.prefs.week,
       currentYear: this.props.prefs.year,
       week: Number(this.props.prefs.week) });
@@ -69,6 +72,7 @@ class AdminConsole extends React.Component {
       week: this.state.currentWeek,
       year: this.state.currentYear
     });
+    this.props.receiveAlerts(['Week updated. Please relaunch browser.'], 200);
   }
 
   renderGames() {
@@ -83,7 +87,6 @@ class AdminConsole extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="console-container">
         <div className="console-top">
@@ -128,7 +131,9 @@ AdminConsole.propTypes = {
   userId: PropTypes.number.isRequired,
   fetchGames: PropTypes.func.isRequired,
   prefs: PropTypes.shape().isRequired,
-  updatePrefs: PropTypes.func.isRequired
+  updatePrefs: PropTypes.func.isRequired,
+  receiveAlerts: PropTypes.func.isRequired,
+  fetchPrefs: PropTypes.func.isRequired
 };
 
 export default withRouter(AdminConsole);
