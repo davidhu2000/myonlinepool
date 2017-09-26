@@ -287,10 +287,11 @@
         font-weight: bold;
       }
     
-      .logo-container {
-        width: 300px;
-        height: 79px;
-        background: url(image_path('myonlinepool-logo.png'));
+      .splash-logo-container {
+        margin-bottom: 10px;  
+        width: 500px;
+        height: 120px;
+        background: url(image_path('myonlinepool-logo-wht.png'));
         background-size: cover;
       }
     
