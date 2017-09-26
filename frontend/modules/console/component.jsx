@@ -132,8 +132,7 @@ AdminConsole.propTypes = {
   fetchGames: PropTypes.func.isRequired,
   prefs: PropTypes.shape().isRequired,
   updatePrefs: PropTypes.func.isRequired,
-  receiveAlerts: PropTypes.func.isRequired,
-  fetchPrefs: PropTypes.func.isRequired
+  receiveAlerts: PropTypes.func.isRequired
 };
 
 export default withRouter(AdminConsole);
