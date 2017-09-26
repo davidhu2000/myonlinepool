@@ -201,7 +201,10 @@
     }
     .title {
       width: 125px;
-      text-align: center;
+      // text-align: center;
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 10px;
     }
     .points{
       width: 100px;
@@ -241,8 +244,10 @@
       }
       .title {
         width: 125px;
-        text-align: center;
         font-weight: bold;
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 10px;
       }
       .total {
         width: 100px;
