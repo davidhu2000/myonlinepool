@@ -59,7 +59,11 @@ class LeaderboardItem extends React.Component {
       }
     });
     return keys(this.state.weeks).map(week => (
-      <div className={this.state.weeks[week] >= this.findWeeklyHighest(week) && this.state.weeks[week] > 0 ? "highlight" : ""}>{this.state.weeks[week]}</div>
+      <div
+        className={this.state.weeks[week] >= this.findWeeklyHighest(week) && this.state.weeks[week] > 0 ? "highlight" : ""}
+      >
+        {this.state.weeks[week]}
+      </div>
     ));
   }
 
