@@ -11,15 +11,19 @@ class AdminConsole extends React.Component {
 
     this.state = {
       week: 1,
-      currentWeek: this.props.prefs.week,
-      currentYear: this.props.prefs.year
+      currentWeek: 1,
+      currentYear: 2017
     };
     autoBind(this);
   }
 
   componentWillMount() {
+    // this.props.fetchPrefs();
+    // console.log("admin props");
+    // console.log(this.props);
     this.setState({ currentWeek: this.props.prefs.week,
-      currentYear: this.props.prefs.year });
+      currentYear: this.props.prefs.year,
+      week: Number(this.props.prefs.week) });
   }
 
   componentDidMount() {
@@ -28,7 +32,6 @@ class AdminConsole extends React.Component {
     if (this.props.userId === 1) {
       this.props.fetchGames(this.state.week);
     }
-    console.log(this.state.currentWeek);
   }
 
   componentWillReceiveProps(newProps) {
@@ -69,6 +72,7 @@ class AdminConsole extends React.Component {
       week: this.state.currentWeek,
       year: this.state.currentYear
     });
+    this.props.receiveAlerts(['Week updated. Please relaunch browser.'], 200);
   }
 
   renderGames() {
@@ -112,7 +116,7 @@ class AdminConsole extends React.Component {
               field="currentWeek"
               label='currentWeek'
             />
-            <button type="submit" className="button">
+            <button type="submit" className="button week-button">
               Update
             </button>
           </form>
@@ -127,7 +131,8 @@ AdminConsole.propTypes = {
   userId: PropTypes.number.isRequired,
   fetchGames: PropTypes.func.isRequired,
   prefs: PropTypes.shape().isRequired,
-  updatePrefs: PropTypes.func.isRequired
+  updatePrefs: PropTypes.func.isRequired,
+  receiveAlerts: PropTypes.func.isRequired
 };
 
 export default withRouter(AdminConsole);

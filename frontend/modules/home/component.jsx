@@ -1,3 +1,5 @@
+/* global $ */
+
 import React from 'react';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
@@ -22,6 +24,7 @@ class Home extends React.Component {
   }
 
   render() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
     return (
       <div className="home-container">
         <div className="home-top">

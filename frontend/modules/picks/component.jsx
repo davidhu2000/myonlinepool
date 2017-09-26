@@ -21,9 +21,10 @@ class Picks extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPicks(this.state.week, this.props.params.poolId).then(
+    this.props.fetchPicks(this.props.params.weekId[0], this.props.params.poolId).then(
       () => this.setState({ loading: false })
     );
+    this.setState({ week: Number(this.props.params.weekId[0]) });
   }
 
   toggleDropdown() {
@@ -200,7 +201,7 @@ class Picks extends React.Component {
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
             {this.props.pool.title}
             {this.renderWeekRecord()}
-            <Link to={`/pool/${this.props.params.poolId}/picks/picksview/${this.state.week}`} >
+            <Link to={`/pool/${this.props.params.poolId}/picks/${this.state.week}/picksview/${this.state.week}`} >
               <div className="pool-picks-link">
                 View Picks
               </div>
@@ -245,7 +246,8 @@ Picks.propTypes = {
   fetchPicks: PropTypes.func.isRequired,
   receiveAlerts: PropTypes.func.isRequired,
   params: PropTypes.shape({
-    poolId: PropTypes.string.isRequired
+    poolId: PropTypes.string.isRequired,
+    weekId: PropTypes.string.isRequired
   }).isRequired,
   pool: PropTypes.shape({
     title: PropTypes.string.isRequired,

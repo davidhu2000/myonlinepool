@@ -12,7 +12,7 @@
     width: 1300px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 10px 10px;
     background: $drk-primary;
     color: white;
@@ -44,7 +44,7 @@
     padding: 10px 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     .name-column {
       // width: 100px;
@@ -85,5 +85,8 @@
         margin-bottom: 5px;
       }
     }
+  }
+  .back-button {
+    padding: 5px 10px;
   }
 }

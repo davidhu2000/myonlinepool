@@ -34,7 +34,8 @@ class Splash extends React.Component {
     return (
       <div className="splash-container">
         <div className="splash-top">
-          <h1>Welcome to MyOnlinePool.com</h1>
+          {/* <h1>Welcome to MyOnlinePool.com</h1> */}
+          <div className="splash-logo-container" />
           <p>
           A simple app to make running your own office pool
           <span> QUICK</span>, <span>EASY</span> and most
@@ -47,16 +48,18 @@ class Splash extends React.Component {
             </div>
           </Link>
         </div>
-        <div className="splash-mid">
-          <div className="splash-mid-content">
-            <h1>Host Your Own 2017 NFL Football Pool in 3 Easy Steps</h1>
-            <p>
-              1. Register for free
-            <br />
-              2. Create a pool
-            <br />
-              3. Invite friends to play
-            </p>
+        <div className="overlay">
+          <div className="splash-mid">
+            <div className="splash-mid-content">
+              <h1>Host Your Own 2017 NFL Football Pool in 3 Easy Steps</h1>
+              <p>
+                1. Register for free
+              <br />
+                2. Create a pool
+              <br />
+                3. Invite friends to play
+              </p>
+            </div>
           </div>
         </div>
         <div className="splash-bottom">
@@ -78,6 +81,14 @@ class Splash extends React.Component {
             Once the season begins we{"'"}ll update game scores and display weekly results
             on your pools{"'"} leaderboard. There{"'"}s a a message board where you can talk trash or chat during games
             and a stats page with helpful research
+          </p>
+        </div>
+        <div className="splash-promo">
+          <h1>Play for a good cause!</h1>
+          <p>
+            Is there a worthwile cause you care about and need to raise funds for?
+            Why not create your own 2017 NFL Football Office Pool and
+            &quot;Play for a Good Cause!&quot;
           </p>
         </div>
       </div>

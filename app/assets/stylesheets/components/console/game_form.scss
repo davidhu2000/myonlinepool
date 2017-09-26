@@ -1,47 +1,8 @@
-// .game-form-container {
-
-//   .game-form {
-//     width: 600px;
-//     display: flex;
-//     flex-direction: column;
-
-//   }
-//   .game-form-header {
-//     display: flex;
-//     justify-content: center;
-//     font-size: 20px;
-//     font-weight: bold;
-//     opacity: .5;
-//     padding-bottom: 20px;
-//   }
-
-//   .game-update-button {
-//     width: 90px;
-//     height: 30px;
-//     font-size: 15px;
-//     margin-left: auto;
-//     margin-top: 20px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     border-radius: 3px;
-//     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-//     transition: .2s;
-//     background: $drk-primary;
-//     color: white;
-//   }
-
-//   .game-update-button:hover {
-//     color: $lt-primary;
-//     border: 1px black solid;
-//     background: white;
-//   }
-// }
-
 .game-form-container {
   
     .game-form {
       width: 600px;
+      padding: 40px 0px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
