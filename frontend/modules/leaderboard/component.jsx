@@ -16,11 +16,13 @@ class Leaderboard extends React.Component {
   renderMembers() {
     let seasonStandings = calculateSeasonStandings(this.props.pool.standings);
     let sortedStandings = [];
+    console.log("season standings");
     console.log(seasonStandings);
     values(seasonStandings).forEach(standing => {
+      console.log("standing");
       console.log(standing);
+      console.log("sortedStandings");
       console.log(sortedStandings);
-      // console.log(sortedStandings[-1]);
       if (sortedStandings.length === 0) {
         sortedStandings.push(standing);
       } else if (standing.correctPicks > sortedStandings[0].correctPicks) {
@@ -31,7 +33,7 @@ class Leaderboard extends React.Component {
     });
     // console.log(sortedStandings);
 
-    return values(sortedStandings).map(standing => (
+    return sortedStandings.map(standing => (
       <LeaderboardItem
         member={this.props.pool.members[standing.userId]}
         standings={this.props.pool.standings}
