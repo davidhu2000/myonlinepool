@@ -129,5 +129,9 @@
     div:first-child {
       font-weight: bold;
     }
+    .team-name {
+      display: flex;
+      justify-content: flex-start;
+    }
   }
 }

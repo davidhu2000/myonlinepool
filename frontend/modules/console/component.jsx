@@ -18,9 +18,6 @@ class AdminConsole extends React.Component {
   }
 
   componentWillMount() {
-    // this.props.fetchPrefs();
-    // console.log("admin props");
-    // console.log(this.props);
     this.setState({ currentWeek: this.props.prefs.week,
       currentYear: this.props.prefs.year,
       week: Number(this.props.prefs.week) });
