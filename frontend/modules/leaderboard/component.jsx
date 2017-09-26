@@ -14,26 +14,30 @@ class Leaderboard extends React.Component {
   }
 
   renderMembers() {
-    let seasonStandings = calculateSeasonStandings(this.props.pool.standings);
-    let sortedStandings = [];
-    console.log("season standings");
-    console.log(seasonStandings);
-    values(seasonStandings).forEach(standing => {
-      console.log("standing");
-      console.log(standing);
-      console.log("sortedStandings");
-      console.log(sortedStandings);
-      if (sortedStandings.length === 0) {
-        sortedStandings.push(standing);
-      } else if (standing.correctPicks > sortedStandings[0].correctPicks) {
-        sortedStandings.unshift(standing);
-      } else {
-        sortedStandings.push(standing);
-      }
-    });
-    // console.log(sortedStandings);
+    // let seasonStandings = calculateSeasonStandings(this.props.pool.standings);
+    // let sortedStandings = [];
+    // console.log("season standings");
+    // console.log(seasonStandings);
+    // values(seasonStandings).forEach(standing => {
+    //   console.log("standing");
+    //   console.log(standing);
+    //   console.log("sortedStandings");
+    //   console.log(sortedStandings);
+    //   if (sortedStandings.length === 0) {
+    //     sortedStandings.push(standing);
+    //   } else if (standing.correctPicks > sortedStandings[0].correctPicks) {
+    //     sortedStandings.unshift(standing);
+    //   } else {
+    //     sortedStandings.push(standing);
+    //   }
+    // });
 
-    return sortedStandings.map(standing => (
+    let sorted = values(calculateSeasonStandings(this.props.pool.standings));
+    sorted.sort((obj1, obj2) => {
+      return obj2.correctPicks - obj1.correctPicks;
+    });
+
+    return sorted.map(standing => (
       <LeaderboardItem
         member={this.props.pool.members[standing.userId]}
         standings={this.props.pool.standings}
