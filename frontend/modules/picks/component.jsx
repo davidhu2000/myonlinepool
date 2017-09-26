@@ -61,7 +61,9 @@ class Picks extends React.Component {
   pickHome() {
     let picks = [];
     values(this.props.picks[this.state.week]).forEach(game => {
-      if (game.pick !== 'home') {
+      // if (!game.pick !== 'home') {
+      console.log(game);
+      if (!game.pick_locked) {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
@@ -72,6 +74,7 @@ class Picks extends React.Component {
       }
     });
 
+    console.log(picks);
     if (picks.length > 0) {
       this.props.sendPicks(picks);
     }
@@ -81,7 +84,8 @@ class Picks extends React.Component {
   pickAway() {
     let picks = [];
     values(this.props.picks[this.state.week]).forEach(game => {
-      if (game.pick !== 'away') {
+      // if (game.pick !== 'away') {
+      if (!game.pick_locked) {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
@@ -101,7 +105,7 @@ class Picks extends React.Component {
     let picks = [];
     values(this.props.picks[this.state.week]).forEach(game => {
       // if (game.pick === '') {
-      if (game.line > 0) {
+      if (game.line > 0 && !game.pick_locked) {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
@@ -109,7 +113,7 @@ class Picks extends React.Component {
           week: game.week
         };
         picks.push(newPick);
-      } else {
+      } else if (!game.pick_locked) {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
