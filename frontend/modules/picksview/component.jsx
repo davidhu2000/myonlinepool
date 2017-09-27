@@ -54,6 +54,7 @@ class Picksview extends React.Component {
   render() {
     return (
       <div className="picks-view">
+     
         <div className="picks-view-header">
           <div className="name-title">
             Player Name
@@ -72,6 +73,7 @@ class Picksview extends React.Component {
           </div>
           {this.renderColumns()}
         </div>
+     
         <Link to={`/pool/${this.props.poolId}/picks/${this.props.params.weekId[0]}`}>
           <div className="button back-button">
             Back
