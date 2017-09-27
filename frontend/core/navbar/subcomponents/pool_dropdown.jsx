@@ -34,7 +34,7 @@ class Dropdown extends React.Component {
           <Link to={`/pool/${this.props.poolId}`} onClick={this.props.toggleLeftDropdown}>
             Pool Home
           </Link>
-          <Link to={`/pool/${this.props.poolId}/picks`} onClick={this.props.toggleLeftDropdown}>
+          <Link to={`/pool/${this.props.poolId}/picks/${this.props.week}`} onClick={this.props.toggleLeftDropdown}>
             Picks
           </Link>
           <Link to={`/pool/${this.props.poolId}/leaderboard`} onClick={this.props.toggleLeftDropdown}>
@@ -63,7 +63,8 @@ Dropdown.propTypes = {
   poolId: PropTypes.number.isRequired,
   isModerator: PropTypes.bool.isRequired,
   toggleLeftDropdown: PropTypes.func.isRequired,
-  showConfirmFormModal: PropTypes.func.isRequired
+  showConfirmFormModal: PropTypes.func.isRequired,
+  week: PropTypes.string.isRequired
 };
 
 export const PoolDropdown = enhanceWithClickOutside(Dropdown);
