@@ -1,6 +1,6 @@
 export const PREFS = {
   RECEIVE_PREFS: 'prefs/RECEIVE_PREFS',
-  UPDATE_PREFS: 'prefs/UPDATE_PREFS',
+  UPDATE_PREFS: 'prefs/UPDATE_PREFS'
 };
 
 export const receivePrefs = prefs => ({

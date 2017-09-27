@@ -128,8 +128,7 @@ AdminConsole.propTypes = {
   userId: PropTypes.number.isRequired,
   fetchGames: PropTypes.func.isRequired,
   prefs: PropTypes.shape().isRequired,
-  updatePrefs: PropTypes.func.isRequired,
-  receiveAlerts: PropTypes.func.isRequired
+  updatePrefs: PropTypes.func.isRequired
 };
 
 export default withRouter(AdminConsole);
