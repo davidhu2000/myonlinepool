@@ -17,10 +17,4 @@ class Api::SysprefsController < ApplicationController
     @sysprefs.save
     render 'api/sysprefs/index'
   end
-
-  private 
-
-  def sysprefs_params
-    params.require(:prefs).permit(:week, :year)
-  end
 end
