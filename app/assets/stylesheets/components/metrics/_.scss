@@ -1,63 +1,3 @@
-// .metrics-container {
-//   min-width: 870px;
-//   width: 95%;
-//   padding: 20px 0px;
-//   display: flex;
-//   flex-direction: column;
-//   position: relative;
-//     .conference-header {
-//       min-width: 870px;
-//       width: 100%;
-//       display: flex;
-//       justify-content: space-around;
-//       padding: 5px 0px;
-//       border-radius: 2px;
-//       border-bottom-left-radius: 0px;
-//       border-bottom-right-radius: 0px;
-//       font-size: 20px;
-//       font-weight: bold;
-//       background: $drk-primary;
-//       color: white;
-//     }
-//     .labels {
-//       min-width: 870px;
-//       width: 100%;
-//       display: flex;
-//       justify-content: space-around;
-//       padding: 5px 0px;
-//       border-radius: 2px;
-//       border-top-right-radius: 0px;
-//       border-top-left-radius: 0px;
-//       font-size: 17.5px;
-//       font-weight: bold;
-//       background: $drk-primary;
-//       color: white;
-//       div {
-//         width: 180px;
-//         text-align: center;
-//       }
-//   }
-//   .metrics-teams {
-//     margin-bottom: 20px;
-//   }
-//   .team-item {
-//     width: 100%;
-//     padding: 5px 0px;
-//     display: flex;
-//     justify-content: space-around;
-//     border-top: .2px rgba(51, 51, 51,.2) solid;
-//     margin: 0px;
-//     div {
-//       width: 140px;
-//       font-size: 15px;
-//       text-align: center;
-//     }
-//     div:first-child {
-//       font-weight: bold;
-//     }
-//   }
-// }
-
 .metrics-container {
   min-width: 870px;
   width: 95%;
@@ -134,4 +74,15 @@
       justify-content: flex-start;
     }
   }
+  .bottom-links {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    a {
+      margin: 0px 20px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }    
 }
