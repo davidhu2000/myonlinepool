@@ -26,7 +26,7 @@ export const deleteGame = gameId => (
 
 export const sendUpdatePrefs = prefs => (
   $.ajax({
-    mathod: 'POST',
+    method: 'POST',
     url: 'api/sysprefs/',
     data: { prefs }
   })

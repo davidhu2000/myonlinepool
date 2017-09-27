@@ -69,7 +69,6 @@ class AdminConsole extends React.Component {
       week: this.state.currentWeek,
       year: this.state.currentYear
     });
-    this.props.receiveAlerts(['Week updated. Please relaunch browser.'], 200);
   }
 
   renderGames() {
@@ -109,9 +108,10 @@ class AdminConsole extends React.Component {
             <FormTextInput
               update={this.update}
               value={this.state.currentWeek}
-              type='currentWeek'
+              type='number'
               field="currentWeek"
               label='currentWeek'
+              errorMessage='Please enter a valid week number'
             />
             <button type="submit" className="button week-button">
               Update

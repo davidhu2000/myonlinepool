@@ -15,7 +15,8 @@ Rails.application.routes.draw do
     resources :bulletins, only: [:index, :create]
     delete 'bulletins', to: 'bulletins#destroy'
     resources :mailers, only: [:create]
-    resources :sysprefs, only: [:index, :update]
+    resources :sysprefs, only: [:index]
+    post :sysprefs, to: 'sysprefs#update'
 
     get 'standings', to: 'standings#index'
 
