@@ -2,7 +2,7 @@
   // min-width: 870px;
   width: 100%;
   min-height: 75vh;
-  padding: 20px;
+  padding: 20px 0px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -10,6 +10,7 @@
   overflow-x: auto;
 
   .leaderboard-banner {
+    margin: 0 auto;
     width: 1300px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -28,6 +29,7 @@
   }
      
   .leaderboard-labels {
+    margin: 0 auto;
     width: 1300px;
     margin-bottom: 5px;
     display: -webkit-box;
@@ -62,6 +64,7 @@
 
   .leaderboard-body {
     width: 1300px;
+    margin: 0 auto;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

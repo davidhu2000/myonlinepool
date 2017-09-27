@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { FormTextInput, WeekSwitcher } from 'common/components';
 import { withRouter } from 'react-router';
 import { GameItem } from './subcomponents';
+import { values } from 'lodash';
 
 class AdminConsole extends React.Component {
   constructor(props) {
@@ -76,7 +77,7 @@ class AdminConsole extends React.Component {
     let { week } = this.state;
 
     if (games[week]) {
-      return Object.values(games[week]).map(game => (
+      return values(games[week]).map(game => (
         <GameItem key={game.id} game={game} week={week} />
       ));
     }

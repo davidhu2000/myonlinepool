@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
 import { values, keys } from 'lodash';
-import { leaderString } from 'helpers';
+import { shortestString } from 'helpers';
 
 class LeaderboardItem extends React.Component {
   constructor(props) {
@@ -78,7 +78,7 @@ class LeaderboardItem extends React.Component {
   render() {
     return (
       <div className="leaderboard-item">
-        <div className="title">{leaderString(this.props.member.name)}</div>
+        <div className="title">{shortestString(this.props.member.name)}</div>
         {this.renderWeeks()}
         {this.renderTotal()}
       </div>
