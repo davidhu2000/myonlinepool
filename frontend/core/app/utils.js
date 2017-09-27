@@ -19,9 +19,10 @@ export const joinPool = (identifier, password) => (
   })
 );
 
-export const fetchPrefs = () => (
+export const fetchPrefs = data => (
   $.ajax({
     method: "GET",
-    url: "api/sysprefs"
+    url: "api/sysprefs",
+    data: { data }
   })
 );

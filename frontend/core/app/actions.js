@@ -9,7 +9,7 @@ export const removeMyPool = poolId => ({
 });
 
 export const fetchPrefs = () => dispatch => (
-  AppAPI.fetchPrefs().then(
+  AppAPI.fetchPrefs({ sport: "NFL" }).then(
     res => dispatch(receivePrefs(res))
   )
 );
