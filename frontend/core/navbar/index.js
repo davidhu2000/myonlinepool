@@ -5,10 +5,11 @@ import { signout } from 'modules/auth/actions';
 
 import Navbar from './navbar';
 
-const mapStateToProps = ({ user, pool }) => ({
+const mapStateToProps = ({ user, pool, prefs }) => ({
   user,
   pool,
-  loggedIn: Boolean(user)
+  loggedIn: Boolean(user),
+  prefs
 });
 
 const mapDispatchToProps = dispatch => ({
