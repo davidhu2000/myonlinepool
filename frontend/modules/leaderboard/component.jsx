@@ -14,24 +14,6 @@ class Leaderboard extends React.Component {
   }
 
   renderMembers() {
-    // let seasonStandings = calculateSeasonStandings(this.props.pool.standings);
-    // let sortedStandings = [];
-    // console.log("season standings");
-    // console.log(seasonStandings);
-    // values(seasonStandings).forEach(standing => {
-    //   console.log("standing");
-    //   console.log(standing);
-    //   console.log("sortedStandings");
-    //   console.log(sortedStandings);
-    //   if (sortedStandings.length === 0) {
-    //     sortedStandings.push(standing);
-    //   } else if (standing.correctPicks > sortedStandings[0].correctPicks) {
-    //     sortedStandings.unshift(standing);
-    //   } else {
-    //     sortedStandings.push(standing);
-    //   }
-    // });
-
     let sorted = values(calculateSeasonStandings(this.props.pool.standings));
     sorted.sort((obj1, obj2) => {
       return obj2.correctPicks - obj1.correctPicks;
@@ -44,29 +26,7 @@ class Leaderboard extends React.Component {
         key={standing.userId}
       />
     ));
-
-
-    // return values(this.props.pool.members).map(member => (
-    //   <LeaderboardItem
-    //     member={member}
-    //     standings={this.props.pool.standings}
-    //     key={member.id}
-    //   />
-    // ));
   }
-
-  // renderWeeklyWinners() {
-  //   let actualStandings = this.props.pool.standings;
-  //   delete actualStandings[21];
-
-
-  //   return values(actualStandings).slice(1).map(standing => (
-  //     <LeaderboardWeeklyItem
-  //       members={this.props.pool.members}
-  //       standings={standing}
-  //     />
-  //   ));
-  // }
 
   render() {
     return (
@@ -101,25 +61,6 @@ class Leaderboard extends React.Component {
         </div>
         <div className="leaderboard-body">
           {this.renderMembers()}
-        </div>
-        {/* <div className="leaderboard-banner">
-          Weekly Winners
-        </div>
-        <div className="leaderboard-weekly-labels">
-          <div className="leaderboard-name">Name</div>
-          <div className="leaderboard-week">Week</div>
-          <div className="leaderboard-score">Points</div>
-        </div>
-        <div className="leaderboard-weekly-body">
-          {this.renderWeeklyWinners()}
-        </div> */}
-        <div className="bottom-links">
-          <a className="nfl-link" href="https://www.nfl.com">
-            NFL.com
-          </a>
-          <a className="espn-link" href="https://www.espn.com">
-            ESPN.com
-          </a>
         </div>
       </div>
     );

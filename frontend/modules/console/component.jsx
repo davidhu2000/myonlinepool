@@ -3,6 +3,7 @@ import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
 import { FormTextInput, WeekSwitcher } from 'common/components';
 import { withRouter } from 'react-router';
+import { values } from 'lodash';
 import { GameItem } from './subcomponents';
 
 class AdminConsole extends React.Component {
@@ -76,7 +77,7 @@ class AdminConsole extends React.Component {
     let { week } = this.state;
 
     if (games[week]) {
-      return Object.values(games[week]).map(game => (
+      return values(games[week]).map(game => (
         <GameItem key={game.id} game={game} week={week} />
       ));
     }

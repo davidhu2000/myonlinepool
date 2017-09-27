@@ -38,7 +38,7 @@ class App extends React.Component {
     } else if (isLoggedIn && /auth/.test(currentLocation)) {
       this.props.router.replace('/home');
     } else if (!isLoggedIn && !/auth/.test(currentLocation) && currentLocation !== '/') {
-      this.props.router.replace('/auth');
+      this.props.router.replace('/#');
     }
   }
 

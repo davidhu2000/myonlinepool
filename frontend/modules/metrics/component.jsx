@@ -137,6 +137,14 @@ class Metrics extends React.Component {
         <div className="metrics-teams">
           {this.renderTeams(["49ers", "seahawks", "cardinals", "rams"], "NFC West Teams")}
         </div>
+        <div className="bottom-links">
+          <a className="nfl-link" href="https://www.nfl.com">
+            NFL.com
+          </a>
+          <a className="espn-link" href="https://www.espn.com">
+            ESPN.com
+          </a>
+        </div>
       </div>
     );
   }

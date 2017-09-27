@@ -1,14 +1,12 @@
 .picks-view {
   padding: 20px 0px;
   width: 100%;
-  // min-width: 1300px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow-x: overlay;
+  overflow-x: auto;
 
   .picks-view-header {
+    margin: 0 auto;
     width: 1300px;
     display: flex;
     flex-direction: row;
@@ -40,6 +38,7 @@
   }
 
   .picks-view-body{ 
+    margin: 0 auto;
     width: 1300px;
     padding: 10px 10px;
     display: flex;
@@ -87,6 +86,8 @@
     }
   }
   .back-button {
-    padding: 5px 10px;
+    margin: auto;
+    height: 40px;
+    width: 100px;
   }
 }
