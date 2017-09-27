@@ -21,6 +21,11 @@ export const fetchGames = week => dispatch => (
 
 export const updatePrefs = prefs => dispatch => (
   APIUtil.sendUpdatePrefs(prefs).then(
-    res => dispatch(receiveUpdates(res))
+    res => {
+      dispatch(receiveAlerts(processMessages(["Succesfully updated week number."], 200)));
+      return dispatch(receiveUpdates(res));
+    }
+  ).fail(
+    err => dispatch(receiveAlerts(processMessages(err.responseJSON, err.status)))
   )
 );
