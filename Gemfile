@@ -46,14 +46,14 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :development, :test do
+group :development, :test, :staging do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rb-readline'
   gem 'pry-coolline'
 end
 
-group :development do
+group :development, :staging do
   gem 'annotate'
   gem 'better_errors'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
