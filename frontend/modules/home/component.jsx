@@ -1,3 +1,5 @@
+/* global $ */
+
 import React from 'react';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
@@ -22,15 +24,16 @@ class Home extends React.Component {
   }
 
   render() {
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
     return (
       <div className="home-container">
         <div className="home-top">
+          <ProfileBox
+            user={this.props.user}
+          />
           <PoolList
             pools={this.props.home.myPools}
             toggleJoinFormModal={this.props.toggleJoinFormModal}
-          />
-          <ProfileBox
-            user={this.props.user}
           />
         </div>
         <div className="home-bulletin">
@@ -41,7 +44,7 @@ class Home extends React.Component {
         </div>
         <div className="home-bottom">
           <StandingsBox
-            title="Week 1 Winners"
+            title={`Week ${this.props.prefs.week} Leaders`}
             standings={this.props.home.weeklyStandings}
           />
           <StandingsBox
@@ -60,7 +63,8 @@ Home.propTypes = {
   toggleJoinFormModal: PropTypes.func.isRequired,
   fetchSiteStandings: PropTypes.func.isRequired,
   home: PropTypes.shape().isRequired,
-  user: PropTypes.shape().isRequired
+  user: PropTypes.shape().isRequired,
+  prefs: PropTypes.shape().isRequired
 };
 
 export default withRouter(Home);

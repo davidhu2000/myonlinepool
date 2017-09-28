@@ -2,7 +2,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { hashHistory } from 'react-router';
+import { hashHistory, Link } from 'react-router';
 import { ScaleLoader } from 'react-spinners';
 
 import { FormTextInput } from 'common/components';
@@ -122,6 +122,12 @@ class PoolForm extends React.Component {
               onMouseEnter={this.isFormValid}
               disabled={!this.state.isValid}
             /> */}
+
+            <Link to={"/home"}>
+              <div className="button back-button" onClick={this.backtrack}>
+                Back
+              </div>
+            </Link>
 
             <button
               type="submit"

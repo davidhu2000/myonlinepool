@@ -3,6 +3,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 import { values } from 'lodash';
 import { WeekSwitcher } from 'common/components';
 import { PickForm, LoadingForm, PicksDropdown } from './subcomponents';
@@ -20,9 +21,10 @@ class Picks extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPicks(this.state.week, this.props.params.poolId).then(
+    this.props.fetchPicks(this.props.params.weekId[0], this.props.params.poolId).then(
       () => this.setState({ loading: false })
     );
+    this.setState({ week: Number(this.props.params.weekId[0]) });
   }
 
   toggleDropdown() {
@@ -59,7 +61,9 @@ class Picks extends React.Component {
   pickHome() {
     let picks = [];
     values(this.props.picks[this.state.week]).forEach(game => {
-      if (game.pick !== 'home') {
+      // if (!game.pick !== 'home') {
+      console.log(game);
+      if (!game.pick_locked) {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
@@ -70,6 +74,7 @@ class Picks extends React.Component {
       }
     });
 
+    console.log(picks);
     if (picks.length > 0) {
       this.props.sendPicks(picks);
     }
@@ -79,7 +84,8 @@ class Picks extends React.Component {
   pickAway() {
     let picks = [];
     values(this.props.picks[this.state.week]).forEach(game => {
-      if (game.pick !== 'away') {
+      // if (game.pick !== 'away') {
+      if (!game.pick_locked) {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
@@ -99,7 +105,7 @@ class Picks extends React.Component {
     let picks = [];
     values(this.props.picks[this.state.week]).forEach(game => {
       // if (game.pick === '') {
-      if (game.line > 0) {
+      if (game.line > 0 && !game.pick_locked) {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
@@ -107,7 +113,7 @@ class Picks extends React.Component {
           week: game.week
         };
         picks.push(newPick);
-      } else {
+      } else if (!game.pick_locked) {
         let newPick = {
           game_id: game.game_id,
           pool_id: this.props.params.poolId,
@@ -199,6 +205,11 @@ class Picks extends React.Component {
             <WeekSwitcher week={this.state.week} updateWeek={this.updateWeek} />
             {this.props.pool.title}
             {this.renderWeekRecord()}
+            <Link to={`/pool/${this.props.params.poolId}/picks/${this.state.week}/picksview/${this.state.week}`} >
+              <div className="pool-picks-link">
+                View Picks
+              </div>
+            </Link>
             <div>
               <button onClick={this.toggleDropdown}>
                 <div className="auto-button">
@@ -239,7 +250,8 @@ Picks.propTypes = {
   fetchPicks: PropTypes.func.isRequired,
   receiveAlerts: PropTypes.func.isRequired,
   params: PropTypes.shape({
-    poolId: PropTypes.string.isRequired
+    poolId: PropTypes.string.isRequired,
+    weekId: PropTypes.string.isRequired
   }).isRequired,
   pool: PropTypes.shape({
     title: PropTypes.string.isRequired,

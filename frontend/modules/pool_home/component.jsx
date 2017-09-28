@@ -15,6 +15,10 @@ class PoolHome extends React.Component {
     autoBind(this);
   }
 
+  componentWillMount() {
+    this.setState({ week: this.props.prefs.week });
+  }
+
   componentDidMount() {
     let { poolId } = this.props.params;
     this.props.fetchMessages(poolId);
@@ -59,7 +63,6 @@ class PoolHome extends React.Component {
 
   render() {
     let { pool } = this.props;
-
     return (
       <div className="pool-container">
         { this.checkForAdminPayment() }
@@ -95,6 +98,7 @@ class PoolHome extends React.Component {
             poolId={pool.id}
             description={pool.description}
             receiveAlerts={this.props.receiveAlerts}
+            prefs={this.props.prefs}
           />
         </div>
 
@@ -134,7 +138,8 @@ PoolHome.propTypes = {
   fetchMessages: PropTypes.func.isRequired,
   fetchBulletins: PropTypes.func.isRequired,
   sendInvite: PropTypes.func.isRequired,
-  receiveAlerts: PropTypes.func.isRequired
+  receiveAlerts: PropTypes.func.isRequired,
+  prefs: PropTypes.shape().isRequired
 };
 
 export default withRouter(PoolHome);

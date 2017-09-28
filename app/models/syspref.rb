@@ -1,0 +1,2 @@
+class Syspref < ApplicationRecord
+end

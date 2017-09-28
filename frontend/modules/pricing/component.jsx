@@ -6,6 +6,9 @@ class Pricing extends React.Component {
     return (
       <div className="pricing">
         <div className="top-text">
+          <div className="title">
+            Pricing
+          </div>
           It&#39;s free to register and create an account
           with MyonlinePool.com but there is a modest fee to create a pool.
           <br />
@@ -13,6 +16,9 @@ class Pricing extends React.Component {
           below include the entire 17 week NFL season plus playoffs and the Super Bowl.
         </div>
         <div className="rates">
+          <div className="title">
+            Rates
+          </div>
           1 – 5 players = $9.95
           <br />
           6 – 15 players = $15.95
@@ -30,7 +36,10 @@ class Pricing extends React.Component {
           100+ players = contact us…
         </div>
         <div className="bottom-text">
-          Please Note: We are offering special pricing available ONLY during our 2017
+          <div className="title">
+            Please Note
+          </div>
+          We are offering special pricing available ONLY during our 2017
           re-launch season.
           <br />
           NFL Super Bowl Squares Pool: All squares pools are priced at $19.95

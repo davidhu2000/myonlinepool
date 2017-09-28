@@ -4,9 +4,10 @@ import { processMessages } from 'helpers';
 import Pool from './component';
 import * as Actions from './actions';
 
-const mapStateToProps = ({ user, pool }) => ({
+const mapStateToProps = ({ user, pool, prefs }) => ({
   pool,
-  user
+  user,
+  prefs
 });
 
 const mapDispatchToProps = dispatch => ({

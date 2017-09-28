@@ -19,8 +19,38 @@ class Api::PicksController < ApplicationController
     raw_picks.each do |pick| 
       @picks[pick[:game_id]][:pick] = pick.pick 
     end
-
     @week = params[:week]
+
+
+    pool_picks = Pick.where(pool_id: params[:poolId], game_id: all_games)
+    pool_players = Pool.find_by(id: params[:poolId]).members
+    @picks_view = {}
+    all_games.each do |game| 
+      @picks_view[game.id] = game.attributes
+      @picks_view[game.id][:home] = game.home.name.capitalize
+      @picks_view[game.id][:away] = game.away.name.capitalize
+      @picks_view[game.id][:pick_locked] = game.start_time < current_time
+      @picks_view[game.id][:picks] = {}
+        pool_players.each do |member|
+          @picks_view[game.id][:picks][member.id] = {
+            pick: "",
+            picked: "",
+            user_id: member.id,
+            user_name: ""
+          }
+        end
+    end  
+    pool_picks.each do |pick| 
+      @picks_view[pick.game_id][:picks][pick.user_id] = {}
+      @picks_view[pick.game_id][:picks][pick.user_id][:pick] = pick.pick 
+      if pick.pick == "home"
+        @picks_view[pick.game_id][:picks][pick.user_id][:picked] = @picks_view[pick.game_id][:home]
+      elsif pick.pick == "away"
+        @picks_view[pick.game_id][:picks][pick.user_id][:picked] = @picks_view[pick.game_id][:away]
+      end   
+      @picks_view[pick.game_id][:picks][pick.user_id][:user_id] = pick.user_id
+      @picks_view[pick.game_id][:picks][pick.user_id][:user_name] = User.find_by(id: pick.user_id).name
+    end
     render 'api/picks/index'
   end
   
@@ -50,6 +80,6 @@ class Api::PicksController < ApplicationController
         return render json: ['Pick locked'], status: 422
       end
     end
-    render 'api/picks/index'
+    render 'api/picks/show'
   end
 end

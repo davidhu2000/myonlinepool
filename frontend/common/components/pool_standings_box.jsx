@@ -41,7 +41,7 @@ class PoolStandingsBox extends React.Component {
             {this.props.title}
           </div>
           <div>
-            {this.renderSwitcher()}
+            {/* {this.renderSwitcher()} */}
           </div>
         </div>
         <div className="pool-standings-box-top-item">

@@ -147,6 +147,7 @@
   // height: 100%;
   margin: auto;
   width: 100%;
+  padding: 20px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -199,7 +200,7 @@
       }
     }
     .utility-row {
-      font-size: 12px;
+      font-size: 15px;
       -ms-flex-item-align: start;
           align-self: flex-start;
       padding-left: 5px;
@@ -215,7 +216,7 @@
       }
     }
     .reroute {
-      font-size: 12px;
+      font-size: 15px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;

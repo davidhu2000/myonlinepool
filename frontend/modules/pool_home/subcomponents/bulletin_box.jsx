@@ -84,7 +84,7 @@ class BulletinBox extends React.Component {
     return (
       <div className="bulletin-box">
         <div className="bulletin-header">
-          <Link to={`/pool/${this.props.poolId}/picks`}>
+          <Link to={`/pool/${this.props.poolId}/picks/${this.props.prefs.week}`}>
             <button className="invite-button">
               Make Picks
             </button>
@@ -153,7 +153,8 @@ BulletinBox.propTypes = {
   password: PropTypes.string.isRequired,
   poolId: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  receiveAlerts: PropTypes.func.isRequired
+  receiveAlerts: PropTypes.func.isRequired,
+  prefs: PropTypes.shape().isRequired
 };
 
 export { BulletinBox };
