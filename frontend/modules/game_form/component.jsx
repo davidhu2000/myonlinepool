@@ -84,17 +84,6 @@ class GameForm extends React.Component {
 
           <div className='poolform-group'>
             <input
-              onChange={this.update('home_score')}
-              value={this.state.home_score}
-              type='number'
-              className='auth-form-password'
-            />
-            <span className='bar' />
-            <label htmlFor='number'>Home Score</label>
-          </div>
-
-          <div className='poolform-group'>
-            <input
               onChange={this.update('away_score')}
               value={this.state.away_score}
               type='number'
@@ -102,6 +91,17 @@ class GameForm extends React.Component {
             />
             <span className='bar' />
             <label htmlFor='number'>Away Score</label>
+          </div>
+
+          <div className='poolform-group'>
+            <input
+              onChange={this.update('home_score')}
+              value={this.state.home_score}
+              type='number'
+              className='auth-form-password'
+            />
+            <span className='bar' />
+            <label htmlFor='number'>Home Score</label>
           </div>
 
           <div className='poolform-group'>

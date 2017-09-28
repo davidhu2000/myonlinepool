@@ -145,7 +145,8 @@ $transition-time: 0.1s;
     left: 75px;
     width: 300px;
     height: 79px;
-    background: url(image_path('myonlinepool-logo.png'));
+    // background: url(image_path('myonlinepool-logo.png'));
+    background: url(image_path('short-logo-blue.jpg'));
     background-size: cover;
     &:hover {
       cursor: pointer;

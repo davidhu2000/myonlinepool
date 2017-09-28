@@ -10,7 +10,8 @@ import {
 
 const mapStateToProps = state => ({
   home: state.home,
-  user: state.user
+  user: state.user,
+  prefs: state.prefs
 });
 
 const mapDispatchToProps = dispatch => ({

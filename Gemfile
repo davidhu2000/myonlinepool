@@ -53,7 +53,7 @@ group :development, :test do
   gem 'pry-coolline'
 end
 
-group :development do
+group :development  do
   gem 'annotate'
   gem 'better_errors'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

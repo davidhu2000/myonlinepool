@@ -1,7 +1,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 import { FormTextInput } from 'common/components';
 
 class Profile extends React.Component {
@@ -23,7 +23,6 @@ class Profile extends React.Component {
   update(field) {
     return e => {
       this.setState({ [field]: e.target.value });
-      console.log(this.state);
     };
   }
 
@@ -90,6 +89,12 @@ class Profile extends React.Component {
           />
 
         </form>
+
+        <Link to={"/home"}>
+          <div className="button back-button">
+            Back
+          </div>
+        </Link>
       </div>
     );
   }

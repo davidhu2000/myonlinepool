@@ -17,7 +17,7 @@ class MetricsBox extends React.Component {
     });
     return values(sortedTeams).map(team => (
       <div className="team-item">
-        <div>
+        <div className="team-name">
           {(team.name).toUpperCase()}
         </div>
         <div>
