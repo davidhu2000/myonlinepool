@@ -13,6 +13,15 @@ class Picksview extends React.Component {
     autoBind(this);
   }
 
+  sortPlayer() {
+    let sorted = values(this.props.standings[this.props.routeParams.weekId[0]]);
+    console.log(sorted);
+    sorted.sort((obj1, obj2) => {
+      return obj2.correctPicks - obj1.correctPicks;
+    });
+    console.log(sorted);
+  }
+
   renderGames() {
     // console.log(this.props.routeParams.weekId);
     let games = this.props.picks[this.props.routeParams.weekId[0]];
@@ -43,6 +52,7 @@ class Picksview extends React.Component {
   }
 
   renderStandings() {
+    this.sortPlayer();
     let weeklyStandings = this.props.standings[this.props.routeParams.weekId[0]];
     return values(weeklyStandings).map(playerStandings => (
       <div className="player-standings-item">
