@@ -15,11 +15,9 @@ class Picksview extends React.Component {
 
   sortPlayer() {
     let sorted = values(this.props.standings[this.props.routeParams.weekId[0]]);
-    console.log(sorted);
     sorted.sort((obj1, obj2) => {
       return obj2.correctPicks - obj1.correctPicks;
     });
-    console.log(sorted);
   }
 
   renderGames() {
@@ -41,11 +39,26 @@ class Picksview extends React.Component {
   }
 
   renderColumns() {
+    // let weeklyGame = this.props.picks[this.props.routeParams.weekId[0]];
+    // return values(weeklyGame).map(game => (
+    //   game.pick_locked ? <div className="player-picks">
+    //     {values(game.picks).map(pick => (
+    //       <div className={`gif-${pick.picked} pick-logo`} />
+    //     ))}
+    //   </div> : <div />
+    // ));
+
+    let sorted = values(this.props.standings[this.props.routeParams.weekId[0]]);
+    sorted.sort((obj1, obj2) => {
+      return obj2.correctPicks - obj1.correctPicks;
+    });
+
     let weeklyGame = this.props.picks[this.props.routeParams.weekId[0]];
+    console.log(weeklyGame);
     return values(weeklyGame).map(game => (
       game.pick_locked ? <div className="player-picks">
-        {values(game.picks).map(pick => (
-          <div className={`gif-${pick.picked} pick-logo`} />
+        {sorted.map(player => (
+          <div className={`gif-${game.picks[player.userId].picked} pick-logo`} />
         ))}
       </div> : <div />
     ));
