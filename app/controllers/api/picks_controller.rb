@@ -6,14 +6,21 @@ class Api::PicksController < ApplicationController
     raw_picks = current_user.picks.where(pool_id: params[:poolId], game_id: all_games)
     @picks = {}
 
+    records = Team.calculate_team_records(2017)
+
+
     all_games.each do |game|
       @picks[game.id] = game.attributes
       @picks[game.id][:game_id] = game.id
       @picks[game.id][:home] = game.home.name.capitalize
       @picks[game.id][:away] = game.away.name.capitalize
       @picks[game.id][:pick] = ""
-      @picks[game.id][:home_record] = game.home_record
-      @picks[game.id][:away_record] = game.away_record
+
+      @picks[game.id][:away_record] = "#{records[game.away_id][:wins]} - #{records[game.away_id][:losses]} - #{records[game.away_id][:ties]}"
+      @picks[game.id][:home_record] = "#{records[game.home_id][:wins]} - #{records[game.home_id][:losses]} - #{records[game.home_id][:ties]}"
+
+      # @picks[game.id][:home_record] = game.home_record
+      # @picks[game.id][:away_record] = game.away_record
       @picks[game.id][:pick_locked] = game.start_time < current_time
     end
     raw_picks.each do |pick| 

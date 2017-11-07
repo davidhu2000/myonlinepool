@@ -57,6 +57,7 @@ class PickForm extends React.Component {
 
   render() {
     let { game } = this.props;
+    console.log(game);
     let timeInfo = parseTime(game.start_time);
     return (
       <div className="selection-item">
