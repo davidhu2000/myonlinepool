@@ -5,6 +5,7 @@ import { FormTextInput, WeekSwitcher } from 'common/components';
 import { withRouter } from 'react-router';
 import { values } from 'lodash';
 import { GameItem } from './subcomponents';
+import { updateSchedule } from './utils';
 
 class AdminConsole extends React.Component {
   constructor(props) {
@@ -115,9 +116,12 @@ class AdminConsole extends React.Component {
               errorMessage='Please enter a valid week number'
             />
             <button type="submit" className="button week-button">
-              Update
+              Update Week
             </button>
           </form>
+          <button onClick={() => updateSchedule()} className="schedule-button">
+            Update Schedule
+          </button>
         </div>
       </div>
     );
