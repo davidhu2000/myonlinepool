@@ -83,6 +83,20 @@
         background-size: 67px 67px;
         margin-bottom: 5px;
       }
+      .no-pick-logo {
+        width: 67px;
+        height: 67px;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .winner {
+        border: 1px red solid;
+      }
+      .loser {
+        border: 1px green solid;
+      }
     }
   }
   .back-button {

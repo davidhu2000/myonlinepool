@@ -68,7 +68,10 @@ class Picksview extends React.Component {
     return values(weeklyGame).map(game => (
       game.pick_locked ? <div className="player-picks">
         {sorted.map(player => (
-          <div className={`gif-${game.picks[player.userId].picked} pick-logo`} />
+          (game.picks[player.userId].picked !== "") ?
+            (game.winner === game.picks[player.userId].pick ? <div className={`gif-${game.picks[player.userId].picked} pick-logo winner`} />
+            : <div className={`gif-${game.picks[player.userId].picked} pick-logo loser`} />)
+            : <div className="no-pick-logo"><i className="fa fa-minus-circle fa-2x" aria-hidden="true" /></div>
         ))}
       </div> : <div />
     ));

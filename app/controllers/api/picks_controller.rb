@@ -41,6 +41,16 @@ class Api::PicksController < ApplicationController
       @picks_view[game.id][:away] = game.away.name.capitalize
       @picks_view[game.id][:pick_locked] = game.start_time < current_time
       @picks_view[game.id][:picks] = {}
+      @picks_view[game.id][:winner] = ""
+        if game[:completed] == true 
+          if game[:away_score] > game[:home_score]
+            @picks_view[game.id][:winner] = "away"
+          elsif game[:away_score] < game[:home_score]
+            @picks_view[game.id][:winner] = "home"
+          else 
+            @picks_view[game.id][:winner] = "tie"
+          end 
+        end 
         pool_players.each do |member|
           @picks_view[game.id][:picks][member.id] = {
             pick: "",
