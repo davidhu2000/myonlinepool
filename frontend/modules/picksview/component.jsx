@@ -69,9 +69,9 @@ class Picksview extends React.Component {
       game.pick_locked ? <div className="player-picks">
         {sorted.map(player => (
           (game.picks[player.userId].picked !== "") ?
-            (game.winner === game.picks[player.userId].pick ? <div className={`gif-${game.picks[player.userId].picked} pick-logo winner`} />
-            : <div className={`gif-${game.picks[player.userId].picked} pick-logo loser`} />)
-            : <div className="no-pick-logo"><i className="fa fa-ban fa-2x" aria-hidden="true" /></div>
+          (game.winner === game.picks[player.userId].pick ? <div className={`gif-${game.picks[player.userId].picked} pick-logo winner`} />
+          : <div className={`gif-${game.picks[player.userId].picked} pick-logo loser`} />)
+          : <div className="no-pick-logo"><i className="fa fa-ban fa-2x" aria-hidden="true" /></div>
         ))}
       </div> : <div />
     ));
