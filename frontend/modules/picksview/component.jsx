@@ -71,7 +71,7 @@ class Picksview extends React.Component {
           (game.picks[player.userId].picked !== "") ?
             (game.winner === game.picks[player.userId].pick ? <div className={`gif-${game.picks[player.userId].picked} pick-logo winner`} />
             : <div className={`gif-${game.picks[player.userId].picked} pick-logo loser`} />)
-            : <div className="no-pick-logo"><i className="fa fa-minus-circle fa-2x" aria-hidden="true" /></div>
+            : <div className="no-pick-logo"><i className="fa fa-ban fa-2x" aria-hidden="true" /></div>
         ))}
       </div> : <div />
     ));
