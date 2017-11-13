@@ -16,11 +16,14 @@ class Api::PicksController < ApplicationController
       @picks[game.id][:away] = game.away.name.capitalize
       @picks[game.id][:pick] = ""
 
-      @picks[game.id][:away_record] = "#{records[game.away_id][:wins]} - #{records[game.away_id][:losses]} - #{records[game.away_id][:ties]}"
-      @picks[game.id][:home_record] = "#{records[game.home_id][:wins]} - #{records[game.home_id][:losses]} - #{records[game.home_id][:ties]}"
+      @picks[game.id][:away_record] = "#{records[game.away_id][:wins]} 
+                                      - #{records[game.away_id][:losses]}
+                                      - #{records[game.away_id][:ties]}"
 
-      # @picks[game.id][:home_record] = game.home_record
-      # @picks[game.id][:away_record] = game.away_record
+      @picks[game.id][:home_record] = "#{records[game.home_id][:wins]} 
+                                      - #{records[game.home_id][:losses]}
+                                      - #{records[game.home_id][:ties]}"
+
       @picks[game.id][:pick_locked] = game.start_time < current_time
     end
     raw_picks.each do |pick| 
