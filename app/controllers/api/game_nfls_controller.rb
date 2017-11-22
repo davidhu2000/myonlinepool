@@ -7,9 +7,9 @@ class Api::GameNflsController < ApplicationController
     @week = params[:week]
     @games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
   end
-
-  def create 
-
+  
+  def create
+    FetchScheduleJob.perform_now(2017)
   end
 
   def update 

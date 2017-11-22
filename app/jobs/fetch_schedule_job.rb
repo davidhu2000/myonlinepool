@@ -50,6 +50,8 @@ class FetchScheduleJob < ApplicationJob
 
         g.start_time = start_time
 
+        g.week = game["gameWeek"]
+
         g.save!
       end
 
