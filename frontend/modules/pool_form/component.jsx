@@ -57,9 +57,9 @@ class PoolForm extends React.Component {
     this.props.createPool(this.state).then(
       poolId => hashHistory.push(`pool/${poolId}`),
       err => {
+        console.log(err);
         this.setState({ loading: false });
         // add action to render alert
-        console.log(err);
       }
     );
   }

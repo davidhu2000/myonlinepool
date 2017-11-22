@@ -53,9 +53,6 @@ class SigninForm extends React.Component {
         <Link to='auth?form=forget-password'>
           Forgot your password?
         </Link>
-        {/* <div className="utility-item">
-          Remember me?
-        </div>*/}
       </div>
     );
   }
@@ -80,15 +77,6 @@ class SigninForm extends React.Component {
               <Link to={`auth?form=${otherLink}`}>{otherForm}</Link>
             </span>
           </div>
-
-          {/* <input
-            id="form-submit-button"
-            type='submit'
-            className="button auth-form-button"
-            value={submitValue}
-            onMouseEnter={this.isFormValid}
-            disabled={!this.state.isValid}
-          /> */}
 
           <button
             id="form-submit-button"
