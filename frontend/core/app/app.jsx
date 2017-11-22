@@ -16,10 +16,10 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPrefs();
   }
-
+  
   componentDidMount() {
+    this.props.fetchPrefs();
     this._redirect(this.props.loggedIn, this.props.location.pathname);
   }
 

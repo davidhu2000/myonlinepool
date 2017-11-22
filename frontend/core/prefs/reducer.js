@@ -3,7 +3,7 @@ import { PREFS } from 'common/actions';
 
 let _defaultState = {
   year: 2017,
-  week: 1
+  week: 12
 };
 
 const modalReducer = (state = _defaultState, action) => {
