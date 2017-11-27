@@ -15,9 +15,6 @@ class App extends React.Component {
     autoBind(this);
   }
 
-  componentWillMount() {
-  }
-  
   componentDidMount() {
     this.props.fetchPrefs();
     this._redirect(this.props.loggedIn, this.props.location.pathname);
