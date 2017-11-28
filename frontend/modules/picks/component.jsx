@@ -21,10 +21,10 @@ class Picks extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchPicks(this.props.params.weekId[0], this.props.params.poolId).then(
+    this.props.fetchPicks(this.props.params.weekId, this.props.params.poolId).then(
       () => this.setState({ loading: false })
     );
-    this.setState({ week: Number(this.props.params.weekId[0]) });
+    this.setState({ week: Number(this.props.params.weekId) });
   }
 
   toggleDropdown() {
@@ -74,7 +74,6 @@ class Picks extends React.Component {
       }
     });
 
-    console.log(picks);
     if (picks.length > 0) {
       this.props.sendPicks(picks);
     }

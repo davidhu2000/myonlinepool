@@ -111,37 +111,37 @@ class Metrics extends React.Component {
           American Football Conference
         </div>
         <div className="metrics-teams">
-          {this.renderTeams(["patriots", "dolphins", "jets", "bills"], "AFC East Teams")}
+          {this.renderTeams(["patriots", "dolphins", "jets", "bills"], "AFC East")}
         </div>
         <div className="metrics-teams">
-          {this.renderTeams(["ravens", "bengals", "steelers", "browns"], "AFC North Teams")}
+          {this.renderTeams(["ravens", "bengals", "steelers", "browns"], "AFC North")}
         </div>
         <div className="metrics-teams">
-          {this.renderTeams(["texans", "jaguars", "colts", "titans"], "AFC South Teams")}
+          {this.renderTeams(["texans", "jaguars", "colts", "titans"], "AFC South")}
         </div>
         <div className="metrics-teams">
-          {this.renderTeams(["chiefs", "broncos", "raiders", "chargers"], "AFC West Teams")}
+          {this.renderTeams(["chiefs", "broncos", "raiders", "chargers"], "AFC West")}
         </div>
         <div className="conference-header">
           National Football Conference
         </div>
         <div className="metrics-teams">
-          {this.renderTeams(["giants", "eagles", "redskins", "cowboys"], "NFC East Teams")}
+          {this.renderTeams(["giants", "eagles", "redskins", "cowboys"], "NFC East")}
         </div>
         <div className="metrics-teams">
-          {this.renderTeams(["vikings", "packers", "lions", "bears"], "NFC North Teams")}
+          {this.renderTeams(["vikings", "packers", "lions", "bears"], "NFC North")}
         </div>
         <div className="metrics-teams">
-          {this.renderTeams(["buccaneers", "saints", "panthers", "falcons"], "NFC South Teams")}
+          {this.renderTeams(["buccaneers", "saints", "panthers", "falcons"], "NFC South")}
         </div>
         <div className="metrics-teams">
-          {this.renderTeams(["49ers", "seahawks", "cardinals", "rams"], "NFC West Teams")}
+          {this.renderTeams(["49ers", "seahawks", "cardinals", "rams"], "NFC West")}
         </div>
         <div className="bottom-links">
-          <a className="nfl-link" href="https://www.nfl.com">
+          <a className="nfl-link" href="https://www.nfl.com" rel="noopener noreferrer" target="_blank">
             NFL.com
           </a>
-          <a className="espn-link" href="https://www.espn.com">
+          <a className="espn-link" href="https://www.espn.com" rel="noopener noreferrer" target="_blank">
             ESPN.com
           </a>
         </div>

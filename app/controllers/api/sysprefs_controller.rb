@@ -1,7 +1,7 @@
 class Api::SysprefsController < ApplicationController
   def index 
     puts "hits index!!!!!!"
-    @sysprefs = Syspref.find_by(sport: params[:data][:sport]) || Syspref.new(year: 2017, week: 1)
+    @sysprefs = Syspref.last || Syspref.new(year: 2017, week: 12)
     @sysprefs
   end 
 

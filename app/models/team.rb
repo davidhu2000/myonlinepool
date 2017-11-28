@@ -65,7 +65,7 @@ class Team < ApplicationRecord
       records[game.home_id][:points_against] += game.away_score
 
       records[game.away_id][:points_for] += game.away_score
-      records[game.home_id][:points_against] += game.home_score
+      records[game.away_id][:points_against] += game.home_score
       
       records[game.home_id][:name] = Team.find_by(id: game.home_id).name
       records[game.away_id][:name] = Team.find_by(id: game.away_id).name

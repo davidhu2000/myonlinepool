@@ -15,11 +15,8 @@ class App extends React.Component {
     autoBind(this);
   }
 
-  componentWillMount() {
-    this.props.fetchPrefs();
-  }
-
   componentDidMount() {
+    this.props.fetchPrefs();
     this._redirect(this.props.loggedIn, this.props.location.pathname);
   }
 
@@ -38,7 +35,7 @@ class App extends React.Component {
     } else if (isLoggedIn && /auth/.test(currentLocation)) {
       this.props.router.replace('/home');
     } else if (!isLoggedIn && !/auth/.test(currentLocation) && currentLocation !== '/') {
-      this.props.router.replace('/#');
+      this.props.router.replace('/auth?form=signin');
     }
   }
 

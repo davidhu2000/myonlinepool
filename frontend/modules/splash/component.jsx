@@ -90,6 +90,11 @@ class Splash extends React.Component {
             Why not create your own 2017 NFL Football Office Pool and
             &quot;Play for a Good Cause!&quot;
           </p>
+          <Link to={"/auth?form=signup"}>
+            <div className="action-call">
+              Sign Up
+            </div>
+          </Link>
         </div>
       </div>
     );

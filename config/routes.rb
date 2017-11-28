@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     delete 'memberships', to: 'memberships#destroy'
     resources :announcements, only: [:index, :create]
     resources :picks, only: [:index, :create]
-    resources :game_nfls, only: [:index, :update]
+    resources :game_nfls, only: [:index, :update, :create]
     delete 'game_nfls', to: 'game_nfls#destroy'
     resources :teams, only: [:index]
     resources :messages, only: [:index, :create, :update, :destroy]

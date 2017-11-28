@@ -102,6 +102,18 @@
     .week-button {
       padding: 5px 10px;
       margin-left: 5px;
+      margin-bottom: 10px;
     }
+  }
+  .schedule-button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    background: white;
+    border: 1px black solid;
+     &:hover {
+       color: white;
+       background: $drk-primary;
+       border: 1px $drk-primary solid;
+     }
   }
 }

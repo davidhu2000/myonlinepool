@@ -32,3 +32,11 @@ export const sendUpdatePrefs = prefs => (
   })
 );
 
+export const updateSchedule = () => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/game_nfls',
+    data: {}
+  })
+);
+

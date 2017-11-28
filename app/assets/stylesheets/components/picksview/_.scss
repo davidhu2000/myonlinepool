@@ -78,10 +78,28 @@
       flex-direction: column;
       
       .pick-logo {
-        width: 67px;
-        height: 67px;
-        background-size: 67px 67px;
+        width: 65px;
+        height: 65px;
+        background-size: 65px 65px;
         margin-bottom: 5px;
+        margin-left: 1px;
+        margin-right: 1px;
+      }
+      .no-pick-logo {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 5px;
+        margin-left: 1px;
+        margin-right: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .winner {
+        border: 2px $green solid;
+      }
+      .loser {
+        border: 2px #A71D31 solid;
       }
     }
   }

@@ -13,6 +13,13 @@ class Picksview extends React.Component {
     autoBind(this);
   }
 
+  sortPlayer() {
+    let sorted = values(this.props.standings[this.props.routeParams.weekId[0]]);
+    sorted.sort((obj1, obj2) => {
+      return obj2.correctPicks - obj1.correctPicks;
+    });
+  }
+
   renderGames() {
     // console.log(this.props.routeParams.weekId);
     let games = this.props.picks[this.props.routeParams.weekId[0]];
@@ -24,31 +31,72 @@ class Picksview extends React.Component {
   }
 
   renderNames() {
-    return values(this.props.members).map(member => (
+    let sorted = values(this.props.standings[this.props.routeParams.weekId[0]]);
+    sorted.sort((obj1, obj2) => {
+      return obj2.correctPicks - obj1.correctPicks;
+    });
+
+    return sorted.map(player => (
       <div className="player-name">
-        { shortestString(member.name) }
+        { shortestString(this.props.members[player.userId].name) }
       </div>
     ));
+
+    // return values(this.props.members).map(member => (
+    //   <div className="player-name">
+    //     { shortestString(member.name) }
+    // //   </div>
+    // ));
   }
 
   renderColumns() {
+    // let weeklyGame = this.props.picks[this.props.routeParams.weekId[0]];
+    // return values(weeklyGame).map(game => (
+    //   game.pick_locked ? <div className="player-picks">
+    //     {values(game.picks).map(pick => (
+    //       <div className={`gif-${pick.picked} pick-logo`} />
+    //     ))}
+    //   </div> : <div />
+    // ));
+
+    let sorted = values(this.props.standings[this.props.routeParams.weekId[0]]);
+    sorted.sort((obj1, obj2) => {
+      return obj2.correctPicks - obj1.correctPicks;
+    });
+
     let weeklyGame = this.props.picks[this.props.routeParams.weekId[0]];
     return values(weeklyGame).map(game => (
       game.pick_locked ? <div className="player-picks">
-        {values(game.picks).map(pick => (
-          <div className={`gif-${pick.picked} pick-logo`} />
+        {sorted.map(player => (
+          (game.picks[player.userId].picked !== "") ?
+          (game.winner === game.picks[player.userId].pick ? <div className={`gif-${game.picks[player.userId].picked} pick-logo winner`} />
+          : <div className={`gif-${game.picks[player.userId].picked} pick-logo loser`} />)
+          : <div className="no-pick-logo"><i className="fa fa-ban fa-2x" aria-hidden="true" /></div>
         ))}
       </div> : <div />
     ));
   }
 
   renderStandings() {
+    let sorted = values(this.props.standings[this.props.routeParams.weekId[0]]);
+    sorted.sort((obj1, obj2) => {
+      return obj2.correctPicks - obj1.correctPicks;
+    });
+
     let weeklyStandings = this.props.standings[this.props.routeParams.weekId[0]];
-    return values(weeklyStandings).map(playerStandings => (
+
+    return sorted.map(player => (
       <div className="player-standings-item">
-        {playerStandings.correctPicks}
+        { weeklyStandings[player.userId].correctPicks }
       </div>
     ));
+
+    // let weeklyStandings = this.props.standings[this.props.routeParams.weekId[0]];
+    // return values(weeklyStandings).map(playerStandings => (
+    //   <div className="player-standings-item">
+    //     {playerStandings.correctPicks}
+    //   </div>
+    // ));
   }
 
   render() {

@@ -14,6 +14,8 @@ class GameForm extends React.Component {
 
     let game = games[weekId][gameId];
 
+    console.log(game);
+
     this.state = {
       home_score: game.home_score,
       away_score: game.away_score,
@@ -22,7 +24,8 @@ class GameForm extends React.Component {
       spread: game.spread,
       game_id: gameId,
       week: weekId,
-      isProcessing: false
+      isProcessing: false,
+      start_time: game.start_time
     };
 
     autoBind(this);
