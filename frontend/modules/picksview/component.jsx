@@ -100,7 +100,11 @@ class Picksview extends React.Component {
         <div className="picks-view-body">
           <div className="name-column">{this.renderNames(sorted)}</div>
           <div className="player-standings">
-            {this.props.standings[this.props.routeParams.weekId[0]] ? this.renderStandings() : null}
+            {this.props.standings[this.props.routeParams.weekId[0]] ? (
+              this.renderStandings()
+            ) : (
+              <div className="player-standings-item" />
+            )}
           </div>
           {this.renderColumns(sorted)}
         </div>
