@@ -42,23 +42,23 @@ class Api::PicksController < ApplicationController
       @picks_view[game.id][:pick_locked] = game.start_time < current_time
       @picks_view[game.id][:picks] = {}
       @picks_view[game.id][:winner] = ""
-        if game[:completed] == true 
-          if game[:away_score] > game[:home_score]
-            @picks_view[game.id][:winner] = "away"
-          elsif game[:away_score] < game[:home_score]
-            @picks_view[game.id][:winner] = "home"
-          else 
-            @picks_view[game.id][:winner] = "tie"
-          end 
+      if game[:completed] == true 
+        if game[:away_score] > game[:home_score]
+          @picks_view[game.id][:winner] = "away"
+        elsif game[:away_score] < game[:home_score]
+          @picks_view[game.id][:winner] = "home"
+        else 
+          @picks_view[game.id][:winner] = "tie"
         end 
-        pool_players.each do |member|
-          @picks_view[game.id][:picks][member.id] = {
-            pick: "",
-            picked: "",
-            user_id: member.id,
-            user_name: ""
-          }
-        end
+      end 
+      pool_players.each do |member|
+        @picks_view[game.id][:picks][member.id] = {
+          pick: "",
+          picked: "",
+          user_id: member.id,
+          user_name: ""
+        }
+      end
     end  
     pool_picks.each do |pick| 
       @picks_view[pick.game_id][:picks][pick.user_id] = {}
@@ -82,7 +82,7 @@ class Api::PicksController < ApplicationController
      
     return render(json: ['Pool Locked'], status: 404) unless pool.payment_made
 
-    params[:picks].each do |key, game|
+    params[:picks].each do |_key, game|
       @week ||= game[:week]
 
       if current_time < GameNfl.find_by(id: game[:game_id]).start_time

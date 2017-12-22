@@ -37,7 +37,7 @@
     }
   }
 
-  .picks-view-body{ 
+  .picks-view-body {
     margin: 0 auto;
     width: 1300px;
     padding: 10px 10px;
@@ -47,13 +47,13 @@
 
     .name-column {
       // width: 100px;
-      
+
       .player-name {
-        height: 67px;
+        height: 65px;
         width: 125px;
         // padding: 5px 0px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         font-weight: bold;
         margin-bottom: 5px;
@@ -65,7 +65,7 @@
       flex-direction: column;
       .player-standings-item {
         width: 67px;
-        height: 67px;
+        height: 65px;
         margin-bottom: 5px;
         font-weight: bold;
         display: flex;
@@ -76,7 +76,7 @@
     .player-picks {
       display: flex;
       flex-direction: column;
-      
+
       .pick-logo {
         width: 65px;
         height: 65px;
@@ -99,7 +99,7 @@
         border: 2px $green solid;
       }
       .loser {
-        border: 2px #A71D31 solid;
+        border: 2px #a71d31 solid;
       }
     }
   }

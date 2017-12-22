@@ -1,6 +1,6 @@
 export const timeFromNow = date => {
   if (typeof date !== 'number') {
-    throw new Error("Date needs to be passed in as time in milliseconds.");
+    throw new Error('Date needs to be passed in as time in milliseconds.');
   }
 
   let durationsInSeconds = {
@@ -57,7 +57,7 @@ export const parseTime = string => {
     let jul = new Date(new Date().getFullYear(), 6, 1);
     let offset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
     if (offset <= date.getTimezoneOffset()) {
-      hour += 1;
+      // hour += 1;
       return 1;
     }
 
