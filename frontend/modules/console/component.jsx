@@ -14,15 +14,17 @@ class AdminConsole extends React.Component {
     this.state = {
       week: 1,
       currentWeek: 1,
-      currentYear: 2017
+      currentYear: 2018
     };
     autoBind(this);
   }
 
   componentWillMount() {
-    this.setState({ currentWeek: this.props.prefs.week,
+    this.setState({
+      currentWeek: this.props.prefs.week,
       currentYear: this.props.prefs.year,
-      week: Number(this.props.prefs.week) });
+      week: Number(this.props.prefs.week)
+    });
   }
 
   componentDidMount() {
@@ -101,19 +103,16 @@ class AdminConsole extends React.Component {
             <div>Completed</div>
           </div>
         </div>
-        <div className="game-list">
-          {this.renderGames()}
-        </div>
+        <div className="game-list">{this.renderGames()}</div>
         <div className="week-form">
           <form onSubmit={this.submitForm} className="auth-form">
-
             <FormTextInput
               update={this.update}
               value={this.state.currentWeek}
-              type='number'
+              type="number"
               field="currentWeek"
-              label='currentWeek'
-              errorMessage='Please enter a valid week number'
+              label="currentWeek"
+              errorMessage="Please enter a valid week number"
             />
             <button type="submit" className="button week-button">
               Update Week
