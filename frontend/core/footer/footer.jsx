@@ -7,22 +7,16 @@ const Footer = () => {
     <div className="footer">
       <div className="copyright">
         Copyright <i className="fa fa-copyright" aria-hidden="true" />
-        2007-2017 MyOnlinePool.com. All Rights Reserved.
+        2007-2018 MyOnlinePool.com. All Rights Reserved.
       </div>
       <div className="links">
-        <div>
-          myonlinepool.contact@gmail.com
-        </div>
+        <div>myonlinepool.contact@gmail.com</div>
         <div className="internals">
           <div className="internal-link">
-            <Link to={'/faq'}>
-              FAQs
-            </Link>
+            <Link to={'/faq'}>FAQs</Link>
           </div>
           <div className="internal-link">
-            <Link to={'/pricing'}>
-              Pricing
-            </Link>
+            <Link to={'/pricing'}>Pricing</Link>
           </div>
         </div>
       </div>

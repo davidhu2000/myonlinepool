@@ -4,7 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NflTeams from './nfl-teams.json';
 
-
 class Splash extends React.Component {
   constructor() {
     super();
@@ -37,26 +36,25 @@ class Splash extends React.Component {
           {/* <h1>Welcome to MyOnlinePool.com</h1> */}
           <div className="splash-logo-container" />
           <p>
-          A simple app to make running your own office pool
-          <span> QUICK</span>, <span>EASY</span> and most
-          of all <span>FUN</span>! With the 2017 NFL fast approaching, why not create and host
-          your own NFL Football office pool today. <span>Invite your friends</span> to join the fun!
+            A simple app to make running your own office pool
+            <span> QUICK</span>, <span>EASY</span> and most of all{' '}
+            <span>FUN</span>! With the 2017 NFL fast approaching, why not create
+            and host your own NFL Football office pool today.{' '}
+            <span>Invite your friends</span> to join the fun!
           </p>
-          <Link to={"/auth?form=signup"}>
-            <div className="action-call">
-              Sign Up
-            </div>
+          <Link to={'/auth?form=signup'}>
+            <div className="action-call">Sign Up</div>
           </Link>
         </div>
         <div className="overlay">
           <div className="splash-mid">
             <div className="splash-mid-content">
-              <h1>Host Your Own 2017 NFL Football Pool in 3 Easy Steps</h1>
+              <h1>Host Your Own 2018 NFL Football Pool in 3 Easy Steps</h1>
               <p>
                 1. Register for free
-              <br />
+                <br />
                 2. Create a pool
-              <br />
+                <br />
                 3. Invite friends to play
               </p>
             </div>
@@ -65,12 +63,12 @@ class Splash extends React.Component {
         <div className="splash-bottom">
           <h1>Playing is even easier! Here is how to play</h1>
           <p>
-            A moderator creates a pool, sets rules and invites members. Members join the pool,
-            make their picks and score points for correct picks.
+            A moderator creates a pool, sets rules and invites members. Members
+            join the pool, make their picks and score points for correct picks.
             The player that scores the most points wins!
           </p>
           <div className="splash-mid-carousel">
-            { this.state.teams.map(name => (
+            {this.state.teams.map(name => (
               <div key={name} className={`logo-${name}`} />
             ))}
           </div>
@@ -78,22 +76,21 @@ class Splash extends React.Component {
         <div className="splash-teaser">
           <h1>Create your own NFL office pool today!</h1>
           <p>
-            Once the season begins we{"'"}ll update game scores and display weekly results
-            on your pools{"'"} leaderboard. There{"'"}s a a message board where you can talk trash or chat during games
-            and a stats page with helpful research
+            Once the season begins we{"'"}ll update game scores and display
+            weekly results on your pools{"'"} leaderboard. There{"'"}s a a
+            message board where you can talk trash or chat during games and a
+            stats page with helpful research
           </p>
         </div>
         <div className="splash-promo">
           <h1>Play for a good cause!</h1>
           <p>
-            Is there a worthwile cause you care about and need to raise funds for?
-            Why not create your own 2017 NFL Football Office Pool and
+            Is there a worthwile cause you care about and need to raise funds
+            for? Why not create your own 2018 NFL Football Office Pool and
             &quot;Play for a Good Cause!&quot;
           </p>
-          <Link to={"/auth?form=signup"}>
-            <div className="action-call">
-              Sign Up
-            </div>
+          <Link to={'/auth?form=signup'}>
+            <div className="action-call">Sign Up</div>
           </Link>
         </div>
       </div>
