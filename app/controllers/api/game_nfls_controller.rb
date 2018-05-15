@@ -19,6 +19,7 @@ class Api::GameNflsController < ApplicationController
     game[:line] = params[:game][:line]
     game[:spread] = params[:game][:spread]
     game[:completed] = params[:game][:completed]
+    game[:start_time] = params[:game][:start_time]
 
     if game.save 
       if game[:completed]

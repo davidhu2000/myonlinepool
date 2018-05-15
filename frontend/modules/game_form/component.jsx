@@ -78,67 +78,78 @@ class GameForm extends React.Component {
     let routeInfo = this.props.params;
     let game = this.props.games[routeInfo.weekId][routeInfo.gameId];
     let timeInfo = parseTime(game.start_time);
+    console.log(game.start_time);
     return (
       <div className="game-form-container">
-        <form className='game-form' onSubmit={this.updateGame}>
-          <div className='game-form-header'>
-            {timeInfo.date}: { game.away_team } @ { game.home_team }
+        <form className="game-form" onSubmit={this.updateGame}>
+          <div className="game-form-header">
+            {timeInfo.date}: {game.away_team} @ {game.home_team}
           </div>
 
-          <div className='poolform-group'>
+          <div className="poolform-group">
             <input
               onChange={this.update('away_score')}
               value={this.state.away_score}
-              type='number'
-              className='auth-form-password'
+              type="number"
+              className="auth-form-password"
             />
-            <span className='bar' />
-            <label htmlFor='number'>Away Score</label>
+            <span className="bar" />
+            <label htmlFor="number">Away Score</label>
           </div>
 
-          <div className='poolform-group'>
+          <div className="poolform-group">
             <input
               onChange={this.update('home_score')}
               value={this.state.home_score}
-              type='number'
-              className='auth-form-password'
+              type="number"
+              className="auth-form-password"
             />
-            <span className='bar' />
-            <label htmlFor='number'>Home Score</label>
+            <span className="bar" />
+            <label htmlFor="number">Home Score</label>
           </div>
 
-          <div className='poolform-group'>
+          <div className="poolform-group">
             <input
               onChange={this.update('line')}
               value={this.state.line}
-              type='number'
-              className='auth-form-password'
+              type="number"
+              className="auth-form-password"
             />
-            <span className='bar' />
-            <label htmlFor='number'>Line</label>
+            <span className="bar" />
+            <label htmlFor="number">Line</label>
           </div>
 
-          <div className='poolform-group'>
+          <div className="poolform-group">
             <input
               onChange={this.update('spread')}
               value={this.state.spread}
-              type='number'
-              className='auth-form-password'
+              type="number"
+              className="auth-form-password"
             />
-            <span className='bar' />
-            <label htmlFor='number'>Over</label>
+            <span className="bar" />
+            <label htmlFor="number">Over</label>
           </div>
 
-          <select value={this.state.completed} onChange={e => this.handleChange(e.target.value)}>
+          <div className="poolform-group">
+            <input
+              onChange={this.update('start_time')}
+              value={this.state.start_time}
+              type="string"
+              className="auth-form-password"
+            />
+            <span className="bar" />
+            <label htmlFor="string">Start Time</label>
+          </div>
+
+          <select
+            value={this.state.completed}
+            onChange={e => this.handleChange(e.target.value)}
+          >
             <option value="true">Completed</option>
             <option value="false">Pending</option>
           </select>
 
-          <input
-            type="submit"
-            className="game-update-button"
-            value="Update"
-          />
+          <input type="submit" className="game-update-button" value="Update" />
         </form>
       </div>
     );
