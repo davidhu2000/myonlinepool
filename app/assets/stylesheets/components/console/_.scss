@@ -1,6 +1,5 @@
 @import 'game_item.scss';
 @import 'game_form.scss';
-
 .console-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8,21 +7,19 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   font-size: 20px;
   padding: 20px 0px;
-
   .game-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
-
   .console-header {
     padding-left: 15px;
     font-weight: bold;
@@ -32,31 +29,26 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     i {
       -webkit-transition: .1s;
       -o-transition: .1s;
       transition: .1s;
       cursor: pointer;
     }
-
     i:hover {
       opacity: .5;
     }
-
     .fa-caret-left {
       padding-right: 5px;
       position: absolute;
       left: 0px;
       bottom: 4px;
     }
-
     .fa-caret-right {
       padding-left: 5px;
     }
-
     button {
       font-size: 20px;
       background: $drk-primary;
@@ -64,22 +56,20 @@
       padding: 0px 10px;
       height: 37px;
     }
-
     button:hover {
       background: white;
       color: black;
       border: .5px $drk-primary solid;
     }
   }
-
   .console-labels {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     font-weight: bold;
     padding: 10px 0px;
     margin: 10px 0px;
@@ -90,12 +80,10 @@
       text-align: center;
     }
   }
-
   .week-form {
     width: 50%;
     padding: 50px 0px;
-    padding-left: 10px;
-    margin-right: auto;
+    padding-left: 10px; // margin-right: auto;
     .pool-form-group {
       margin-bottom: 20px;
     }
@@ -105,15 +93,45 @@
       margin-bottom: 10px;
     }
   }
+  .add-game-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 875px;
+  }
+  .add-game-form {
+    width: 50%;
+    padding: 50px 0px;
+    padding-left: 10px; // margin-right: auto;
+    .pool-form-group {
+      margin-bottom: 20px;
+    }
+    .week-button {
+      padding: 5px 10px;
+      margin-left: 5px;
+      margin-bottom: 10px;
+    }
+  }
+  .add-game-info {
+    width: 50%;
+    padding: 50px 0px;
+    padding-left: 20px;
+    font-size: 18px;
+    .team-id-title {
+      font-weight: bold;
+    }
+    .start-time-format {
+      margin-top: 20px;
+    }
+  }
   .schedule-button {
     margin-left: 5px;
     padding: 5px 10px;
     background: white;
     border: 1px black solid;
-     &:hover {
-       color: white;
-       background: $drk-primary;
-       border: 1px $drk-primary solid;
-     }
+    &:hover {
+      color: white;
+      background: $drk-primary;
+      border: 1px $drk-primary solid;
+    }
   }
 }

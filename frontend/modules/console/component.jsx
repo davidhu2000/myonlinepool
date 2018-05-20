@@ -14,7 +14,12 @@ class AdminConsole extends React.Component {
     this.state = {
       week: 1,
       currentWeek: 1,
-      currentYear: 2018
+      currentYear: 2018,
+      addHomeId: 0,
+      addAwayId: 0,
+      addSeason: 2018,
+      addWeek: 0,
+      addStartTime: ''
     };
     autoBind(this);
   }
@@ -62,6 +67,7 @@ class AdminConsole extends React.Component {
   }
 
   update(field) {
+    console.log(field);
     return e => {
       this.setState({ [field]: e.target.value });
     };
@@ -73,6 +79,11 @@ class AdminConsole extends React.Component {
       week: this.state.currentWeek,
       year: this.state.currentYear
     });
+  }
+
+  addGame(e) {
+    e.preventDefault();
+    console.log(this.state.addStartTime);
   }
 
   renderGames() {
@@ -104,6 +115,86 @@ class AdminConsole extends React.Component {
           </div>
         </div>
         <div className="game-list">{this.renderGames()}</div>
+        <div className="add-game-container">
+          <div className="add-game-form">
+            <form onSubmit={this.addGame} className="auth-form">
+              <FormTextInput
+                update={this.update}
+                value={this.state.addWeek}
+                type="number"
+                field="addWeek"
+                label="Week"
+                errorMessage="Please enter a valid week number"
+              />
+
+              <FormTextInput
+                update={this.update}
+                value={this.state.addSeason}
+                type="number"
+                field="addSeason"
+                label="Season"
+                errorMessage="Please enter a valid season number"
+              />
+
+              <FormTextInput
+                update={this.update}
+                value={this.state.addHomeId}
+                type="number"
+                field="addHomeId"
+                label="HomeId"
+                errorMessage="Please enter a valid home id"
+              />
+
+              <FormTextInput
+                update={this.update}
+                value={this.state.addAwayId}
+                type="number"
+                field="addAwayId"
+                label="AwayId"
+                errorMessage="Please enter a valid away id"
+              />
+
+              <FormTextInput
+                update={this.update}
+                value={this.state.addStartTime}
+                type="text"
+                field="addStartTime"
+                label="Start Time"
+                errorMessage="Please enter a valid start time"
+              />
+
+              <button type="submit" className="button week-button">
+                Add Game
+              </button>
+            </form>
+          </div>
+          <div className="add-game-info">
+            <ul>
+              <li className="team-id-title">Team ids</li>
+              <li>1 Cardinals, 2 Falcons, 3 Ravens, 4 Bills</li>
+              <li>5 Panthers, 6 Bears, 7 Bengals, 8 Browns</li>
+              <li>9 Cowboys, 10 Broncos, 11 Lions, 12 Packers</li>
+              <li>13 Texans, 14 Colts, 15 Jaguars, 16 Chiefs</li>
+              <li>17 Dolphins, 18 Vikings, 19 Giants, 20 Jets</li>
+              <li>21 Patriots, 22 Saints, 23 Raiders, 24 Eagles</li>
+              <li>25 Steelers, 26 Chargers, 27 49ers, 28 Seahawks</li>
+              <li>29 Rams, 30 Buccaneers, 31 Texans, 32 Redskins</li>
+            </ul>
+
+            <div className="start-time-format">
+              <b>Start Time Format</b>
+              <br />
+              <br />
+              9/6/18 at 6:20 into UTC:
+              <br />
+              <br />
+              2018-09-07T01:20:00.000Z
+              <br />
+              <br />
+              https://www.worldtimebuddy.com/pst-to-utc-converter
+            </div>
+          </div>
+        </div>
         <div className="week-form">
           <form onSubmit={this.submitForm} className="auth-form">
             <FormTextInput
