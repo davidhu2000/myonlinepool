@@ -1,7 +1,7 @@
 {
   "env": {
     "production": {
-      "presets": ["es2015", "react", "env", "react-optimize"],
+      "presets": ["env", "react"],
       "plugins": [
         [
           "transform-react-remove-prop-types",
@@ -11,16 +11,11 @@
             "ignoreFilenames": ["node_modules"]
           }
         ],
-        ["transform-react-jsx", {
-          "pragma": "h"
-        }],
-        "lodash",
-        "transform-react-inline-elements",
-        "closure-elimination"
+        "lodash"
       ]
     },
     "development": {
-      "presets": ["es2015", "react"]
+      "presets": ["env", "react"]
     }
   }
 }
