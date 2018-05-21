@@ -5,7 +5,7 @@ import { FormTextInput, WeekSwitcher } from 'common/components';
 import { withRouter } from 'react-router';
 import { values } from 'lodash';
 import { GameItem } from './subcomponents';
-import { updateSchedule } from './utils';
+import { updateSchedule, addGame } from './utils';
 
 class AdminConsole extends React.Component {
   constructor(props) {
@@ -56,8 +56,8 @@ class AdminConsole extends React.Component {
       week = 1;
     }
 
-    if (week > 17) {
-      week = 17;
+    if (week > 22) {
+      week = 22;
     }
 
     this.setState({ week });
@@ -67,7 +67,6 @@ class AdminConsole extends React.Component {
   }
 
   update(field) {
-    console.log(field);
     return e => {
       this.setState({ [field]: e.target.value });
     };
@@ -81,9 +80,16 @@ class AdminConsole extends React.Component {
     });
   }
 
-  addGame(e) {
+  submitAddGame(e) {
     e.preventDefault();
-    console.log(this.state.addStartTime);
+    // console.log(this.state.addStartTime);
+    addGame({
+      homeid: this.state.addHomeId,
+      awayid: this.state.addAwayId,
+      start_time: this.state.addStartTime,
+      season: this.state.addSeason,
+      week: this.state.week
+    });
   }
 
   renderGames() {
@@ -117,7 +123,7 @@ class AdminConsole extends React.Component {
         <div className="game-list">{this.renderGames()}</div>
         <div className="add-game-container">
           <div className="add-game-form">
-            <form onSubmit={this.addGame} className="auth-form">
+            <form onSubmit={this.submitAddGame} className="auth-form">
               <FormTextInput
                 update={this.update}
                 value={this.state.addWeek}

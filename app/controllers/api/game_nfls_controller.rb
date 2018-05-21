@@ -10,10 +10,12 @@ class Api::GameNflsController < ApplicationController
   end
   
   def create
-    p params
+    # p params
 
     if params[:property] == 'yes'      
       FetchScheduleJob.perform_now(2018)
+    else 
+      p params
     end
   end
 
