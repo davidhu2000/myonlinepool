@@ -28,7 +28,7 @@ class Api::GameNflsController < ApplicationController
     game[:completed] = params[:game][:completed]
     game[:start_time] = params[:game][:start_time]
 
-    if game.save 
+    if game.save
       if game[:completed]
         # TODO: make season, week dynamic
         EvaluatePicksJob.perform_now(2018, params[:game][:week])
