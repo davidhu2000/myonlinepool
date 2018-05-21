@@ -4,13 +4,16 @@
       "presets": ["es2015", "react", "env", "react-optimize"],
       "plugins": [
         [
-          "transform-react-remove-prop-types", 
+          "transform-react-remove-prop-types",
           {
             "mode": "remove",
             "removeImport": "true",
             "ignoreFilenames": ["node_modules"]
           }
         ],
+        ["transform-react-jsx", {
+          "pragma": "h"
+        }],
         "lodash",
         "transform-react-inline-elements",
         "closure-elimination"
