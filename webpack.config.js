@@ -9,16 +9,14 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
-    rules: [
-      {
-        test: [/\.jsx?$/, /\.js?$/],
-        exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react']
-        }
+    rules: [{
+      test: [/\.jsx?$/, /\.js?$/],
+      exclude: /(node_modules)/,
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015', 'react']
       }
-    ]
+    }]
   },
   devtool: 'source-maps',
   resolve: {
@@ -33,10 +31,6 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.js'
     })
   ]
 };
