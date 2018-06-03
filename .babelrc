@@ -11,9 +11,6 @@
             "ignoreFilenames": ["node_modules"]
           }
         ],
-        ["transform-react-jsx", {
-          "pragma": "h"
-        }],
         "lodash",
         "transform-react-inline-elements",
         "closure-elimination"
