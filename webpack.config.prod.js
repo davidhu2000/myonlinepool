@@ -9,11 +9,13 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
-    rules: [{
-      test: [/\.jsx?$/, /\.js?$/],
-      exclude: /(node_modules)/,
-      loader: 'babel-loader'
-    }]
+    rules: [
+      {
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /(node_modules)/,
+        loader: 'babel-loader'
+      }
+    ]
   },
   resolve: {
     extensions: ["*", ".js", ".jsx"],
@@ -27,6 +29,10 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.js'
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
