@@ -88,7 +88,7 @@ class AdminConsole extends React.Component {
       awayid: this.state.addAwayId,
       start_time: this.state.addStartTime,
       season: this.state.addSeason,
-      week: this.state.week
+      week: this.state.addWeek
     });
   }
 

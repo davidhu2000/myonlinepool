@@ -10,12 +10,19 @@ class Api::GameNflsController < ApplicationController
   end
   
   def create
-    # p params
+    p params
 
     if params[:property] == 'yes'      
       FetchScheduleJob.perform_now(2018)
-    else 
-      p params
+    else
+      game = GameNfl.new
+      game[:home_id] = params[:game][:homeid]
+      game[:away_id] = params[:game][:awayid]
+      game[:start_time] = params[:game][:start_time]
+      game[:season] = params[:game][:season]
+      game[:week] = params[:game][:week]
+      p game
+      game.save
     end
   end
 
