@@ -1,7 +1,7 @@
 class Api::SysprefsController < ApplicationController
   def index 
     puts "hits index!!!!!!"
-    @sysprefs = Syspref.last || Syspref.new(year: 2017, week: 12)
+    @sysprefs = Syspref.last || Syspref.new(year: 2018, week: 12)
     @sysprefs
   end 
 

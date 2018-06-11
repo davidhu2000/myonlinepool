@@ -4,12 +4,26 @@ require 'json'
 class Api::GameNflsController < ApplicationController
   def index
     # TODO: make season, week dynamic
+    # p params
     @week = params[:week]
-    @games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
+    @games = GameNfl.where(season: 2018, week: params[:week]).includes(:home, :away)
   end
   
   def create
-    FetchScheduleJob.perform_now(2017)
+    p params
+
+    if params[:property] == 'yes'      
+      FetchScheduleJob.perform_now(2018)
+    else
+      game = GameNfl.new
+      game[:home_id] = params[:game][:homeid]
+      game[:away_id] = params[:game][:awayid]
+      game[:start_time] = params[:game][:start_time]
+      game[:season] = params[:game][:season]
+      game[:week] = params[:game][:week]
+      p game
+      game.save
+    end
   end
 
   def update 
@@ -19,12 +33,13 @@ class Api::GameNflsController < ApplicationController
     game[:line] = params[:game][:line]
     game[:spread] = params[:game][:spread]
     game[:completed] = params[:game][:completed]
+    game[:start_time] = params[:game][:start_time]
 
-    if game.save 
+    if game.save
       if game[:completed]
         # TODO: make season, week dynamic
-        EvaluatePicksJob.perform_now(2017, params[:game][:week])
-        CalculateWeeklyResultsJob.perform_now(2017, params[:game][:week])
+        EvaluatePicksJob.perform_now(2018, params[:game][:week])
+        CalculateWeeklyResultsJob.perform_now(2018, params[:game][:week])
         render json: ['Picks Evaluated', 'Weekly Result Calculated']
       else
         render json: ['Game successfully updated.']

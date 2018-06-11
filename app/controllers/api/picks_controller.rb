@@ -2,11 +2,11 @@ class Api::PicksController < ApplicationController
   def index
     current_time = get_current_time
     # TODO: make season, week dynamic
-    all_games = GameNfl.where(season: 2017, week: params[:week]).includes(:home, :away)
+    all_games = GameNfl.where(season: 2018, week: params[:week]).includes(:home, :away)
     raw_picks = current_user.picks.where(pool_id: params[:poolId], game_id: all_games)
     @picks = {}
 
-    records = Team.calculate_team_records(2017)
+    records = Team.calculate_team_records(2018)
 
 
     all_games.each do |game|

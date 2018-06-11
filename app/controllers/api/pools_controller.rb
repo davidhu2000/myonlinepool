@@ -130,7 +130,7 @@ class Api::PoolsController < ApplicationController
     pool.members.each do |member|
       standings[0] ||= {}
       standings[0][member.id] = WeeklyResultNfl.new(
-        season: 2017,
+        season: 2018,
         week: 0,
         correct_picks: 0,
         wrong_picks: 0,
